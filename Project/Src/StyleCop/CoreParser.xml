@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SourceParser Name="NotUsed">
+  <Description>
+    Global settings.
+  </Description>
+  <FileType>.b4d21706-e5eb-4d66-a73a-a4ee90f21af2</FileType>
+  <Properties>
+    <StringProperty
+      Name="MergeSettingsFiles"
+      DefaultValue="Parent"
+      FriendlyName="Merge"
+      Description="The type of merging to perform."
+      Merge="False"
+    />
+    <StringProperty
+      Name="LinkedSettingsFile"
+      DefaultValue=""
+      FriendlyName="LinkedSettings"
+      Description="The path to the linked settings file."
+      Merge="False"
+    />
+    <BooleanProperty
+      Name="WriteCache"
+      DefaultValue="true"
+      FriendlyName="Write Results Cache"
+      Description="Indicates whether to cache analysis results."
+      DisplaySettings="False"
+    />
+    <BooleanProperty
+      Name="RulesEnabledByDefault"
+      DefaultValue="true"
+      FriendlyName="Rules Enabled By Default"
+      Description="Indicates rules are enabled or disabled by default."
+    />
+    <BooleanProperty
+      Name="AutoCheckForUpdate"
+      DefaultValue="true"
+      FriendlyName="Automatically Check For Update"
+      Description="Indicates whether to check for an updated version of StyleCop."
+    />
+    <BooleanProperty
+     Name="ViolationsAsErrors"
+     DefaultValue="false"
+     FriendlyName="Violations As Errors"
+     Description="Raise StyleCop violations as errors instead of warnings."
+    />
+    <IntegerProperty
+      Name="DaysToCheckForUpdates"
+      DefaultValue="2"
+      FriendlyName="Days To Check For Updates"
+      Description="How many days to go before checking for updates to StyleCop."
+    />
+    <IntegerProperty
+      Name="MaxViolationCount"
+      DefaultValue="1000"
+      FriendlyName="Max Violation Count"
+      Description="How many violations to occur before cancelling current analysis."
+    />
+    <StringProperty
+      Name="Culture"
+      DefaultValue="en-US"
+      FriendlyName="Culture"
+      Description="The Culture to use for analysis."
+    />
+    <CollectionProperty
+     Name="RecognizedWords"
+     Aggregate="True"
+     FriendlyName="Recognized Words"
+     Description="The list of recognized words for the specified culture.">
+    </CollectionProperty>
+    <CollectionProperty
+        Name="DeprecatedWords"
+        Aggregate="True"
+        FriendlyName="Deprecated Words"
+        Description="The list of deprecated words for the specified culture with the preferred alternative.">
+    </CollectionProperty>
+    <CollectionProperty
+        Name="DictionaryFolders"
+        Aggregate="True"
+        FriendlyName="Dictionary Folders"
+        Description="The list of folders that will be scanned for CustomDictionary.xml files.">
+    </CollectionProperty>
+  </Properties>
+  <Rules>
+    <Rule Name="ExceptionOccurred" CheckId="SA0001">
+      <Context>An exception occurred while parsing the file: {0}, {1}.</Context>
+    </Rule>
+  </Rules>
+</SourceParser>

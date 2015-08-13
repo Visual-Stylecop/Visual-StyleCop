@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VSADDVPFLAGS3">
+      <summary>Determines whether to add a new virtual project to the Project window.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSADDVPFLAGS3.ADDVP_InvisibleInternalProject">
+      <summary>An invisible project that never interferes with the user adding a project of the same name. Normally any newly-added project has to have a unique name that does not clash with existing projects. ADDVP_InvisibleInternalProject projects are Virtual Projects that are either placeholder projects that listen for SolutionEvents (e.g. OnBeforeProjectRegisteredInRunningDocumentTable  or OnAfterOpenProject) and auto-remove themselves so that they don’t interfere with the user-added project, or they are non-traditional internal (e.g. files imported by projects only like MSBuild targets files, Shared.projitems files or VC .filters files) that are never opened as normal projects directly. NOTE: ADDVP_InvisibleInternalProject includes the following flags:ADDVP_ExcludeFromBuild | ADDVP_ExcludeFromDeploy | ADDVP_ExcludeFromDebugLaunch | ADDVP_ExcludeFromEnumOutputs | ADDVP_ExcludeFromCfgUI and is not expected to be used in combination with ADDVP_AddToProjectWindow flag.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VSDBGLAUNCHFLAGS140">
+      <summary>Flags that control the way the debugger is started.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSDBGLAUNCHFLAGS140.DBGLAUNCH_ContainsStartupTask">
+      <summary>Use Startup Task activator (currently used only for DLO_AppPackageDebug).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSDBGLAUNCHFLAGS140.DBGLAUNCH_Profiling">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VsEnclosingScopes2"></member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VsEnclosingScopes2.EnclosingScopes_Remote">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VSFPROPID7">
+      <summary>Specifies property identifiers for window frames, document frames, and tool window frames.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSFPROPID7.VSFPROPID_InfoBarHost">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSFPROPID7.VSFPROPID_ToolboxUser">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSFPROPID7.VSFPROPID7_FIRST">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VSHIERARCHYIMAGEASPECT">
+      <summary>Describes icons used for the hierarchy.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHIERARCHYIMAGEASPECT.HIA_Icon">
+      <summary>The icon for the hierarchy's normal state (may correspond to icons from VSHPROPID_IconMoniker, VSHPROPID_IconIndex, VSHPROPID_IconHandle, or a system image).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHIERARCHYIMAGEASPECT.HIA_OpenFolderIcon">
+      <summary>The icon for the hierarchy's expanded state (may correspond to icons from VSHPROPID_OpenFolderIconMoniker, VSHPROPID_OpenFolderIconIndex, VSHPROPID_OpenFolderIconHandle, or a system image).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHIERARCHYIMAGEASPECT.HIA_OverlayIcon">
+      <summary>The overlay icon for the hierarchy (may correspond to icons from VSHPROPID_OverlayIconIndex).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHIERARCHYIMAGEASPECT.HIA_StateIcon">
+      <summary>The state icon for the hierarchy (may correspond to icons from VSHPROPID_StateIconIndex).</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8">
+      <summary>VT_BOOL [optional]. Determines whether or not the hierarchy supports icon monikers as an override of the VSHPROPID_IconImgList and VSHPROPID_IconHandle properties. Aggregatable projects should only support this property if they're the outermost aggregate, even if they do support ImageMoniker-based images.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_ActiveIntellisenseProjectContext">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_ContainsStartupTask">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_DiagHubLanguage">
+      <summary>BSTR [optional, required if VSHPROPID_DiagHubPlatform is provided]. Provides the language the project is targeting. Examples are 'CSharp', 'FSharp', 'VisualBasic', 'Cpp', 'CppCli', 'JavaScript', 'TypeScript'.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_DiagHubPlatform">
+      <summary>BSTR [optional]. Provides the Target Platform for the project type to the Diagnostics Hub.This is similar to VSHPROPID_TargetPlatformIdentifier but is Diagnostics Hub-specific. Examples are 'Windows', 'Windows_Phone', 'XBox', 'iOS', 'Android'.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_DiagHubPlatformVersion">
+      <summary>BSTR [optional, required if VSHPROPID_DiagHubPlatform is provided]. Provides the version of the target platform. This is similar to VSHPROPID_TargetPlatformVersion but is Diagnostics Hub-specific. This will be parsed as a .NET System.Version and should conform to its requirements.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_DiagHubProjectTarget">
+      <summary>BSTR [optional, required if VSHPROPID_DiagHubPlatform is provided]. Provides the GUID for the project target within the specified VSHPROPID_DiagHubProjectTargetFactory.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_DiagHubProjectTargetFactory">
+      <summary>BSTR [optional, required if VSHPROPID_DiagHubPlatform is provided]. Provides the GUID for the target factory within the Diagnostics Hub to use. The default value is '283ff32f-bc50-467c-a318-ee7015338ac0'.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_FIRST8">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_IconMonikerGuid">
+      <summary>GUID [optional]. Gets the Guid for an ImageMoniker associated with the item's icon.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_IconMonikerId">
+      <summary>VT_I4 [optional] Gets the Id for an ImageMoniker associated with the item's icon.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_IconMonikerImageList">
+      <summary>VT_UNKNOWN [optional]. Gets the IVsImageMonikerImageList, which can be used to query for ImageMonikers for this item.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_OpenFolderIconMonikerGuid">
+      <summary>GUID [optional]. Gets the Guid for an ImageMoniker associated with the item's expanded icon.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_OpenFolderIconMonikerId">
+      <summary>VT_I4 [optional]. Gets the Id for an ImageMoniker associated with the item's expanded icon.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_SharedProjectReference">
+      <summary>VT_UNKNOWN [optional]. Returns an IVsSharedProjectReference object for a particular shared project reference item node.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_SolutionGuid">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID8.VSHPROPID_SupportsIconMonikers">
+      <summary>VT_BOOL [optional]. Determines whether or not the hierarchy supports icon monikers as an override of the VSHPROPID_IconImgList and VSHPROPID_IconHandle properties.  Aggregatable projects should only support this property if they're the outermost aggregate, even if they do support ImageMoniker-based images.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VSREFERENCEAPPLYRESULT">
+      <summary>Specifies the result of applying reference changes.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSREFERENCEAPPLYRESULT.APPLYRESULT_AppliedSuccessfully">
+      <summary>The reference changes were applied successfully.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSREFERENCEAPPLYRESULT.APPLYRESULT_NotApplied">
+      <summary>The reference changes were NOT applied successfully, but the Reference Manager Dialog may stay open (e.g. operation was canceled and project was not reloaded).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSREFERENCEAPPLYRESULT.APPLYRESULT_NotAppliedAndCloseDialog">
+      <summary>The reference changes were NOT applied successfully, and the Reference Manager Dialog must close (e.g. the project was reloaded and state of project is unknown).</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VsSettingsScope2"></member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VsSettingsScope2.SettingsScope_Remote">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VSSPROPID7">
+      <summary>Specifies property settings for the environment.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSSPROPID7.VSSPROPID_FIRST7">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSSPROPID7.VSSPROPID_IsPrerelease">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSSPROPID7.VSSPROPID_MainWindowInfoBarHost">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSSPROPID7.VSSPROPID_SCCGlyphMonikerImageList">
+      <summary>NK, Read-Only. The IVsImageMonikerImageList that contains SCC state icon ImageMonikers.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSSPROPID7.VSSPROPID_UnlocalizedReleaseDescription">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.__VSVPROPID2">
+      <summary>View property IDs.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSVPROPID2.VSVPROPID_IconMonikerGuid">
+      <summary>The GUID of the icon moniker.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSVPROPID2.VSVPROPID_IconMonikerId">
+      <summary>The ID of the icon moniker.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.__VSVPROPID2.VSVPROPID2_FIRST">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.BootstrapMode"></member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.BootstrapMode.SirepBootstrapMode">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.BootstrapMode.UniversalBootstrapMode">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IAsyncLoadablePackageInitialize">
+      <summary>Provides a way get access to IAsyncServiceProvider and IProfferAsyncService without needing to use IServiceProvider. Implemented by packages.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IAsyncLoadablePackageInitialize.Initialize(Microsoft.VisualStudio.Shell.Interop.IAsyncServiceProvider,Microsoft.VisualStudio.Shell.Interop.IProfferAsyncService,Microsoft.VisualStudio.Shell.Interop.IAsyncProgressCallback)"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IAsyncProgressCallback">
+      <summary>Provides a way for asynchronous service and package owners to report progress. The reported progress can be shown to user in an appropiate manner by the shell. The interface is implemented by Visual Studio IDE. For package loads, the instance is passed to package via Initialize method. For services, package can retrieve the instance through IProfferAsyncService.GetServiceProgressCallback method. This interface is used for reporting progress for both package and service loads. For packages guidService argument is not used and will be ignored.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IAsyncProgressCallback.ReportProgress(System.Guid@,System.String,System.String,System.Int32,System.Int32)">
+      <summary>Reports progress.</summary>
+      <param name="guidService">The GUID of the service.</param>
+      <param name="szWaitMessage">The message used to tell users to wait.</param>
+      <param name="szProgressText">The message used to report progress.</param>
+      <param name="iCurrentStep">The number of the current step.</param>
+      <param name="iTotalSteps">The number of overall steps.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IAsyncServiceProvider"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IAsyncServiceProvider.QueryServiceAsync(System.Guid@)">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsTask" />.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IComWrapper"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IComWrapper.GCHandlePtr"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IComWrapperFactory"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IComWrapperFactory.CreateAggregatedObject(System.Object)"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper3"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper3.AdviseAppContainerBootstrapperEvents(Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapperEvents)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper3.BootstrapAsync(System.String,System.String,System.Int32,Microsoft.VisualStudio.Shell.Interop.VsBootstrapperPackageInfo[],System.Int32,Microsoft.VisualStudio.Shell.Interop.VsBootstrapperPackageInfo[],Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapperLogger)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper3.BootstrapForDebuggingAsync(System.String,System.String,System.String,Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapperLogger)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper3.BootstrapForDiagnosticsAsync(System.String,System.String,System.Int32,System.String[],Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapperLogger)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper3.UnadviseAppContainerBootstrapperEvents(System.UInt32)"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper4"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper4.AdviseAppContainerBootstrapperEvents(Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapperEvents)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper4.BootstrapAsync(System.String,System.String,Microsoft.VisualStudio.Shell.Interop.BootstrapMode,System.Int32,Microsoft.VisualStudio.Shell.Interop.VsBootstrapperPackageInfo[],System.Int32,Microsoft.VisualStudio.Shell.Interop.VsBootstrapperPackageInfo[],Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapperLogger)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper4.BootstrapForDebuggingAsync(System.String,System.String,Microsoft.VisualStudio.Shell.Interop.BootstrapMode,System.String,Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapperLogger)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper4.BootstrapForDiagnosticsAsync(System.String,System.String,Microsoft.VisualStudio.Shell.Interop.BootstrapMode,System.Int32,System.String[],Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapperLogger)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsAppContainerBootstrapper4.UnadviseAppContainerBootstrapperEvents(System.UInt32)"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolExpressionEvaluator2">
+      <summary>Provides expression parsing and evaluation against a hit tester of boolean symbols in order to test whether a set of symbols cause the expression to evaluate to true. It is obtained by co-creating the BooleanSymbolExpressionEvaluator service GUID.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolExpressionEvaluator2.EvaluateExpression(System.String,Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker)">
+      <summary>Evaluates the expression.</summary>
+      <returns>True if <paramref name="wszExpression" /> contains the symbol(s) in <paramref name="pSymbolChecker" />, otherwise false.</returns>
+      <param name="wszExpression">The expression. For examples, P1 &amp; P2 &amp; (!P3 | P4). Null and empty strings are allowed; in that case the method returns true.</param>
+      <param name="pSymbolChecker">The object to check for presence of symbols encountered while parsing the expression. May NOT be null.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceBulkChecker">
+      <summary>Provides a bulk hit tester of boolean symbols used by IVsBooleanSymbolExpressionEvaluator2 when evaluating a boolean expression.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceBulkChecker.AreSymbolsPresent(System.Array)">
+      <summary>Checks for the presence of a collection of symbols.</summary>
+      <returns>An array of equal length to symbols, where each element is set to true iff present.</returns>
+      <param name="symbols">An array of symbols (BSTR) to check for.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceBulkChecker.HasChangedSince(System.Object@)">
+      <summary>Determines whether the symbols defined may have changed since the last time this method was called. Implementations that do not track versions may return true.</summary>
+      <returns>True if the results may have changed since the last call to this method, otherwise false.</returns>
+      <param name="versionObject">The response version object assigned at the last call. May be null to get the initial version. At the conclusion of this method call, the object or pointer may be changed so that on a subsequent call we know what version was last observed. The caller should treat this value as an opaque object and should not assume any significance from whether the object pointer changed value or not.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceBulkChecker.IsSymbolPresent(System.String)">
+      <summary>Checks for the presence of a given symbol.</summary>
+      <returns>True if the symbol is defined; false otherwise.</returns>
+      <param name="symbol">The symbol to check for</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker">
+      <summary>Provides a hit tester of boolean symbols used by IVsBooleanSymbolExpressionEvaluator2 when evaluating a boolean expression.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker.HasChangedSince(System.Object@)">
+      <summary>Determines whether the symbols defined may have changed since the last time this method was called. Implementations that do not track versions may return true.</summary>
+      <returns>True if the results may have changed since the last call to this method, otherwise false.</returns>
+      <param name="versionObject">The response version object assigned at the last call. May be null to get the initial version. At the conclusion of this method call, the object or pointer may be changed so that on a subsequent call we know what version was last observed. The caller should treat this value as an opaque object and should not assume any significance from whether the object pointer changed value or not.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker.IsSymbolPresent(System.String)">
+      <summary>Checks for the presence of a given symbol.</summary>
+      <returns>True if the symbol is defined; false otherwise.</returns>
+      <param name="symbol">The symbol to check for</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsDebugger5">
+      <summary>Implemented by the Debugger, obtained via the SID_SVsShellDebugger service.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsDebugger5.BypassDiagnosticsToolsOnNextSession(System.Boolean)">
+      <summary>Determines whether the diagnostics tools should be bypassed in the next debugger session.</summary>
+      <param name="bypass">True if the tools should be bypassed, otherwise false.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsDebugger5.GetDiagnosticsToolsBypassState">
+      <summary>Gets  the current bypass state; that is, whether the diagnostics tools should be bypassed in the next debugger session.</summary>
+      <returns>True if the tools should be bypassed, otherwise false.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsEnumSharedProjectReferences"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsEnumSharedProjectReferences.Count">
+      <returns>Returns <see cref="T:System.Int32" />.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsEnumSharedProjectReferences.GetEnumerator">
+      <returns>Returns <see cref="T:System.Collections.IEnumerator" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsEnumSharedProjectReferences.Item(System.Int32)">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReference" />.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsImageMonikerImageList">
+      <summary>Represents the list of image monikers.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageMonikerImageList.GetImageMonikers(System.Int32,System.Int32,Microsoft.VisualStudio.Imaging.Interop.ImageMoniker[])">
+      <summary>Gets the image monikers.</summary>
+      <param name="firstImageIndex">The index of the first image in the image list to copy.</param>
+      <param name="imageMonikerCount">he number of images to retrieve from the image list.</param>
+      <param name="imageMonikers">[out] The image monikers retrieved from the image list.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsImageMonikerImageList.ImageCount">
+      <summary>Gets the number of images in the list.</summary>
+      <returns>The number of images in the list.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsImageMonikerSource"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsImageMonikerSource.ImageMoniker">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Imaging.Interop.ImageMoniker" />.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.Add(System.String,Microsoft.VisualStudio.Shell.Interop.IVsUIObject)">
+      <summary>Adds the specified icon with the specified name to the service.</summary>
+      <param name="Name">The name of the icon.</param>
+      <param name="pIconObject">The icon object.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.AddCustomCompositeImage(System.Int32,System.Int32,System.Int32,Microsoft.VisualStudio.Imaging.Interop.ImageCompositionLayer[])">
+      <summary>Creates a new custom ImageMoniker composed of multiple images rendered together</summary>
+      <returns>The IImageHandle representing the composited image. The composited image can be removed using RemoveCustomImage.</returns>
+      <param name="virtualWidth">The virtual width of the canvas the composite image is rendered on.  Real pixel sizes are determined by the ImageAttributes used to load the image.</param>
+      <param name="virtualHeight">The virtual height of the canvas the composite image is rendered on.  Real pixel sizes are determined by the ImageAttributes used to load the image.</param>
+      <param name="layerCount">The number of layers in the image.</param>
+      <param name="layers">The collection of layers composed into the image.  Layers are stacked bottom-up (subsequent layers in the array are rendered on top of previous layers).</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.AddCustomImage(Microsoft.VisualStudio.Shell.Interop.IVsUIObject)">
+      <summary>Adds a custom image.</summary>
+      <returns>The image handle.</returns>
+      <param name="imageObject">The image.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.AddCustomImageList(Microsoft.VisualStudio.Shell.Interop.IVsImageMonikerImageList)">
+      <summary>Adds a custom image list.</summary>
+      <returns>The image handle.</returns>
+      <param name="imageList">The image list.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.CreateMonikerImageListFromHIMAGELIST(System.IntPtr)">
+      <summary>Creates an instance of an IVsImageMonikerImageList that wraps a native HIMAGELIST</summary>
+      <returns>The returned IVsImageMonikerImageList.</returns>
+      <param name="hImageList">The HIMAGELIST to create a wrapping IVsImageMonikerImageList for.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.Get(System.String)">
+      <summary>Gets the image by the specified name.</summary>
+      <returns>The image.</returns>
+      <param name="Name">The name.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.GetIconForFile(System.String,Microsoft.VisualStudio.Shell.Interop.__VSUIDATAFORMAT)">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsUIObject" />.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.GetIconForFileEx(System.String,Microsoft.VisualStudio.Shell.Interop.__VSUIDATAFORMAT,System.UInt32@)">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsUIObject" />.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.GetImage(Microsoft.VisualStudio.Imaging.Interop.ImageMoniker,Microsoft.VisualStudio.Imaging.Interop.ImageAttributes)">
+      <summary>Gets the image with the specified moniker and attributes.</summary>
+      <returns>The image.</returns>
+      <param name="moniker">The moniker for the image.</param>
+      <param name="attributes">The attributes of the image.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.GetImageListImageMonikers(Microsoft.VisualStudio.Imaging.Interop.ImageMoniker)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.GetImageMonikerForFile(System.String)">
+      <summary>Gets the image moniker for the specified file.</summary>
+      <returns>The image moniker.</returns>
+      <param name="filename">The file name.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.GetImageMonikerForHierarchyItem(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,System.UInt32,System.Int32)">
+      <summary>Gets the image moniker for the specified hierarchy item.</summary>
+      <returns>The moniker representing the current image for the hierarchy.</returns>
+      <param name="hierarchy">The hierarchy to retrieve the image for.</param>
+      <param name="hierarchyItemID">The item within the hierarchy to retrieve the image for.</param>
+      <param name="hierarchyImageAspect">The type of image to retrieve from the hierarchy</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.GetImageMonikerForName(System.String)">
+      <summary>().</summary>
+      <returns>The image moniker.</returns>
+      <param name="imageName">The name of the image.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.GetImageMonikerType(Microsoft.VisualStudio.Imaging.Interop.ImageMoniker)">
+      <summary>Determines whether an image is custom (registered at runtime), loaded from the manifest, or unknown (in which case the ImageMoniker is invalid or stale)</summary>
+      <returns>The type.</returns>
+      <param name="moniker">The moniker.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.RemoveCustomImage(Microsoft.VisualStudio.Imaging.Interop.IImageHandle)">
+      <summary>Removes the specified custom image.</summary>
+      <param name="handle">The image handle.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.RemoveCustomImageList(Microsoft.VisualStudio.Imaging.Interop.IImageHandle)">
+      <summary>Removes the specified image list.</summary>
+      <param name="handle">The handle of the image list.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.ThemeDIBits(System.Int32,System.Byte[],System.Int32,System.Int32,System.Boolean,System.UInt32)">
+      <summary>Applies theming to BGRA32 device-independent bitmap bits. The luminosity of the image is transformed so that the constant "halo" luminosity blends in with the background. This has the effect of eliminating the halo visually. The "halo" luminosity is an immutable constant, and is not calculated from the input image. Images which contain cyan (#00FFFF) in their top-right pixel are not inverted. Instead, the top-right pixel is cleared (RGBA are all set to 0) and S_OK is returned without otherwise modifying the image.This method is a replacement for IVsUIShell5.ThemeDIBits.</summary>
+      <returns>True if the pixels were themed, otherwise false.</returns>
+      <param name="pixelCount">The number of pixels in the pixel array.</param>
+      <param name="pixels">The pixel array.</param>
+      <param name="width">The width of the image, in pixels.</param>
+      <param name="height">The height of the image, in pixels.</param>
+      <param name="isTopDownBitmap">True if the bitmap is a top-down bitmap, otherwise false.</param>
+      <param name="backgroundColor">The background color.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsImageService2.TryAssociateNameWithMoniker(System.String,Microsoft.VisualStudio.Imaging.Interop.ImageMoniker)">
+      <summary>Creates an association between an image name (from IVsImageService.Add and IVsImageService.Get) and an ImageMoniker (from IVsImageService.GetImage).</summary>
+      <returns>True if the moniker was successfully associated with the name, false if some other moniker is already registered.</returns>
+      <param name="imageName">The image name.</param>
+      <param name="moniker">The image moniker.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsInfoBar">
+      <summary>Represents the data needed to construct an IVsUIElement representing an info bar. Info bars can have an icon, a set of spans of text, and an optional close button.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsInfoBar.ActionItems">
+      <summary>Gets the collection of action items displayed in the info bar.</summary>
+      <returns>The collection of action items displayed in the info bar.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsInfoBar.Image">
+      <summary>Gets the moniker for the image to display in the info bar.</summary>
+      <returns>The moniker for the image to display in the info bar.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsInfoBar.IsCloseButtonVisible">
+      <summary>Determines whether or not the InfoBar supports closing.</summary>
+      <returns>True if the InfoBar supports closing, otherwise false.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsInfoBar.TextSpans">
+      <summary>Gets the collection of text spans displayed in the info bar. Any IVsInfoBarActionItem spans in this collection will be rendered as a hyperlink.</summary>
+      <returns>The collection of text spans displayed in the info bar.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarHost">
+      <summary>A host control that knows how to lay out info bars. For IVsWindowFrame, a host can be accessed via VSFPROPID_InfoBarHost.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarHost.AddInfoBar(Microsoft.VisualStudio.Shell.Interop.IVsUIElement)">
+      <summary>Adds an info bar to be displayed by the info bar host.  Info bars are displayed in the order in which they're added to the host.</summary>
+      <param name="uiElement">The info bar to add.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarHost.RemoveInfoBar(Microsoft.VisualStudio.Shell.Interop.IVsUIElement)">
+      <summary>Removes an info bar from the info bar host</summary>
+      <param name="uiElement">The info bar.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarTextSpanCollection">
+      <summary>Represents a document comprised of spans of text.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarTextSpanCollection.Count">
+      <summary>Gets the number of spans in the collection.</summary>
+      <returns>The number of spans in the collection.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarTextSpanCollection.GetSpan(System.Int32)">
+      <summary>Gets the span stored at a specific index in the collection.</summary>
+      <returns>The text span.</returns>
+      <param name="index">The index.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIElement.get_DataSource(Microsoft.VisualStudio.Shell.Interop.IVsUISimpleDataSource@)">
+      <summary>Gets the data source for this element.</summary>
+      <returns>If the method succeeds, it returns <see cref="F:Microsoft.VisualStudio.VSConstants.S_OK" />. If it fails, it returns an error code.</returns>
+      <param name="ppDataSource">[out] The data source.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIElement.GetUIObject(System.Object@)">
+      <summary>Gets the implementation-specific object (for example, an <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsUIWpfElement" /> or an <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsUIWin32Element" />).</summary>
+      <returns>If the method succeeds, it returns <see cref="F:Microsoft.VisualStudio.VSConstants.S_OK" />. If it fails, it returns an error code.</returns>
+      <param name="ppUnk">[out] The UI object.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIElement.put_DataSource(Microsoft.VisualStudio.Shell.Interop.IVsUISimpleDataSource)">
+      <summary>Binds the specified data source to this element.</summary>
+      <returns>If the method succeeds, it returns <see cref="F:Microsoft.VisualStudio.VSConstants.S_OK" />. If it fails, it returns an error code.</returns>
+      <param name="pDataSource">The data source.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIElement.TranslateAccelerator(Microsoft.VisualStudio.Shell.Interop.IVsUIAccelerator)">
+      <summary>Translates keyboard accelerators.</summary>
+      <returns>If the method succeeds, it returns <see cref="F:Microsoft.VisualStudio.VSConstants.S_OK" />. If it fails, it returns an error code.</returns>
+      <param name="pAccel">The accelerator.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIEvents">
+      <summary>Handles user gestures in an info bar.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIEvents.OnActionItemClicked(Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIElement,Microsoft.VisualStudio.Shell.Interop.IVsInfoBarActionItem)">
+      <summary>Handles the event raised when an action item on an info bar is clicked.</summary>
+      <param name="infoBarUIElement">The info bar.</param>
+      <param name="actionItem">The action item.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIEvents.OnClosed(Microsoft.VisualStudio.Shell.Interop.IVsInfoBarUIElement)">
+      <summary>Handles the event raised when the close button on an info bar is clicked.</summary>
+      <param name="infoBarUIElement">The info bar.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsOutputWindowPane3"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsOutputWindowPane3.OutputStringWithId(System.Guid,System.UInt32,System.String)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsOutputWindowPane3.TryGetStringWithId(System.Guid,System.UInt32,System.String@)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsOutputWindowPane3.TryNavigateToMessageId(System.Guid,System.UInt32,System.Boolean,System.Boolean)"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2">
+      <summary>Extends IVsPlatformReferenceProviderContext to expose extension SDK directories.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.AddReference(Microsoft.VisualStudio.Shell.Interop.IVsReference)">
+      <summary>Adds the specified reference.</summary>
+      <param name="pReference">The reference.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.AssemblySearchPaths">
+      <summary>Gets or sets the paths to the loose extension assemblies.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.CreateReference">
+      <summary>Creates a reference.</summary>
+      <returns>The reference..</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.ExpandSDKContents">
+      <summary>Gets or sets whether to expand the software development kit (SDK) contents.</summary>
+      <returns>true if the Windows Metadata (WinMDs) from the SDK are shown in place of the SDK itself.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.GetNoItemsMessageForTab(System.UInt32)">
+      <summary>Retrieves the custom no items message for a particular tab.</summary>
+      <returns>The custom no items message.</returns>
+      <param name="etabId">[in] The set of tabs from which to get the no items message.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.GetTabTitle(System.UInt32)">
+      <summary>Retrieves the tab title for each tab.</summary>
+      <returns>The tab title.</returns>
+      <param name="etabId">[in] The set of tabs from which to get each tab title.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.IsImplicitlyReferenced">
+      <summary>Gets or sets whether it is unnecessary to show the Windows tab, which allows selection of core Windows Metadata (WinMDs), because they are implicitly referenced by the project system.</summary>
+      <returns>true if the Windows tab is not shown.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.ProviderGuid">
+      <summary>Gets the provider GUID.</summary>
+      <returns>The provider GUID.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.ReferenceFilterPaths">
+      <summary>Gets or sets the reference filter paths.</summary>
+      <returns>An array of reference filter paths.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.References">
+      <summary>The set of references.</summary>
+      <returns>An array of references.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.SDKDirectoryRoot">
+      <summary>Gets or sets the location on disk where unregistered software development kits (SDKs) are stored.</summary>
+      <returns>The location on disk where unregistered software development kits (SDKs) are stored.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.SDKExtensionDirectoryRoot">
+      <summary>Gets or sets the root of the SDK extension directory.</summary>
+      <returns>The root of the SDK extension directory.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.SDKFilterKeywords">
+      <summary>Gets or sets a space-delimited list of the capabilities.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.SDKIdentifier"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.SDKRegistryRoot">
+      <summary>Gets or sets the location where the software development kits (SDKs) are registered in the registry.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.SDKVersion"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.SetNoItemsMessageForTab(System.UInt32,System.String)">
+      <summary>Sets the custom no items message for the specified tab.</summary>
+      <param name="etabId">[in] The set of tabs in which to set the custom no items message.</param>
+      <param name="bstrNoItemsMessage">[in] The custom no items message to set.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.SetTabTitle(System.UInt32,System.String)">
+      <summary>Sets the tab title for each tab.</summary>
+      <param name="etabId">[in] The set of tabs in which to set the tab title.</param>
+      <param name="szTabTitle">[in] The text of the tab title.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.Tabs">
+      <summary>Gets or sets the set of tabs to show. Defaults to all tabs.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.TargetFrameworkMoniker">
+      <summary>Gets or set the moniker of the target framework.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.TargetPlatformIdentifier">
+      <summary>Gets or sets the target platform identifier, which indicates where to find software development kit (SDK) references.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.TargetPlatformReferencesLocation">
+      <summary>Gets or sets the location of the platform references.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.TargetPlatformVersion">
+      <summary>Gets or sets the target platform version, which indicates to the user where the references come from.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsPlatformReferenceProviderContext2.VisualStudioVersion">
+      <summary>Gets or sets the supported Visual Studio version. Software development kits (SDKs) with a higher Visual Studio version are filtered out.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.DisplayName"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.GetParameterValue(System.String)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.GetPossibleParameterValues(System.String)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.GetProperty(System.UInt32)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.GetRetargetParameterDisplayName(System.String)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.GetRetargetParameters"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.GetValueDisplayName(System.String,System.String)"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.Order"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.PutParameterValue(System.String,System.String)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.ResetSelectedValues"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.Supported"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsProjectTargetDescription2.TargetId"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsReferenceManagerUserReloadRequired">
+      <summary>Provides a method that is called once when it is actually time to apply any changes that require re loading of the project to make the updates.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsReferenceManagerUserReloadRequired.ApplyReloadRequiredReferenceChanges(System.Boolean)">
+      <summary>Reference Manager calls this method once when it is actually time to apply any changes that require re loading of the project to make the updates. Projects that have reference changes that require reloading the project can add them to a queue when IVsReferenceManagerUser.ChangeReferences is called rather than applying them immediately and forcing possibly multiple project reloads. After all changes from all referenceProviderContexts have been propagated, then the ReferenceManager dialog will make a single call to ApplyReloadRequiredReferenceChanges. The Expected behavior is to apply all possible changes that were queued up by prior calls to IVsReferenceManagerUser.ChangeReferences and return a single error through HRESULT+IErrorInfo mechanism. If the reference changes are being aborted for any reason, then ApplyReloadRequiredReferenceChanges(cancelOperation:true) will be called to give the project a chance to clean up any state it has queued.</summary>
+      <returns>The result.</returns>
+      <param name="cancelOperation">True if the operation was canceled, otherwise false.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsSccGlyphs2">
+      <summary>Allows SCC providers to provide ImageMoniker-based glyphs.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsSccGlyphs2.GetCustomGlyphMonikerList(System.UInt32)">
+      <summary>Gets a list of custom ImageMonikers for SCC state icons specific to an SCC provider.</summary>
+      <returns>The list of custom ImageMonikers from the SCC provider.</returns>
+      <param name="baseIndex">The number of base icons in the central image list</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfo">
+      <summary>Represents information about a VS service. The implementation must be free-threaded.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfo.HasOverride">
+      <summary>Determines whether the service has an override.</summary>
+      <returns>True if the service has an override, otherwise false.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfo.IsAsync">
+      <summary>Determines whether the service is asynchronous.</summary>
+      <returns>True if the service is asynchronous, otherwise false.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfo.Name">
+      <summary>Gets the name of the service.</summary>
+      <returns>The name of the service.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfo.OverridePackageGuid">
+      <summary>Gets the override package GUID.</summary>
+      <returns>The GUID.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfo.PackageGuid">
+      <summary>Gets the package GUID.</summary>
+      <returns>The package GUID.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfo.ServiceGuid">
+      <summary>Gets the service GUID.</summary>
+      <returns>The service GUID.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfoQueryService">
+      <summary>Provides a way to get information about registered services in VS. The implementation must be free-threaded.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsServiceInfoQueryService.GetServiceInfo(System.Guid@,Microsoft.VisualStudio.Shell.Interop.IVsServiceInfo@)">
+      <returns>The HRESULT.</returns>
+      <param name="ServiceGuid">The GUID of the service.</param>
+      <param name="ppServiceInfo">[out] The service.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsSharedMSBuildFilesManagerHierarchy2"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsSharedMSBuildFilesManagerHierarchy2.EnumAllAvailableSharedProjects(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy)">
+      <summary>Returns an enumerable collection of all Shared Projects that exist in the Solution. </summary>
+      <returns>The shared project references..</returns>
+      <param name="ReferencingProject">The IVsHierarchy of a project that may be referencing a Shared Project (i.e. importing the shared project file owned by the Shared Project).If a referencingProject is provided, then the information of whether that project is already referencing the Shared Project will be provided.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsSharedMSBuildFilesManagerHierarchy2.GetSharedProjectReference(System.String,Microsoft.VisualStudio.Shell.Interop.IVsHierarchy)">
+      <summary>Gets an IVsSharedProjectReference object for a particular shared MSBuild file if it is referenced/imported by the given referencingProject, client (aka "Head") project. All callers must be prepared to check for a null return value.</summary>
+      <returns>An IVsSharedProjectReference object or null if the given sharedFileFullPath has not been registered with the IVsSharedMSBuildFilesManagerHierarchy by the referencingProject.</returns>
+      <param name="sharedFileFullPath">The full path of a (potential) shared project file.</param>
+      <param name="ReferencingProject">The IVsHierarchy of a project that may be referencing a Shared Project (i.e. importing the shared project file owned by the Shared Project).</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectQueryCanBeReferenced">
+      <summary>Gives a Shared Project a chance to veto the adding of a reference by a particular referencing project.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectQueryCanBeReferenced.QueryCanSharedProjectBeReferenced(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy)">
+      <summary>Called by the <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsSharedMSBuildFilesManagerHierarchy2.EnumAllAvailableSharedProjects(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy)" /> implementation in order to filter the list of Shared Projects to only valid choices for the <paramref name="ReferencingProject" />. </summary>
+      <returns>A VSREFERENCEQUERYRESULT result value that indicates whether the reference is allowed or not.</returns>
+      <param name="ReferencingProject">The project that wants to add a Shared Project Reference.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReference">
+      <summary>Represents a SharedProjectReference item (normally a child of the References folder in the Solution Explorer). SharedProjectReference items represent imported shared MSBuild project files (e.g. *.projitems file). Normally these shared MSBuild project files are "owned" by a particular Shared Project (aka Shared Assets Project) loaded in the Solution.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReference.AlreadyReferenced">
+      <summary>Determines whether the project was already referenced.</summary>
+      <returns>True if the project was already referenced, otherwise false.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReference.FullPath">
+      <summary>Gets or sets the full path of Shared Project's project file (e.g. *.shproj file).</summary>
+      <returns>the full path of Shared Project's project file (e.g. *.shproj file).</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReference.Name">
+      <summary>Gets or sets the name/caption of the Shared Project (owner project for the imported shared MSBuild file).</summary>
+      <returns>The name/caption of the Shared Project (owner project for the imported shared MSBuild file).</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReference.SharedMSBuildFileFullPath">
+      <summary>Gets or sets the full path of the imported shared MSBuild file (e.g. *.projitems file).</summary>
+      <returns>The full path of the imported shared MSBuild file (e.g. *.projitems file).</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReference.SharedProjectID">
+      <summary>Gets or sets ProjectID Guid for the Shared Project. IVsSolution.GetGuidOfProject should be used to retrieve the IVsHierarchy for the Shared Project.</summary>
+      <returns>The GUID of the Shared Project.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferenceProviderContext">
+      <summary>Represents the Shared Project Reference Tab in the Add Reference Manager dialog.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferenceProviderContext.AddReference(Microsoft.VisualStudio.Shell.Interop.IVsReference)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferenceProviderContext.CreateReference">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsReference" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferenceProviderContext.ProviderGuid">
+      <returns>Returns <see cref="T:System.Guid" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferenceProviderContext.ReferenceFilterPaths">
+      <returns>Returns <see cref="T:System.Array" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferenceProviderContext.References">
+      <returns>Returns <see cref="T:System.Array" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferenceProviderContext.ReferencingProject">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy" />.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferencesHelper">
+      <summary>This is a helper service for projects that support adding/removing SharedProject References via the ReferenceManager dialog.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferencesHelper.ChangeSharedMSBuildFileImports(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,System.Array,System.Array,System.String)">
+      <summary>Changes the set of Shared MSBuild files imported by a project.</summary>
+      <returns>True if the project has been reloaded, false if not.</returns>
+      <param name="importingProject">The project that is being modified.</param>
+      <param name="importFullPathsToRemove">A list of MSBuild project file full paths (e.g. *.projitems) that should be removed from being imported.</param>
+      <param name="importFullPathsToAdd">A list of MSBuild project file full paths (e.g. *.projitems) that should be added as imports.</param>
+      <param name="szImportLabel">The label used to identify the MSBuild import statements of interest (e.g. Shared Project References use import statements with the label = "Shared").</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsSharedProjectReferencesHelper.ChangeSharedProjectReferences(Microsoft.VisualStudio.Shell.Interop.IVsHierarchy,System.Int32,System.Object[],System.Int32,System.Object[])">
+      <summary>Changes the set of Shared Projects referenced by a project. </summary>
+      <returns>True if project has been reloaded, false if not.</returns>
+      <param name="ReferencingProject">The project that is using the AddReferenceManager dialog to add SharedProject references.</param>
+      <param name="cReferencesToRemove">The numberof SharedProject References to be removed.</param>
+      <param name="referencesToRemove">An array of SharedProject references to be removed. Each element of the array is expected to support IVsSharedProjectReference or IVsHierarchy interface.May be null if there are no references to be removed.</param>
+      <param name="cReferencesToAdd">The number of SharedProject References to be added.</param>
+      <param name="referencesToAdd">An array of SharedProject references to be added. Each element of the array is expected to support IVsSharedProjectReference or IVsHierarchy interface. May be null if there are no references to be added.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsShell7">
+      <summary>Provides access to the fundamental environment services, specifically those dealing with VSPackages and the registry.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsShell7.LoadPackageAsync(System.Guid@)">
+      <summary>Loads a package asynchronously.</summary>
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsTask" />.</returns>
+      <param name="guidPackage">The GUID of the package.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsShell7.LoadPackageWithContextAsync(System.Guid@,System.Int32,System.Guid@)">
+      <summary>Loads a package asynchronously with context.</summary>
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsTask" />.</returns>
+      <param name="guidPackage">The GUID of the package.</param>
+      <param name="reason">The reason.</param>
+      <param name="context">The context.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsShell7.SccGlyphImageListImageMoniker"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsStartupProjectsListService"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsStartupProjectsListService.AddProject(System.Guid@)"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsStartupProjectsListService.RemoveProject(System.Guid@)"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsStatusbar3">
+      <summary>Provides access to the environment's status bar.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsStatusbar3.Animation2(System.Boolean,System.Int32,Microsoft.VisualStudio.Imaging.Interop.ImageMoniker[])">
+      <summary>Starts or stops a status bar animation./// &lt;/summary&gt;/// &lt;param name="fOnOff"&gt; &lt;/param&gt;/// &lt;param name="count"&gt; &lt;/param&gt;/// &lt;param name="monikers"&gt; &lt;/param&gt;/// &lt;returns&gt; &lt;/returns&gt;</summary>
+      <returns>True if and only if the operation succeeded. </returns>
+      <param name="fOnOff">If true, starts the animation. If false, stops the animation.</param>
+      <param name="Count">The number of image monikers for the animation.</param>
+      <param name="monikers">An array of image monikers for the animation.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsTask2">
+      <summary>Extends IVsTask to add support for task-specific messages that are shown in the Threaded Wait Dialog when the UI thread is blocked on a task. If a WaitMessage isn't specified, then a generic message (Waiting for a required operation to complete...) is used.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsTask2.AbortIfCanceled"></member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsTask2.AsyncState">
+      <returns>Returns <see cref="T:System.Object" />.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsTask2.Cancel"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsTask2.ContinueWith(System.UInt32,Microsoft.VisualStudio.Shell.Interop.IVsTaskBody)">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsTask" />.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsTask2.ContinueWithEx(System.UInt32,System.UInt32,Microsoft.VisualStudio.Shell.Interop.IVsTaskBody,System.Object)">
+      <returns>Returns <see cref="T:Microsoft.VisualStudio.Shell.Interop.IVsTask" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsTask2.Description">
+      <returns>Returns <see cref="T:System.String" />.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsTask2.GetResult">
+      <returns>Returns <see cref="T:System.Object" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsTask2.IsCanceled">
+      <returns>Returns <see cref="T:System.Boolean" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsTask2.IsCompleted">
+      <returns>Returns <see cref="T:System.Boolean" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsTask2.IsFaulted">
+      <returns>Returns <see cref="T:System.Boolean" />.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsTask2.Start"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsTask2.Wait"></member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsTask2.WaitEx(System.Int32,System.UInt32)">
+      <returns>Returns <see cref="T:System.Boolean" />.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsTask2.WaitMessage">
+      <summary>Gets or sets the message that is displayed in the Threaded Wait Dialog when the UI thread calls GetResult or Wait and the task isn't complete. If no WaitMessage is supplied (either null or whitespace) a generic message will be used.</summary>
+      <returns>The wait message</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsTaskProvider5">
+      <summary>Provides support for images.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsTaskProvider5.ImageListMoniker">
+      <summary>Gets the image list moniker.</summary>
+      <returns>The image list moniker.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsTaskProvider5.ThemedImageList">
+      <summary>Gets the themed image list.</summary>
+      <returns>The themed image list.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsThreadedWaitDialog4.EndWaitDialog(System.Int32@)">
+      <summary>Stops the wait dialog.</summary>
+      <param name="pfCanceled">True if the operation was canceled, otherwise false.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsThreadedWaitDialog4.HasCanceled(System.Boolean@)">
+      <summary>Determines whether the dialog has been canceled.</summary>
+      <param name="pfCanceled">True if the dialog was canceled, otherwise false.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsThreadedWaitDialog4.StartWaitDialog(System.String,System.String,System.String,System.Object,System.String,System.Int32,System.Boolean,System.Boolean)">
+      <summary>Determines whether StartWaitDialog(Ex) has actually started a dialog.If StartWaitDialog (or StartWaitDialogEx) is called multiple times without calling EndWaitDialog, only the first will start the dialog. Subsequent calls will just be no-ops. This makes it difficult to determine how often a call site caused the dialog to show. pfStarted will be set to true if the call to StartWaitDialogEx started the wait dialog (or started the timer to show the dialog).</summary>
+      <param name="szWaitCaption">The wait dialog caption</param>
+      <param name="szWaitMessage">The wait message.</param>
+      <param name="szProgressText">The progress text.</param>
+      <param name="varStatusBmpAnim">Optional. Should be a VT_INT_PTR containing a valid BMP, or VT_NULL.</param>
+      <param name="szStatusBarText">The status bar text. Can be NULL.</param>
+      <param name="iDelayToShowDialog">The number of seconds to delay showing the dialog.</param>
+      <param name="fIsCancelable">True if there is a cancelable button on the dialog, otherwise false.</param>
+      <param name="fShowMarqueeProgress">Marquee-style progress will be shown with VARIANT_BOOL, otherwise no visible progress bar.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsThreadedWaitDialog4.StartWaitDialogEx(System.String,System.String,System.String,System.Object,System.String,System.Int32,System.Boolean,System.Boolean)">
+      <summary>Determines whether StartWaitDialog(Ex) has actually started a dialog.If StartWaitDialog (or StartWaitDialogEx) is called multiple times without calling EndWaitDialog, only the first will start the dialog. Subsequent calls will just be no-ops. This makes it difficult to determine how often a call site caused the dialog to show. pfStarted will be set to true if the call to StartWaitDialogEx started the wait dialog (or started the timer to show the dialog).</summary>
+      <returns>True if the dialog was actually displayed, or false if it was already visible.</returns>
+      <param name="szWaitCaption">The wait dialog caption</param>
+      <param name="szWaitMessage">The wait message.</param>
+      <param name="szProgressText">The progress text.</param>
+      <param name="varStatusBmpAnim">Optional. Should be a VT_INT_PTR containing a valid BMP, or VT_NULL.</param>
+      <param name="szStatusBarText">The status bar text. Can be NULL.</param>
+      <param name="iDelayToShowDialog">The number of seconds to delay showing the dialog.</param>
+      <param name="fIsCancelable">True if there is a cancelable button on the dialog, otherwise false.</param>
+      <param name="fShowMarqueeProgress">Marquee-style progress will be shown with VARIANT_BOOL, otherwise no visible progress bar.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsThreadedWaitDialog4.StartWaitDialogWithPercentageProgress(System.String,System.String,System.String,System.Object,System.String,System.Boolean,System.Int32,System.Int32,System.Int32)">
+      <param name="szWaitCaption">The wait dialog caption</param>
+      <param name="szWaitMessage">The wait message.</param>
+      <param name="szProgressText">The progress text.</param>
+      <param name="varStatusBmpAnim">Optional. Should be a VT_INT_PTR containing a valid BMP, or VT_NULL.</param>
+      <param name="szStatusBarText">The text of the status bar.</param>
+      <param name="fIsCancelable">True if there is a cancelable button on the dialog, otherwise false.</param>
+      <param name="iDelayToShowDialog">The number of seconds to delay showing the dialog.</param>
+      <param name="iTotalSteps">The number of steps.</param>
+      <param name="iCurrentStep">The index of the current step.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsThreadedWaitDialog4.UpdateProgress(System.String,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean@)">
+      <summary>Updates the progress of the wait dialog.</summary>
+      <param name="szUpdatedWaitMessage">The text of the updated wait message.</param>
+      <param name="szProgressText">The progress text.</param>
+      <param name="szStatusBarText">The text of the status bar.</param>
+      <param name="iCurrentStep">The index of the current step.</param>
+      <param name="iTotalSteps">The number of steps.</param>
+      <param name="fDisableCancel">True to disable cancellation, otherwise false.</param>
+      <param name="pfCanceled">True if canceled, otherwise false.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsToolsOptionsHelp.OnHelp"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsUIShell7">
+      <summary>Provides access to basic windowing functionality, including access to and creation of tool windows and document windows.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsUIShell7.AdviseWindowFrameEvents(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrameEvents)">
+      <summary>Called to sign up for events affecting all IVsWindowFrames.</summary>
+      <returns>The listener cookie.</returns>
+      <param name="eventSink">The event sink.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsUIShell7.UnadviseWindowFrameEvents(System.UInt32)">
+      <summary>Called to stop listening to events affecting all IVsWindowFrames</summary>
+      <param name="cookie">The listener cookie.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame5.DisplayedIconImageMoniker">
+      <summary>Gets the ImageMoniker for the icon being displayed for the WindowFrame.</summary>
+      <returns>The ImageMoniker.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrameEvents">
+      <summary>Provides events for window frames.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrameEvents.OnActiveFrameChanged(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame,Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame)">
+      <summary>Called when the active IVsWindowFrame changes.</summary>
+      <param name="oldFrame">The old active frame.</param>
+      <param name="newFrame">The new active frame.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrameEvents.OnFrameCreated(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame)">
+      <summary>Called when a new IVsWindowFrame is created.</summary>
+      <param name="frame">The frame.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrameEvents.OnFrameDestroyed(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame)">
+      <summary>Called when an IVsWindowFrame is permanently closed.</summary>
+      <param name="frame">The frame.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrameEvents.OnFrameIsOnScreenChanged(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame,System.Boolean)">
+      <summary>Called when the IsOnScreen property of an IVsWindowFrame changes.</summary>
+      <param name="frame">The frame.</param>
+      <param name="newIsOnScreen">The new IsOnScreen value.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrameEvents.OnFrameIsVisibleChanged(Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame,System.Boolean)">
+      <summary>Called when the IsVisible property of an IVsWindowFrame changes.</summary>
+      <param name="frame">The frame.</param>
+      <param name="newIsVisible">The new IsVisible value.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SAsyncServiceProvider">
+      <summary>The service id for the IAsyncServiceProvider service.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SharedProjectReferenceProviderGuid">
+      <summary>The GUID for Shared Project Reference Tab in the Add Reference Manager dialog.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SProfferAsyncService">
+      <summary>The service for the IAsyncServiceProvider service.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SVsAccountManagementService"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SVsAccountManager"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SVsHubService">
+      <summary>he service type implementing the VsHub service.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SVsServiceInfoQueryService">
+      <summary>The service for the IVsServiceInfoQueryService service.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SVsSharedProjectReferencesHelper">
+      <summary>The SVsSharedProjectReferencesHelper service provides support for project systems that require reloading the project in order to change Shared Project references (for example, changing the set of project imports) to implement Add Shared Project Reference via the ReferenceManager dialog.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.SVsStartupProjectsListService"></member>
+    <member name="T:Microsoft.VisualStudio.Shell.Interop.VsBootstrapperPackageInfo"></member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.VsBootstrapperPackageInfo.MinimumUapMajorVersion"></member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.VsBootstrapperPackageInfo.MinimumUapMinorVersion"></member>
+    <member name="F:Microsoft.VisualStudio.Shell.Interop.VsBootstrapperPackageInfo.PackageName"></member>
+  </members>
+</doc>

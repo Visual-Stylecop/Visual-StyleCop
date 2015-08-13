@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.VisualStudio.TextManager.Interop.12.1.DesignTime</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.DROPDOWNENTRYTYPE2">
+      <summary>Specifies the drawing protocol requested for a combo. Used in <see cref="T:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBarClient" /> calls.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.DROPDOWNENTRYTYPE2.ENTRY_UNINDENT_COLLAPSED">
+      <summary>Determines whether the indentation should be applied to the selected item in the combo box.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsCompletionSet3">
+      <summary>Provides statement completion capabilities for the language service. </summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsCompletionSet3.GetContextIcon(System.Int32,System.Int32@)">
+      <summary>Get the image index of the context icon for the given item. If <paramref name="piGlyph" /> == -1, no icon is displayed.</summary>
+      <returns>The HRESULT.</returns>
+      <param name="iIndex">The icon index.</param>
+      <param name="piGlyph">[out] The image index</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsCompletionSet3.GetContextImageList(System.IntPtr@)">
+      <summary>Gets the list of context images supported by this completion set.</summary>
+      <returns>The HRESULT.</returns>
+      <param name="phImageList">[out] The list of context images.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBar2">
+      <summary>Provides control of the drop-down bar at the top of a code window. </summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBar2.GetComboEnabled(System.Int32,System.Int32@)">
+      <summary>Gets the current enabled status of a dropdown bar.</summary>
+      <returns>The HRESULT.</returns>
+      <param name="iCombo">The combo box.</param>
+      <param name="pbEnabled">[out] true if the dropdown bar is enabled, otherwise false.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBar2.SetComboEnabled(System.Int32,System.Int32)">
+      <summary>Enables or disables a dropdown bar.</summary>
+      <returns>The HRESULT.</returns>
+      <param name="iCombo">The index of the combo box.</param>
+      <param name="bEnabled">[out] true if enabled, otherwise false.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBarClient3">
+      <summary>Describes the contents of the dropdown bar combinations. </summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBarClient3.GetAutomationProperties(System.Int32,System.String@,System.String@)">
+      <summary>Gets the automation name and ID for the drop down box.</summary>
+      <returns>The HRESULT.</returns>
+      <param name="iCombo">The index of the combo.</param>
+      <param name="pbstrName">[out] The automation name of the combo.</param>
+      <param name="pbstrId">[out] The ID of the combo.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBarClient3.GetComboWidth(System.Int32,System.Int32@)">
+      <summary>Gets the width of the column by percent. If all the columns return 0, the default width is used. The value should be between 0 and 100.</summary>
+      <returns>The HRESULT.</returns>
+      <param name="iCombo">The index of the combo.</param>
+      <param name="piWidthPercent">[out] The width in per cent.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBarClient3.GetEntryImage(System.Int32,System.Int32,System.Int32@,System.IntPtr@)">
+      <summary>The successor to the <see cref="M:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBarClient.GetEntryImage(System.Int32,System.Int32,System.Int32@)" /> method. This method also returns the image list. If this method returns a non-zero result, the dropdown bar calls <see cref="M:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBarClient.GetEntryImage(System.Int32,System.Int32,System.Int32@)" /> instead.</summary>
+      <returns>The HRESULT.</returns>
+      <param name="iCombo">The index of the combo box.</param>
+      <param name="iIndex">The index of the item.</param>
+      <param name="piImageIndex">[out] The index of the image.</param>
+      <param name="phImageList">[out] The pointer to the image list.</param>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,269 @@
+// msdbg120.idl
+/********************************************************
+*                                                        *
+*   Copyright (C) Microsoft. All rights reserved.        *
+*                                                        *
+*********************************************************/
+cpp_quote("/********************************************************")
+cpp_quote("*                                                        *")
+cpp_quote("*   Copyright (C) Microsoft. All rights reserved.        *")
+cpp_quote("*                                                        *")
+cpp_quote("*********************************************************/")
+import "oaidl.idl";
+import "ocidl.idl";
+
+#ifndef DEBUGGER_PIA_BUILD
+    // Any imports go here
+    import "msdbg.idl";
+#endif
+
+#if defined(DEBUGGER_PIA_BUILD)
+    // To make the PIA scripts happy, we want to use 'HANDLE'
+    typedef HANDLE WIN32_HANDLE;
+#else
+    // To make MIDL happy, we want to use DWORD_PTR
+    typedef DWORD_PTR WIN32_HANDLE;
+#endif
+
+interface IDebugAsyncTask120;
+interface IDebugStackFrame120;
+
+[
+    object,
+    uuid("94967a8a-5c7b-42df-9415-d6896a51de6a"),
+    pointer_default(unique)
+]
+interface IDebugStackFrame120 : IUnknown
+{
+    //Checks if the given frame is an async frame and, if so, returns the task, if available, associated with that frame.
+    HRESULT GetAsyncTask([out] IDebugAsyncTask120** ppFrameTask);
+}
+
+//This enum extends enum_FRAMEINFO_FLAGS.  enum_FRAMEINFO_FLAGS has exhausted all the possible bits of a 32-bit integer,
+//so any new flags must use enum_FRAMEINFO_FLAGS_EXTENDED instead.
+enum FRAMEINFO_FLAGS_EX
+{
+    FIF_EX_INCLUDE_ASYNC_FRAMES = 0x00000001,
+};
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(FRAMEINFO_FLAGS_EX)")
+
+[   object,
+    uuid("daabf75d-aed6-4857-83c9-aaf589057c3d"),
+    pointer_default(unique)
+]
+interface IDebugThread120 : IUnknown
+{
+    //Same as EnumFrameInfo(), but allows up to 64 possible flags to be plumbed down to the engine, as all 32-bits of FRAMEINFO_FLAGS are taken.
+	HRESULT EnumFrameInfoEx(
+		[in]  enum enum_FRAMEINFO_FLAGS dwFieldSpec,
+		[in]  enum FRAMEINFO_FLAGS_EX dwFieldSpecExtended,
+		[in]  UINT nRadix,
+		[out] IEnumDebugFrameInfo2** ppEnum);
+};
+
+[
+    object,
+    uuid(fca685e7-45f2-4c36-beb8-be982087479f),
+    pointer_default(unique)
+]
+interface IDebugLogicalThread120 : IUnknown
+{
+    //Same as EnumFrameInfo(), but allows up to 64 possible flags to be plumbed down to the engine, as all 32-bits of FRAMEINFO_FLAGS are taken.
+	HRESULT EnumFrameInfoEx(
+		[in]  enum enum_FRAMEINFO_FLAGS dwFieldSpec,
+		[in]  enum FRAMEINFO_FLAGS_EX dwFieldSpecExtended,
+		[in]  UINT nRadix,
+		[out] IEnumDebugFrameInfo2** ppEnum);
+}
+
+
+[
+    object,
+    uuid("7eab8ebe-0f51-4cc1-b69c-a379a31c6847"),
+    pointer_default(unique)
+]
+interface IDebugAsyncTask120 : IUnknown
+{
+    //If the task has logged a callstack from when the task got created, enumerates the frames in that logged callstack.
+    //For native, this will walk the async return stack and return the task creation stack for the task belonging to the last
+    //async frame in the stack.  For managed, this is unsupported.  For javascript, this will combine the task creation stacks
+    //of all the tasks in the async return stack.
+    HRESULT GetTaskCreationStack(
+        [in]  IDebugThread2* pThread,       //The thread that the returned frames will be associated with.
+		[in]  enum enum_FRAMEINFO_FLAGS dwFieldSpec,
+		[in]  enum FRAMEINFO_FLAGS_EX dwFieldSpecExtended,
+		[in]  UINT nRadix,
+		[out] IEnumDebugFrameInfo2** ppEnum);
+
+    //Returns an enumeration of async frames that will execute when this task completes.  This only includes frames
+    //that will execute directly when *this* task completes, not child task.  When standard 'await' practices
+    //are being used, GetContinuationFrames() will return an enumeration of one frame from which the caller will
+    //then need to call GetAsyncTask()/GetContinuationFrames() again etc. to build up the async return stack.
+    HRESULT GetContinuationFrames(
+        [in]  IDebugThread2* pThread,       //The thread that the returned frames will be associated with.
+		[in]  enum enum_FRAMEINFO_FLAGS dwFieldSpec,
+		[in]  enum FRAMEINFO_FLAGS_EX dwFieldSpecExtended,
+		[in]  UINT nRadix,
+		[out] IEnumDebugFrameInfo2** ppEnum);
+
+    //Precomputes the async return stack of this task so that subsequent calls to walk the async return stack can complete
+    //without the need to make a separate round trip to the remote machine for each frame.
+    //
+    //TODO: This api, as written is synchronous and will block until everything is complete.  We would like to change it to be async.
+    HRESULT PreComputeAsyncReturnStack([in] UINT maxFrames);
+}
+
+// Extended bit field to support more annotated frame types.
+enum enum_FRAMEINFO_FLAGS_VALUES120
+{
+        // Existing flags:
+	// FIFV_ANNOTATEDFRAME = 0x00000001,
+        // FIFV_NON_USER_CODE  = 0x00000002,
+        // FIFV_CANINTERCEPT_EXCEPTION = 0x00000004,
+        // FIFV_FUNCEVALFRAME = 0x00000008,
+        // FIFV_FUNCEVALFRAME = 0x00000008,
+
+        //FIFV_MAXFRAMES_EXCEEDED = 0x00000010
+
+        //Indicates we have an async frame with a task associated with it.
+        FIFV_ASYNC_FRAME = 0x00000020,
+
+        //Indicates this frame is part of the async return stack
+        FIFV_RETURN_STACK_FRAME = 0x00000040,
+
+        //Indicates this frame is part of a task creation stack.
+        FIFV_TASK_CREATION_STACK_FRAME = 0x00000080,
+        
+        //Indicates this frame is an async annotated frame (i.e. [Async Call]).
+        FIFV_ASYNC_CALL_ANNOTATED_FRAME = 0x00000100,
+        
+        //Indicates this frame is an async continuation annotated frame (i.e. [Resuming async method]).
+        FIFV_ASYNC_CONTINUATION_ANNOTATED_FRAME = 0x00000200
+};
+
+enum enum_EVENTATTRIBUTES120
+{
+    /****************************************
+    // The event is asynchronous; no reply is necessary
+    EVENT_ASYNCHRONOUS	= 0x0000,
+    // The event is synchronous; reply via IDebugEngine2::ContinueFromSynchronousEvent
+    EVENT_SYNCHRONOUS	= 0x0001,
+    // The event is stopping; reply via IDebugThread2::ContinueFromStoppingEvent
+    EVENT_STOPPING		= 0x0002,
+    EVENT_ASYNC_STOP	= 0x0002,		// (not currently supported)
+    EVENT_SYNC_STOP		= 0x0003,
+    // The event is sent immediately and synchronously to the IDE
+    // (even if the IDE is currently handling an event)
+    EVENT_IMMEDIATE		= 0x0004,
+    // The event is for expression evaluation
+    EVENT_EXPRESSION_EVALUATION = 0x0008
+    ***************************************/
+
+    EVENT_ALLOW_AFTER_STOPPED = 0x0010,     // Allows stopping events in break-mode
+};
+typedef DWORD EVENTATTRIBUTES120;
+
+enum enum_LAUNCH_FLAGS120
+{
+    /**************************************
+    // Launch the process for debugging
+    LAUNCH_DEBUG			= 0x0000,
+    // Launch the process without debugging it
+    LAUNCH_NODEBUG			= 0x0001,
+    // Launch the process with EnC enabled.
+    LAUNCH_ENABLE_ENC       = 0x0002,
+    // Launch the process and merge the environment
+    LAUNCH_MERGE_ENV        = 0x0004,
+
+    LAUNCH_WAIT_FOR_EVENT   = 0x0008
+    ***************************************/
+
+    LAUNCH_ALLOW_EVENTS_AFTER_STOPPED   = 0x0010, // Allow stopping events in break-mode
+    LAUNCH_FORCE_32BIT_DEBUG            = 0x0020, // Force use of the 32-bit debugger
+    LAUNCH_FORCE_64BIT_DEBUG            = 0x0040  // Force use of the 64-bit debugger
+};
+typedef DWORD LAUNCH_FLAGS120;
+
+enum enum_MESSAGETYPE120
+{
+    /**************************************
+    // the following values indicate the how to display the message
+    MT_OUTPUTSTRING      = 0x00000001, // output a message to the Output window
+    MT_MESSAGEBOX        = 0x00000002, // display a message box 
+    MT_TYPE_MASK         = 0x000000FF,
+
+    // the following values provides reasons for the message
+    MT_REASON_EXCEPTION  = 0x00000100,
+    MT_REASON_TRACEPOINT = 0x00000200,
+    MT_REASON_STEP_FILTER           = 0x00000300,      //Step filtering-related message
+    MT_REASON_JMC_PROMPT            = 0x00000400,      //Prompt from engine to turn off JMC (if user clicks "yes", UI will turn off JMC)
+    MT_REASON_STEP_FILTER_PROMPT    = 0x00000500,      //Message box informing user that we stepped over a property or operator.
+                                                       //UI layer will handle the logic of supressing the dialog if it was already shown
+                                                       //before.
+    MT_REASON_MASK       = 0x0000FF00,
+    ***************************************/
+    MT_REASON_LANGUAGE_COMPATIBILITY = 0X00000600,     // Language Compatibility warning 
+    // Debugger should stop debugging (detach or teminate) the process that sent this event before displaying the message
+    MT_FATAL_ERROR       = 0x00010000
+};
+// ------------------------------------------------------------------
+// IDebugSessionProcess120 - interface implemented by 
+[
+    object,
+    uuid(C80129AA-876A-4F3B-81BB-8497ADE9D47A),
+    pointer_default(unique)
+]
+interface IDebugSessionProcess120: IUnknown
+{
+    // Check to see if we are using the Managed Legacy Debugger engine.
+    // S_OK indicates we are using Legacy (CPDE), S_FALSE indicates we are using the New Architecture Engine (Concord)
+	// or we are not using either the Managed CLRv2 engine or the Managed CLRv4 engine.
+    HRESULT QueryIsLegacyDebugger();
+};
+
+[
+    object,
+    uuid("9c954ace-8041-4c57-ad2a-d9e2cf2e565e"),
+    pointer_default(unique)
+]
+interface IDebugExceptionEvent120 : IUnknown
+{
+    HRESULT GetStackTrace([out] BSTR* pbstrStackTrace);
+};
+
+enum enum_DOCUMENT_CONTENT_TYPE
+{
+    DCT_UNKNOWN,
+    DCT_SCRIPT,
+    DCT_HTML
+};
+typedef DWORD DOCUMENT_CONTENT_TYPE;
+
+[
+    object,
+    uuid("54271ecb-d88e-42c5-b8af-137f851e57e2"),
+    pointer_default(unique)
+]
+interface IDebugDocument120 : IUnknown
+{
+    HRESULT GetDocumentContentType([out] DOCUMENT_CONTENT_TYPE* pDocumentContentType);
+};
+
+//----------------------------------------------------------------------------
+// IDebugUserNotificationUI120
+//----------------------------------------------------------------------------
+[
+    uuid(E2E3AEE2-9E39-40E5-8609-D43260630766),
+    version(1.0),
+    pointer_default(unique)
+]
+interface IDebugUserNotificationUI120 : IUnknown
+{
+    [propget]
+    HRESULT ShouldShowUI([out, retval] BOOL * pShouldShow);
+    
+    [propput]
+    HRESULT ShouldShowUI([in] BOOL shouldShow);
+};
+

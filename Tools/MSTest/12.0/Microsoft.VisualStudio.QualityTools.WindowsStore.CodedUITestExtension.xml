@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.QualityTools.WindowsStore.CodedUITestExtension</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.TestTools.UITest.Common.IUITestBuilder">
+            <summary>
+            Coded UI Test Builder Interface
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UITest.Common.IUITestBuilder.UITest">
+            <summary>
+            Gets the UITest file
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UITest.Common.IUITestBuilder.IsDirty">
+            <summary>
+            True if the UIMap is dirty(has been edited but not saved) else false
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderExtension">
+            <summary>
+            Interface class in order to implement any UI extension to Coded UI Test Builder
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderExtension.Initialize(Microsoft.VisualStudio.TestTools.UITest.Common.IUITestBuilder)">
+            <summary>
+            Called when CUIT Builder is initialized
+            </summary>
+            <param name="builder">Coded UI Test Builder</param>
+            <returns>False if Initialization failed or if extension need not be loaded, otherwise true</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderExtension.ShowExtensionView">
+            <summary>
+            Opens the view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderExtension.CloseExtensionView">
+            <summary>
+            Force a close on the view
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderExtension.GetButton">
+            <summary>
+            Gets the button properties in CUIT
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderExtension.IsViewOpen">
+            <summary>
+            True to indicate view is open, false otherwise. Extension should set this accordingly
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderExtension.Closed">
+            <summary>
+            Closed event should be called when extension closes , so that Coded UI Test Builder is aware
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderButton">
+            <summary>
+            Class to get the properties of a button in Coded UI Test Builder
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderButton.#ctor(System.String,System.String,System.Windows.Input.Key,System.Windows.Media.Imaging.BitmapImage)">
+            <summary>
+            Initializes the Button properties
+            </summary>
+            <param name="name">Name is a string that is displayed in button if image is not passed</param>
+            <param name="toolTip">Tooltip of button</param>
+            <param name="accelerator">Accelerator key for the button will be Alt + key, where key is this parameter. If accelerator is not needed pass Key.None as the parameter</param>
+            <param name="image">Button image</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderButton.Name">
+            <summary>
+            Name of the button. It will be displayed on button only if the image is null
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderButton.Tooltip">
+            <summary>
+            Tooltip of the button
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderButton.AcceleratorKey">
+            <summary>
+            AcceleratorKey will be Alt + Key, where key is this property. If accelerator is not need it will be Key.None
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UITest.Common.UITestBuilderButton.Image">
+            <summary>
+            Image to be shown on button
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace>StyleCop</RootNamespace>
+    <AssemblyName>StyleCop</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\StyleCop.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>$(SADelaySign)</DelaySign>
+    <OutputType>Library</OutputType>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <ProjectGuid>{AF7A7FEA-C07B-456A-B072-C7E795A6CBD4}</ProjectGuid>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE;DEBUG;DEBUGTHREADING_OFF</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>..\FxCopRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\StyleCop.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\StyleCop.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\FxCopRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v3.5" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="..\Constants.cs">
+      <Link>Properties\Constants.cs</Link>
+    </Compile>
+    <Compile Include="AlertDialog.cs" />
+    <Compile Include="AddSettingsPagesEventArgs.cs" />
+    <Compile Include="AutoUpdater.cs" />
+    <Compile Include="CodeLocation.cs" />
+    <Compile Include="CodePoint.cs" />
+    <Compile Include="CodeReader.cs" />
+    <Compile Include="Collections\INodeList{T}.cs" />
+    <Compile Include="Collections\ItemList.cs" />
+    <Compile Include="Collections\LinkedItemList.cs" />
+    <Compile Include="Collections\LinkedItemListEnumerators{T}.cs">
+    </Compile>
+    <Compile Include="Collections\Node{T}.cs" />
+    <Compile Include="Collections\NodeIndex.cs" />
+    <Compile Include="CacheOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Countdown.cs" />
+    <Compile Include="Diagnostics\SensitiveDataAttribute.cs" />
+    <Compile Include="Diagnostics\StyleCopSwitch.cs" />
+    <Compile Include="Diagnostics\StyleCopTrace.cs" />
+    <Compile Include="Diagnostics\StyleCopTraceFormatter.cs" />
+    <Compile Include="Diagnostics\TraceTypes.cs" />
+    <Compile Include="Extensions\ParameterInfoExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Spelling\NamingService.cs" />
+    <Compile Include="Spelling\NullIfNotFoundDictionary.cs" />
+    <Compile Include="Spelling\SpellChecker.cs" />
+    <Compile Include="Spelling\WordCollection.cs" />
+    <Compile Include="Spelling\WordParser.cs" />
+    <Compile Include="Spelling\WordParserOptions.cs" />
+    <Compile Include="Spelling\WordSpelling.cs" />
+    <Compile Include="UnixNativeMethods.cs" />
+    <Compile Include="Settings\IPropertyControlHost.cs" />
+    <Compile Include="Settings\PropertyControlSaveResult.cs" />
+    <Compile Include="Settings\PropertyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\PropertyDialog.Designer.cs">
+      <DependentUpon>PropertyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\v105Settings.cs" />
+    <Compile Include="StyleCopRunner.cs" />
+    <Compile Include="StyleCopObjectConsole.cs" />
+    <Compile Include="ObjectBasedEnvironment.cs" />
+    <Compile Include="CoreParser.cs" />
+    <Compile Include="DocumentAnalysisStatus.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="ICodeElement.cs" />
+    <Compile Include="LegacyEnumeratorAdapter.cs" />
+    <Compile Include="FileBasedEnvironment.cs" />
+    <Compile Include="Settings\SourceFileListSettings.cs" />
+    <Compile Include="Settings\v104Settings.cs" />
+    <Compile Include="Settings\v102Settings.cs" />
+    <Compile Include="Settings\v103Settings.cs" />
+    <Compile Include="Settings\IPropertyContainer.cs" />
+    <Compile Include="ResultsCache.cs" />
+    <Compile Include="Settings\AddInPropertyCollection.cs" />
+    <Compile Include="Settings\CollectionPropertyDescriptor.cs" />
+    <Compile Include="Settings\PropertyDescriptor.cs" />
+    <Compile Include="Settings\PropertyDescriptorCollection.cs" />
+    <Compile Include="Settings\PropertyDescriptor{T}.cs" />
+    <Compile Include="Settings\PropertyValue{T}.cs" />
+    <Compile Include="Settings\v101Settings.cs" />
+    <Compile Include="StyleCopAddInAttribute.cs" />
+    <Compile Include="StyleCopEnvironment.cs" />
+    <Compile Include="SourceCode.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="EnumerableAdapter.cs" />
+    <Compile Include="ProjectStatus.cs" />
+    <Compile Include="Rule.cs" />
+    <Compile Include="Rules.cs" />
+    <Compile Include="Settings\BooleanProperty.cs" />
+    <Compile Include="Settings\CollectionProperty.cs" />
+    <Compile Include="Settings\IntProperty.cs" />
+    <Compile Include="Settings\IPropertyControlPage.cs" />
+    <Compile Include="Settings\PropertyCollection.cs" />
+    <Compile Include="Settings\PropertyControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\PropertyType.cs" />
+    <Compile Include="Settings\PropertyValue.cs" />
+    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="Settings\SettingsComparer.cs" />
+    <Compile Include="Settings\SettingsMerger.cs" />
+    <Compile Include="Settings\StringProperty.cs" />
+    <Compile Include="Settings\WritableSettings.cs" />
+    <Compile Include="StyleCopAddIn.cs" />
+    <Compile Include="StyleCopCore.cs" />
+    <Compile Include="Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StyleCopThread.Data.cs">
+      <DependentUpon>StyleCopThread.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistryUtils.Permissions.cs">
+      <DependentUpon>RegistryUtils.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistryUtils.WindowLocation.cs">
+      <DependentUpon>RegistryUtils.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StyleCopConsole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeDocument.cs" />
+    <Compile Include="CodeProject.cs" />
+    <Compile Include="AnalyzersOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GlobalSettingsFileOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SourceAnalyzerAttribute.cs" />
+    <Compile Include="StyleCopLogLevel.cs" />
+    <Compile Include="SourceParserAttribute.cs" />
+    <Compile Include="StyleCopWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SyntaxException.cs" />
+    <Compile Include="CodeFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OutputEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Param.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RegistryUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SourceAnalyzer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StyleCopException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SourceParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StyleCopThread.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StyleCopTask.cs" />
+    <Compile Include="Collections\MasterList{T}.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="SpellingTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Violation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViolationEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnalyzersOptions.resx">
+      <DependentUpon>AnalyzersOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GlobalSettingsFileOptions.resx">
+      <DependentUpon>GlobalSettingsFileOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\PropertyControl.resx">
+      <DependentUpon>PropertyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\PropertyDialog.resx">
+      <DependentUpon>PropertyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpellingTab.resx">
+      <DependentUpon>SpellingTab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CacheOptions.resx">
+      <DependentUpon>CacheOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoreParser.xml" />
+    <None Include="mssp7en.lex">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Settings\DefaultSettings.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="StyleCopAddIn.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\StyleCop.snk">
+      <Link>StyleCop.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StyleCop.Targets">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mssp7en.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

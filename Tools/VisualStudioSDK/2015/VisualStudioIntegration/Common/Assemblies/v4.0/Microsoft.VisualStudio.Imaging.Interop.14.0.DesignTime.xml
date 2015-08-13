@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.VisualStudio.Imaging.Interop._ImageMonikerType">
+      <summary>Describes the type of the image moniker.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._ImageMonikerType.IMT_Custom">
+      <summary>The moniker was created as a result of a custom image being added.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._ImageMonikerType.IMT_LoadedFromManifest">
+      <summary>The moniker was loaded from a manifest.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._ImageMonikerType.IMT_System">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._ImageMonikerType.IMT_Unknown">
+      <summary>The moniker is invalid or stale.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Imaging.Interop._UIDataFormat">
+      <summary>Describes the data format (Win32, WinForms, WPF).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIDataFormat.DF_Win32">
+      <summary>Matches VSDF_WIN32 for enumeration compatibility.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIDataFormat.DF_WinForms">
+      <summary>Matches VSDF_WINFORMS for enumeration compatibility.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIDataFormat.DF_WPF">
+      <summary>Matches VSDF_WPF for enumeration compatibility.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Imaging.Interop._UIImageHorizontalAlignment">
+      <summary>Describes the horizontal alignment of the image.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIImageHorizontalAlignment.IHA_Center">
+      <summary>The image is centered horizontally within its container.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIImageHorizontalAlignment.IHA_Left">
+      <summary>The image is left-aligned within its container.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIImageHorizontalAlignment.IHA_Right">
+      <summary>The image is right-aligned within its container.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Imaging.Interop._UIImageVerticalAlignment">
+      <summary>Describes the vertical alignment of the image.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIImageVerticalAlignment.IVA_Bottom">
+      <summary>The image is bottom-aligned within its container.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIImageVerticalAlignment.IVA_Center">
+      <summary>Rhe image is centered vertically within its container.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop._UIImageVerticalAlignment.IVA_Top">
+      <summary>The image is top-aligned within its container.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes">
+      <summary>Provides image attributes.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.Background">
+      <summary>[optional] The background color on which the image will be displayed.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.Dpi">
+      <summary>The DPI setting for the monitor on which the image will be displayed.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.Flags">
+      <summary>The flags indicating which fields of the structure are valid.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.Format">
+      <summary>The format of the image (WPF, WinForms, Win32).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.GrayscaleBiasColor">
+      <summary>[optional] The bias color used to weight a grayscale image.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.HighContrast">
+      <summary>[optional] Determines whether the high-contrast version of the image is requested.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.ImageType">
+      <summary>The type of the image (bitmap, icon, or image list).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.LogicalHeight">
+      <summary>The height of the image, in logical units (e.g. the height at 100% DPI).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.LogicalWidth">
+      <summary>The width of the image, in logical units (e.g. the width at 100% DPI).</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.Imaging.Interop.ImageAttributes.StructSize">
+      <summary>The size of the struct.</summary>
+    </member>
+  </members>
+</doc>

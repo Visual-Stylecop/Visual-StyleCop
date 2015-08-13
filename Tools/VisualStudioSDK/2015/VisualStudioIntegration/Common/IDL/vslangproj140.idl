@@ -1,0 +1,114 @@
+/****************************************************************************
+*  The vslangproj Interfaces
+*  Copyright (c) Microsoft Corporation, All Rights Reserved
+****************************************************************************/
+
+/****************************************************************************
+* vslangproj140.idl
+*
+* Sources the typelib that needs to be exposed to clients.
+* Exposes the CATID's of the extensibility Project & ProjectItem object.
+* Exposes the diff CATID's for the diff packages for the browse objects.
+* Exposes the browse object interfaces
+* Exposes the interfaces of the package specific extensibility project object.
+*****************************************************************************/
+#ifndef INTEROPLIB
+import "oaidl.idl";
+
+// done because the .idl file does not understand namespaces but these interfaces are in a namespace in the header file.
+cpp_quote("#include \"dte.h\"")
+cpp_quote("#ifdef FORCE_EXPLICIT_DTE_NAMESPACE")
+cpp_quote("#define DTE VxDTE::DTE")
+cpp_quote("#define Project VxDTE::Project")
+cpp_quote("#define ProjectItem VxDTE::ProjectItem")
+cpp_quote("#endif")
+
+// Interface definitions
+cpp_quote("#define VSLANGPROJ140_VER_MAJ   14")
+cpp_quote("#define VSLANGPROJ140_VER_MIN    0")
+
+#define VSLANGPROJ_VER        14.0
+
+[
+    uuid(5BC022CE-BED9-4BDE-ADB1-F2A484E4EB83),
+    helpstring("Microsoft Visual Studio Project Model (14.0)"),
+    version(VSLANGPROJ_VER)
+]
+library VSLangProj140
+{
+#endif // INTEROPLIB
+
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+    importlib("dte.tlb");
+    importlib("vslangproj.tlb");
+    importlib("vslangproj2.tlb");
+    importlib("vslangproj80.tlb");
+    importlib("vslangproj90.tlb");
+    importlib("vslangproj100.tlb");
+    importlib("vslangproj110.tlb");
+    #include "vsshelluuids.h"
+
+    
+    //
+    // AnalyzerReferences
+    //
+    [
+        dual,
+        oleautomation,
+        object,
+        uuid(1C0A9223-DF8F-4D3D-A5FC-4D4B506706E7)
+    ]
+    interface AnalyzerReferences : IDispatch
+    {
+        [id(1), propget, helpstring("DTE")]
+        HRESULT DTE([out, retval] DTE **ppDTE);
+
+        [id(2), propget, helpstring("Parent")]
+        HRESULT Parent([out, retval] IDispatch **ppdispParent);
+
+        [id(3), propget, helpstring("Containing Project")]
+        HRESULT ContainingProject([out, retval] Project **ppProject);
+
+        [id(4), helpstring("Add")]
+        HRESULT Add([in] BSTR bstrPath);
+
+        [id(5), helpstring("Remove")]
+        HRESULT Remove([in] BSTR bstrPath);
+
+        [propget, helpstring("Count")]
+        HRESULT Count([out, retval] long *plCount);
+
+        // Default (value) property/method
+        [id(DISPID_VALUE), helpstring("Item")]
+        HRESULT Item([in] VARIANT index, [out, retval] BSTR *bstrPath);
+        
+        [restricted, id(DISPID_NEWENUM)]
+        HRESULT _NewEnum([out, retval] IUnknown **ppEnum);
+    }
+
+    //
+    // VSProject3
+    //
+    [
+        dual,
+        oleautomation,
+        object,
+        uuid(0245DB80-6F23-4B81-9517-DCA8778DAB77)
+    ]
+    interface VSProject3 : VSProject2
+    {
+        [id(19), propget, helpstring("Analyzer References List")] 
+        HRESULT AnalyzerReferences([out, retval] AnalyzerReferences **ppRefs);
+    }
+
+
+#ifndef INTEROPLIB
+}
+#endif
+
+cpp_quote("#ifdef FORCE_EXPLICIT_DTE_NAMESPACE")
+cpp_quote("#undef DTE")
+cpp_quote("#undef Project")
+cpp_quote("#undef ProjectItem")
+cpp_quote("#endif")

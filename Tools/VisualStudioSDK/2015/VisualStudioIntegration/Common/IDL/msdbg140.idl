@@ -1,0 +1,208 @@
+// msdbg140.idl
+/********************************************************
+*                                                        *
+*   Copyright (C) Microsoft. All rights reserved.        *
+*                                                        *
+*********************************************************/
+cpp_quote("/********************************************************")
+cpp_quote("*                                                        *")
+cpp_quote("*   Copyright (C) Microsoft. All rights reserved.        *")
+cpp_quote("*                                                        *")
+cpp_quote("*********************************************************/")
+import "oaidl.idl";
+import "ocidl.idl";
+
+#ifndef DEBUGGER_PIA_BUILD
+// Any imports go here
+import "msdbg.idl";
+
+// To avoid needing to pull debuggerdeploy.h into msdbg140.h, only import debuggerdeploy for the proxy build
+#if BUILDING_DEBUGGER_PROXY
+import "debuggerdeploy.idl";
+#else
+interface IVsDebuggerDeployConnection;
+cpp_quote("#ifndef __IVsDebuggerDeployConnection_FWD_DEFINED__")
+cpp_quote("#define __IVsDebuggerDeployConnection_FWD_DEFINED__")
+cpp_quote("typedef interface IVsDebuggerDeployConnection IVsDebuggerDeployConnection;")
+cpp_quote("#endif /* __IVsDebuggerDeployConnection_FWD_DEFINED__ */")
+#endif
+
+#endif
+
+// Tell the UI that this property is the result of a function called during the previous step
+cpp_quote("#define DBG_ATTRIB_VALUE_RETURN_VALUE 0x0040000000000000")
+// DBG_ATTRIB_EVENT is no longer used by IntelliTrace historical mode, in favor of the more specific attributes below.
+cpp_quote("#define DBG_ATTRIB_EVENT_TRACEPOINT       0x0080000000000000")
+cpp_quote("#define DBG_ATTRIB_EVENT_EXCEPTION    0x0100000000000000")
+cpp_quote("#define DBG_ATTRIB_EVENT_UNIMPORTANT  0x0200000000000000")
+
+// Implemented by CDebugger over in the package.  Called by the EE to inform
+// the debugger that something external to the debugger has changed that renders
+// data in the EE windows stale, so the debugger should refresh.
+//
+// Upon receiving the event from the EE, the package will use the message queue
+// to process successive incoming refresh events in one batch.  After doing the refresh,
+// the package will then pass the notification on to the sdm, which will notify each engine
+// so that cached expression evaluation results within the engine may be flushed.
+[
+    local,
+    object,
+    uuid("23d9a2f7-d25a-4963-a59e-4828cb4fecab"),
+    pointer_default(unique)
+]
+interface IDebugRefreshNotification140 : IUnknown
+{
+    HRESULT OnExpressionEvaluationRefreshRequested(BOOL fCallstackFormattingAffected);
+};
+
+// Interface that allows a timestamp to be exposed by an event such
+// as an output event. Call QueryInterface on the event obtain
+// this interface if available.  
+[
+    object,
+    uuid("5E1C7ABD-5EBF-462C-866A-8FDCD3678250"),
+    pointer_default(unique)
+]
+interface IDebugTimedEvent140 : IUnknown
+{
+    HRESULT GetTimeStamp([out] UINT64* pTimeStamp);
+};
+
+
+// Interface that allows wrapped message events to
+// return the original events that were used to create the complete
+// debug message string. 
+[
+    object,
+    uuid("D4A891BB-3F73-4964-A599-8B1210BCBC95"),
+    pointer_default(unique)
+]
+interface IDebugWrappedMessageEvent140 : IUnknown
+{
+    HRESULT GetTimedEventCount([out] DWORD* pceltEvents);
+    HRESULT GetTimedEvent([in] DWORD index, [out] BSTR* pbstrMessage, [out] UINT64* timeStamp );
+};
+
+// Callers of IVsDebuggerX.LaunchDebugTargetsX can set the VsDebugTargetInfoX.pUnknown property to an object implementing this interface.
+// While launching, the properties from the object are added to the telemetry associated with the launch.
+[
+    object,
+    uuid("F63A5F5C-DE4E-4361-8361-3178DBC0E675"),
+    pointer_default(unique)
+]
+interface IDebugLaunchCustomTelemetryProvider : IUnknown
+{
+    [propget] HRESULT Properties([out, retval] SAFEARRAY(BSTR)* psabstrProperties);
+};
+
+// Extension to IVsDebuggerDeploy to allow creating a debugger deploy connection
+// from a DkmTransportConnection. Like IVsDebuggerDeploy, this can be obtained from
+// SID_SVsShellDebugger.
+[
+#if !BUILDING_DEBUGGER_PROXY
+    // To avoid having msdbg140.h having to pull in DebuggerDeploy.h, mark this
+    // interface as local when we are just generating headers. There is a proxy/stub
+    // for this interface.
+    local,
+    #define ATTRIBS(x,y) [x, y]
+#else
+    #define ATTRIBS(x,y) [x]
+#endif
+    uuid(202F2CE9-7EA5-48ED-ACEA-7FD533923814),
+    version(1.0),
+    pointer_default(unique)
+]
+interface IVsDebuggerDeploy140 : IUnknown
+{
+    // Creates an IVsDebuggerDeployConnection for an already-established debugger
+    // connection.
+    //
+    // NOTE that it is _critical_ that the caller of this API Dispose the resulting connection
+    // (IVsDebuggerDeployConnection.Dispose). Failure to do so will lock numerous debugger
+    // session resources.
+    //
+    // uniqueConnectionId: GUID identifying the transport connection. This can be
+    //   obtained from DkmTransportConnection.UniqueId.
+    // ppConnection: created connection object
+    HRESULT CreateDeployConnectionForExistingConnection(
+        ATTRIBS(in, annotation("_In_")) REFGUID uniqueConnectionId,
+        ATTRIBS(out, annotation("_Deref_out_")) IVsDebuggerDeployConnection** ppConnection);
+
+#undef ATTRIBS
+};
+
+// Interface used to provide the process start time during an attach request. The SDM will implement
+// this interface from the process object (IDebugProcess2). This interface can also be implemented from
+// a IDebugLaunchedProcessAttachRequestEvent110 event to provide the SDM a start time.
+[
+    uuid(A385590E-F94C-47A5-BC29-84BD01526171),
+    version(1.0),
+    pointer_default(unique)
+]
+interface IDebugProcessStartTime140 : IUnknown
+{
+    // Returns a 64-bit date time value indicating when the process was started.
+    // The start time along with the id and the machine where the process was started
+    // can uniquely identify a process.
+    //
+    // If the start time is not known, or is invalid (ex: minidumps), this will set
+    // the out parameter to 0 and return an HRESULT of S_FALSE.
+    HRESULT GetStartTime([out] UINT64* pStartTime);
+};
+
+[
+    local,
+    object,
+    uuid(95A6C633-4A5F-46A0-B1A9-85145B163955),
+    version(1.0),
+    pointer_default(unique)
+]
+interface IDebugExceptionSettingsChangeNotification140 : IUnknown
+{
+    HRESULT OnExceptionSettingChanged([in] EXCEPTION_INFO* pExceptionInfo);
+    HRESULT OnExceptionSettingRemoved([in] EXCEPTION_INFO* pExceptionInfo);
+    HRESULT OnAllExceptionSettingsChanged([in] REFGUID guidType);
+    HRESULT OnAllExceptionSettingsRemoved([in] REFGUID guidType);
+};
+
+// Interface used to provide notifications when changes are made to the exception settings.
+// The SDM will implement this interface from the debug manager object (IVsDebugger).
+[
+    object,
+    uuid(73EA578A-D148-4B71-B894-58FC82451450),
+    version(1.0),
+    pointer_default(unique)
+]
+interface IDebugExceptionSettingsManager140 : IUnknown
+{
+    HRESULT AdviseExceptionSettingsEvents([in] IDebugExceptionSettingsChangeNotification140* pEventSink);
+    HRESULT UnadviseExceptionSettingsEvents([in] IDebugExceptionSettingsChangeNotification140* pEventSink);
+};
+
+
+// Interface to report to the UI that we are debugging retail with JMC on
+// The UI will ask the user to stop debugging, disable JMC, or continue
+[
+    uuid(bc87fb3f-20a5-432c-88e3-de67d0ed86b1),
+    version(1.0),
+    pointer_default(unique)
+]
+interface IDebugJMCWarningEvent140 : IUnknown
+{
+    HRESULT GetModuleName(
+        [out] BSTR* pbstrMessage);
+};
+
+// Interface is called before a Detach operation is started to determine if Detach is currently possible
+[
+    object,
+    uuid(E74B9A86-4FDD-4AD6-995E-38977FF3AD15),
+    version(1.0),
+    pointer_default(unique)
+]
+interface IDebugEngineProgram140 : IUnknown
+{
+    HRESULT BeforeDetach(
+        [out] BOOL* detachUnavailable,
+        [out] HRESULT* detachReasonCode);
+};

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="629EB7CC-69C2-43AC-9BC9-482B0F810C4E" Version="4.7.50" Language="en-US" Publisher="stylecop.codeplex.com " />
+    <DisplayName>StyleCop - VS2015</DisplayName>
+    <Description>StyleCop VS2015 Project.</Description>
+    <MoreInfo>https://stylecop.codeplex.com/documentation</MoreInfo>
+    <License>License.Rtf</License>
+    <Icon>StyleCop.ico</Icon>
+    <PreviewImage>StyleCopLogo.png</PreviewImage>
+    <Tags>StyleCop</Tags>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Community" />
+    <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Enterprise" />
+    <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+  </Assets>
+</PackageManifest>

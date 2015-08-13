@@ -1,0 +1,92 @@
+/****************************************************************************
+*  The TEXTMGR121 Interfaces
+*  Copyright (c) Microsoft Corporation, All Rights Reserved
+****************************************************************************/
+
+#ifndef INTEROPLIB
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "IVsQueryEditQuerySave2.idl";
+import "IVsQueryEditQuerySave80.idl";
+import "msxml.idl";
+import "context.idl";
+import "textmgr.idl";
+import "textmgr2.idl";
+import "textmgr100.idl";
+import "textmgr110.idl";
+import "textmgr120.idl";
+
+#endif
+
+/****************************************************************************
+********    IMPORTANT!!   *********
+
+All guids for interfaces and co-creatable objects in this file should be defined
+in textmgruuids.h
+
+****************************************************************************/
+
+#include "textmgruuids.h"
+#include "vsshelluuids.h"
+
+////////////////////////////////////////////////////////////////////////////
+// IVsDropdownBar2 interface
+////////////////////////////////////////////////////////////////////////////
+[
+    uuid(uuid_IVsDropdownBar2),
+]
+// Preserve signature for method 
+[custom(uuid_VsPreserveSigAttribute, "preservesig")]
+interface IVsDropdownBar2 : IUnknown
+{
+    [local]  HRESULT SetComboEnabled([in] long iCombo, [in] BOOL bEnabled);       // Enables or disables a drop down
+    [local]  HRESULT GetComboEnabled([in] long iCombo, [out] BOOL *pbEnabled);    // Gives the current enabled status of a drop down
+};
+
+////////////////////////////////////////////////////////////////////////////
+// IVsDropdownBarClient3 interface
+////////////////////////////////////////////////////////////////////////////
+[
+    uuid(uuid_IVsDropdownBarClient3),
+]
+// Preserve signature for method 
+[custom(uuid_VsPreserveSigAttribute, "preservesig")]
+interface IVsDropdownBarClient3 : IUnknown
+{
+    [local]  HRESULT GetComboWidth([in] long iCombo, [out] long *piWidthPercent);  // Sets width of the column by percent. If all columns return 0 the default width will be used. Value should be 0-100.
+
+    [local]  HRESULT GetAutomationProperties([in] long iCombo, [out] BSTR *pbstrName, [out] BSTR *pbstrId);                   // Sets the automation name and id for the drop down box.
+
+    [local]  HRESULT GetEntryImage([in] long iCombo, [in] long iIndex, [out] long *piImageIndex, [out] HANDLE *phImageList);  // Successor to IVsDropdownBarClient.GetEntryImage this method includes returning the image list.
+                                                                                                                              // If this method result is not == 0 the drop down bar will fallback and call IVsDropdownBarClient.GetEntryImage.
+};
+
+////////////////////////////////////////////////////////////////////////////
+// IVsCompletionSet3 interface
+////////////////////////////////////////////////////////////////////////////
+[
+    uuid(uuid_IVsCompletionSet3),
+]
+// Preserve signature for method 
+[custom(uuid_VsPreserveSigAttribute, "preservesig")]
+interface IVsCompletionSet3 : IUnknown
+{
+    // Get the image index of the context icon for the given item. If piGlyph == -1 no icon will be displayed.
+    [local]  HRESULT GetContextIcon([in] long iIndex, [out] long *piGlyph);
+
+    // Get the list of context images (glyphs) supported by this completion set.
+    [local] HRESULT  GetContextImageList ([out] HANDLE *phImageList);
+};
+
+// Used by IVsDropdownBarClient::GetComboAttributes(). Note: used as flags!
+enum DROPDOWNENTRYTYPE2
+{ 
+    /* defined in textmgr.idl
+    ENTRY_TEXT   = 1, // plain text only (IVsDropdownBarClient::GetText will be called)
+    ENTRY_ATTR   = 2, // text that may have bold/italic/underline attributes (IVsDropdownBarClient::GetAttributes will be called)
+    ENTRY_IMAGE  = 4  // a glyph is drawn to the left of the entries (IVsDropdownBarClient::GetImage will be called)
+    */
+    ENTRY_UNINDENT_COLLAPSED = 8 // indicates whether the indentation should be applied to the selelected item of the combobox
+};

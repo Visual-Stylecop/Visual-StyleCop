@@ -1,0 +1,44 @@
+<SourceAnalysisSettings Version="4.2">
+  <GlobalSettings>
+    <StringProperty Name="MergeSettingsFiles">NoMerge</StringProperty>
+    <StringProperty Name="Culture">en-US</StringProperty>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>Dll</Value>          
+    </CollectionProperty>
+	   <CollectionProperty Name="DictionaryFolders">
+	   <!-- At project level -->
+      <Value>..\..\</Value>
+	  <!-- At folder in projet level -->
+	  <Value>..\..\..\</Value>
+	  <Value>..\..\..\..\</Value>
+	  <Value>..\..\..\..\..\</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+  <Analyzers>
+    <Analyzer AnalyzerId="Microsoft.SourceAnalysis.Internal.ParamCheck">
+      <Rules>
+        <Rule Name="OutParametersMustNotBeVerified">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">False</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+        <Rule Name="ParametersMustBeVerified">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">False</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+        <Rule Name="PrivateMethodsMustUseAsserts">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">False</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+        <Rule Name="PublicMethodsMustUseRequires">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">False</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+      </Rules>
+      <AnalyzerSettings />
+    </Analyzer>
+  </Analyzers>
+</SourceAnalysisSettings>

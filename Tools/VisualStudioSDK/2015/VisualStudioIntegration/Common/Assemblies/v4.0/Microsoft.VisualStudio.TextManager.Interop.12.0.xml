@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.VisualStudio.TextManager.Interop.12.0</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow2"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow2.GetContainingCodeWindow(Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow@)"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow2.GetEmbeddedCodeWindow(System.Int32,Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow@)"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow2.GetEmbeddedCodeWindowCount(System.Int32@)"></member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindowEvents2"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindowEvents2.OnCloseEmbeddedCodeWindow(Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow)"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindowEvents2.OnNewEmbeddedCodeWindow(Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow)"></member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsContainedLanguageHost3"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsContainedLanguageHost3.GetIndentSize(System.Int32@)"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsContainedLanguageHost3.GetLineIndent(System.Int32,System.String@)"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsContainedLanguageHost3.GetTabs(System.Int32@)"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsContainedLanguageHost3.GetTabSize(System.Int32@)"></member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsFindManager2"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsFindManager2.FindCurrentTarget(Microsoft.VisualStudio.TextManager.Interop.IVsFindTarget@)"></member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextManager4"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsTextManager4.GetUserPreferences4(Microsoft.VisualStudio.TextManager.Interop.VIEWPREFERENCES3[],Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3[],Microsoft.VisualStudio.TextManager.Interop.FONTCOLORPREFERENCES2[])"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsTextManager4.SetUserPreferences4(Microsoft.VisualStudio.TextManager.Interop.VIEWPREFERENCES3[],Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3[],Microsoft.VisualStudio.TextManager.Interop.FONTCOLORPREFERENCES2[])"></member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.IVsTextManagerEvents4"></member>
+    <member name="M:Microsoft.VisualStudio.TextManager.Interop.IVsTextManagerEvents4.OnUserPreferencesChanged4(Microsoft.VisualStudio.TextManager.Interop.VIEWPREFERENCES3[],Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3[],Microsoft.VisualStudio.TextManager.Interop.FONTCOLORPREFERENCES2[])"></member>
+    <member name="T:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fAutoListMembers"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fAutoListParams"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fBraceCompletion"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fCutCopyBlanks"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fDropdownBar"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fHideAdvancedAutoListMembers"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fHotURLs"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fInsertTabs"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fLineNumbers"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowAnnotations"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowCaretPosition"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowChanges"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowCompletion"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowErrors"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowHorizontalScrollBar"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowMarks"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowPreview"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowSmartIndent"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fShowVerticalScrollBar"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fTwoWayTreeview"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fUseMapMode"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fVirtualSpace"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fWordWrap"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.fWordWrapGlyphs"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.guidLang"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.IndentStyle"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.szFileType"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.uIndentSize"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.uOverviewWidth"></member>
+    <member name="F:Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES3.uTabSize"></member>
+  </members>
+</doc>
