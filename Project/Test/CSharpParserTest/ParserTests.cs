@@ -34,24 +34,9 @@ namespace CSharpParserTest
         #region Constants and Fields
 
         /// <summary>
-        /// The project root.
-        /// </summary>
-        private static string ProjectRoot = @"C:\_Dev\GitHub\StyleCop\Project";
-
-        /// <summary>
-        /// The test bin.
-        /// </summary>
-        private static string TestBin = Path.Combine(ProjectRoot, @"Test\TestBin");
-
-        /// <summary>
         /// The test context.
         /// </summary>
         private static TestContext TestContext;
-
-        /// <summary>
-        /// The test root.
-        /// </summary>
-        private static string TestRoot = Path.Combine(ProjectRoot, @"Test\AddIns\CSharp\Parser\CSharpParserTest");
 
         #endregion
 
@@ -67,20 +52,17 @@ namespace CSharpParserTest
         public static void MyClassInitialize(TestContext testContext)
         {
             TestContext = testContext;
-
-            if (!Directory.Exists(TestContext.TestResultsDirectory))
-            {
-                Directory.CreateDirectory(TestContext.TestResultsDirectory);
-            }
         }
 
         /// <summary>
         /// The cs parser test assorted.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\Assorted", "Assorted")]
         public void CsParserTestAssorted()
         {
-            //Console.ReadLine();
             this.RunTest("Assorted");
         }
 
@@ -88,6 +70,9 @@ namespace CSharpParserTest
         /// The cs parser test elements.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\Elements", "Elements")]
         public void CsParserTestElements()
         {
             this.RunTest("Elements");
@@ -97,6 +82,9 @@ namespace CSharpParserTest
         /// The cs parser test extension methods.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\ExtensionMethods", "ExtensionMethods")]
         public void CsParserTestExtensionMethods()
         {
             this.RunTest("ExtensionMethods");
@@ -106,6 +94,9 @@ namespace CSharpParserTest
         /// The cs parser test file lists.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\FileLists", "FileLists")]
         public void CsParserTestFileLists()
         {
             this.RunTest("FileLists");
@@ -115,6 +106,9 @@ namespace CSharpParserTest
         /// The cs parser test generated code.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\GeneratedCode", "GeneratedCode")]
         public void CsParserTestGeneratedCode()
         {
             this.RunTest("GeneratedCode");
@@ -124,6 +118,9 @@ namespace CSharpParserTest
         /// The cs parser test implicitly typed arrays.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\ImplicitlyTypedArrays", "ImplicitlyTypedArrays")]
         public void CsParserTestImplicitlyTypedArrays()
         {
             this.RunTest("ImplicitlyTypedArrays");
@@ -133,6 +130,9 @@ namespace CSharpParserTest
         /// The cs parser test lambda expressions.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\LambdaExpressions", "LambdaExpressions")]
         public void CsParserTestLambdaExpressions()
         {
             this.RunTest("LambdaExpressions");
@@ -142,6 +142,9 @@ namespace CSharpParserTest
         /// The cs parser test named arguments.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\NamedArguments", "NamedArguments")]
         public void CsParserTestNamedArguments()
         {
             this.RunTest("NamedArguments");
@@ -151,6 +154,9 @@ namespace CSharpParserTest
         /// The cs parser test query expressions.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\QueryExpressions", "QueryExpressions")]
         public void CsParserTestQueryExpressions()
         {
             this.RunTest("QueryExpressions");
@@ -163,21 +169,17 @@ namespace CSharpParserTest
         /// <summary>
         /// The run test.
         /// </summary>
-        /// <param name="testName">
-        /// The test name.
-        /// </param>
-        private void RunTest(string testName)
+        /// <param name="testName">The test name.</param>
+        /// <param name="testfilesToCopy">The testfiles to copy.</param>
+        private void RunTest(string testName, params string[] testfilesToCopy)
         {
-            Assert.IsTrue(
-                StyleCopTestRunner.Run(
-                    testName,
-                    TestRoot,
-                    TestContext.DeploymentDirectory,
-                    TestContext.TestResultsDirectory,
-                    false,
-                    Path.Combine(TestBin, "StyleCop.CSharp.Rules.dll"),
-                    Path.Combine(TestBin, "CSharpParserTestRules.dll")),
-                TestContext.TestResultsDirectory);
+            string[] files = new string[testfilesToCopy.Length + 2];
+            files[0] = Path.Combine(TestContext.DeploymentDirectory, "StyleCop.CSharp.Rules.dll");
+            files[1] = Path.Combine(TestContext.DeploymentDirectory, "CSharpParserTestRules.dll");
+            testfilesToCopy.CopyTo(files, 2);
+
+            bool result = StyleCopTestRunner.Run(testName, TestContext.TestDir, TestContext.ResultsDirectory, TestContext.DeploymentDirectory, false, files);
+            Assert.IsTrue(result);
         }
 
         #endregion

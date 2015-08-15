@@ -25,6 +25,7 @@ namespace StyleCop.VisualStudio
     using Microsoft.VisualStudio.Shell.Interop;
 
     using StyleCop.Diagnostics;
+    using EnvDTE80;
 
     /// <summary>
     /// Implementation of <see cref="T:Microsoft.VisualStudio.Shell.ErrorListProvider"/> .
@@ -79,14 +80,14 @@ namespace StyleCop.VisualStudio
                 IVsHierarchy hierarchyItem = hierarchyItems.ContainsKey(violation.File) ? hierarchyItems[violation.File] : null;
 
                 var task = new ViolationTask(this.serviceProvider, violation, hierarchyItem);
-                
+
                 hierarchyItem = task.HierarchyItem;
 
                 if (!hierarchyItems.ContainsKey(violation.File))
                 {
                     hierarchyItems.Add(violation.File, hierarchyItem);
                 }
-
+               
                 this.Tasks.Add(task);
             }
 

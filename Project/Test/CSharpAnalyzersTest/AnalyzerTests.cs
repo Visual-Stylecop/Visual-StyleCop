@@ -11,7 +11,7 @@ namespace CSharpAnalyzersTest
 {
     using System;
     using System.IO;
-
+    using System.Reflection;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using StyleCop.Test;
@@ -19,56 +19,34 @@ namespace CSharpAnalyzersTest
     /// <summary>
     /// The analyzer tests.
     /// </summary>
+    /// <remarks>TODO : Use deployement item on each test and cleanup after test.</remarks>
     [TestClass]
     public class AnalyzerTests
     {
-        #region Constants and Fields
-
         /// <summary>
-        ///   The project root.
+        /// The test context.
         /// </summary>
-        private static string ProjectRoot = Path.GetFullPath("C:\\_Dev\\GitHub\\StyleCop\\Project");
-
-        /// <summary>
-        ///   The test bin.
-        /// </summary>
-        private static string TestBin = Path.Combine(ProjectRoot, @"Test\TestBin");
-
-        /// <summary>
-        ///   The test context.
-        /// </summary>
-        private static TestContext TestContext;
-
-        /// <summary>
-        ///   The test root.
-        /// </summary>
-        private static string TestRoot = Path.Combine(ProjectRoot, @"Test\CSharpAnalyzersTest");
-
-        #endregion
+        private static TestContext testContext;
 
         #region Public Methods
 
         /// <summary>
-        /// The my class initialize.
+        /// Tests the class initialize.
         /// </summary>
-        /// <param name="testContext">
-        /// The test context.
-        /// </param>
+        /// <param name="context">The context.</param>
         [ClassInitialize]
-        public static void MyClassInitialize(TestContext testContext)
+        public static void TestClassInitialize(TestContext context)
         {
-            TestContext = testContext;
-
-            if (!Directory.Exists(TestContext.TestResultsDirectory))
-            {
-                Directory.CreateDirectory(TestContext.TestResultsDirectory);
-            }
+            testContext = context;
         }
 
         /// <summary>
         /// The cs analyzer access modifiers test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\AccessModifiers", "AccessModifiers")]
         public void CsAnalyzerAccessModifiersTest()
         {
             this.RunTest("AccessModifiers");
@@ -78,6 +56,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer built in types test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\BuiltInTypes", "BuiltInTypes")]
         public void CsAnalyzerBuiltInTypesTest()
         {
             this.RunTest("BuiltInTypes");
@@ -87,6 +68,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer class members test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\ClassMembers", "ClassMembers")]
         public void CsAnalyzerClassMembersTest()
         {
             this.RunTest("ClassMembers");
@@ -96,6 +80,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer comments test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\Comments", "Comments")]
         public void CsAnalyzerCommentsTest()
         {
             this.RunTest("Comments");
@@ -105,6 +92,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer curly brackets test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\CurlyBrackets", "CurlyBrackets")]
         public void CsAnalyzerCurlyBracketsTest()
         {
             this.RunTest("CurlyBrackets");
@@ -114,6 +104,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer debug text test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\DebugText", "DebugText")]
         public void CsAnalyzerDebugTextTest()
         {
             this.RunTest("DebugText");
@@ -123,6 +116,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer declaration keyword order test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\DeclarationKeywordOrder", "DeclarationKeywordOrder")]
         public void CsAnalyzerDeclarationKeywordOrderTest()
         {
             this.RunTest("DeclarationKeywordOrder");
@@ -132,15 +128,21 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer documentation test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\Documentation", "Documentation")]
         public void CsAnalyzerDocumentationTest()
         {
-            this.RunTest("Documentation", Path.Combine(TestRoot, @"TestData\Documentation\IncludedDocumentation.xml"));
+            this.RunTest("Documentation");
         }
 
         /// <summary>
         /// The cs analyzer element order test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\ElementOrder", "ElementOrder")]
         public void CsAnalyzerElementOrderTest()
         {
             this.RunTest("ElementOrder");
@@ -150,6 +152,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer empty strings test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\EmptyStrings", "EmptyStrings")]
         public void CsAnalyzerEmptyStringsTest()
         {
             this.RunTest("EmptyStrings");
@@ -159,6 +164,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer file contents test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\FileContents", "FileContents")]
         public void CsAnalyzerFileContentsTest()
         {
             this.RunTest("FileContents");
@@ -168,6 +176,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer file headers test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\FileHeaders", "FileHeaders")]
         public void CsAnalyzerFileHeadersTest()
         {
             this.RunTest("FileHeaders");
@@ -177,6 +188,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer line spacing test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\LineSpacing", "LineSpacing")]
         public void CsAnalyzerLineSpacingTest()
         {
             this.RunTest("LineSpacing");
@@ -186,6 +200,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer method parameters test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\MethodParameters", "MethodParameters")]
         public void CsAnalyzerMethodParametersTest()
         {
             this.RunTest("MethodParameters");
@@ -195,6 +212,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer naming test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\Naming", "Naming")]
         public void CsAnalyzerNamingTest()
         {
             this.RunTest("Naming");
@@ -204,6 +224,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer parenthesis test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\Parenthesis", "Parenthesis")]
         public void CsAnalyzerParenthesisTest()
         {
             this.RunTest("Parenthesis");
@@ -213,6 +236,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer query clauses test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\QueryClauses", "QueryClauses")]
         public void CsAnalyzerQueryClausesTest()
         {
             this.RunTest("QueryClauses");
@@ -222,6 +248,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer regions test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\Regions", "Regions")]
         public void CsAnalyzerRegionsTest()
         {
             this.RunTest("Regions");
@@ -231,6 +260,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer spacing test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\Spacing", "Spacing")]
         public void CsAnalyzerSpacingTest()
         {
             this.RunTest("Spacing");
@@ -240,6 +272,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer statements test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\Statements", "Statements")]
         public void CsAnalyzerStatementsTest()
         {
             this.RunTest("Statements");
@@ -249,6 +284,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer tabs test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\Tabs", "Tabs")]
         public void CsAnalyzerTabsTest()
         {
             this.RunTest("Tabs");
@@ -258,6 +296,9 @@ namespace CSharpAnalyzersTest
         /// The cs analyzer unnecessary code test.
         /// </summary>
         [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\UnnecessaryCode", "UnnecessaryCode")]
         public void CsAnalyzerUnnecessaryCodeTest()
         {
             this.RunTest("UnnecessaryCode");
@@ -276,16 +317,17 @@ namespace CSharpAnalyzersTest
         /// <param name="testfilesToCopy">
         /// The testfiles to copy.
         /// </param>
+
         private void RunTest(string testName, params string[] testfilesToCopy)
         {
             string[] files = new string[testfilesToCopy.Length + 2];
-            files[0] = Path.Combine(TestBin, "StyleCop.CSharp.dll");
-            files[1] = Path.Combine(TestBin, "StyleCop.CSharp.Rules.dll");
+            files[0] = Path.Combine(testContext.DeploymentDirectory, "StyleCop.CSharp.dll");
+            files[1] = Path.Combine(testContext.DeploymentDirectory, "StyleCop.CSharp.Rules.dll");
             testfilesToCopy.CopyTo(files, 2);
+           
+            bool result = StyleCopTestRunner.Run(testName, testContext.TestDir, testContext.ResultsDirectory,  testContext.DeploymentDirectory, false, files);
 
-            bool result = StyleCopTestRunner.Run(testName, TestRoot, TestContext.DeploymentDirectory, TestContext.TestResultsDirectory, false, files);
-
-            Assert.IsTrue(result, TestContext.TestResultsDirectory);
+            Assert.IsTrue(result);
         }
 
         #endregion

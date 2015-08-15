@@ -134,11 +134,7 @@ namespace StyleCop.Test
             Param.Ignore(addinFiles);
 
             string resultsOutputLocation = Path.Combine(testOutputLocation, testName + "Results.xml");
-            string testDataLocation = Path.Combine(Path.Combine(testRoot, "TestData"), testName);
-
-            resultsOutputLocation = Environment.ExpandEnvironmentVariables(resultsOutputLocation);
-            testDataLocation = Environment.ExpandEnvironmentVariables(testDataLocation);
-            
+            string testDataLocation = Path.Combine(testOutputLocation, testName);
             string testDescriptionLocation = Path.Combine(testDataLocation, "TestDescription.xml");
 
             if (!File.Exists(testDescriptionLocation))

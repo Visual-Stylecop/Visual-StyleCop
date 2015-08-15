@@ -2,7 +2,7 @@
 
 SETLOCAL
 
-CALL msbuild %PROJECTROOT%\Docs\Rules\BuildDocs.proj
-CALL msbuild %PROJECTROOT%\Docs\Sdk\BuildDocs.proj
+CALL msbuild C:\_Dev\GitHub\StyleCop\Project\Docs\Rules\BuildDocs.proj
+CALL msbuild C:\_Dev\GitHub\StyleCop\Project\Docs\Sdk\BuildDocs.proj
 
 ENDLOCAL

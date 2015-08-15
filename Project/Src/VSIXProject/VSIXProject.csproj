@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,7 +12,6 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VSIXProject</RootNamespace>
     <AssemblyName>VSIXProject</AssemblyName>
-    <AssemblyOriginatorKeyFile>..\..\StyleCop.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
@@ -64,14 +64,23 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\Release\VSIXProject.XML</DocumentationFile>
+    <CreateVsixContainer>True</CreateVsixContainer>
+    <DeployExtension>True</DeployExtension>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>StyleCop.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\StyleCop.snk">
       <Link>StyleCop.snk</Link>
     </None>
+    <Content Include="Docs\StyleCop.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,7 +109,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AddIns\CSharp\Parser\CSharpParser.csproj">
+    <ProjectReference Include="..\Analyzers\CSharpAnalyzers.csproj">
+      <Project>{de988d84-eaf4-4fd7-a33a-9ee0e6de752c}</Project>
+      <Name>CSharpAnalyzers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parser\CSharpParser.csproj">
       <Project>{c173acf5-2ce5-4771-83a4-d01453c8cb09}</Project>
       <Name>CSharpParser</Name>
     </ProjectReference>
@@ -112,6 +125,9 @@
       <Project>{58a36a69-e471-4e7d-b75d-efde5b1b851b}</Project>
       <Name>VSPackage</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

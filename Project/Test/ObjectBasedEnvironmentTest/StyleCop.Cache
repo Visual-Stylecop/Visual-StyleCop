@@ -125,4 +125,7 @@
   <project key="-1759128208">
     <configuration>TRACE</configuration>
   </project>
+  <project key="1234661656">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>

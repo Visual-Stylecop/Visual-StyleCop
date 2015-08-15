@@ -58,4 +58,7 @@
   <project key="-2128769415">
     <configuration>TRACE</configuration>
   </project>
+  <project key="-1977836926">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>

@@ -119,7 +119,6 @@
     <None Include="..\..\StyleCop.snk">
       <Link>StyleCop.snk</Link>
     </None>
-    <None Include="CodeCoverage.testrunconfig" />
     <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +172,7 @@
     <Compile Include="VSWindowsTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Src\AddIns\CSharp\Parser\CSharpParser.csproj">
+    <ProjectReference Include="..\..\Src\Parser\CSharpParser.csproj">
       <Project>{c173acf5-2ce5-4771-83a4-d01453c8cb09}</Project>
       <Name>CSharpParser</Name>
     </ProjectReference>
