@@ -1,5 +1,5 @@
 # StyleCop
-Copy of StyleCop (andyr) from stylecop.codeplex.com for visual studio 2015
+Copy of StyleCop (andyr) from stylecop.codeplex.com for visual studio 2015 without resharper
 
 I am cleaning the solution and it should be easier to work than previous version.
 No command lines only visual studio 2015 and GitHub.
