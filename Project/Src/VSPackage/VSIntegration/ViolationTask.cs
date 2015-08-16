@@ -23,6 +23,7 @@ namespace StyleCop.VisualStudio
     using System.Reflection;
     using System.Security;
     using System.Windows.Forms;
+    using StyleCop.VisualStudio.Properties;
     using EnvDTE;
 
     using Microsoft.VisualStudio;
@@ -50,7 +51,7 @@ namespace StyleCop.VisualStudio
         /// Instance of the analysis core.
         /// </summary>
         private StyleCopCore core;
-        
+
         #endregion Private Fields
 
         /// <summary>
@@ -142,7 +143,7 @@ namespace StyleCop.VisualStudio
                         this.Core,
                         null,
                         Strings.CouldNotNavigateToFile,
-                        Strings.Title, 
+                        Strings.Title,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
@@ -223,7 +224,7 @@ namespace StyleCop.VisualStudio
             }
 
             var project = ProjectUtilities.GetProject(this.Document);
-            
+
             if (project == null)
             {
                 return null;
@@ -250,29 +251,11 @@ namespace StyleCop.VisualStudio
 
             try
             {
-                // Find the hh.exe application.
-                string systemFolder = GetWindowsFolder();
-                if (!string.IsNullOrEmpty(systemFolder))
-                {
-                    string hh = Path.Combine(systemFolder, "hh.exe");
+                // Display wiki with default browser. Now help is only online.
+                System.Diagnostics.Process.Start(string.Format(CultureInfo.InvariantCulture, "{0}{1}", Settings.Default.BaseHelpUrl, this.violation.Rule.CheckId));
 
-                    if (File.Exists(hh))
-                    {
-                        // Find the documentation chm file.
-                        string chm = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Docs\\StyleCop.chm");
-                        if (File.Exists(chm))
-                        {
-                            // Create the path to the specific help topic to display.
-                            string arguments = string.Format(CultureInfo.InvariantCulture, "{0}::/{1}.html", chm, this.violation.Rule.CheckId);
-
-                            // Start the documentation process.
-                            System.Diagnostics.Process.Start(hh, arguments);
-
-                            // Indicate success.
-                            success = true;
-                        }
-                    }
-                }
+                // Indicate success.
+                success = true;
             }
             catch (ArgumentException)
             {
