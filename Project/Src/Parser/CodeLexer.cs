@@ -225,13 +225,13 @@ namespace StyleCop.CSharp
                     case '\t':
                         symbol = this.GetWhitespace();
                         break;
-
                     case '\'':
                     case '\"':
                         symbol = this.GetString();
                         break;
 
                     case '@':
+                    case '$':
                         symbol = this.GetLiteral();
                         break;
 
@@ -1301,7 +1301,7 @@ namespace StyleCop.CSharp
 
             // Read the literal string character and add it to the string buffer.
             char character = this.codeReader.ReadNext();
-            Debug.Assert(character == '@', "Expected an @ keyword");
+            Debug.Assert(character == '@' || character == '$', "Expected an @ keyword or $ for interpolation");
             text.Append(character);
 
             // Make sure there is enough code left to contain at least @ plus one additional character.
@@ -1381,7 +1381,7 @@ namespace StyleCop.CSharp
         private Symbol GetLiteralString(StringBuilder text)
         {
             Param.AssertNotNull(text, "text");
-            Debug.Assert(text.Length == 1 && text[0] == '@', "Expected an @ symbol");
+            Debug.Assert(text.Length == 1 && (text[0] == '@' || text[0] == '$'), "Expected an @ symbol or $ for interpolation.");
 
             // Initialize the location of the start of the string.
             int startIndex = this.marker.Index;
