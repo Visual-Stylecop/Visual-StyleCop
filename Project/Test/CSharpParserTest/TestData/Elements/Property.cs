@@ -182,3 +182,12 @@ public interface Interface1
     int Property1 { set; get; }
 }
 #endregion
+
+#region Properties initializer C# 6
+
+public class ClassPropInit1
+{
+    public int Property1 { get; set; } = 45;
+}
+
+#endregion

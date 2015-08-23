@@ -351,7 +351,7 @@ namespace StyleCop.CSharp
                     nextType != CsTokenType.CloseSquareBracket && // someIndexer[someArray[1]] = 2;
                     nextType != CsTokenType.OpenSquareBracket && // someArray[1][2] = 2;
                     nextType != CsTokenType.Semicolon && nextType != CsTokenType.Comma && nextType != CsTokenType.CloseGenericBracket && nextNode.Value.Text != "++"
-                    && nextNode.Value.Text != "--" && !nextNode.Value.Text.StartsWith(".", StringComparison.Ordinal))
+                    && nextNode.Value.Text != "--" && nextNode.Value.Text != "?." && !nextNode.Value.Text.StartsWith(".", StringComparison.Ordinal))
                 {
                     this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.ClosingSquareBracketsMustBeSpacedCorrectly);
                 }
@@ -851,8 +851,8 @@ namespace StyleCop.CSharp
                         if (nextNonWhitespaceToken.CsTokenType == CsTokenType.OpenSquareBracket)
                         {
                             this.AddViolation(
-                                tokenNode.Value.FindParentElement(), 
-                                tokenNode.Value.Location, 
+                                tokenNode.Value.FindParentElement(),
+                                tokenNode.Value.Location,
                                 Rules.CodeMustNotContainSpaceAfterNewKeywordInImplicitlyTypedArrayAllocation);
                             break;
                         }
@@ -1127,8 +1127,8 @@ namespace StyleCop.CSharp
             if (addViolation)
             {
                 this.AddViolation(
-                    tokenNode.Value.FindParentElement(), 
-                    tokenNode.Value.Location, 
+                    tokenNode.Value.FindParentElement(),
+                    tokenNode.Value.Location,
                     positiveToken ? Rules.PositiveSignsMustBeSpacedCorrectly : Rules.NegativeSignsMustBeSpacedCorrectly);
             }
 
@@ -1140,8 +1140,8 @@ namespace StyleCop.CSharp
                     || tokenType == CsTokenType.MultiLineComment)
                 {
                     this.AddViolation(
-                        tokenNode.Value.FindParentElement(), 
-                        tokenNode.Value.Location, 
+                        tokenNode.Value.FindParentElement(),
+                        tokenNode.Value.Location,
                         positiveToken ? Rules.PositiveSignsMustBeSpacedCorrectly : Rules.NegativeSignsMustBeSpacedCorrectly);
                 }
             }
@@ -1601,7 +1601,7 @@ namespace StyleCop.CSharp
                                     case OperatorCategory.Shift:
                                     case OperatorCategory.Lambda:
 
-                                        // Symbols should have whitespace on both sides
+                                        // Symbols should have whitespace on both sides except null conditional '?.'
                                         this.CheckSymbol(tokens, tokenNode);
                                         break;
 
@@ -1662,35 +1662,54 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(tokens, "tokens");
             Param.AssertNotNull(tokenNode, "tokenNode");
 
-            // Symbols should have whitespace on both sides.
-            Node<CsToken> previousNode = tokenNode.Previous;
-            if (previousNode != null && previousNode.Value.CsTokenType != CsTokenType.WhiteSpace && previousNode.Value.CsTokenType != CsTokenType.EndOfLine)
+            OperatorSymbol operatorSymbol = tokenNode.Value as OperatorSymbol;
+            if (operatorSymbol != null && operatorSymbol.SymbolType == OperatorType.NullConditional)
             {
-                this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.SymbolsMustBeSpacedCorrectly, tokenNode.Value.Text);
-            }
-
-            Node<CsToken> nextNode = tokenNode.Next;
-            if (nextNode != null && nextNode.Value.CsTokenType != CsTokenType.WhiteSpace && nextNode.Value.CsTokenType != CsTokenType.EndOfLine)
-            {
-                // Make sure the previous token is not operator.
-                if (previousNode != null)
+                // Symbols should not have whitespace on both sides for operator '?.'.
+                Node<CsToken> previousNode = tokenNode.Previous;
+                if (previousNode != null && previousNode.Value.CsTokenType == CsTokenType.WhiteSpace && previousNode.Value.CsTokenType != CsTokenType.EndOfLine)
                 {
-                    foreach (CsToken item in tokens.ReverseIterator(previousNode))
-                    {
-                        if (item.CsTokenType == CsTokenType.Operator)
-                        {
-                            return;
-                        }
-                        else if (item.CsTokenType != CsTokenType.WhiteSpace && item.CsTokenType != CsTokenType.EndOfLine
-                                 && item.CsTokenType != CsTokenType.SingleLineComment && item.CsTokenType != CsTokenType.MultiLineComment
-                                 && item.CsTokenType != CsTokenType.PreprocessorDirective)
-                        {
-                            break;
-                        }
-                    }
+                    this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.SymbolsMustBeSpacedCorrectly, tokenNode.Value.Text);
                 }
 
-                this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.LineNumber, Rules.SymbolsMustBeSpacedCorrectly, tokenNode.Value.Text);
+                Node<CsToken> nextNode = tokenNode.Next;
+                if (nextNode != null && nextNode.Value.CsTokenType == CsTokenType.WhiteSpace && nextNode.Value.CsTokenType != CsTokenType.EndOfLine)
+                {
+                    this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.SymbolsMustBeSpacedCorrectly, tokenNode.Value.Text);
+                }
+            }
+            else
+            {
+                // Symbols should have whitespace on both sides.
+                Node<CsToken> previousNode = tokenNode.Previous;
+                if (previousNode != null && previousNode.Value.CsTokenType != CsTokenType.WhiteSpace && previousNode.Value.CsTokenType != CsTokenType.EndOfLine)
+                {
+                    this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.SymbolsMustBeSpacedCorrectly, tokenNode.Value.Text);
+                }
+
+                Node<CsToken> nextNode = tokenNode.Next;
+                if (nextNode != null && nextNode.Value.CsTokenType != CsTokenType.WhiteSpace && nextNode.Value.CsTokenType != CsTokenType.EndOfLine)
+                {
+                    // Make sure the previous token is not operator.
+                    if (previousNode != null)
+                    {
+                        foreach (CsToken item in tokens.ReverseIterator(previousNode))
+                        {
+                            if (item.CsTokenType == CsTokenType.Operator)
+                            {
+                                return;
+                            }
+                            else if (item.CsTokenType != CsTokenType.WhiteSpace && item.CsTokenType != CsTokenType.EndOfLine
+                                     && item.CsTokenType != CsTokenType.SingleLineComment && item.CsTokenType != CsTokenType.MultiLineComment
+                                     && item.CsTokenType != CsTokenType.PreprocessorDirective)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.LineNumber, Rules.SymbolsMustBeSpacedCorrectly, tokenNode.Value.Text);
+                }
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="ParserTests.cs" company="">
-//   
+//     MS-PL
 // </copyright>
 // <license>
 //   This source code is subject to terms and conditions of the Microsoft 
@@ -36,7 +36,7 @@ namespace CSharpParserTest
         /// <summary>
         /// The test context.
         /// </summary>
-        private static TestContext TestContext;
+        private static TestContext testContext;
 
         #endregion
 
@@ -45,13 +45,13 @@ namespace CSharpParserTest
         /// <summary>
         /// The my class initialize.
         /// </summary>
-        /// <param name="testContext">
+        /// <param name="context">
         /// The test context.
         /// </param>
         [ClassInitialize]
-        public static void MyClassInitialize(TestContext testContext)
+        public static void MyClassInitialize(TestContext context)
         {
-            TestContext = testContext;
+            testContext = context;
         }
 
         /// <summary>
@@ -170,15 +170,14 @@ namespace CSharpParserTest
         /// The run test.
         /// </summary>
         /// <param name="testName">The test name.</param>
-        /// <param name="testfilesToCopy">The testfiles to copy.</param>
-        private void RunTest(string testName, params string[] testfilesToCopy)
+        /// <param name="simulationFrameworkVersion">The framework version to simulate.</param>
+        private void RunTest(string testName, double simulationFrameworkVersion = 0)
         {
-            string[] files = new string[testfilesToCopy.Length + 2];
-            files[0] = Path.Combine(TestContext.DeploymentDirectory, "StyleCop.CSharp.Rules.dll");
-            files[1] = Path.Combine(TestContext.DeploymentDirectory, "CSharpParserTestRules.dll");
-            testfilesToCopy.CopyTo(files, 2);
+            string[] files = new string[2];
+            files[0] = Path.Combine(testContext.DeploymentDirectory, "StyleCop.CSharp.Rules.dll");
+            files[1] = Path.Combine(testContext.DeploymentDirectory, "CSharpParserTestRules.dll");
 
-            bool result = StyleCopTestRunner.Run(testName, TestContext.TestDir, TestContext.ResultsDirectory, TestContext.DeploymentDirectory, false, files);
+            bool result = StyleCopTestRunner.Run(testName, testContext.TestDir, testContext.ResultsDirectory, testContext.DeploymentDirectory, false, simulationFrameworkVersion, files);
             Assert.IsTrue(result);
         }
 

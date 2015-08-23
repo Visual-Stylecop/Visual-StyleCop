@@ -329,7 +329,12 @@ namespace StyleCop.CSharp
         /// <summary>
         /// The keyword 'lock'.
         /// </summary>
-        Lock, 
+        Lock,
+
+        /// <summary>
+        /// The keyword 'nameof'.
+        /// </summary>
+        Nameof,
 
         /// <summary>
         /// The keyword 'namespace'.

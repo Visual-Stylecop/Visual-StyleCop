@@ -20,15 +20,13 @@ namespace StyleCop.VisualStudio
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.IO;
-    using System.Reflection;
     using System.Security;
     using System.Windows.Forms;
-    using StyleCop.VisualStudio.Properties;
     using EnvDTE;
-
     using Microsoft.VisualStudio;
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Interop;
+    using StyleCop.VisualStudio.Properties;
 
     /// <summary>
     /// A representation of a StyleCop violation in the error list.

@@ -224,5 +224,20 @@
         <Element Name="get" Type="Accessor" />
       </Element>
     </Element>
+    <Element Name="ClassPropInit1" Type="Class">
+        <Element Name="Property1" Type="Property">
+          <Statement Type="VariableDeclarationStatement">
+            <Expression Type="VariableDeclarationExpression">
+              <Expression Text="int" Type="LiteralExpression" />
+              <Expression Type="VariableDeclaratorExpression">
+                <Expression Text="Property1" Type="LiteralExpression" />
+                <Expression Text="45" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Statement>
+          <Element Name="get" Type="Accessor" />
+          <Element Name="set" Type="Accessor" />
+        </Element>
+    </Element>   
   </Element>
 </StyleCopCsParserObjectModel>

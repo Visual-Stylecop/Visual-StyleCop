@@ -68,6 +68,7 @@
     <None Include="..\..\StyleCop.snk">
       <Link>StyleCop.snk</Link>
     </None>
+    <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Strings.resx">

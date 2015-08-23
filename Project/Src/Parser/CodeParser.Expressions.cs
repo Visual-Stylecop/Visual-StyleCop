@@ -1134,6 +1134,53 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
+        /// Reads a null condition expression from the code.
+        /// </summary>
+        /// <param name="leftHandSide">The left hand side.</param>
+        /// <param name="previousPrecedence">The previous precedence.</param>
+        /// <param name="parentReference">The parent code unit.</param>
+        /// <param name="unsafeCode">Indicates whether the code being parsed resides in an unsafe code block.</param>
+        /// <returns>
+        /// Returns the expression.
+        /// </returns>
+        private Expression GetNullConditionExpression(
+            Expression leftHandSide, ExpressionPrecedence previousPrecedence, Reference<ICodePart> parentReference, bool unsafeCode)
+        {
+            Param.AssertNotNull(leftHandSide, "leftHandSide");
+            Param.Ignore(previousPrecedence);
+            Param.AssertNotNull(parentReference, "parentReference");
+            Param.Ignore(unsafeCode);
+
+            NullConditionExpression expression = null;
+            Reference<ICodePart> expressionReference = new Reference<ICodePart>();
+
+            // Read the details of the expression.
+            OperatorSymbol operatorToken = this.PeekOperatorToken(parentReference, expressionReference);
+            Debug.Assert(operatorToken.SymbolType == OperatorType.NullConditional, "Expected a null-conditional symbol");
+
+            // Check the precedence of the operators to make sure we can gather this statement now.
+            ExpressionPrecedence precedence = GetOperatorPrecedence(operatorToken.SymbolType);
+            if (CheckPrecedence(previousPrecedence, precedence))
+            {
+                // Add the operator token to the document and advance the symbol manager up to it.
+                this.symbols.Advance();
+                this.tokens.Add(operatorToken);
+
+                // Get the expression on the right-hand side of the operator.
+                Expression rightHandSide = this.GetOperatorRightHandExpression(precedence, expressionReference, unsafeCode);
+
+                // Create the partial token list for the expression.
+                CsTokenList partialTokens = new CsTokenList(this.tokens, leftHandSide.Tokens.First, this.tokens.Last);
+
+                // Create and return the expression.
+                expression = new NullConditionExpression(partialTokens, leftHandSide, rightHandSide);
+                expressionReference.Target = expression;
+            }
+
+            return expression;
+        }
+
+        /// <summary>
         /// Reads a cast expression.
         /// </summary>
         /// <param name="unsafeCode">
@@ -1683,6 +1730,10 @@ namespace StyleCop.CSharp
 
                                         case OperatorType.NullCoalescingSymbol:
                                             expression = this.GetNullCoalescingExpression(leftSide, previousPrecedence, parentReference, unsafeCode);
+                                            break;
+
+                                        case OperatorType.NullConditional:
+                                            expression = this.GetNullConditionExpression(leftSide, previousPrecedence, parentReference, unsafeCode);
                                             break;
 
                                         default:
@@ -2465,6 +2516,10 @@ namespace StyleCop.CSharp
                         expression = this.GetUncheckedExpression(parentReference, unsafeCode);
                         break;
 
+                    case SymbolType.NameOf:
+                        expression = this.GetNameofExpression(parentReference, unsafeCode);
+                        break;
+
                     case SymbolType.New:
                         expression = this.GetNewAllocationExpression(parentReference, unsafeCode);
                         break;
@@ -2623,6 +2678,11 @@ namespace StyleCop.CSharp
 
             // Return the expression.
             return expression;
+        }
+
+        private bool IsNullConditionExpression()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -3974,6 +4034,56 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
+        /// Reads a nameof expression from the code.
+        /// </summary>
+        /// <param name="parentReference">
+        /// The parent code unit.
+        /// </param>
+        /// <param name="unsafeCode">
+        /// Indicates whether the code being parsed resides in an unsafe code block.
+        /// </param>
+        /// <returns>
+        /// Returns the expression.
+        /// </returns>
+        private NameofExpression GetNameofExpression(Reference<ICodePart> parentReference, bool unsafeCode)
+        {
+            Param.AssertNotNull(parentReference, "parentReference");
+            Param.Ignore(unsafeCode);
+
+            Reference<ICodePart> expressionReference = new Reference<ICodePart>();
+
+            // Get the nameof keyword.
+            Node<CsToken> firstTokenNode = this.tokens.InsertLast(this.GetToken(CsTokenType.Nameof, SymbolType.NameOf, parentReference, expressionReference));
+
+            // The next symbol will be the opening parenthesis.
+            Bracket openParenthesis = this.GetBracketToken(CsTokenType.OpenParenthesis, SymbolType.OpenParenthesis, expressionReference);
+            Node<CsToken> openParenthesisNode = this.tokens.InsertLast(openParenthesis);
+
+            // Get the inner expression representing the name.
+            LiteralExpression typeTokenExpression = this.GetNameTokenExpression(expressionReference, unsafeCode, true);
+            if (typeTokenExpression == null)
+            {
+                throw this.CreateSyntaxException();
+            }
+
+            // Get the closing parenthesis.
+            Bracket closeParenthesis = this.GetBracketToken(CsTokenType.CloseParenthesis, SymbolType.CloseParenthesis, expressionReference);
+            Node<CsToken> closeParenthesisNode = this.tokens.InsertLast(closeParenthesis);
+
+            openParenthesis.MatchingBracketNode = closeParenthesisNode;
+            closeParenthesis.MatchingBracketNode = openParenthesisNode;
+
+            // Create the token list for the method invocation expression.
+            CsTokenList partialTokens = new CsTokenList(this.tokens, firstTokenNode, this.tokens.Last);
+
+            // Create and return the expression.
+            NameofExpression expression = new NameofExpression(partialTokens, typeTokenExpression);
+            expressionReference.Target = expression;
+
+            return expression;
+        }
+
+        /// <summary>
         /// Reads a unary decrement expression.
         /// </summary>
         /// <param name="unsafeCode">
@@ -4956,7 +5066,7 @@ namespace StyleCop.CSharp
                     || symbol.SymbolType == SymbolType.RightShift || symbol.SymbolType == SymbolType.Mod || symbol.SymbolType == SymbolType.Tilde
                     || symbol.SymbolType == SymbolType.Case || symbol.SymbolType == SymbolType.QuestionMark || symbol.SymbolType == SymbolType.Colon
                     || symbol.SymbolType == SymbolType.NullCoalescingSymbol || symbol.SymbolType == SymbolType.Comma || symbol.SymbolType == SymbolType.Semicolon
-                    || symbol.SymbolType == SymbolType.Return || symbol.SymbolType == SymbolType.Throw || symbol.SymbolType == SymbolType.Else
+                    || symbol.SymbolType == SymbolType.Return || symbol.SymbolType == SymbolType.Throw || symbol.SymbolType == SymbolType.Else || symbol.SymbolType == SymbolType.NullConditional
                     || symbol.SymbolType == SymbolType.Lambda || (symbol.SymbolType == SymbolType.Other && symbol.Text == "await") || symbol.Text == "select")
                 {
                     unary = true;
