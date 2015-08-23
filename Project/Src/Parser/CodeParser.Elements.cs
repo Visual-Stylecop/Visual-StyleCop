@@ -3486,10 +3486,24 @@ namespace StyleCop.CSharp
             // Add the using token.
             Node<CsToken> firstToken = this.tokens.InsertLast(this.GetToken(CsTokenType.Using, SymbolType.Using, elementReference));
 
+            int index = this.GetNextCodeSymbolIndex(2);
+            if (index == -1)
+            {
+                throw this.CreateSyntaxException();
+            }
+
+            // Check static word introduce in C# 6
+            Symbol staticSymbol = this.symbols.Peek(index);
+            if (staticSymbol != null && staticSymbol.SymbolType == SymbolType.Static)
+            {
+                CsToken staticToken = this.GetToken(CsTokenType.Static, SymbolType.Static, elementReference);
+                this.tokens.Add(staticToken);
+            }
+
             // The next symbol will either be the namespace, or an alias. To determine this, look past this to see if there is an equals sign.
             Symbol peekAhead = this.GetNextSymbol(SymbolType.Other, elementReference);
 
-            int index = this.GetNextCodeSymbolIndex(2);
+            index = this.GetNextCodeSymbolIndex(2);
             if (index == -1)
             {
                 throw this.CreateSyntaxException();
