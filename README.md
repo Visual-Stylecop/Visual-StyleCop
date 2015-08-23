@@ -1,5 +1,5 @@
 # Visual StyleCop
-Copy of StyleCop (Andy Reeves) from stylecop.codeplex.com for visual studio 2015 without resharper
+Copy of StyleCop (Jason Allor, Andy Reeves and [Team](https://stylecop.codeplex.com/team/view)) from stylecop.codeplex.com for visual studio 2015 without resharper
 
 I am cleaning the solution and it should be easier to work than previous version.
 No command lines only visual studio 2015 and GitHub.
