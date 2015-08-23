@@ -1,7 +1,16 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AnalyzerTests.cs" company="">
-//   
+// <copyright file="AnalyzerTests.cs">
+//   MS-PL
 // </copyright>
+// <license>
+//   This source code is subject to terms and conditions of the Microsoft 
+//   Public License. A copy of the license can be found in the License.html 
+//   file at the root of this distribution. If you cannot locate the  
+//   Microsoft Public License, please send an email to dlr@microsoft.com. 
+//   By using this source code in any fashion, you are agreeing to be bound 
+//   by the terms of the Microsoft Public License. You must not remove this 
+//   notice, or any other, from this software.
+// </license>
 // <summary>
 //   The analyzer tests.
 // </summary>
@@ -19,7 +28,6 @@ namespace CSharpAnalyzersTest
     /// <summary>
     /// The analyzer tests.
     /// </summary>
-    /// <remarks>TODO : Use deployement item on each test and cleanup after test.</remarks>
     [TestClass]
     public class AnalyzerTests
     {
@@ -62,6 +70,20 @@ namespace CSharpAnalyzersTest
         public void CsAnalyzerBuiltInTypesTest()
         {
             this.RunTest("BuiltInTypes");
+        }
+
+        /// <summary>
+        /// The cs analyzer built in types test.
+        /// </summary>
+        [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.dll")]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("TestData\\StringFormat", "StringFormat")]
+        [DeploymentItem("TestData\\StringFormatCSharp6", "StringFormatCSharp6")]
+        public void CsAnalyzerStringFormatTest()
+        {
+            this.RunTest("StringFormat");
+            this.RunTest("StringFormatCSharp6", 4.6);
         }
 
         /// <summary>
@@ -311,21 +333,15 @@ namespace CSharpAnalyzersTest
         /// <summary>
         /// The run test.
         /// </summary>
-        /// <param name="testName">
-        /// The test name.
-        /// </param>
-        /// <param name="testfilesToCopy">
-        /// The testfiles to copy.
-        /// </param>
-
-        private void RunTest(string testName, params string[] testfilesToCopy)
+        /// <param name="testName">The test name.</param>
+        /// <param name="simulationFrameworkVersion">The framework version to simulate for test.</param>
+        private void RunTest(string testName, double simulationFrameworkVersion = 0)
         {
-            string[] files = new string[testfilesToCopy.Length + 2];
+            string[] files = new string[2];
             files[0] = Path.Combine(testContext.DeploymentDirectory, "StyleCop.CSharp.dll");
             files[1] = Path.Combine(testContext.DeploymentDirectory, "StyleCop.CSharp.Rules.dll");
-            testfilesToCopy.CopyTo(files, 2);
-           
-            bool result = StyleCopTestRunner.Run(testName, testContext.TestDir, testContext.ResultsDirectory,  testContext.DeploymentDirectory, false, files);
+    
+            bool result = StyleCopTestRunner.Run(testName, testContext.TestDir, testContext.ResultsDirectory,  testContext.DeploymentDirectory, false, simulationFrameworkVersion, files);
 
             Assert.IsTrue(result);
         }

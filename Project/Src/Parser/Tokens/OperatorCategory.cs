@@ -31,7 +31,12 @@ namespace StyleCop.CSharp
         /// <summary>
         /// A logical symbol: '||', '|', etc.
         /// </summary>
-        Logical, 
+        Logical,
+
+        /// <summary>
+        /// A conditional symbol to check null : '?.'
+        /// </summary>
+        NullConditional,
 
         /// <summary>
         /// Assignment symbols: '=', '+=', etc. 

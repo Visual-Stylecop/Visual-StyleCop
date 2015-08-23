@@ -286,6 +286,7 @@
     <None Include="mssp7en.lex">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Settings.StyleCop" />
     <None Include="Settings\DefaultSettings.xml">
       <SubType>Designer</SubType>
     </None>

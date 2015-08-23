@@ -169,6 +169,15 @@ namespace StyleCop.VisualStudio {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error while saving documents..
+        /// </summary>
+        internal static string ErrorWhileSavingDocument {
+            get {
+                return ResourceManager.GetString("ErrorWhileSavingDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to display the StyleCop rule help documentation..
         /// </summary>
         internal static string FailedToLaunchRulesHelp {

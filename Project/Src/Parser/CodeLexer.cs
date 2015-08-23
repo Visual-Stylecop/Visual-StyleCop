@@ -491,6 +491,9 @@ namespace StyleCop.CSharp
                 case "lock":
                     return SymbolType.Lock;
 
+                case "nameof":
+                    return SymbolType.NameOf;
+
                 case "namespace":
                     return SymbolType.Namespace;
 
@@ -1959,6 +1962,12 @@ namespace StyleCop.CSharp
                 {
                     text.Append("?");
                     type = SymbolType.NullCoalescingSymbol;
+                    this.codeReader.ReadNext();
+                }
+                else if (character == '.')
+                {
+                    text.Append(".");
+                    type = SymbolType.NullConditional;
                     this.codeReader.ReadNext();
                 }
             }

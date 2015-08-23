@@ -52,6 +52,40 @@
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.UnarySymbols.Method1" LineNumber="18" Rule="SymbolsMustBeSpacedCorrectly" />
     </ExpectedViolations>
   </Test>
+  <Test Name="NullConditional">
+    <TestCodeFile>NullConditional.cs</TestCodeFile>
+    <Settings>
+      <GlobalSettings>
+        <StringProperty Name="MergeSettingsFiles">NoMerge</StringProperty>
+        <BooleanProperty Name="RulesEnabledByDefault">False</BooleanProperty>
+      </GlobalSettings>
+      <Analyzers>
+        <Analyzer AnalyzerId="StyleCop.CSharp.SpacingRules">
+          <Rules>
+            <Rule Name="SymbolsMustBeSpacedCorrectly">
+              <RuleSettings>
+                <BooleanProperty Name="Enabled">True</BooleanProperty>
+              </RuleSettings>
+            </Rule>
+          </Rules>
+        </Analyzer>
+      </Analyzers>
+    </Settings>
+    <ExpectedViolations>
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="12" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="13" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="14" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="16" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="17" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="18" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="19" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="20" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="21" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="22" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="23" Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="24" Rule="SymbolsMustBeSpacedCorrectly" />
+    </ExpectedViolations>
+  </Test>
   <Test Name="CloseParenthesis">
     <TestCodeFile>CloseParenthesis.cs</TestCodeFile>
     <TestCodeFile>OpenParenthesis.cs</TestCodeFile>

@@ -19,12 +19,12 @@ namespace PerfHarness
     using StyleCop;
 
     /// <summary>
-    /// The main entrypoint to the application.
+    /// The main entry point to the application.
     /// </summary>
     public static class Program
     {
         /// <summary>
-        /// The main entrypoint to the application.
+        /// The main entry point to the application.
         /// </summary>
         /// <param name="args">The arguments passed to the executable.</param>
         public static void Main(string[] args)

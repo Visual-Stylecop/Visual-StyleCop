@@ -176,6 +176,11 @@ namespace StyleCop.CSharp
         /// <summary>
         /// A yield statement.
         /// </summary>
-        Yield
+        Yield,
+
+        /// <summary>
+        /// The nameof statement.
+        /// </summary>
+        NameOf,
     }
 }

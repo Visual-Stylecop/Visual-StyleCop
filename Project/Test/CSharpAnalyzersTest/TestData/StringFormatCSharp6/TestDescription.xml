@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StyleCopTestDescription TestName="StringFormatCSharp6">
+  <Test Name="StringFormatCSharp6">
+    <TestCodeFile>StringFormatCSharp6.cs</TestCodeFile>
+    <Settings>
+      <GlobalSettings>
+        <StringProperty Name="MergeSettingsFiles">NoMerge</StringProperty>
+        <BooleanProperty Name="RulesEnabledByDefault">False</BooleanProperty>
+      </GlobalSettings>
+      <Analyzers>
+        <Analyzer AnalyzerId="StyleCop.CSharp.ReadabilityRules">
+          <Rules>
+            <Rule Name="AvoidStringFormatUseStringInterpolation">
+              <RuleSettings>
+                <BooleanProperty Name="Enabled">True</BooleanProperty>
+              </RuleSettings>
+            </Rule>
+          </Rules>
+        </Analyzer>
+      </Analyzers>
+    </Settings>
+    <ExpectedViolations>
+      <Violation Section="Root.StringFormatCSharp6.Class1.string1" LineNumber="9" Rule="AvoidStringFormatUseStringInterpolation" />
+      <Violation Section="Root.StringFormatCSharp6.Class1.Method1%string" LineNumber="14" Rule="AvoidStringFormatUseStringInterpolation" />
+      <Violation Section="Root.StringFormatCSharp6.Class1.Method2" LineNumber="20" Rule="AvoidStringFormatUseStringInterpolation" />
+      <Violation Section="Root.StringFormatCSharp6.ConstVariables.x" LineNumber="28" Rule="AvoidStringFormatUseStringInterpolation" />
+    </ExpectedViolations>
+  </Test>
+</StyleCopTestDescription>

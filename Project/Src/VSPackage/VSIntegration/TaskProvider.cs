@@ -15,17 +15,12 @@
 namespace StyleCop.VisualStudio
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
-    using System.Globalization;
-
-    using EnvDTE;
 
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Interop;
 
     using StyleCop.Diagnostics;
-    using EnvDTE80;
 
     /// <summary>
     /// Implementation of <see cref="T:Microsoft.VisualStudio.Shell.ErrorListProvider"/> .
@@ -71,7 +66,7 @@ namespace StyleCop.VisualStudio
             StyleCopTrace.In(violations);
 
             this.SuspendRefresh();
-            
+
             var hierarchyItems = new Dictionary<string, IVsHierarchy>();
 
             for (int index = 0; index < violations.Count; index++)
@@ -87,7 +82,7 @@ namespace StyleCop.VisualStudio
                 {
                     hierarchyItems.Add(violation.File, hierarchyItem);
                 }
-               
+
                 this.Tasks.Add(task);
             }
 

@@ -136,7 +136,12 @@ namespace StyleCop.CSharp
         /// <summary>
         /// A method invocation expression.
         /// </summary>
-        MethodInvocation, 
+        MethodInvocation,
+
+        /// <summary>
+        /// A nameof expression.
+        /// </summary>
+        NameOf,
 
         /// <summary>
         /// A new array allocation expression.

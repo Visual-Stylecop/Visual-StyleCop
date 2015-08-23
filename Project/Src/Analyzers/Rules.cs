@@ -867,6 +867,11 @@ namespace StyleCop.CSharp
         /// <summary>
         /// An elements documentation must be spelled correctly.
         /// </summary>
-        ElementDocumentationMustBeSpelledCorrectly
+        ElementDocumentationMustBeSpelledCorrectly,
+
+        /// <summary>
+        /// Use string interpolation rather than string format.
+        /// </summary>
+        AvoidStringFormatUseStringInterpolation,
     }
 }

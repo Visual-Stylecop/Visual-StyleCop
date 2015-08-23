@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessDeniedWhileSaving" xml:space="preserve">
     <value>The file '{0}' has been changed and it needs to be saved, but the file is marked as read-only on the disc. Please make the file writable and try again.</value>
@@ -152,6 +152,9 @@
   </data>
   <data name="ErrorHelpNotAvailable" xml:space="preserve">
     <value>No Error Help is available for this StyleCop violation. This is usually the case when a violation is discovered through a custom rule.</value>
+  </data>
+  <data name="ErrorWhileSavingDocument" xml:space="preserve">
+    <value>Error while saving documents.</value>
   </data>
   <data name="FailedToLaunchRulesHelp" xml:space="preserve">
     <value>Unable to display the StyleCop rule help documentation.</value>
