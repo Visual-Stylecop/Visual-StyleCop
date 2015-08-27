@@ -142,8 +142,8 @@ namespace StyleCop.CSharp
             /// <summary>
             /// Skip past all preprocessor directives.
             /// </summary>
-            Preprocessor = 0x20, 
-
+            Preprocessor = 0x20,
+            
             /// <summary>
             /// Skip past all of these types of symbols.
             /// </summary>

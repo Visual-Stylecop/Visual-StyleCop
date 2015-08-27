@@ -739,6 +739,13 @@ namespace StyleCop.CSharp
 
                         break;
 
+                    // Used to check expression bodied
+                    case SymbolType.Lambda:
+                        // If we are here then this is not a method bodied expression because we don't have parenthesis checked previously.
+                        elementType = ElementType.Property;
+                        loop = false;
+                        break;
+
                     case SymbolType.WhiteSpace:
                     case SymbolType.EndOfLine:
                     case SymbolType.Abstract:
@@ -2941,12 +2948,20 @@ namespace StyleCop.CSharp
             Declaration declaration = new Declaration(declarationTokens, methodName, ElementType.Method, accessModifier, modifiers);
 
             Method method = new Method(this.document, parent, xmlHeader, attributes, declaration, returnType, parameters, typeConstraints, unsafeCode, generated);
-
             elementReference.Target = method;
 
-            // If the element is extern, abstract, or containing within an interface, it will not have a body.
-            if (modifiers.ContainsKey(CsTokenType.Abstract) || modifiers.ContainsKey(CsTokenType.Extern) || parent.ElementType == ElementType.Interface)
+            bool isBodiedExpression = false;
+            if (IsBodiedExpression())
             {
+                BodiedExpression bodiedExpression = this.GetBodiedExpression(elementReference, unsafeCode);
+                method.AddExpression(bodiedExpression);
+                isBodiedExpression = true;
+            }
+
+            // If the element is extern, abstract, or containing within an interface, it will not have a body.
+             if (modifiers.ContainsKey(CsTokenType.Abstract) || modifiers.ContainsKey(CsTokenType.Extern) || parent.ElementType == ElementType.Interface || isBodiedExpression)
+            {
+
                 // Get the closing semicolon.
                 this.tokens.Add(this.GetToken(CsTokenType.Semicolon, SymbolType.Semicolon, elementReference));
             }
@@ -3280,31 +3295,47 @@ namespace StyleCop.CSharp
             Property property = new Property(this.document, parent, xmlHeader, attributes, declaration, propertyType, unsafeCode, generated);
             elementReference.Target = property;
 
-            // Parse the body of the property.
-            this.ParseElementContainer(property, elementReference, null, unsafeCode);
-
-            // Check if current property has initializer.
-            Symbol nextSymbol = this.GetNextSymbol(SkipSymbols.WhiteSpace, elementReference, true);
-            if (nextSymbol != null && nextSymbol.SymbolType == SymbolType.Equals)
+            bool isBodiedExpression = false;
+            if (IsBodiedExpression())
             {
-                // Get all of the variable declarators.
-                IList<VariableDeclaratorExpression> declarators = this.ParsePropertyDeclarators(elementReference, unsafeCode, propertyType, propertyNameNode);
+                BodiedExpression bodiedExpression = this.GetBodiedExpression(elementReference, unsafeCode);
+                property.AddExpression(bodiedExpression);
+                isBodiedExpression = true;
+            }
 
-                if (declarators.Count == 0)
+            if (!isBodiedExpression)
+            {
+                // Parse the body of the property.
+                this.ParseElementContainer(property, elementReference, null, unsafeCode);
+
+                // Check if current property has initializer (C#6).
+                Symbol nextSymbol = this.GetNextSymbol(SkipSymbols.WhiteSpace, elementReference, true);
+                if (nextSymbol != null && nextSymbol.SymbolType == SymbolType.Equals)
                 {
-                    throw this.CreateSyntaxException();
+                    // Get all of the variable declarators.
+                    IList<VariableDeclaratorExpression> declarators = this.ParsePropertyDeclarators(elementReference, unsafeCode, propertyType, propertyNameNode);
+
+                    if (declarators.Count == 0)
+                    {
+                        throw this.CreateSyntaxException();
+                    }
+
+                    VariableDeclarationExpression declarationExpression =
+                        new VariableDeclarationExpression(
+                            new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), new LiteralExpression(this.tokens, propertyTypeNode), declarators);
+
+                    // Get the trailing semicolon.
+                    this.tokens.Add(this.GetToken(CsTokenType.Semicolon, SymbolType.Semicolon, elementReference));
+
+                    // Create the variable declaration statement and add it to the field.
+                    property.VariableDeclarationStatement = new VariableDeclarationStatement(
+                        new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), false, declarationExpression);
                 }
-
-                VariableDeclarationExpression declarationExpression =
-                    new VariableDeclarationExpression(
-                        new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), new LiteralExpression(this.tokens, propertyTypeNode), declarators);
-
-                // Get the trailing semicolon.
+            }
+            else
+            {
+                // Get the closing semicolon for bodied expression.
                 this.tokens.Add(this.GetToken(CsTokenType.Semicolon, SymbolType.Semicolon, elementReference));
-
-                // Create the variable declaration statement and add it to the field.
-                property.VariableDeclarationStatement = new VariableDeclarationStatement(
-                    new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), false, declarationExpression);
             }
 
             return property;

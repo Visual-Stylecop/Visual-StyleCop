@@ -620,6 +620,6 @@ namespace StyleCop.CSharp
         /// <summary>
         /// The await keyword.
         /// </summary>
-        Await
+        Await,
     }
 }
