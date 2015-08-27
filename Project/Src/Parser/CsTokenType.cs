@@ -621,5 +621,10 @@ namespace StyleCop.CSharp
         /// The await keyword.
         /// </summary>
         Await,
+
+        /// <summary>
+        /// The when keyword.
+        /// </summary>
+        When,
     }
 }

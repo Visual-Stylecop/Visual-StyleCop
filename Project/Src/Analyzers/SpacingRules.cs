@@ -989,7 +989,7 @@ namespace StyleCop.CSharp
                             || ////itemType == CsTokenType.SingleLineComment ||
                             itemType == CsTokenType.Switch || itemType == CsTokenType.Throw || itemType == CsTokenType.Using || itemType == CsTokenType.Where
                             || itemType == CsTokenType.While || itemType == CsTokenType.WhileDo || itemType == CsTokenType.Yield || itemType == CsTokenType.LabelColon
-                            || itemType == CsTokenType.Async || itemType == CsTokenType.By)
+                            || itemType == CsTokenType.Async || itemType == CsTokenType.By ||itemType ==  CsTokenType.When)
                         {
                             break;
                         }

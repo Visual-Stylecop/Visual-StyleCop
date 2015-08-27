@@ -584,6 +584,9 @@ namespace StyleCop.CSharp
                 case "while":
                     return SymbolType.While;
 
+                case "when":
+                    return SymbolType.When;
+
                 default:
                     return SymbolType.Other;
             }
