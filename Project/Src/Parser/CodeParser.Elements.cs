@@ -2950,24 +2950,15 @@ namespace StyleCop.CSharp
             Method method = new Method(this.document, parent, xmlHeader, attributes, declaration, returnType, parameters, typeConstraints, unsafeCode, generated);
             elementReference.Target = method;
 
-            bool isBodiedExpression = false;
-            if (IsBodiedExpression())
-            {
-                BodiedExpression bodiedExpression = this.GetBodiedExpression(elementReference, unsafeCode);
-                method.AddExpression(bodiedExpression);
-                isBodiedExpression = true;
-            }
-
             // If the element is extern, abstract, or containing within an interface, it will not have a body.
-             if (modifiers.ContainsKey(CsTokenType.Abstract) || modifiers.ContainsKey(CsTokenType.Extern) || parent.ElementType == ElementType.Interface || isBodiedExpression)
+             if (modifiers.ContainsKey(CsTokenType.Abstract) || modifiers.ContainsKey(CsTokenType.Extern) || parent.ElementType == ElementType.Interface)
             {
-
                 // Get the closing semicolon.
                 this.tokens.Add(this.GetToken(CsTokenType.Semicolon, SymbolType.Semicolon, elementReference));
             }
             else
             {
-                // Get the method body.
+                // Get the method body or bodied expression C# 6.
                 this.ParseStatementContainer(method, true, unsafeCode);
             }
 

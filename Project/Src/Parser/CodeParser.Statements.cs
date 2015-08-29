@@ -440,6 +440,7 @@ namespace StyleCop.CSharp
                         case SymbolType.Typeof:
                         case SymbolType.Sizeof:
                         case SymbolType.Default:
+                        case SymbolType.Lambda:
                             statement = this.ParseExpressionStatement(unsafeCode);
                             break;
 
@@ -1716,6 +1717,11 @@ namespace StyleCop.CSharp
                 openingBracket.MatchingBracketNode = closingBracketNode;
                 ((Bracket)closingBracketNode.Value).MatchingBracketNode = openingBracketNode;
             }
+            else if(symbol.SymbolType == SymbolType.Lambda)
+            {
+                // Parse the contents of the element.
+                this.ParseStatementScope(element, parentReference, unsafeCode);
+            }
             else if (interfaceType && symbol.SymbolType == SymbolType.Semicolon)
             {
                 // Add the semicolon to the document.
@@ -1774,6 +1780,15 @@ namespace StyleCop.CSharp
                     if (statement != null)
                     {
                         parent.AddStatement(statement);
+
+                        if(statement is ExpressionStatement)
+                        {
+                            // if bodied statement we shouldn't have more expression or statement.
+                            if(((ExpressionStatement)statement).Expression.ExpressionType == ExpressionType.Bodied)
+                            {
+                                break;
+                            }
+                        }
 
                         foreach (Statement attachedStatement in statement.AttachedStatements)
                         {

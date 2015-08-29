@@ -26,7 +26,12 @@ namespace StyleCop.CSharp
         /// <summary>
         /// An await statement.
         /// </summary>
-        Await, 
+        Await,
+
+        /// <summary>
+        /// a bodied statement.
+        /// </summary>
+        Bodied,
 
         /// <summary>
         /// A block statement.

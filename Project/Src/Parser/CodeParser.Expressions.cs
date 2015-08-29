@@ -2790,6 +2790,12 @@ namespace StyleCop.CSharp
                         }
 
                         break;
+                    case SymbolType.Lambda:
+                        if(IsBodiedExpression())
+                        {
+                            expression = this.GetBodiedExpression(parentReference, unsafeCode);
+                        }
+                        break;
 
                     case SymbolType.OpenSquareBracket:
                         expression = this.GetOpenParenthesisExpression(previousPrecedence, unsafeCode);
