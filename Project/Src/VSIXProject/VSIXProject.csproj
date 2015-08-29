@@ -93,6 +93,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Microsoft.VisualStudio.Shell.14.0.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Microsoft.VisualStudio.Shell.Immutable.14.0.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="StyleCop.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

@@ -2,7 +2,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="629EB7CC-69C2-43AC-9BC9-482B0F810C4E" Version="4.7.52" Language="en-US" Publisher="HEISER Christophe" />
-    <DisplayName>Visual StyleCop</DisplayName>
+    <DisplayName>  Visual StyleCop</DisplayName>
     <Description xml:space="preserve">StyleCop for visual studio.</Description>
     <MoreInfo>https://github.com/ptittof57/Visual-StyleCop/wiki</MoreInfo>
     <License>License.Rtf</License>
@@ -14,9 +14,11 @@
     <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Community" />
     <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Enterprise" />
     <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Pro" />
+    <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.VWDExpress" />
+    <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.VSWinDesktopExpress" />
   </Installation>
   <Dependencies>
-    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.6,)" d:InstallSource="Download" Location="http://www.microsoft.com/fr-fr/download/details.aspx?id=48130" />
   </Dependencies>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
