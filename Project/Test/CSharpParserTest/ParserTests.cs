@@ -67,6 +67,18 @@ namespace CSharpParserTest
         }
 
         /// <summary>
+        /// The cs parser test index initializer.
+        /// </summary>
+        [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\IndexInitializer", "IndexInitializer")]
+        public void CsParserTestIndexInitializer()
+        {
+            this.RunTest("IndexInitializer");
+        }
+
+        /// <summary>
         /// The cs parser test elements.
         /// </summary>
         [TestMethod]

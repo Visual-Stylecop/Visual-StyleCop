@@ -238,6 +238,9 @@
           <Element Name="get" Type="Accessor" />
           <Element Name="set" Type="Accessor" />
         </Element>
-    </Element>   
+    </Element>
+    <Element Name="ExpressionBodiedMember" Type="Class">
+      <Element Name="Distance" Type="Property" />
+    </Element>
   </Element>
 </StyleCopCsParserObjectModel>

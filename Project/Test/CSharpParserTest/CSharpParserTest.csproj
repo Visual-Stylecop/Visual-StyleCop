@@ -69,6 +69,12 @@
   <ItemGroup>
     <Compile Include="ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="TestData\Elements\FilterExceptions.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\IndexInitializer\IndexInitializersExpressions.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Settings.StyleCop" />
     <None Include="TestData\FileLists\TestFile1.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -255,9 +261,11 @@
     </None>
     <None Include="TestData\Elements\MethodObjectModel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="TestData\Elements\PropertyObjectModel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="TestData\Elements\IndexerObjectModel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -402,7 +410,23 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="TestData\IndexInitializer\IndexInitializersExpressionsObjectModel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\IndexInitializer\TestDescription.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\Elements\FilterExceptionsObjectModel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>
     <PostBuildEvent>

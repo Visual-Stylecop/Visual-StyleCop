@@ -1,0 +1,16 @@
+#region Normal Classes
+
+public class FilterExceptions
+{
+    public void Test()
+    {
+        try
+        {
+            Console.Write("Test");
+        }
+        catch (Exception) when (true)
+        {
+        }
+    }
+}
+#endregion

@@ -259,5 +259,9 @@
         </Statement>
       </Element>
     </Element>
+    <Element Name="ExpressionBodied" Type="Class">
+      <Element Name="Test" Type="Method" />
+      <Element Name="Move" Type="Method" />
+    </Element>
   </Element>
 </StyleCopCsParserObjectModel>
