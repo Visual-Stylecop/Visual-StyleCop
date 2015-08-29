@@ -3285,16 +3285,12 @@ namespace StyleCop.CSharp
 
             Property property = new Property(this.document, parent, xmlHeader, attributes, declaration, propertyType, unsafeCode, generated);
             elementReference.Target = property;
-
-            bool isBodiedExpression = false;
+            
             if (IsBodiedExpression())
             {
-                BodiedExpression bodiedExpression = this.GetBodiedExpression(elementReference, unsafeCode);
-                property.AddExpression(bodiedExpression);
-                isBodiedExpression = true;
+                this.ParseStatementContainer(property, true, unsafeCode);
             }
-
-            if (!isBodiedExpression)
+            else
             {
                 // Parse the body of the property.
                 this.ParseElementContainer(property, elementReference, null, unsafeCode);
@@ -3322,11 +3318,6 @@ namespace StyleCop.CSharp
                     property.VariableDeclarationStatement = new VariableDeclarationStatement(
                         new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), false, declarationExpression);
                 }
-            }
-            else
-            {
-                // Get the closing semicolon for bodied expression.
-                this.tokens.Add(this.GetToken(CsTokenType.Semicolon, SymbolType.Semicolon, elementReference));
             }
 
             return property;

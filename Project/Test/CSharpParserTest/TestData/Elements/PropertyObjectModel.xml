@@ -240,7 +240,29 @@
         </Element>
     </Element>
     <Element Name="ExpressionBodiedMember" Type="Class">
-      <Element Name="Distance" Type="Property" />
+      <Element Name="Distance" Type="Property">
+        <Statement Type="ExpressionStatement">
+          <Expression Type="BodiedExpression">
+            <Expression Type="MethodInvocationExpression">
+              <Expression Text="Sqrt" Type="LiteralExpression" />
+              <Expression Type="ArithmeticExpression">
+                <Expression Type="ParenthesizedExpression">
+                  <Expression Type="ArithmeticExpression">
+                    <Expression Text="y" Type="LiteralExpression" />
+                    <Expression Text="x" Type="LiteralExpression" />
+                  </Expression>
+                </Expression>
+                <Expression Type="ParenthesizedExpression">
+                  <Expression Type="ArithmeticExpression">
+                    <Expression Text="y" Type="LiteralExpression" />
+                    <Expression Text="y" Type="LiteralExpression" />
+                  </Expression>
+                </Expression>
+              </Expression>
+            </Expression>
+          </Expression>
+        </Statement>
+      </Element>
     </Element>
   </Element>
 </StyleCopCsParserObjectModel>
