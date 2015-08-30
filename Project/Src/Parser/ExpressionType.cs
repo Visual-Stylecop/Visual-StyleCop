@@ -61,7 +61,12 @@ namespace StyleCop.CSharp
         /// <summary>
         /// An await expression.
         /// </summary>
-        Await, 
+        Await,
+
+        /// <summary>
+        /// A bodied expression.
+        /// </summary>
+        Bodied,
 
         /// <summary>
         /// A cast expression.

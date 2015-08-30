@@ -659,9 +659,6 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="158128601">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="SpacingRules.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2015/08/20 21:25:57.760</styleCop>
@@ -685,4 +682,7 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <project key="158128601">
+    <configuration>TRACE</configuration>
+  </project>
 </stylecopresultscache>

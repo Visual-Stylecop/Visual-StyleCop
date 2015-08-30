@@ -87,8 +87,21 @@ namespace StyleCop.CSharp
                     closeParenthesis.MatchingBracketNode = openParenthesisNode;
                 }
 
-                // Get the embedded statement. This must be a block statement.
-                BlockStatement childStatement = this.GetNextStatement(statementReference, unsafeCode) as BlockStatement;
+                BlockStatement childStatement = null;
+                Statement nextStatement = this.GetNextStatement(statementReference, unsafeCode);
+
+                // Search if when statement is present. C# 6.
+                WhenStatement whenStatement = nextStatement as WhenStatement;
+                if (whenStatement != null)
+                {
+                    // Get the embedded statement. This must be a block statement.
+                    childStatement = this.GetNextStatement(statementReference, unsafeCode) as BlockStatement;
+                }
+                else
+                {
+                    childStatement = nextStatement as BlockStatement;
+                }
+
                 if (childStatement == null)
                 {
                     throw new SyntaxException(this.document.SourceCode, firstToken.LineNumber);
@@ -98,7 +111,7 @@ namespace StyleCop.CSharp
                 CsTokenList partialTokens = new CsTokenList(this.tokens, firstTokenNode, this.tokens.Last);
 
                 // Create the catch statement.
-                catchStatement = new CatchStatement(partialTokens, tryStatement, catchExpression, childStatement);
+                catchStatement = new CatchStatement(partialTokens, tryStatement, catchExpression, childStatement, whenStatement);
                 ((IWriteableCodeUnit)catchStatement).SetParent(tryStatement);
                 statementReference.Target = catchStatement;
 
@@ -106,11 +119,11 @@ namespace StyleCop.CSharp
                 {
                     // Add the variable.
                     Variable variable = new Variable(
-                        catchStatement.ClassType, 
-                        catchStatement.Identifier.Text, 
-                        VariableModifiers.None, 
-                        CodeLocation.Join(catchStatement.ClassType.Location, catchStatement.Identifier.Location), 
-                        statementReference, 
+                        catchStatement.ClassType,
+                        catchStatement.Identifier.Text,
+                        VariableModifiers.None,
+                        CodeLocation.Join(catchStatement.ClassType.Location, catchStatement.Identifier.Location),
+                        statementReference,
                         catchStatement.ClassType.Generated);
 
                     // If there is already a variable in this scope with the same name, ignore this one.
@@ -356,6 +369,10 @@ namespace StyleCop.CSharp
                             statement = this.ParseWhileStatement(parentReference, unsafeCode);
                             break;
 
+                        case SymbolType.When:
+                            statement = this.ParseWhenStatement(parentReference, unsafeCode);
+                            break;
+
                         case SymbolType.Do:
                             statement = this.ParseDoWhileStatement(parentReference, unsafeCode);
                             break;
@@ -423,6 +440,7 @@ namespace StyleCop.CSharp
                         case SymbolType.Typeof:
                         case SymbolType.Sizeof:
                         case SymbolType.Default:
+                        case SymbolType.Lambda:
                             statement = this.ParseExpressionStatement(unsafeCode);
                             break;
 
@@ -470,6 +488,47 @@ namespace StyleCop.CSharp
                     }
                 }
             }
+
+            return statement;
+        }
+
+        /// <summary>
+        /// Parses the when statement.
+        /// </summary>
+        /// <param name="parentReference">The parent reference.</param>
+        /// <param name="unsafeCode">If set to <c>true</c> [unsafe code].</param>
+        /// <returns>The when statement.</returns>
+        private Statement ParseWhenStatement(Reference<ICodePart> parentReference, bool unsafeCode)
+        {
+            Param.AssertNotNull(parentReference, "parentReference");
+            Param.Ignore(unsafeCode);
+
+            Reference<ICodePart> statementReference = new Reference<ICodePart>();
+
+
+            // Move past the await keyword.
+            CsToken firstToken = this.GetToken(CsTokenType.When, SymbolType.When, parentReference, statementReference);
+            Node<CsToken> firstTokenNode = this.tokens.InsertLast(firstToken);
+
+            // Get the open paren.
+            this.tokens.Add(this.GetBracketToken(CsTokenType.OpenParenthesis, SymbolType.OpenParenthesis, statementReference));
+
+            // Get the expression.
+            Expression whenValue = this.GetNextExpression(ExpressionPrecedence.None, statementReference, unsafeCode);
+            if (whenValue == null)
+            {
+                throw this.CreateSyntaxException();
+            }
+
+            // Get the closing paren.
+            this.tokens.Add(this.GetBracketToken(CsTokenType.CloseParenthesis, SymbolType.CloseParenthesis, statementReference));
+
+            // Create the token list for the statement.
+            CsTokenList partialTokens = new CsTokenList(this.tokens, firstTokenNode, this.tokens.Last);
+
+            // Create and return the statement.
+            WhenStatement statement = new WhenStatement(partialTokens, whenValue);
+            statementReference.Target = statement;
 
             return statement;
         }
@@ -883,11 +942,11 @@ namespace StyleCop.CSharp
             foreach (VariableDeclaratorExpression declarator in expression.Declarators)
             {
                 Variable variable = new Variable(
-                    expression.Type, 
-                    declarator.Identifier.Token.Text, 
-                    VariableModifiers.None, 
-                    CodeLocation.Join(expression.Type.Location, declarator.Identifier.Token.Location), 
-                    statementReference, 
+                    expression.Type,
+                    declarator.Identifier.Token.Text,
+                    VariableModifiers.None,
+                    CodeLocation.Join(expression.Type.Location, declarator.Identifier.Token.Location),
+                    statementReference,
                     expression.Type.Generated || declarator.Identifier.Token.Generated);
 
                 // If there is already a variable in this scope with the same name, ignore this one.
@@ -961,11 +1020,11 @@ namespace StyleCop.CSharp
                     foreach (VariableDeclaratorExpression declarator in variableDeclaration.Declarators)
                     {
                         Variable variable = new Variable(
-                            variableDeclaration.Type, 
-                            declarator.Identifier.Token.Text, 
-                            VariableModifiers.None, 
-                            CodeLocation.Join(variableDeclaration.Type.Location, declarator.Identifier.Token.Location), 
-                            initializerReference, 
+                            variableDeclaration.Type,
+                            declarator.Identifier.Token.Text,
+                            VariableModifiers.None,
+                            CodeLocation.Join(variableDeclaration.Type.Location, declarator.Identifier.Token.Location),
+                            initializerReference,
                             variableDeclaration.Type.Generated || declarator.Identifier.Token.Generated);
 
                         // If there is already a variable in this scope with the same name, ignore this one.
@@ -1226,11 +1285,11 @@ namespace StyleCop.CSharp
             foreach (VariableDeclaratorExpression declarator in variable.Declarators)
             {
                 Variable localVariable = new Variable(
-                    variable.Type, 
-                    declarator.Identifier.Token.Text, 
-                    VariableModifiers.None, 
-                    CodeLocation.Join(variable.Type.Location, declarator.Identifier.Token.Location), 
-                    statementReference, 
+                    variable.Type,
+                    declarator.Identifier.Token.Text,
+                    VariableModifiers.None,
+                    CodeLocation.Join(variable.Type.Location, declarator.Identifier.Token.Location),
+                    statementReference,
                     variable.Type.Generated);
 
                 // If there is already a variable in this scope with the same name, ignore this one.
@@ -1468,11 +1527,11 @@ namespace StyleCop.CSharp
                 foreach (VariableDeclaratorExpression declarator in variableDeclaration.Declarators)
                 {
                     Variable variable = new Variable(
-                        variableDeclaration.Type, 
-                        declarator.Identifier.Token.Text, 
-                        VariableModifiers.None, 
-                        CodeLocation.Join(variableDeclaration.Type.Location, declarator.Identifier.Token.Location), 
-                        statementReference, 
+                        variableDeclaration.Type,
+                        declarator.Identifier.Token.Text,
+                        VariableModifiers.None,
+                        CodeLocation.Join(variableDeclaration.Type.Location, declarator.Identifier.Token.Location),
+                        statementReference,
                         variableDeclaration.Type.Generated || declarator.Identifier.Token.Generated);
 
                     // If there is already a variable in this scope with the same name, ignore this one.
@@ -1658,6 +1717,11 @@ namespace StyleCop.CSharp
                 openingBracket.MatchingBracketNode = closingBracketNode;
                 ((Bracket)closingBracketNode.Value).MatchingBracketNode = openingBracketNode;
             }
+            else if(symbol.SymbolType == SymbolType.Lambda)
+            {
+                // Parse the contents of the element.
+                this.ParseStatementScope(element, parentReference, unsafeCode);
+            }
             else if (interfaceType && symbol.SymbolType == SymbolType.Semicolon)
             {
                 // Add the semicolon to the document.
@@ -1716,6 +1780,15 @@ namespace StyleCop.CSharp
                     if (statement != null)
                     {
                         parent.AddStatement(statement);
+
+                        if(statement is ExpressionStatement)
+                        {
+                            // if bodied statement we shouldn't have more expression or statement.
+                            if(((ExpressionStatement)statement).Expression.ExpressionType == ExpressionType.Bodied)
+                            {
+                                break;
+                            }
+                        }
 
                         foreach (Statement attachedStatement in statement.AttachedStatements)
                         {
@@ -2231,11 +2304,11 @@ namespace StyleCop.CSharp
                 foreach (VariableDeclaratorExpression declarator in variableDeclaration.Declarators)
                 {
                     Variable variable = new Variable(
-                        variableDeclaration.Type, 
-                        declarator.Identifier.Token.Text, 
-                        VariableModifiers.None, 
-                        CodeLocation.Join(variableDeclaration.Type.Location, declarator.Identifier.Token.Location), 
-                        statementReference, 
+                        variableDeclaration.Type,
+                        declarator.Identifier.Token.Text,
+                        VariableModifiers.None,
+                        CodeLocation.Join(variableDeclaration.Type.Location, declarator.Identifier.Token.Location),
+                        statementReference,
                         variableDeclaration.Type.Generated || declarator.Identifier.Token.Generated);
 
                     // If there is already a variable in this scope with the same name, ignore this one.
@@ -2320,11 +2393,11 @@ namespace StyleCop.CSharp
                 foreach (VariableDeclaratorExpression declarator in expression.Declarators)
                 {
                     Variable variable = new Variable(
-                        expression.Type, 
-                        declarator.Identifier.Token.Text, 
-                        modifiers, 
-                        CodeLocation.Join(expression.Type.Location, declarator.Identifier.Token.Location), 
-                        statementReference, 
+                        expression.Type,
+                        declarator.Identifier.Token.Text,
+                        modifiers,
+                        CodeLocation.Join(expression.Type.Location, declarator.Identifier.Token.Location),
+                        statementReference,
                         expression.Tokens.First.Value.Generated || declarator.Identifier.Token.Generated);
 
                     // There might already be a variable in this scope with the same name. This can happen

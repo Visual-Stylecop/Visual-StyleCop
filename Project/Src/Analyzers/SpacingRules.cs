@@ -989,7 +989,7 @@ namespace StyleCop.CSharp
                             || ////itemType == CsTokenType.SingleLineComment ||
                             itemType == CsTokenType.Switch || itemType == CsTokenType.Throw || itemType == CsTokenType.Using || itemType == CsTokenType.Where
                             || itemType == CsTokenType.While || itemType == CsTokenType.WhileDo || itemType == CsTokenType.Yield || itemType == CsTokenType.LabelColon
-                            || itemType == CsTokenType.Async || itemType == CsTokenType.By)
+                            || itemType == CsTokenType.Async || itemType == CsTokenType.By ||itemType ==  CsTokenType.When)
                         {
                             break;
                         }
@@ -1045,7 +1045,12 @@ namespace StyleCop.CSharp
             {
                 if (previousNode.Value.CsTokenType == CsTokenType.WhiteSpace || previousNode.Value.CsTokenType == CsTokenType.EndOfLine)
                 {
-                    this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.OpeningSquareBracketsMustBeSpacedCorrectly);
+                    // Check if parent expression is an array, initialization was introduced in C# 6.
+                    Expression parentExpression = tokenNode.Value.Parent as Expression;
+                    if (parentExpression.ExpressionType != ExpressionType.ArrayInitializer)
+                    {
+                        this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.OpeningSquareBracketsMustBeSpacedCorrectly);
+                    }
                 }
             }
 

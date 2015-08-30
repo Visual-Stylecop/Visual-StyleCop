@@ -739,6 +739,13 @@ namespace StyleCop.CSharp
 
                         break;
 
+                    // Used to check expression bodied
+                    case SymbolType.Lambda:
+                        // If we are here then this is not a method bodied expression because we don't have parenthesis checked previously.
+                        elementType = ElementType.Property;
+                        loop = false;
+                        break;
+
                     case SymbolType.WhiteSpace:
                     case SymbolType.EndOfLine:
                     case SymbolType.Abstract:
@@ -2941,18 +2948,17 @@ namespace StyleCop.CSharp
             Declaration declaration = new Declaration(declarationTokens, methodName, ElementType.Method, accessModifier, modifiers);
 
             Method method = new Method(this.document, parent, xmlHeader, attributes, declaration, returnType, parameters, typeConstraints, unsafeCode, generated);
-
             elementReference.Target = method;
 
             // If the element is extern, abstract, or containing within an interface, it will not have a body.
-            if (modifiers.ContainsKey(CsTokenType.Abstract) || modifiers.ContainsKey(CsTokenType.Extern) || parent.ElementType == ElementType.Interface)
+             if (modifiers.ContainsKey(CsTokenType.Abstract) || modifiers.ContainsKey(CsTokenType.Extern) || parent.ElementType == ElementType.Interface)
             {
                 // Get the closing semicolon.
                 this.tokens.Add(this.GetToken(CsTokenType.Semicolon, SymbolType.Semicolon, elementReference));
             }
             else
             {
-                // Get the method body.
+                // Get the method body or bodied expression C# 6.
                 this.ParseStatementContainer(method, true, unsafeCode);
             }
 
@@ -3279,32 +3285,39 @@ namespace StyleCop.CSharp
 
             Property property = new Property(this.document, parent, xmlHeader, attributes, declaration, propertyType, unsafeCode, generated);
             elementReference.Target = property;
-
-            // Parse the body of the property.
-            this.ParseElementContainer(property, elementReference, null, unsafeCode);
-
-            // Check if current property has initializer.
-            Symbol nextSymbol = this.GetNextSymbol(SkipSymbols.WhiteSpace, elementReference, true);
-            if (nextSymbol != null && nextSymbol.SymbolType == SymbolType.Equals)
+            
+            if (IsBodiedExpression())
             {
-                // Get all of the variable declarators.
-                IList<VariableDeclaratorExpression> declarators = this.ParsePropertyDeclarators(elementReference, unsafeCode, propertyType, propertyNameNode);
+                this.ParseStatementContainer(property, true, unsafeCode);
+            }
+            else
+            {
+                // Parse the body of the property.
+                this.ParseElementContainer(property, elementReference, null, unsafeCode);
 
-                if (declarators.Count == 0)
+                // Check if current property has initializer (C#6).
+                Symbol nextSymbol = this.GetNextSymbol(SkipSymbols.WhiteSpace, elementReference, true);
+                if (nextSymbol != null && nextSymbol.SymbolType == SymbolType.Equals)
                 {
-                    throw this.CreateSyntaxException();
+                    // Get all of the variable declarators.
+                    IList<VariableDeclaratorExpression> declarators = this.ParsePropertyDeclarators(elementReference, unsafeCode, propertyType, propertyNameNode);
+
+                    if (declarators.Count == 0)
+                    {
+                        throw this.CreateSyntaxException();
+                    }
+
+                    VariableDeclarationExpression declarationExpression =
+                        new VariableDeclarationExpression(
+                            new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), new LiteralExpression(this.tokens, propertyTypeNode), declarators);
+
+                    // Get the trailing semicolon.
+                    this.tokens.Add(this.GetToken(CsTokenType.Semicolon, SymbolType.Semicolon, elementReference));
+
+                    // Create the variable declaration statement and add it to the field.
+                    property.VariableDeclarationStatement = new VariableDeclarationStatement(
+                        new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), false, declarationExpression);
                 }
-
-                VariableDeclarationExpression declarationExpression =
-                    new VariableDeclarationExpression(
-                        new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), new LiteralExpression(this.tokens, propertyTypeNode), declarators);
-
-                // Get the trailing semicolon.
-                this.tokens.Add(this.GetToken(CsTokenType.Semicolon, SymbolType.Semicolon, elementReference));
-
-                // Create the variable declaration statement and add it to the field.
-                property.VariableDeclarationStatement = new VariableDeclarationStatement(
-                    new CsTokenList(this.tokens, declarators[0].Tokens.First, this.tokens.Last), false, declarationExpression);
             }
 
             return property;
@@ -3486,10 +3499,24 @@ namespace StyleCop.CSharp
             // Add the using token.
             Node<CsToken> firstToken = this.tokens.InsertLast(this.GetToken(CsTokenType.Using, SymbolType.Using, elementReference));
 
+            int index = this.GetNextCodeSymbolIndex(2);
+            if (index == -1)
+            {
+                throw this.CreateSyntaxException();
+            }
+
+            // Check static word introduce in C# 6
+            Symbol staticSymbol = this.symbols.Peek(index);
+            if (staticSymbol != null && staticSymbol.SymbolType == SymbolType.Static)
+            {
+                CsToken staticToken = this.GetToken(CsTokenType.Static, SymbolType.Static, elementReference);
+                this.tokens.Add(staticToken);
+            }
+
             // The next symbol will either be the namespace, or an alias. To determine this, look past this to see if there is an equals sign.
             Symbol peekAhead = this.GetNextSymbol(SymbolType.Other, elementReference);
 
-            int index = this.GetNextCodeSymbolIndex(2);
+            index = this.GetNextCodeSymbolIndex(2);
             if (index == -1)
             {
                 throw this.CreateSyntaxException();
