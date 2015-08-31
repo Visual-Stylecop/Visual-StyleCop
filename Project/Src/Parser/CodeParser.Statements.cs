@@ -354,6 +354,18 @@ namespace StyleCop.CSharp
                                 }
                             }
 
+                            if (symbol.Text == "when")
+                            {
+                                if (this.IsWhenExpression())
+                                {
+                                    statement = this.ParseWhenStatement(parentReference, unsafeCode);
+                                    if (statement != null)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+
                             statement = this.ParseOtherStatement(parentReference, unsafeCode, variables);
                             break;
 
@@ -367,10 +379,6 @@ namespace StyleCop.CSharp
 
                         case SymbolType.While:
                             statement = this.ParseWhileStatement(parentReference, unsafeCode);
-                            break;
-
-                        case SymbolType.When:
-                            statement = this.ParseWhenStatement(parentReference, unsafeCode);
                             break;
 
                         case SymbolType.Do:
@@ -493,6 +501,48 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
+        /// Determines whether [is when expression].
+        /// </summary>
+        /// <returns>True if when expression else false</returns>
+        private bool IsWhenExpression()
+        {
+            // Search next code symbol.
+            int index = 1;
+            Symbol symbol = this.symbols.Peek(index);
+
+            if (symbol.SymbolType == SymbolType.Other && symbol.Text == "when")
+            {
+                index++;
+
+                // Advance to the next non-whitespace symbol.
+                for (; ; ++index)
+                {
+                    symbol = this.symbols.Peek(index);
+                    if (symbol == null)
+                    {
+                        return false;
+                    }
+
+                    if (symbol.SymbolType != SymbolType.EndOfLine && symbol.SymbolType != SymbolType.WhiteSpace && symbol.SymbolType != SymbolType.MultiLineComment
+                        && symbol.SymbolType != SymbolType.SingleLineComment)
+                    {
+                        break;
+                    }
+                }
+
+                // We wait only an open parenthesis after when keyword.
+                if (symbol.SymbolType != SymbolType.OpenParenthesis)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Parses the when statement.
         /// </summary>
         /// <param name="parentReference">The parent reference.</param>
@@ -505,9 +555,13 @@ namespace StyleCop.CSharp
 
             Reference<ICodePart> statementReference = new Reference<ICodePart>();
 
+            // Move past the when keyword.
+            CsToken firstToken = this.GetToken(CsTokenType.When, SymbolType.Other, parentReference);
+            if (firstToken.Text.ToLowerInvariant() != "when")
+            {
+                this.CreateSyntaxException();
+            }
 
-            // Move past the await keyword.
-            CsToken firstToken = this.GetToken(CsTokenType.When, SymbolType.When, parentReference, statementReference);
             Node<CsToken> firstTokenNode = this.tokens.InsertLast(firstToken);
 
             // Get the open paren.
@@ -1717,7 +1771,7 @@ namespace StyleCop.CSharp
                 openingBracket.MatchingBracketNode = closingBracketNode;
                 ((Bracket)closingBracketNode.Value).MatchingBracketNode = openingBracketNode;
             }
-            else if(symbol.SymbolType == SymbolType.Lambda)
+            else if (symbol.SymbolType == SymbolType.Lambda)
             {
                 // Parse the contents of the element.
                 this.ParseStatementScope(element, parentReference, unsafeCode);
@@ -1781,10 +1835,10 @@ namespace StyleCop.CSharp
                     {
                         parent.AddStatement(statement);
 
-                        if(statement is ExpressionStatement)
+                        if (statement is ExpressionStatement)
                         {
                             // if bodied statement we shouldn't have more expression or statement.
-                            if(((ExpressionStatement)statement).Expression.ExpressionType == ExpressionType.Bodied)
+                            if (((ExpressionStatement)statement).Expression.ExpressionType == ExpressionType.Bodied)
                             {
                                 break;
                             }

@@ -62,18 +62,11 @@ namespace StyleCop.CSharp
         /// <summary>
         /// Initializes a new instance of the CatchStatement class.
         /// </summary>
-        /// <param name="tokens">
-        /// The list of tokens that form the statement.
-        /// </param>
-        /// <param name="tryStatement">
-        /// The try-statement that this catch-statement is attached to.
-        /// </param>
-        /// <param name="classExpression">
-        /// The inner expression.
-        /// </param>
-        /// <param name="embeddedStatement">
-        /// The statement embedded within the catch-statement.
-        /// </param>
+        /// <param name="tokens">The list of tokens that form the statement.</param>
+        /// <param name="tryStatement">The try-statement that this catch-statement is attached to.</param>
+        /// <param name="classExpression">The inner expression.</param>
+        /// <param name="embeddedStatement">The statement embedded within the catch-statement.</param>
+        /// <param name="whenStatement">The when statement.</param>
         internal CatchStatement(CsTokenList tokens, TryStatement tryStatement, Expression classExpression, BlockStatement embeddedStatement, WhenStatement whenStatement)
             : base(StatementType.Catch, tokens)
         {

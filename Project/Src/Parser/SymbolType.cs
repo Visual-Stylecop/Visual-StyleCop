@@ -626,10 +626,5 @@ namespace StyleCop.CSharp
         /// The null conditional operator ?.
         /// </summary>
         NullConditional,
-
-        /// <summary>
-        /// The keyword when.
-        /// </summary>
-        When,
     }
 }
