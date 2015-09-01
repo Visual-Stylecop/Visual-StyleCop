@@ -1,4 +1,11 @@
 # Visual StyleCop
+
+||Results|
+|:--:|:--:|
+|**master**|N/A|
+|**C# 6**|[![Build status](https://ci.appveyor.com/api/projects/status/fh2yi59s6t06eroq/branch/develop-csharp-6?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop-kwdh3/branch/develop-csharp-6)|
+
+
 Copy of StyleCop (Jason Allor, Andy Reeves and [Team](https://stylecop.codeplex.com/team/view)) from stylecop.codeplex.com for visual studio 2015 without resharper
 
 I am cleaning the solution and it should be easier to work than previous version.
