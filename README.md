@@ -2,7 +2,7 @@
 
 ||Results|
 |:--:|:--:|
-|**master**|N/A|
+|**master**|[![Build status](https://ci.appveyor.com/api/projects/status/n09yi3f5vl0a7bfy/branch/master?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop/branch/master)|
 |**C# 6**|[![Build status](https://ci.appveyor.com/api/projects/status/fh2yi59s6t06eroq/branch/develop-csharp-6?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop-kwdh3/branch/develop-csharp-6)|
 
 
