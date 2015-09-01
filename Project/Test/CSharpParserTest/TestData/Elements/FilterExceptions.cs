@@ -12,5 +12,10 @@ public class FilterExceptions
         {
         }
     }
+
+    public void TestWhenAsVariableName()
+    {
+        var when = new XElement("someelement");
+    }
 }
 #endregion

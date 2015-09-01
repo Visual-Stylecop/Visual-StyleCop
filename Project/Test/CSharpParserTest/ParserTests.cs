@@ -174,6 +174,18 @@ namespace CSharpParserTest
             this.RunTest("QueryExpressions");
         }
 
+        /// <summary>
+        /// The cs parser test for cast expression with linq keyword.
+        /// </summary>
+        [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\CastExpression", "CastExpressionWithLinqKeyWordAsVariable")]
+        public void CsParserTestCastExpressionWithLinqKeyWordAsVariable()
+        {
+            this.RunTest("CastExpressionWithLinqKeyWordAsVariable");
+        }
+
         #endregion
 
         #region Methods

@@ -4983,6 +4983,11 @@ namespace StyleCop.CSharp
                                             SymbolType symbolType = nextSymbol.SymbolType;
                                             if (symbolType == SymbolType.Other)
                                             {
+                                                // Check if user don't use a query word as variable name.
+                                                index = this.GetNextCodeSymbolIndex(index + 1);
+                                                Symbol lastSymbol = this.symbols.Peek(index);
+                                                SymbolType lastSymbolType = lastSymbol.SymbolType;
+
                                                 // This could be an expression like:
                                                 // from type in x where (type.IsClass) select type;
                                                 // bug 6711
@@ -4994,7 +4999,7 @@ namespace StyleCop.CSharp
                                                      && previousPrecedence != ExpressionPrecedence.ConditionalOr && previousPrecedence != ExpressionPrecedence.Equality)
                                                     || (nextSymbol.Text != "where" && nextSymbol.Text != "select" && nextSymbol.Text != "group"
                                                         && nextSymbol.Text != "into" && nextSymbol.Text != "orderby" && nextSymbol.Text != "join"
-                                                        && nextSymbol.Text != "let" && nextSymbol.Text != "equals" && nextSymbol.Text != "by" && nextSymbol.Text != "on"))
+                                                        && nextSymbol.Text != "let" && nextSymbol.Text != "equals" && nextSymbol.Text != "by" && nextSymbol.Text != "on") || lastSymbolType == SymbolType.CloseParenthesis || lastSymbolType == SymbolType.Dot)
                                                 {
                                                     cast = true;
                                                 }

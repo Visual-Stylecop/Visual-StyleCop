@@ -20,6 +20,22 @@
           <Statement Type="BlockStatement" />
         </Statement>
       </Element>
+      <Element Name="TestWhenAsVariableName" Type="Method">
+        <Statement Type="VariableDeclarationStatement">
+          <Expression Type="VariableDeclarationExpression">
+            <Expression Text="var" Type="LiteralExpression" />
+            <Expression Type="VariableDeclaratorExpression">
+              <Expression Text="when" Type="LiteralExpression" />
+              <Expression Type="NewExpression">
+                <Expression Type="MethodInvocationExpression">
+                  <Expression Text="XElement" Type="LiteralExpression" />
+                  <Expression Text="&quot;someelement&quot;" Type="LiteralExpression" />
+                </Expression>
+              </Expression>
+            </Expression>
+          </Expression>
+        </Statement>
+      </Element>
     </Element>
   </Element>
 </StyleCopCsParserObjectModel>

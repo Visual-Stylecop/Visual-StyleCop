@@ -24,4 +24,17 @@ namespace CSharpAnalyzersTest.TestData.Spacing
             method1 = list?.FirstOrDefault()?.FirstOrDefault() ?. FirstOrDefault();
         }
     }
+
+    public class NullConditionalNextTest
+    {
+        // test for this issue https://github.com/ptittof57/Visual-StyleCop/issues/10
+        public void TestId10Issue()
+        {
+            var posts = new List<string>() { "abc", "123" };
+            posts.First()?.Replace('a', 'z'); // allowed
+            posts.First()?. Replace('a', 'z'); // not allowed
+            posts.First() ?.Replace('a', 'z'); // not allowed
+            posts.First() ?. Replace('a', 'z'); // not allowed
+        }
+    }
 }

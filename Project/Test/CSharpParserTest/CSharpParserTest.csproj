@@ -69,6 +69,9 @@
   <ItemGroup>
     <Compile Include="ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="TestData\CastExpression\CastExpressionWithLinqKeyWordAsVariable.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Elements\FilterExceptions.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -425,6 +428,17 @@
     <None Include="TestData\Elements\FilterExceptionsObjectModel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\CastExpression\TestDescription.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\CastExpression\CastExpressionWithLinqKeyWordAsVariableObjectModel.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
