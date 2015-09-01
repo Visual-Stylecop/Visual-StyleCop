@@ -43,6 +43,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DeployExtension Condition=" '$(AppVeyor)' != '' ">False</DeployExtension>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -54,7 +55,6 @@
     <CopyVsixExtensionFiles>False</CopyVsixExtensionFiles>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\Debug\VSIXProject.XML</DocumentationFile>
-    <DeployExtension>True</DeployExtension>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -66,7 +66,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\Release\VSIXProject.XML</DocumentationFile>
     <CreateVsixContainer>True</CreateVsixContainer>
-    <DeployExtension>True</DeployExtension>
+    <DeployExtension Condition=" '$(AppVeyor)' != '' ">False</DeployExtension>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
