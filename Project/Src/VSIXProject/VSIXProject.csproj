@@ -87,7 +87,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <None Include="Settings.StyleCop" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>

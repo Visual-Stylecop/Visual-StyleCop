@@ -85,7 +85,7 @@
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="23" Rule="SymbolsMustBeSpacedCorrectly" />
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditional.Method1" LineNumber="24" Rule="SymbolsMustBeSpacedCorrectly" />
 
-      <!-- expected violation for this issue https://github.com/ptittof57/Visual-StyleCop/issues/10 --> 
+      <!-- expected violation for this issue https://github.com/Visual-Stylecop/Visual-StyleCop/issues/10 --> 
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue" LineNumber="35" Rule="SymbolsMustBeSpacedCorrectly" />
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue" LineNumber="36" Rule="SymbolsMustBeSpacedCorrectly" />
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue" LineNumber="37" Rule="SymbolsMustBeSpacedCorrectly" />

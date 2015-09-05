@@ -27,7 +27,7 @@ namespace CSharpAnalyzersTest.TestData.Spacing
 
     public class NullConditionalNextTest
     {
-        // test for this issue https://github.com/ptittof57/Visual-StyleCop/issues/10
+        // test for this issue https://github.com/Visual-Stylecop/Visual-StyleCop/issues/10
         public void TestId10Issue()
         {
             var posts = new List<string>() { "abc", "123" };

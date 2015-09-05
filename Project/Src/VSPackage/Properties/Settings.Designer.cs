@@ -25,7 +25,7 @@ namespace StyleCop.VisualStudio.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/ptittof57/Visual-StyleCop/wiki/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Visual-Stylecop/Visual-StyleCop/wiki/")]
         public string BaseHelpUrl {
             get {
                 return ((string)(this["BaseHelpUrl"]));
