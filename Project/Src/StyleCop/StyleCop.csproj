@@ -286,6 +286,9 @@
     <None Include="mssp7en.lex">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Settings.StyleCop">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Settings\DefaultSettings.xml">
       <SubType>Designer</SubType>
     </None>
@@ -330,9 +333,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CustomDictionary.en-GB.xml" />
-    <Content Include="CustomDictionary.en-US.xml" />
-    <Content Include="CustomDictionary.xml" />
+    <Content Include="CustomDictionary.en-GB.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CustomDictionary.en-US.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CustomDictionary.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>
