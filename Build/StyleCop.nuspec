@@ -11,25 +11,25 @@
     <tags>stylecop CSharp6</tags>
   </metadata>
   <files>
-    <file src="Project/Src/StyleCop/bin/release/StyleCop.Targets" target="build"/>
+    <file src="../Project/Src/StyleCop/bin/release/StyleCop.Targets" target="build"/>
 	
-    <file src="Project/Src/StyleCop/bin/release/StyleCop.dll" target="tools"/>
-	<file src="Project/Src/Analyzers/bin/release/StyleCop.CSharp.dll" target="tools"/>
-	<file src="Project/Src/Analyzers/bin/release/StyleCop.CSharp.Rules.dll" target="tools"/>
-	<file src="Project/Src/StyleCop/bin/release/CustomDictionary.en-GB.xml" target="tools"/>
-	<file src="Project/Src/StyleCop/bin/release/CustomDictionary.en-US.xml" target="tools"/>
-	<file src="Project/Src/StyleCop/bin/release/CustomDictionary.xml" target="tools"/>
-	<file src="Project/Src/StyleCop/bin/release/mssp7en.dll" target="tools"/>
-	<file src="Project/Src/StyleCop/bin/release/mssp7en.lex" target="tools"/>
-	<file src="Project/Src/VSIXProject/bin/release/Settings.StyleCop" target="tools"/>
-	<file src="Project/Src/SettingsEditor/bin/release/StyleCopSettingsEditor.exe" target="tools"/>
+    <file src="../Project/Src/StyleCop/bin/release/StyleCop.dll" target="tools"/>
+	<file src="../Project/Src/Analyzers/bin/release/StyleCop.CSharp.dll" target="tools"/>
+	<file src="../Project/Src/Analyzers/bin/release/StyleCop.CSharp.Rules.dll" target="tools"/>
+	<file src="../Project/Src/StyleCop/bin/release/CustomDictionary.en-GB.xml" target="tools"/>
+	<file src="../Project/Src/StyleCop/bin/release/CustomDictionary.en-US.xml" target="tools"/>
+	<file src="../Project/Src/StyleCop/bin/release/CustomDictionary.xml" target="tools"/>
+	<file src="../Project/Src/StyleCop/bin/release/mssp7en.dll" target="tools"/>
+	<file src="../Project/Src/StyleCop/bin/release/mssp7en.lex" target="tools"/>
+	<file src="../Project/Src/VSIXProject/bin/release/Settings.StyleCop" target="tools"/>
+	<file src="../Project/Src/SettingsEditor/bin/release/StyleCopSettingsEditor.exe" target="tools"/>
 	
-	<file src="Project/Src/Analyzers/bin/release/de-DE/StyleCop.CSharp.Rules.resources.dll" target="tools\de-DE\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="Project/Src/Analyzers/bin/release/en-GB/StyleCop.CSharp.Rules.resources.dll" target="tools\en-GB\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="Project/Src/Analyzers/bin/release/fr-FR/StyleCop.CSharp.Rules.resources.dll" target="tools\fr-FR\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="Project/Src/Analyzers/bin/release/pl-PL/StyleCop.CSharp.Rules.resources.dll" target="tools\pl-PL\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="Project/Src/Analyzers/bin/release/pt-BR/StyleCop.CSharp.Rules.resources.dll" target="tools\pt-BR\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="Project/Src/Analyzers/bin/release/ru-RU/StyleCop.CSharp.Rules.resources.dll" target="tools\ru-RU\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="../Project/Src/Analyzers/bin/release/de-DE/StyleCop.CSharp.Rules.resources.dll" target="tools\de-DE\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="../Project/Src/Analyzers/bin/release/en-GB/StyleCop.CSharp.Rules.resources.dll" target="tools\en-GB\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="../Project/Src/Analyzers/bin/release/fr-FR/StyleCop.CSharp.Rules.resources.dll" target="tools\fr-FR\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="../Project/Src/Analyzers/bin/release/pl-PL/StyleCop.CSharp.Rules.resources.dll" target="tools\pl-PL\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="../Project/Src/Analyzers/bin/release/pt-BR/StyleCop.CSharp.Rules.resources.dll" target="tools\pt-BR\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="../Project/Src/Analyzers/bin/release/ru-RU/StyleCop.CSharp.Rules.resources.dll" target="tools\ru-RU\StyleCop.CSharp.Rules.resources.dll"/>
 	
   </files>
 </package>
