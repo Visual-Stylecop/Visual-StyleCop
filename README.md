@@ -1,6 +1,6 @@
 # Visual StyleCop
 
-[![Join the chat at https://gitter.im/ptittof57/Visual-StyleCop](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ptittof57/Visual-StyleCop?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/Visual-Stylecop/Visual-StyleCop](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Visual-Stylecop/Visual-StyleCop?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ||Results|
 |:--:|:--:|
@@ -19,4 +19,4 @@ Current published version : 4.7.53 on [Visual Studio Extension](https://visualst
 
 StyleCop for Roslyn: [SyleCopAnalyzers](https://github.com/DotNetAnalyzers/StyleCopAnalyzers)
 
-[GitHub Pages](http://ptittof57.github.io/Visual-StyleCop/)
+[GitHub Pages](http://Visual-StyleCop.github.io/Visual-StyleCop/)
