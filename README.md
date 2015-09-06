@@ -5,7 +5,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/n09yi3f5vl0a7bfy/branch/master?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop/branch/master)
 
 
-Copy of StyleCop (Jason Allor, Andy Reeves and [Team](https://stylecop.codeplex.com/team/view)) from stylecop.codeplex.com for visual studio 2015/C#6 without resharper.
+Copy of StyleCop (Jason Allor, Andy Reeves and [Team](https://stylecop.codeplex.com/team/view)) from stylecop.codeplex.com for visual studio 2015/C#6 without ReSharper.
 
 The purpose of this repository is to provide a solution for anyone that want to update to Visual Studio 2015 without change anything in previous solution. I think this should help you for the migration.
 
@@ -28,7 +28,7 @@ I think the futur of StyleCop for Roslyn should be [SyleCopAnalyzers](https://gi
 
 <H2>Resharper</H2>
 
-StyleCop for Resharper is not supported in this repository. For more information please check [StyleCop - Resharper](https://github.com/StyleCop/StyleCop)
+StyleCop for ReSharper is not supported in this repository. For more information please check [StyleCop - Resharper](https://github.com/StyleCop/StyleCop)
 
 <H2>Contribution</H2>
 
