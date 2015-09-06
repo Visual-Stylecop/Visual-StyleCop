@@ -1,3 +1,8 @@
+<H2>4.7.54</H2>
+    - BugFix: [#9](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/9)
+    - BugFix: [#10](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/10)
+    - BugFix: [#11](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/11)
+
 <H2>4.7.53</H2>
     - Fix missing dll for VS2013, added to vsix package
     - Add dependency to framework 4.6
