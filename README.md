@@ -35,4 +35,10 @@ StyleCop for Resharper is not supported in this repository. For more information
 I will accept only pull request for bugfix and update for VS2015/C#6 that are not implemented yet, the purpose of this repository.
 Please don't add rules or new features.
 
-[GitHub Pages](http://Visual-StyleCop.github.io/Visual-StyleCop/)
+<H2>GitHub Pages</H2>
+
+- [GitHub Pages](http://Visual-StyleCop.github.io/Visual-StyleCop/)
+
+<H2>StyleCop Rules</H2>
+
+- You can find help on rules in [wiki](https://github.com/Visual-Stylecop/Visual-StyleCop/wiki)
