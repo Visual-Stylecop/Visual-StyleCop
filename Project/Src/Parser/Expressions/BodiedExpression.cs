@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="BodiedExpression.cs" company="HEISER Christophe">
-//   HEISER Christophe
+// <copyright file="BodiedExpression.cs" company="http://stylecop.codeplex.com">
+//   MS-PL
 // </copyright>
 // <license>
 //   This source code is subject to terms and conditions of the Microsoft 

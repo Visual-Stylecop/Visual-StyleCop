@@ -74,6 +74,9 @@
   <PropertyGroup>
     <ApplicationIcon>StyleCop.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\StyleCop.snk">
       <Link>StyleCop.snk</Link>

@@ -1304,12 +1304,13 @@ namespace StyleCop.CSharp
             while (true)
             {
                 Reference<ICodePart> initializerExpressionReference = new Reference<ICodePart>();
+
                 // Get the next expression.
                 Expression initializerExpression = null;
 
                 if (symbol.SymbolType == SymbolType.OpenSquareBracket)
                 {
-                    initializerExpression = this.GetDictionaryItemInitialisation(expressionReference, unsafeCode);
+                    initializerExpression = this.GetDictionaryItemInitialization(expressionReference, unsafeCode);
                 }
                 else
                 {
@@ -1319,7 +1320,6 @@ namespace StyleCop.CSharp
                     {
                         break;
                     }
-
 
                     if (symbol.SymbolType == SymbolType.OpenCurlyBracket)
                     {
@@ -1406,7 +1406,7 @@ namespace StyleCop.CSharp
                 }
                 else
                 {
-                    initializerExpression = this.GetDictionaryItemInitialisation(expressionReference, unsafeCode);
+                    initializerExpression = this.GetDictionaryItemInitialization(expressionReference, unsafeCode);
                 }
 
                 initializerExpressionReference.Target = initializerExpression;
@@ -1414,6 +1414,7 @@ namespace StyleCop.CSharp
 
                 // Check whether we're done.
                 symbol = this.GetNextSymbol(expressionReference);
+
                 if (symbol.SymbolType == SymbolType.Comma)
                 {
                     this.tokens.Add(this.GetBracketToken(CsTokenType.CloseSquareBracket, SymbolType.CloseSquareBracket, expressionReference));
@@ -1441,7 +1442,13 @@ namespace StyleCop.CSharp
             return expression;
         }
 
-        private DictionaryItemInitialisationExpression GetDictionaryItemInitialisation(Reference<ICodePart> parentReference, bool unsafeCode)
+        /// <summary>
+        /// Gets the dictionary item initialization.
+        /// </summary>
+        /// <param name="parentReference">The parent reference.</param>
+        /// <param name="unsafeCode">If set to <c>true</c> [unsafe code].</param>
+        /// <returns>The dictionary item initialization expression.</returns>
+        private DictionaryItemInitializationExpression GetDictionaryItemInitialization(Reference<ICodePart> parentReference, bool unsafeCode)
         {
             Param.AssertNotNull(parentReference, "parentReference");
             Param.Ignore(unsafeCode);
@@ -1452,6 +1459,14 @@ namespace StyleCop.CSharp
 
             // Check whether the next symbol is an opening parenthesis.
             Symbol symbol = this.GetNextSymbol(parentReference);
+
+            if (symbol.SymbolType == SymbolType.Other)
+            {
+                CsToken token = this.GetToken(CsTokenType.Other, SymbolType.Other, parentReference);
+                this.tokens.Add(token);
+
+                symbol = this.GetNextSymbol(parentReference);
+            }
 
             if (symbol.SymbolType == SymbolType.OpenSquareBracket)
             {
@@ -1468,26 +1483,31 @@ namespace StyleCop.CSharp
             Bracket closeBracket = this.GetBracketToken(CsTokenType.CloseSquareBracket, SymbolType.CloseSquareBracket, expressionReference);
             this.tokens.Add(closeBracket);
 
-            // Get the equal operator.
-            this.tokens.Add(this.GetOperatorToken(OperatorType.Equals, expressionReference));
-
-            // Get the body of the expression. This can either be an expression or a statement.
-            // If it starts with an opening curly bracket, it's a statement, otherwise it's an expression.
             symbol = this.GetNextSymbol(expressionReference);
 
-            Expression declaration = this.GetNextExpression(ExpressionPrecedence.None, expressionReference, unsafeCode);
+            if (symbol.SymbolType == SymbolType.Equals)
+            {
+                // Get the equal operator.
+                this.tokens.Add(this.GetOperatorToken(OperatorType.Equals, expressionReference));
 
-            CsToken test = this.GetToken(CsTokenType.Comma, SymbolType.Comma, expressionReference);
+                // Get the body of the expression. This can either be an expression or a statement.
+                // If it starts with an opening curly bracket, it's a statement, otherwise it's an expression.
+                symbol = this.GetNextSymbol(expressionReference);
+
+                Expression declaration = this.GetNextExpression(ExpressionPrecedence.None, expressionReference, unsafeCode);
+
+                CsToken commaToken = this.GetToken(CsTokenType.Comma, SymbolType.Comma, expressionReference);
+            }
+
             Node<CsToken> lastTokenNode = this.tokens.Last;
 
             // Create the token list for the overall expression.
             CsTokenList expressionTokens = new CsTokenList(this.tokens, previousTokenNode, lastTokenNode);
-            DictionaryItemInitialisationExpression lambdaExpression = new DictionaryItemInitialisationExpression(expressionTokens);
-
+            DictionaryItemInitializationExpression itemInitialisationExpression = new DictionaryItemInitializationExpression(expressionTokens);
 
             // Return the expression.
-            expressionReference.Target = lambdaExpression;
-            return lambdaExpression;
+            expressionReference.Target = itemInitialisationExpression;
+            return itemInitialisationExpression;
         }
 
         /// <summary>
@@ -2791,10 +2811,11 @@ namespace StyleCop.CSharp
 
                         break;
                     case SymbolType.Lambda:
-                        if(IsBodiedExpression())
+                        if (this.IsBodiedExpression())
                         {
                             expression = this.GetBodiedExpression(parentReference, unsafeCode);
                         }
+
                         break;
 
                     case SymbolType.OpenSquareBracket:
@@ -3079,9 +3100,6 @@ namespace StyleCop.CSharp
             // Determine whether this is an object initializer or a collection initializer.
             bool objectInitializer = false;
 
-            // Determine whether this is a dictionary initializer.
-            bool dictionaryInitializer = false;
-
             // Peek at the next symbol after the curly bracket.
             int index = this.GetNextCodeSymbolIndex(2);
             if (index == -1)
@@ -3105,20 +3123,12 @@ namespace StyleCop.CSharp
                     {
                         objectInitializer = true;
                     }
-                    else if (symbol.SymbolType == SymbolType.OpenSquareBracket)
-                    {
-                        dictionaryInitializer = true;
-                    }
                 }
             }
 
             if (objectInitializer)
             {
                 return this.GetObjectInitializerExpression(unsafeCode);
-            }
-            else if (dictionaryInitializer)
-            {
-                return this.GetDictionaryInitializerExpression(unsafeCode);
             }
             else
             {

@@ -69,6 +69,9 @@
   <ItemGroup>
     <Compile Include="ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="TestData\Strings\Strings.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\CastExpression\CastExpressionWithLinqKeyWordAsVariable.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -223,7 +226,9 @@
     <None Include="TestData\ExtensionMethods\ValidExtensionMethods.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\ObjectAndCollectionInitializers.cs" />
+    <None Include="TestData\ObjectAndCollectionInitializers\ObjectAndCollectionInitializers.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\GeneratedCode\AccessModifiersMissing.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -438,6 +443,26 @@
   <ItemGroup>
     <None Include="TestData\CastExpression\CastExpressionWithLinqKeyWordAsVariableObjectModel.xml">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\Strings\TestDescription.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\Strings\StringsObjectModel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\ObjectAndCollectionInitializers\TestDescription.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\ObjectAndCollectionInitializers\ObjectAndCollectionInitializersObjectModel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

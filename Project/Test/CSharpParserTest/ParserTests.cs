@@ -186,6 +186,30 @@ namespace CSharpParserTest
             this.RunTest("CastExpressionWithLinqKeyWordAsVariable");
         }
 
+        /// <summary>
+        /// The cs parser test for strings.
+        /// </summary>
+        [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\Strings", "Strings")]
+        public void CsParserTestStrings()
+        {
+            this.RunTest("Strings");
+        }
+
+        /// <summary>
+        /// The cs parser test for object and collection initializers.
+        /// </summary>
+        [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\ObjectAndCollectionInitializers", "ObjectAndCollectionInitializers")]
+        public void CsParserObjectAndCollectionInitializers()
+        {
+            this.RunTest("ObjectAndCollectionInitializers");
+        }
+
         #endregion
 
         #region Methods

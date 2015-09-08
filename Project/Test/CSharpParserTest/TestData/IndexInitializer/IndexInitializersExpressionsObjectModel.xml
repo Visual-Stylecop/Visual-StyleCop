@@ -11,9 +11,9 @@
                 <Expression Type="NewExpression">
                   <Expression Text="Dictionary&lt;string,int&gt;" Type="LiteralExpression" />
                   <Expression Type="CollectionInitializerExpression">
-                    <Expression Type="DictionaryItemInitialisationExpression" />
-                    <Expression Type="DictionaryItemInitialisationExpression" />
-                    <Expression Type="DictionaryItemInitialisationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
                   </Expression>
                 </Expression>
               </Expression>
@@ -29,9 +29,9 @@
                 <Expression Type="NewExpression">
                   <Expression Text="Dictionary&lt;int,int&gt;" Type="LiteralExpression" />
                   <Expression Type="CollectionInitializerExpression">
-                    <Expression Type="DictionaryItemInitialisationExpression" />
-                    <Expression Type="DictionaryItemInitialisationExpression" />
-                    <Expression Type="DictionaryItemInitialisationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
                   </Expression>
                 </Expression>
               </Expression>
@@ -47,9 +47,9 @@
                 <Expression Type="NewExpression">
                   <Expression Text="Dictionary&lt;int,People&gt;" Type="LiteralExpression" />
                   <Expression Type="CollectionInitializerExpression">
-                    <Expression Type="DictionaryItemInitialisationExpression" />
-                    <Expression Type="DictionaryItemInitialisationExpression" />
-                    <Expression Type="DictionaryItemInitialisationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
                   </Expression>
                 </Expression>
               </Expression>

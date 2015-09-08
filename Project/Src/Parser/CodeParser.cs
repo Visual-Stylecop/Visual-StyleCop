@@ -882,7 +882,7 @@ namespace StyleCop.CSharp
         /// <returns>Returns the exception.</returns>
         private SyntaxException CreateSyntaxException()
         {
-            throw new SyntaxException(this.document.SourceCode, this.GetBestLineNumber());
+           throw new SyntaxException(this.document.SourceCode, this.GetBestLineNumber());
         }
 
         /// <summary>

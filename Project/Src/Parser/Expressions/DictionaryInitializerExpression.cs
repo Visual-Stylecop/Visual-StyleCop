@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CollectionInitializerExpression.cs" company="HEISER Christophe">
-//   HEISER Christophe
+// <copyright file="DictionaryInitializerExpression.cs" company="http://stylecop.codeplex.com">
+//   MS-PL
 // </copyright>
 // <license>
 //   This source code is subject to terms and conditions of the Microsoft 

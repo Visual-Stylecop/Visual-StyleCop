@@ -3286,7 +3286,7 @@ namespace StyleCop.CSharp
             Property property = new Property(this.document, parent, xmlHeader, attributes, declaration, propertyType, unsafeCode, generated);
             elementReference.Target = property;
             
-            if (IsBodiedExpression())
+            if (this.IsBodiedExpression())
             {
                 this.ParseStatementContainer(property, true, unsafeCode);
             }
