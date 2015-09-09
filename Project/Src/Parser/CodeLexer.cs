@@ -1461,7 +1461,7 @@ namespace StyleCop.CSharp
                         continue;
                     }
                 }
-                else if(character == ')' || character == ';')
+                else if (character == ';' || (character == ')' && this.codeReader.Peek(1) == ';'))
                 {
                     break;
                 }

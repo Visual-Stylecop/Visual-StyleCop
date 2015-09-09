@@ -280,6 +280,30 @@
                           Type="LiteralExpression" />
             </Expression>
           </Statement>
+          <Statement Type="VariableDeclarationStatement">
+            <Expression Type="VariableDeclarationExpression">
+              <Expression Text="var"
+                          Type="LiteralExpression" />
+              <Expression Type="VariableDeclaratorExpression">
+                <Expression Text="strippedStatement"
+                            Type="LiteralExpression" />
+                <Expression Type="MethodInvocationExpression">
+                  <Expression Type="MemberAccessExpression">
+                    <Expression Text="Regex"
+                                Type="LiteralExpression" />
+                    <Expression Text="Replace"
+                                Type="LiteralExpression" />
+                  </Expression>
+                  <Expression Text="&quot;input string&quot;"
+                              Type="LiteralExpression" />
+                  <Expression Text="@&quot;(?&lt;S&gt;(^|\W+)?)Mev\.(?&lt;E&gt;($|\W+)?)&quot;"
+                              Type="LiteralExpression" />
+                  <Expression Text="@&quot;${S}${E}&quot;"
+                              Type="LiteralExpression" />
+                </Expression>
+              </Expression>
+            </Expression>
+          </Statement>
         </Element>
       </Element>
       <Element Name="StringsConstTest"
