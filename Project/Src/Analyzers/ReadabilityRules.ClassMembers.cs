@@ -270,6 +270,7 @@ namespace StyleCop.CSharp
             {
                 if (Utils.IsExpressionInsideContainer(
                     expression,
+                    typeof(NullConditionExpression),
                     typeof(TypeofExpression),
                     typeof(IsExpression),
                     typeof(CastExpression),
