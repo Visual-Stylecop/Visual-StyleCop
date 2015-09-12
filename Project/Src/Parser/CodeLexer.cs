@@ -1461,9 +1461,12 @@ namespace StyleCop.CSharp
                         continue;
                     }
                 }
-                else if (character == ';' || (character == ')' && this.codeReader.Peek(1) == ';'))
+                else if (character == ' ' || character == ')' || character == ';')
                 {
-                    break;
+                    if (this.IsEndOfString(1) != -1)
+                    {
+                        break;
+                    }
                 }
 
                 this.codeReader.ReadNext();
@@ -1491,6 +1494,40 @@ namespace StyleCop.CSharp
 
             // Return the token.
             return token;
+        }
+
+        /// <summary>
+        /// Determines whether [is end of string].
+        /// </summary>
+        /// <param name="startSearchIndex">Start index of the search.</param>
+        /// <returns>If this is not the end of the string return -1 else return positif number.</returns>
+        private int IsEndOfString(int startSearchIndex)
+        {
+            // Get the next char to check if it's a space.
+            char character = this.codeReader.Peek(startSearchIndex);
+
+            // While the character is a space read next char without advance in the code file.
+            while (character == ' ')
+            {
+                startSearchIndex++;
+
+                // Get next char and check again.
+                character = this.codeReader.Peek(startSearchIndex);
+            }
+
+            startSearchIndex++;
+
+            // Check if current char is semi colon or if it's a closing curve bracket and a semi colon.
+            if ((character == ')' && this.codeReader.Peek(startSearchIndex) == ';') || character == '\r')
+            {
+                return startSearchIndex;
+            }
+            else if (this.codeReader.Peek(startSearchIndex) == ' ' || character == ';')
+            {
+                return this.IsEndOfString(startSearchIndex);
+            }
+
+            return -1;
         }
 
         /// <summary>

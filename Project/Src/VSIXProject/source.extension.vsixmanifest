@@ -16,11 +16,11 @@
     <Tags>StyleCop</Tags>
   </Metadata>
   <Installation AllUsers="true">
-    <InstallationTarget Version="[12.0,15.0)"
+    <InstallationTarget Version="[11.0,15.0)"
                         Id="Microsoft.VisualStudio.Community" />
-    <InstallationTarget Version="[12.0,15.0)"
+    <InstallationTarget Version="[11.0,15.0)"
                         Id="Microsoft.VisualStudio.Enterprise" />
-    <InstallationTarget Version="[12.0,15.0)"
+    <InstallationTarget Version="[11.0,15.0)"
                         Id="Microsoft.VisualStudio.Pro" />
   </Installation>
   <Dependencies>

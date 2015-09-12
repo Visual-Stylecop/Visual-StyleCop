@@ -34,5 +34,5 @@ namespace CSharpAnalyzersTest.TestData.Spacing
                     orderby g.Key ascending
                     select new NameCount { Name = g.Key.ToString(), Count = g.Count() };
         }
-   }
+    }
 }
