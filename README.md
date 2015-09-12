@@ -16,6 +16,7 @@ The wiki is in progress and sometimes you can browse to a broken link, please be
 - <H4>Visual Studio Extension</H4>
 
     - Current published version : 4.7.54 on [Visual Studio Extension](https://visualstudiogallery.msdn.microsoft.com/cac2a05b-6eb6-4fa2-95b9-1f8d011e6cae)
+    - Direct VSIX Download : [Visual StyleCop VSIX](https://visualstudiogallery.msdn.microsoft.com/cac2a05b-6eb6-4fa2-95b9-1f8d011e6cae/file/173746/9/VSIXProject.vsix)
 
 - <H4>MSBuild integration</H4>
 
