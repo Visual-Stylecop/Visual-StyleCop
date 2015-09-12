@@ -280,7 +280,7 @@ namespace StyleCop.CSharp
                 {
                     return !this.expressions.Any(e => e.ExpressionType == ExpressionType.Bodied);
                 }
-                else if(this.statements != null)
+                else if (this.statements != null)
                 {
                     return !this.statements.Any(s => s.ChildExpressions != null && s.ChildExpressions.Any(e => e.ExpressionType == ExpressionType.Bodied));
                 }

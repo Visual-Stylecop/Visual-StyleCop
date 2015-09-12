@@ -4,7 +4,7 @@
                  xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="629EB7CC-69C2-43AC-9BC9-482B0F810C4E"
-              Version="4.7.54"
+              Version="4.7.55"
               Language="en-US"
               Publisher="HEISER Christophe" />
     <DisplayName>Visual StyleCop</DisplayName>
@@ -16,11 +16,11 @@
     <Tags>StyleCop</Tags>
   </Metadata>
   <Installation AllUsers="true">
-    <InstallationTarget Version="[12.0,15.0)"
+    <InstallationTarget Version="[11.0,15.0)"
                         Id="Microsoft.VisualStudio.Community" />
-    <InstallationTarget Version="[12.0,15.0)"
+    <InstallationTarget Version="[11.0,15.0)"
                         Id="Microsoft.VisualStudio.Enterprise" />
-    <InstallationTarget Version="[12.0,15.0)"
+    <InstallationTarget Version="[11.0,15.0)"
                         Id="Microsoft.VisualStudio.Pro" />
   </Installation>
   <Dependencies>

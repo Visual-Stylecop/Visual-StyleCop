@@ -66,6 +66,12 @@
   <ItemGroup>
     <Compile Include="AnalyzerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="TestData\Spacing\StringInterpolation.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\StringFormatCSharp6\StringFormatCSharp6.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\ClassMembers\ClassMembersPrefixLocalCallsWithThisForBodied.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -269,9 +275,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\CurlyBrackets\CurlyBracketsLambdaExpressions.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestData\StringFormatCSharp6\StringFormatCSharp6.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Documentation\DocumentationConstructorSummary.cs">
@@ -881,9 +884,6 @@
     <None Include="TestData\ElementOrder\TestDescription.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\StringFormatCSharp6\TestDescription.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="TestData\FileContents\TestDescription.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -982,6 +982,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\EmptyStrings\TestDescription.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\StringFormatCSharp6\TestDescription.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

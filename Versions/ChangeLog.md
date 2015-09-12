@@ -1,3 +1,9 @@
+<H2>4.7.55</H2>
+    - BugFix: [#13](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/13)
+    - BugFix: [#14](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/14)
+    - BugFix: [#15](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/15)
+    - Fix possible issue with string and semicolon or multiple space at the end of string. 
+
 <H2>4.7.54</H2>
     - BugFix: [#9](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/9)
     - BugFix: [#10](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/10)
