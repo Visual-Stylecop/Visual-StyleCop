@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Visual-StyleCop.MSBuild</id>
-    <version>4.7.54.0</version>
+    <version>4.7.55.0</version>
     <authors>Christophe Heiser</authors>
     <description>Core Visual StyleCop libraries to create custom rules</description>
     <language>en-US</language>
