@@ -1518,7 +1518,7 @@ namespace StyleCop.CSharp
             startSearchIndex++;
 
             // Check if current char is semi colon or if it's a closing curve bracket and a semi colon.
-            if ((character == ')' && this.codeReader.Peek(startSearchIndex) == ';') || character == '\r')
+            if ((character == ')' && this.codeReader.Peek(startSearchIndex) == ';') || character == '\r' || character == '\n')
             {
                 return startSearchIndex;
             }
