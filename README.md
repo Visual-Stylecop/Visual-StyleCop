@@ -2,6 +2,12 @@
 
 [![Join the chat at https://gitter.im/Visual-Stylecop/Visual-StyleCop](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Visual-Stylecop/Visual-StyleCop?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+Copy of StyleCop (Jason Allor, Andy Reeves and [Team](https://stylecop.codeplex.com/team/view)) from stylecop.codeplex.com for visual studio 2015/C#6 without ReSharper.
+
+The purpose of this repository is to provide a solution for anyone that want to update to Visual Studio 2015 without change anything in previous solution. I think this should help you for the migration.
+
+The wiki is in progress and sometimes you can browse to a broken link, please be patient.
+
 <H3>Builds</H3>
 
 |develop|master|
@@ -13,12 +19,6 @@
 |develop|master|
 |:--:|:--:|
 |[![codecov.io](http://codecov.io/github/Visual-Stylecop/Visual-StyleCop/coverage.svg?branch=develop)](http://codecov.io/github/Visual-Stylecop/Visual-StyleCop?branch=develop)|[![codecov.io](http://codecov.io/github/Visual-Stylecop/Visual-StyleCop/coverage.svg?branch=master)](http://codecov.io/github/Visual-Stylecop/Visual-StyleCop?branch=master)|
-
-Copy of StyleCop (Jason Allor, Andy Reeves and [Team](https://stylecop.codeplex.com/team/view)) from stylecop.codeplex.com for visual studio 2015/C#6 without ReSharper.
-
-The purpose of this repository is to provide a solution for anyone that want to update to Visual Studio 2015 without change anything in previous solution. I think this should help you for the migration.
-
-The wiki is in progress and sometimes you can browse to a broken link, please be patient.
 
 <H2>Publish from this repository</H2>
 
