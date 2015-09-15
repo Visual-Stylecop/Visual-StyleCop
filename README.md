@@ -14,7 +14,7 @@ The wiki is in progress and sometimes you can browse to a broken link, please be
 
 |develop|master|
 |:--:|:--:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/xgnf7ae4clny9f1j?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop-6ywln)|[![Build status](https://ci.appveyor.com/api/projects/status/n09yi3f5vl0a7bfy/branch/master?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop/branch/master)|
+|[![Build status](https://ci.appveyor.com/api/projects/status/xgnf7ae4clny9f1j?svg=true)](https://ci.appveyor.com/project/visual-stylecop/visual-stylecop-6ywln)|[![Build status](https://ci.appveyor.com/api/projects/status/n09yi3f5vl0a7bfy/branch/master?svg=true)](https://ci.appveyor.com/project/visual-stylecop/visual-stylecop/branch/master)|
 
 <H4>Code Coverage</H4>
 
