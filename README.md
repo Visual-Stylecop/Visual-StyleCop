@@ -2,7 +2,11 @@
 
 [![Join the chat at https://gitter.im/Visual-Stylecop/Visual-StyleCop](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Visual-Stylecop/Visual-StyleCop?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Build status](https://ci.appveyor.com/api/projects/status/n09yi3f5vl0a7bfy/branch/master?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop/branch/master)
+<H3>Builds</H3>
+
+|develop|master|
+|:--:|:--:|
+|[![Build status](https://ci.appveyor.com/api/projects/status/xgnf7ae4clny9f1j?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop-6ywln)|[![Build status](https://ci.appveyor.com/api/projects/status/n09yi3f5vl0a7bfy/branch/master?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop/branch/master)|
 
 <H3>Code Coverage</H3>
 
