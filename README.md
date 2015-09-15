@@ -4,6 +4,11 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/n09yi3f5vl0a7bfy/branch/master?svg=true)](https://ci.appveyor.com/project/ptittof57/visual-stylecop/branch/master)
 
+<H3>Code Coverage</H3>
+
+|develop|master|
+|:--:|:--:|
+|[![codecov.io](http://codecov.io/github/Visual-Stylecop/Visual-StyleCop/coverage.svg?branch=develop)](http://codecov.io/github/Visual-Stylecop/Visual-StyleCop?branch=develop)|[![codecov.io](http://codecov.io/github/Visual-Stylecop/Visual-StyleCop/coverage.svg?branch=master)](http://codecov.io/github/Visual-Stylecop/Visual-StyleCop?branch=master)|
 
 Copy of StyleCop (Jason Allor, Andy Reeves and [Team](https://stylecop.codeplex.com/team/view)) from stylecop.codeplex.com for visual studio 2015/C#6 without ReSharper.
 
