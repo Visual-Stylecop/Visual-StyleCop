@@ -11,25 +11,25 @@
     <tags>stylecop CSharp6</tags>
   </metadata>
   <files>
-    <file src="./Build/Nuget/VisualStyleCop/StyleCop.Targets" target="build"/>
+    <file src="./Nuget/VisualStyleCop/StyleCop.Targets" target="build"/>
 	
-    <file src="./Build/Nuget/VisualStyleCop/StyleCop.dll" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/StyleCop.CSharp.dll" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/StyleCop.CSharp.Rules.dll" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/CustomDictionary.en-GB.xml" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/CustomDictionary.en-US.xml" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/CustomDictionary.xml" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/mssp7en.dll" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/mssp7en.lex" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/Settings.StyleCop" target="tools"/>
-	<file src="./Build/Nuget/VisualStyleCop/StyleCopSettingsEditor.exe" target="tools"/>
+    <file src="./Nuget/VisualStyleCop/StyleCop.dll" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/StyleCop.CSharp.dll" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/StyleCop.CSharp.Rules.dll" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/CustomDictionary.en-GB.xml" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/CustomDictionary.en-US.xml" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/CustomDictionary.xml" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/mssp7en.dll" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/mssp7en.lex" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/Settings.StyleCop" target="tools"/>
+	<file src="./Nuget/VisualStyleCop/StyleCopSettingsEditor.exe" target="tools"/>
 	
-	<file src="./Build/Nuget/VisualStyleCop/de-DE/StyleCop.CSharp.Rules.resources.dll" target="tools\de-DE\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="./Build/Nuget/VisualStyleCop/en-GB/StyleCop.CSharp.Rules.resources.dll" target="tools\en-GB\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="./Build/Nuget/VisualStyleCop/fr-FR/StyleCop.CSharp.Rules.resources.dll" target="tools\fr-FR\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="./Build/Nuget/VisualStyleCop/pl-PL/StyleCop.CSharp.Rules.resources.dll" target="tools\pl-PL\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="./Build/Nuget/VisualStyleCop/pt-BR/StyleCop.CSharp.Rules.resources.dll" target="tools\pt-BR\StyleCop.CSharp.Rules.resources.dll"/>
-	<file src="./Build/Nuget/VisualStyleCop/ru-RU/StyleCop.CSharp.Rules.resources.dll" target="tools\ru-RU\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="./Nuget/VisualStyleCop/de-DE/StyleCop.CSharp.Rules.resources.dll" target="tools\de-DE\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="./Nuget/VisualStyleCop/en-GB/StyleCop.CSharp.Rules.resources.dll" target="tools\en-GB\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="./Nuget/VisualStyleCop/fr-FR/StyleCop.CSharp.Rules.resources.dll" target="tools\fr-FR\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="./Nuget/VisualStyleCop/pl-PL/StyleCop.CSharp.Rules.resources.dll" target="tools\pl-PL\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="./Nuget/VisualStyleCop/pt-BR/StyleCop.CSharp.Rules.resources.dll" target="tools\pt-BR\StyleCop.CSharp.Rules.resources.dll"/>
+	<file src="./Nuget/VisualStyleCop/ru-RU/StyleCop.CSharp.Rules.resources.dll" target="tools\ru-RU\StyleCop.CSharp.Rules.resources.dll"/>
 	
   </files>
 </package>
