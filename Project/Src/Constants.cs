@@ -37,7 +37,7 @@ namespace StyleCop
         /// <summary>
         /// The full version number of the product a.b.c.d.
         /// </summary>
-        public const string ProductVersionFull = "4.7.51.0";
+        public const string ProductVersionFull = "4.7.56.0";
 
         /// <summary>
         /// The Major.Minor version number of the product a.b.
@@ -50,14 +50,14 @@ namespace StyleCop
         public const string StyleCopAssemblyName = ProductName + ".dll";
 
         /// <summary>
-        /// Name of the Vendor i.e. http://stylecop.codeplex.com/ .
+        /// Name of the Vendor i.e. https://github.com/Visual-Stylecop/Visual-StyleCop.
         /// </summary>
-        public const string Vendor = "http://stylecop.codeplex.com";
+        public const string Vendor = "https://github.com/Visual-Stylecop/Visual-StyleCop";
 
         /// <summary>
         /// The Plugin description.
         /// </summary>
-        public const string Description = "R# plugin for StyleCop. This plugin allows StyleCop to be run as you type, generating real-time syntax highlighting of violations. It also provides a series of Quick-Fixes and Code Clean Up Modules to help automatically fix violations. See http://stylecop.codeplex.com for more info.";
+        public const string Description = "R# plugin for StyleCop. This plugin allows StyleCop to be run as you type, generating real-time syntax highlighting of violations. It also provides a series of Quick-Fixes and Code Clean Up Modules to help automatically fix violations. See https://github.com/Visual-Stylecop/Visual-StyleCop for more info.";
 
         #endregion
     }

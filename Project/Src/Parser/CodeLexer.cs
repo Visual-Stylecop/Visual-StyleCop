@@ -2011,6 +2011,14 @@ namespace StyleCop.CSharp
                     type = SymbolType.NullConditional;
                     this.codeReader.ReadNext();
                 }
+                else if (character == '[')
+                {
+                    if (this.codeReader.Peek(1) != ']')
+                    {
+                        // null conditional against an opening bracket like foo?[0];
+                        type = SymbolType.NullConditional;
+                    }
+                }
             }
             else if (character == ':')
             {

@@ -69,6 +69,9 @@
   <ItemGroup>
     <Compile Include="ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="TestData\NullConditionExpressions\NullConditionExpressions.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Strings\Strings.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -463,6 +466,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\ObjectAndCollectionInitializers\ObjectAndCollectionInitializersObjectModel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\NullConditionExpressions\NullConditionExpressionsObjectModel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\NullConditionExpressions\TestDescription.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

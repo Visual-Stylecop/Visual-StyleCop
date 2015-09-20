@@ -1,3 +1,7 @@
+<H2>4.7.56</H2>
+    - BugFix: [#16](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/16)
+    - Fix some codeplex reference links.
+
 <H2>4.7.55</H2>
     - BugFix: [#13](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/13)
     - BugFix: [#14](https://github.com/Visual-Stylecop/Visual-StyleCop/issues/14)
