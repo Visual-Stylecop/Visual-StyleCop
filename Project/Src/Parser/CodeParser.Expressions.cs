@@ -1166,8 +1166,24 @@ namespace StyleCop.CSharp
                 this.symbols.Advance();
                 this.tokens.Add(operatorToken);
 
-                // Get the expression on the right-hand side of the operator.
-                Expression rightHandSide = this.GetOperatorRightHandExpression(precedence, expressionReference, unsafeCode);
+                Expression rightHandSide = null;
+                Symbol nextSymbol = this.symbols.Peek(1);
+
+                // Check if next symbol is an open square bracket.
+                if(nextSymbol.SymbolType == SymbolType.OpenSquareBracket)
+                {
+                    rightHandSide = this.GetArrayAccessExpression(leftHandSide, previousPrecedence, unsafeCode);
+                }
+                else
+                {
+                    rightHandSide = this.GetOperatorRightHandExpression(precedence, expressionReference, unsafeCode);
+                }
+
+                // We must find an expression else there is a syntax exception.
+                if(rightHandSide == null)
+                {
+                    this.CreateSyntaxException();
+                }
 
                 // Create the partial token list for the expression.
                 CsTokenList partialTokens = new CsTokenList(this.tokens, leftHandSide.Tokens.First, this.tokens.Last);
@@ -2914,11 +2930,6 @@ namespace StyleCop.CSharp
 
             // Return the expression.
             return expression;
-        }
-
-        private bool IsNullConditionExpression()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

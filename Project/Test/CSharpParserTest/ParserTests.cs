@@ -175,6 +175,18 @@ namespace CSharpParserTest
         }
 
         /// <summary>
+        /// The cs parser test null condition expressions.
+        /// </summary>
+        [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\NullConditionExpressions", "NullConditionExpressions")]
+        public void CsParserTestNullCondtionExpressions()
+        {
+            this.RunTest("NullConditionExpressions");
+        }
+
+        /// <summary>
         /// The cs parser test for cast expression with linq keyword.
         /// </summary>
         [TestMethod]
