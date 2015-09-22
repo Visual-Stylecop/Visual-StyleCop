@@ -97,5 +97,28 @@ namespace MS.StyleCop.CSharpParserTest.TestData
                 strings[6],
             };
         }
+
+        public void CollectionInit()
+        {
+            // Index initializers
+            Dictionary primaryNumbers = new Dictionary()
+            {
+                [1] = "one",
+                [3] = "three",
+                [5] = "five",
+                [7] = "seven",
+                [11] = "eleven"
+            };
+
+            // Index initializers
+            Dictionary secondaryNumbers = new Dictionary()
+            {
+                [1] = "one",
+                [3] = "three",
+                [5] = "five",
+                [7] = "seven",
+                [11] = "eleven",
+            };
+        }
     }
 }
