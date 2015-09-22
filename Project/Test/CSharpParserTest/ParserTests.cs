@@ -31,16 +31,10 @@ namespace CSharpParserTest
     [TestClass]
     public class ParserTests
     {
-        #region Constants and Fields
-
         /// <summary>
         /// The test context.
         /// </summary>
         private static TestContext testContext;
-
-        #endregion
-
-        #region Public Methods
 
         /// <summary>
         /// The my class initialize.
@@ -222,9 +216,17 @@ namespace CSharpParserTest
             this.RunTest("ObjectAndCollectionInitializers");
         }
 
-        #endregion
-
-        #region Methods
+        /// <summary>
+        /// The cs parser test ternary operator.
+        /// </summary>
+        [TestMethod]
+        [DeploymentItem("StyleCop.CSharp.Rules.dll")]
+        [DeploymentItem("CSharpParserTestRules.dll")]
+        [DeploymentItem("TestData\\TernaryOperator", "TernaryOperator")]
+        public void CsParserTernaryOperator()
+        {
+            this.RunTest("TernaryOperator");
+        }
 
         /// <summary>
         /// The run test.
@@ -240,7 +242,5 @@ namespace CSharpParserTest
             bool result = StyleCopTestRunner.Run(testName, testContext.TestDir, testContext.ResultsDirectory, testContext.DeploymentDirectory, false, simulationFrameworkVersion, files);
             Assert.IsTrue(result);
         }
-
-        #endregion
     }
 }
