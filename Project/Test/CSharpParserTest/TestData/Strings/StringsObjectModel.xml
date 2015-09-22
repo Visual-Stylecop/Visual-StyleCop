@@ -364,6 +364,23 @@
           </Statement>
         </Element>
       </Element>
+      <Element Name="CSSAsString"
+               Type="Class">
+        <Element Name="GetStyle"
+                 Type="Method">
+          <Statement Type="ReturnStatement">
+            <Expression Text="@&quot;&lt;style&gt;&#xA;body&#xA;{&#xA;	padding-right: 0px;&#xA;	padding-left: 0px;&#xA;	font-size: 8pt;&#xA;	padding-bottom: 0px;&#xA;	margin: 0px;&#xA;	padding-top: 0px;&#xA;	font-family: arial, helvetica, sans-serif;&#xA;	background-color: #cccccc;&#xA;}&#xA;form&#xA;{&#xA;	padding-right: 0px;&#xA;	padding-left: 0px;&#xA;	padding-bottom: 0px;&#xA;	margin: 0px;&#xA;	padding-top: 0px;&#xA;}&#xA;&lt;/style&gt;&quot;"
+                        Type="LiteralExpression" />
+          </Statement>
+        </Element>
+        <Element Name="GetStyleWithDoubleQuotes"
+                 Type="Method">
+          <Statement Type="ReturnStatement">
+            <Expression Text="@&quot;&lt;style&gt;&#xA;body&#xA;{&#xA;	padding-right: 0px;&#xA;	padding-left: 0px;&#xA;	font-size: 8pt;&#xA;	padding-bottom: 0px;&#xA;	margin: 0px;&#xA;	padding-top: 0px;&#xA;	font-family: arial, helvetica, sans-serif;&#xA;	background-color: #cccccc; &quot;&quot;this is another test&quot;&quot; &#xA;}&#xA;form&#xA;{&#xA;	padding-right: 0px;&#xA;	padding-left: 0px;&#xA;	padding-bottom: 0px;&#xA;	margin: 0px;&#xA;	padding-top: 0px;&#xA;}&#xA;&lt;/style&gt;&quot;"
+                        Type="LiteralExpression" />
+          </Statement>
+        </Element>
+      </Element>
     </Element>
   </Element>
 </StyleCopCsParserObjectModel>

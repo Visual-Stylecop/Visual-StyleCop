@@ -23,6 +23,7 @@ namespace StyleCop.CSharp
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Text;
+    using System.Linq;
 
     /// <summary>
     /// Breaks the components of a C# code file down into individual symbols.
@@ -1465,7 +1466,14 @@ namespace StyleCop.CSharp
                 {
                     if (this.IsEndOfString(1) != -1)
                     {
-                        break;
+                        List<char> charsForText = new List<char>(text.ToString().ToCharArray());
+                        int count = charsForText.Count(c => c == stringType);
+
+                        // Check if we have the end of string.
+                        if (count % 2 == 0)
+                        {
+                            break;
+                        }
                     }
                 }
 

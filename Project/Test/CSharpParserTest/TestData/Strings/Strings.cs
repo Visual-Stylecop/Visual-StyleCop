@@ -52,4 +52,57 @@ namespace Strings
         private readonly string x = string.Format("string format {0}", test);
         private readonly string y = $"string interpolation {test}";
     }
+
+    public class CSSAsString
+    {
+        public static string GetStyle()
+        {
+            return @"<style>
+body
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	font-size: 8pt;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+	font-family: arial, helvetica, sans-serif;
+	background-color: #cccccc;
+}
+form
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+}
+</style>";
+        }
+
+        public static string GetStyleWithDoubleQuotes()
+        {
+            return @"<style>
+body
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	font-size: 8pt;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+	font-family: arial, helvetica, sans-serif;
+	background-color: #cccccc; ""this is another test"" 
+}
+form
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+}
+</style>";
+        }
+    }
 }
