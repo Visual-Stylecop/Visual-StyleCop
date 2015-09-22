@@ -1170,7 +1170,7 @@ namespace StyleCop.CSharp
                 Symbol nextSymbol = this.symbols.Peek(1);
 
                 // Check if next symbol is an open square bracket.
-                if(nextSymbol.SymbolType == SymbolType.OpenSquareBracket)
+                if (nextSymbol.SymbolType == SymbolType.OpenSquareBracket)
                 {
                     rightHandSide = this.GetArrayAccessExpression(leftHandSide, previousPrecedence, unsafeCode);
                 }
@@ -1180,7 +1180,7 @@ namespace StyleCop.CSharp
                 }
 
                 // We must find an expression else there is a syntax exception.
-                if(rightHandSide == null)
+                if (rightHandSide == null)
                 {
                     this.CreateSyntaxException();
                 }
@@ -1512,7 +1512,17 @@ namespace StyleCop.CSharp
 
                 Expression declaration = this.GetNextExpression(ExpressionPrecedence.None, expressionReference, unsafeCode);
 
-                CsToken commaToken = this.GetToken(CsTokenType.Comma, SymbolType.Comma, expressionReference);
+                Symbol nextSymbol = this.GetNextSymbol(parentReference);
+
+                // Checks if next symbol is a comma then add token else check if it's a closing bracket else this is a syntax error.
+                if (nextSymbol.SymbolType == SymbolType.Comma)
+                {
+                    CsToken commaToken = this.GetToken(CsTokenType.Comma, SymbolType.Comma, expressionReference);
+                }
+                else if (nextSymbol.SymbolType != SymbolType.CloseCurlyBracket)
+                {
+                    this.CreateSyntaxException();
+                }
             }
 
             Node<CsToken> lastTokenNode = this.tokens.Last;
