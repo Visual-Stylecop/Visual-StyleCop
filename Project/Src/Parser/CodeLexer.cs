@@ -2020,6 +2020,10 @@ namespace StyleCop.CSharp
                         {
                             endLineIndex++;
                         }
+                        else if(character == '\n' && this.codeReader.Peek(checkIndex - 1) != '\r')
+                        {
+                            endLineIndex++;
+                        }
 
                         checkNullCondition.Append(character);
                     }
