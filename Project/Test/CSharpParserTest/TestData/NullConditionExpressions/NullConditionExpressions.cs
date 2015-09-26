@@ -32,6 +32,29 @@ namespace CSharpParserTest.TestData
             var posts = new List<string>() { "abc", "123" };
             posts.First()?.Replace('a', 'z');
         }
+
+        public void SplitNullConditionOperator()
+        {
+            foo?.Bar();
+
+            foo?
+              .Bar();
+
+            foo? // comment
+              .Bar();
+
+            foo?[index];
+
+            foo?
+              [index];
+
+            foo? // comment
+              [index];
+
+            var list = new List<string>();
+            var length = list.FirstOrDefault()?
+                             .Length;
+        }
     }
 }
  

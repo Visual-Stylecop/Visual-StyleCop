@@ -1682,6 +1682,11 @@ namespace StyleCop.CSharp
                 {
                     this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.SymbolsMustBeSpacedCorrectly, tokenNode.Value.Text);
                 }
+
+                if (operatorSymbol.Text.Length > 2 || operatorSymbol.Text.Contains("\r") || operatorSymbol.Text.Contains("\n") || operatorSymbol.Text.Contains(" ") )
+                {
+                    this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.DoNotSplitNullConditionalOperators, tokenNode.Value.Text);
+                }
             }
             else
             {
