@@ -1308,8 +1308,15 @@ namespace StyleCop.CSharp
             Debug.Assert(character == '@' || character == '$', "Expected an @ keyword or $ for interpolation");
             text.Append(character);
 
-            // Make sure there is enough code left to contain at least @ plus one additional character.
             character = this.codeReader.Peek();
+            if (character == '@')
+            {
+                text.Append(character);
+                this.codeReader.ReadNext();
+                character = this.codeReader.Peek();
+            }
+
+            // Make sure there is enough code left to contain at least @ plus one additional character.
             if (character == char.MinValue)
             {
                 throw new SyntaxException(this.source, this.marker.LineNumber);
@@ -1385,7 +1392,7 @@ namespace StyleCop.CSharp
         private Symbol GetLiteralString(StringBuilder text)
         {
             Param.AssertNotNull(text, "text");
-            Debug.Assert(text.Length == 1 && (text[0] == '@' || text[0] == '$'), "Expected an @ symbol or $ for interpolation.");
+            Debug.Assert(text[0] == '@' || text[0] == '$' || (text.Length == 2 && text[0] == '$' && text[1] == '@'), "Expected an @ symbol or $ for interpolation.");
 
             // Initialize the location of the start of the string.
             int startIndex = this.marker.Index;
