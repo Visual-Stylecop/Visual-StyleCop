@@ -45,7 +45,7 @@ StyleCop for ReSharper is not supported in this repository. For more information
 
 <H2>Contribution</H2>
 
-I will accept only pull request for bugfix and update for VS2015/C#6 that are not implemented yet, the purpose of this repository.
+Work and commit only in branch develop, master will be used only for merge and release. I will accept only pull request for bugfix and update for VS2015/C#6 that are not implemented yet, the purpose of this repository.
 Please don't add rules or new features without discussion.
 
 <H2>GitHub Pages</H2>

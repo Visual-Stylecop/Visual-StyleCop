@@ -300,7 +300,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="StyleCop.Targets">
+    <None Include="Visual-StyleCop.MSBuild.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
