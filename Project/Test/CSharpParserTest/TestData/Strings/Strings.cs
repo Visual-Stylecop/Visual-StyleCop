@@ -44,6 +44,27 @@ namespace Strings
 
             var strippedStatement = Regex.Replace("input string", @"(?<S>(^|\W+)?)Mev\.(?<E>($|\W+)?)", @"${S}${E}");
         }
+
+        public void InterpolationWithLiteral()
+        {
+            string argumentName = "Test";
+            int argIndex = 1;
+            string[] arguments = new string[10];
+
+            arguments[0] = "Test";
+            arguments[1] = "Test1";
+
+            Console.WriteLine($@"{argumentName}[{argIndex}] = ""{arguments[argIndex]}""");
+            var test = $@"{argumentName}[{argIndex}] = ""{arguments[argIndex]}""";
+
+            test = $@"This is a test of double quote ""test"""""""""""" "" test";
+            test = $@"This is a test of double quote ""test"" "" test";
+            test = $@"This is a test of double quote """"""";
+
+            Console.WriteLine($@"This is a test of double quote """"""");
+            Console.WriteLine($@"This is a test of double quote ""test"" "" test");
+            Console.WriteLine($@"This is a test of double quote ""test"""""""""""" "" test");
+        }
     }
 
     public class StringsConstTest
