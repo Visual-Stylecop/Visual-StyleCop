@@ -211,6 +211,89 @@
             </Expression>
           </Statement>
         </Element>
+        <Element Name="SplitNullConditionOperator" Type="Method">
+          <Statement Type="ExpressionStatement">
+            <Expression Type="NullConditionExpression">
+              <Expression Text="foo" Type="LiteralExpression" />
+              <Expression Type="MethodInvocationExpression">
+                <Expression Text="Bar" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="ExpressionStatement">
+            <Expression Type="NullConditionExpression">
+              <Expression Text="foo" Type="LiteralExpression" />
+              <Expression Type="MethodInvocationExpression">
+                <Expression Text="Bar" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="ExpressionStatement">
+            <Expression Type="NullConditionExpression">
+              <Expression Text="foo" Type="LiteralExpression" />
+              <Expression Type="MethodInvocationExpression">
+                <Expression Text="Bar" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="ExpressionStatement">
+            <Expression Type="NullConditionExpression">
+              <Expression Text="foo" Type="LiteralExpression" />
+              <Expression Type="ArrayAccessExpression">
+                <Expression Text="foo" Type="LiteralExpression" />
+                <Expression Text="index" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="ExpressionStatement">
+            <Expression Type="NullConditionExpression">
+              <Expression Text="foo" Type="LiteralExpression" />
+              <Expression Type="ArrayAccessExpression">
+                <Expression Text="foo" Type="LiteralExpression" />
+                <Expression Text="index" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="ExpressionStatement">
+            <Expression Type="NullConditionExpression">
+              <Expression Text="foo" Type="LiteralExpression" />
+              <Expression Type="ArrayAccessExpression">
+                <Expression Text="foo" Type="LiteralExpression" />
+                <Expression Text="index" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="VariableDeclarationStatement">
+            <Expression Type="VariableDeclarationExpression">
+              <Expression Text="var" Type="LiteralExpression" />
+              <Expression Type="VariableDeclaratorExpression">
+                <Expression Text="list" Type="LiteralExpression" />
+                <Expression Type="NewExpression">
+                  <Expression Type="MethodInvocationExpression">
+                    <Expression Text="List&lt;string&gt;" Type="LiteralExpression" />
+                  </Expression>
+                </Expression>
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="VariableDeclarationStatement">
+            <Expression Type="VariableDeclarationExpression">
+              <Expression Text="var" Type="LiteralExpression" />
+              <Expression Type="VariableDeclaratorExpression">
+                <Expression Text="length" Type="LiteralExpression" />
+                <Expression Type="NullConditionExpression">
+                  <Expression Type="MethodInvocationExpression">
+                    <Expression Type="MemberAccessExpression">
+                      <Expression Text="list" Type="LiteralExpression" />
+                      <Expression Text="FirstOrDefault" Type="LiteralExpression" />
+                    </Expression>
+                  </Expression>
+                  <Expression Text="Length" Type="LiteralExpression" />
+                </Expression>
+              </Expression>
+            </Expression>
+          </Statement>
+        </Element>
       </Element>
     </Element>
   </Element>

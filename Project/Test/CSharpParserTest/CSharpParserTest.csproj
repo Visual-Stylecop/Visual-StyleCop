@@ -69,6 +69,9 @@
   <ItemGroup>
     <Compile Include="ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="TestData\TernaryOperator\TernaryOperator.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\NullConditionExpressions\NullConditionExpressions.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -476,6 +479,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\NullConditionExpressions\TestDescription.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\TernaryOperator\TestDescription.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\TernaryOperator\TernaryOperatorObjectModel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

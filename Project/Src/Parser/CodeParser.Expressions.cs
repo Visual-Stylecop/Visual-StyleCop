@@ -1324,7 +1324,7 @@ namespace StyleCop.CSharp
                 // Get the next expression.
                 Expression initializerExpression = null;
 
-                if (symbol.SymbolType == SymbolType.OpenSquareBracket)
+                if (this.IsDictionaryInitialization())
                 {
                     initializerExpression = this.GetDictionaryItemInitialization(expressionReference, unsafeCode);
                 }
@@ -1356,7 +1356,8 @@ namespace StyleCop.CSharp
                 {
                     symbol = this.GetNextSymbol(expressionReference);
 
-                    if (symbol.SymbolType != SymbolType.CloseCurlyBracket && symbol.SymbolType != SymbolType.OpenSquareBracket)
+                    // If next symbol is a comma then we must continue.
+                    if (symbol.SymbolType == SymbolType.Comma)
                     {
                         CsToken token = this.GetToken(CsTokenType.Comma, SymbolType.Comma, expressionReference);
                         this.tokens.Add(token);
@@ -1396,8 +1397,6 @@ namespace StyleCop.CSharp
 
             Reference<ICodePart> expressionReference = new Reference<ICodePart>();
             List<Expression> initializerExpessions = new List<Expression>();
-
-            Symbol symbowl = this.GetNextSymbol(expressionReference);
 
             // Add and move past the opening curly bracket.
             Bracket openingBracket = this.GetBracketToken(CsTokenType.OpenCurlyBracket, SymbolType.OpenCurlyBracket, expressionReference);
@@ -1511,7 +1510,6 @@ namespace StyleCop.CSharp
                 symbol = this.GetNextSymbol(expressionReference);
 
                 Expression declaration = this.GetNextExpression(ExpressionPrecedence.None, expressionReference, unsafeCode);
-
                 Symbol nextSymbol = this.GetNextSymbol(parentReference);
 
                 // Checks if next symbol is a comma then add token else check if it's a closing bracket else this is a syntax error.
@@ -2480,7 +2478,7 @@ namespace StyleCop.CSharp
             symbol = this.GetNextSymbol(expressionReference);
 
             // If this is a new array expression, get and return it.
-            if (symbol.SymbolType == SymbolType.OpenSquareBracket)
+            if (symbol.SymbolType == SymbolType.OpenSquareBracket || (symbol.Text == "?" && this.symbols.Peek(2).SymbolType == SymbolType.OpenSquareBracket))
             {
                 return this.GetNewArrayTypeExpression(unsafeCode, firstTokenNode, type, expressionReference);
             }
@@ -2546,6 +2544,14 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(firstTokenNode, "firstTokenNode");
             Param.Ignore(type);
             Param.AssertNotNull(expressionReference, "expressionReference");
+
+            Symbol questionMark = this.GetNextSymbol(SkipSymbols.WhiteSpace, expressionReference, true);
+
+            if (questionMark != null && questionMark.SymbolType == SymbolType.NullConditional)
+            {
+                CsToken tok = this.GetToken(CsTokenType.NullableTypeSymbol, SymbolType.NullConditional, expressionReference);
+                this.tokens.Add(tok);
+            }
 
             // Get the next symbol.
             Symbol symbol = this.GetNextSymbol(SymbolType.OpenSquareBracket, expressionReference);
@@ -5079,6 +5085,51 @@ namespace StyleCop.CSharp
             }
 
             return cast;
+        }
+
+        /// <summary>
+        /// Determines whether [is dictionary initialization].
+        /// </summary>
+        /// <returns>True if it is a dictionary initialization else false.</returns>
+        private bool IsDictionaryInitialization()
+        {
+            int index = 1;
+
+            if (this.symbols.Peek(index).SymbolType != SymbolType.OpenSquareBracket)
+            {
+                index = 3;
+            }
+
+            Symbol symbol = this.symbols.Peek(index);
+
+            if (symbol.SymbolType == SymbolType.OpenSquareBracket)
+            {
+                while (true)
+                {
+                    index++;
+                    symbol = this.symbols.Peek(index);
+
+                    if (symbol.SymbolType == SymbolType.CloseSquareBracket)
+                    {
+                        index++;
+                        symbol = this.symbols.Peek(index);
+                        break;
+                    }
+                }
+
+                while (symbol.SymbolType == SymbolType.WhiteSpace)
+                {
+                    index++;
+                    symbol = this.symbols.Peek(index);
+                }
+            }
+
+            if (symbol.SymbolType == SymbolType.Equals)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>

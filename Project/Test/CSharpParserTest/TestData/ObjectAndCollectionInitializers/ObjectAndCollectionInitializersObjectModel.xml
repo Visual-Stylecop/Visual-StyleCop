@@ -626,6 +626,88 @@
           </Statement>
           <Statement Type="VariableDeclarationStatement">
             <Expression Type="VariableDeclarationExpression">
+              <Expression Text="var"
+                          Type="LiteralExpression" />
+              <Expression Type="VariableDeclaratorExpression">
+                <Expression Text="expected"
+                            Type="LiteralExpression" />
+                <Expression Type="NewExpression">
+                  <Expression Text="InstitutionalInfo"
+                              Type="LiteralExpression" />
+                  <Expression Type="ObjectInitializerExpression">
+                    <Expression Type="AssignmentExpression">
+                      <Expression Text="AlternateNames"
+                                  Type="LiteralExpression" />
+                      <Expression Type="NewExpression">
+                        <Expression Text="List&lt;string&gt;"
+                                    Type="LiteralExpression" />
+                        <Expression Type="CollectionInitializerExpression">
+                          <Expression Type="MemberAccessExpression">
+                            <Expression Type="ArrayAccessExpression">
+                              <Expression Text="_names"
+                                          Type="LiteralExpression" />
+                              <Expression Text="0"
+                                          Type="LiteralExpression" />
+                            </Expression>
+                            <Expression Text="AlternateName"
+                                        Type="LiteralExpression" />
+                          </Expression>
+                          <Expression Type="MemberAccessExpression">
+                            <Expression Type="ArrayAccessExpression">
+                              <Expression Text="_names"
+                                          Type="LiteralExpression" />
+                              <Expression Text="1"
+                                          Type="LiteralExpression" />
+                            </Expression>
+                            <Expression Text="AlternateName"
+                                        Type="LiteralExpression" />
+                          </Expression>
+                        </Expression>
+                      </Expression>
+                    </Expression>
+                  </Expression>
+                </Expression>
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="ExpressionStatement">
+            <Expression Type="AssignmentExpression">
+              <Expression Text="Distributions"
+                          Type="LiteralExpression" />
+              <Expression Type="NewExpression">
+                <Expression Text="List"
+                            Type="LiteralExpression" />
+                <Expression Type="CollectionInitializerExpression">
+                  <Expression Type="MethodInvocationExpression">
+                    <Expression Type="MemberAccessExpression">
+                      <Expression Type="ArrayAccessExpression">
+                        <Expression Text="reader"
+                                    Type="LiteralExpression" />
+                        <Expression Text="&quot;Distribution1&quot;"
+                                    Type="LiteralExpression" />
+                      </Expression>
+                      <Expression Text="ToString"
+                                  Type="LiteralExpression" />
+                    </Expression>
+                  </Expression>
+                  <Expression Type="MethodInvocationExpression">
+                    <Expression Type="MemberAccessExpression">
+                      <Expression Type="ArrayAccessExpression">
+                        <Expression Text="reader"
+                                    Type="LiteralExpression" />
+                        <Expression Text="&quot;Distribution2&quot;"
+                                    Type="LiteralExpression" />
+                      </Expression>
+                      <Expression Text="ToString"
+                                  Type="LiteralExpression" />
+                    </Expression>
+                  </Expression>
+                </Expression>
+              </Expression>
+            </Expression>
+          </Statement>
+          <Statement Type="VariableDeclarationStatement">
+            <Expression Type="VariableDeclarationExpression">
               <Expression Text="List&lt;int&gt;"
                           Type="LiteralExpression" />
               <Expression Type="VariableDeclaratorExpression">

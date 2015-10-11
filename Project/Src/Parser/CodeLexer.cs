@@ -1308,8 +1308,15 @@ namespace StyleCop.CSharp
             Debug.Assert(character == '@' || character == '$', "Expected an @ keyword or $ for interpolation");
             text.Append(character);
 
-            // Make sure there is enough code left to contain at least @ plus one additional character.
             character = this.codeReader.Peek();
+            if (character == '@')
+            {
+                text.Append(character);
+                this.codeReader.ReadNext();
+                character = this.codeReader.Peek();
+            }
+
+            // Make sure there is enough code left to contain at least @ plus one additional character.
             if (character == char.MinValue)
             {
                 throw new SyntaxException(this.source, this.marker.LineNumber);
@@ -1385,7 +1392,7 @@ namespace StyleCop.CSharp
         private Symbol GetLiteralString(StringBuilder text)
         {
             Param.AssertNotNull(text, "text");
-            Debug.Assert(text.Length == 1 && (text[0] == '@' || text[0] == '$'), "Expected an @ symbol or $ for interpolation.");
+            Debug.Assert(text[0] == '@' || text[0] == '$' || (text.Length == 2 && text[0] == '$' && text[1] == '@'), "Expected an @ symbol or $ for interpolation.");
 
             // Initialize the location of the start of the string.
             int startIndex = this.marker.Index;
@@ -1761,6 +1768,8 @@ namespace StyleCop.CSharp
 
             SymbolType type = SymbolType.Other;
             StringBuilder text = new StringBuilder();
+            int endLineIndex = this.marker.LineNumber;
+            bool updateEndLineIndex = false;
 
             if (character == '.')
             {
@@ -2005,8 +2014,45 @@ namespace StyleCop.CSharp
                 text.Append("?");
                 type = SymbolType.QuestionMark;
                 this.codeReader.ReadNext();
-
                 character = this.codeReader.Peek();
+
+                StringBuilder checkNullCondition = new StringBuilder();
+                int checkIndex = 0;
+         
+                while (true)
+                {         
+                    if (character == '\r' || character == '\n' || character == ' ')
+                    {
+                        if(character == '\r')
+                        {
+                            endLineIndex++;
+                        }
+                        else if(character == '\n' && this.codeReader.Peek(checkIndex - 1) != '\r')
+                        {
+                            endLineIndex++;
+                        }
+
+                        checkNullCondition.Append(character);
+                    }
+                    else if(character == '/')
+                    {
+                        if(this.codeReader.Peek(checkIndex + 1) == '/')
+                        {
+                            this.codeReader.ReadNext(checkIndex);
+                            Symbol nextComment = this.GetComment();
+                            checkNullCondition.Append(nextComment.Text);
+                            checkIndex = -1;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    checkIndex++;
+                    character = this.codeReader.Peek(checkIndex);
+                }
+
                 if (character == '?')
                 {
                     text.Append("?");
@@ -2015,6 +2061,17 @@ namespace StyleCop.CSharp
                 }
                 else if (character == '.')
                 {
+                    // Check split for null conditional operator.
+                    if (!string.IsNullOrEmpty(checkNullCondition.ToString()))
+                    {
+                        text.Append(checkNullCondition.ToString());
+
+                        // Advance cursor for next symbol.
+                        this.codeReader.ReadNext(checkIndex);
+
+                        updateEndLineIndex = true;
+                    }
+
                     text.Append(".");
                     type = SymbolType.NullConditional;
                     this.codeReader.ReadNext();
@@ -2023,6 +2080,17 @@ namespace StyleCop.CSharp
                 {
                     if (this.codeReader.Peek(1) != ']')
                     {
+                        // Check split for null conditional operator.
+                        if (!string.IsNullOrEmpty(checkNullCondition.ToString()))
+                        {
+                            text.Append(checkNullCondition.ToString());
+
+                            // Advance cursor for next symbol.
+                            this.codeReader.ReadNext(checkIndex);
+
+                            updateEndLineIndex = true;
+                        }
+
                         // null conditional against an opening bracket like foo?[0];
                         type = SymbolType.NullConditional;
                     }
@@ -2049,6 +2117,11 @@ namespace StyleCop.CSharp
                 throw new SyntaxException(this.source, this.marker.LineNumber);
             }
 
+            if(!updateEndLineIndex)
+            {
+                endLineIndex = this.marker.LineNumber;
+            }
+
             // Create the code location.
             CodeLocation location = new CodeLocation(
                 this.marker.Index,
@@ -2056,8 +2129,13 @@ namespace StyleCop.CSharp
                 this.marker.IndexOnLine,
                 this.marker.IndexOnLine + text.Length - 1,
                 this.marker.LineNumber,
-                this.marker.LineNumber);
+                endLineIndex);
 
+            if (updateEndLineIndex)
+            {
+                this.marker.LineNumber = endLineIndex;
+            }
+            
             // Create the token.
             Symbol symbol = new Symbol(text.ToString(), type, location);
 

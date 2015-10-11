@@ -37,4 +37,32 @@ namespace CSharpAnalyzersTest.TestData.Spacing
             posts.First() ?. Replace('a', 'z'); // not allowed
         }
     }
+
+    public class SA1029DoNotSplitNullConditionalOperators
+    {
+        public void SplitNullConditionOperator()
+        {
+            // Allowed
+            foo?.Bar();
+
+            // Not allowed
+            foo?
+              .Bar();
+
+            // Not allowed
+            foo? // comment
+              .Bar();
+
+            // Allowed
+            foo?[index];
+
+            // Not allowed
+            foo?
+              [index];
+
+            // Not allowed
+            foo? // comment
+              [index];
+        }
+    }
 }

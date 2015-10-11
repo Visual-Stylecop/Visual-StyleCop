@@ -34,11 +34,6 @@ namespace StyleCop.CSharp
         Logical,
 
         /// <summary>
-        /// A conditional symbol to check null : '?.'
-        /// </summary>
-        NullConditional,
-
-        /// <summary>
         /// Assignment symbols: '=', '+=', etc. 
         /// </summary>
         Assignment, 

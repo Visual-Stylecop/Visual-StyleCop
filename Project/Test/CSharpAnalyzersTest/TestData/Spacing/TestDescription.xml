@@ -83,6 +83,11 @@
                 <BooleanProperty Name="Enabled">True</BooleanProperty>
               </RuleSettings>
             </Rule>
+            <Rule Name="DoNotSplitNullConditionalOperators">
+              <RuleSettings>
+                <BooleanProperty Name="Enabled">True</BooleanProperty>
+              </RuleSettings>
+            </Rule>
           </Rules>
         </Analyzer>
       </Analyzers>
@@ -135,6 +140,12 @@
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue"
                  LineNumber="37"
                  Rule="SymbolsMustBeSpacedCorrectly" />
+
+      <!-- SA1029 -->
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="49" StartLine="49" StartColumn="16" EndLine="50" EndColumn="33" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="53" StartLine="53" StartColumn="26" EndLine="54" EndColumn="54" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="60" StartLine="60" StartColumn="16" EndLine="61" EndColumn="32" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="64" StartLine="64" StartColumn="26" EndLine="65" EndColumn="53" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
     </ExpectedViolations>
   </Test>
   <Test Name="CloseParenthesis">
