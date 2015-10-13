@@ -69,6 +69,9 @@
   <ItemGroup>
     <Compile Include="ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="TestData\Elements\NameOf.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\TernaryOperator\TernaryOperator.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -489,6 +492,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\TernaryOperator\TernaryOperatorObjectModel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\Elements\NameOfObjectModel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

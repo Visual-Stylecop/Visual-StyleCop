@@ -1884,7 +1884,7 @@ namespace StyleCop.CSharp
                 && symbol.SymbolType != SymbolType.Null && symbol.SymbolType != SymbolType.OpenParenthesis && symbol.SymbolType != SymbolType.Minus
                 && symbol.SymbolType != SymbolType.Plus && symbol.SymbolType != SymbolType.True && symbol.SymbolType != SymbolType.False
                 && symbol.SymbolType != SymbolType.Sizeof && symbol.SymbolType != SymbolType.Typeof && symbol.SymbolType != SymbolType.Checked
-                && symbol.SymbolType != SymbolType.Unchecked)
+                && symbol.SymbolType != SymbolType.Unchecked && symbol.SymbolType != SymbolType.NameOf)
             {
                 throw this.CreateSyntaxException();
             }
