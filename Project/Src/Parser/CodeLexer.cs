@@ -2053,7 +2053,7 @@ namespace StyleCop.CSharp
                     character = this.codeReader.Peek(checkIndex);
                 }
 
-                if (character == '?')
+                if (character == '?' && checkNullCondition.Length == 0)
                 {
                     text.Append("?");
                     type = SymbolType.NullCoalescingSymbol;
