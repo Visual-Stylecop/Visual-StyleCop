@@ -207,6 +207,7 @@ namespace StyleCop.CSharp
 
                 case OperatorType.ConditionalColon:
                 case OperatorType.ConditionalQuestionMark:
+                case OperatorType.NullConditional:
                     precedence = ExpressionPrecedence.Conditional;
                     break;
 

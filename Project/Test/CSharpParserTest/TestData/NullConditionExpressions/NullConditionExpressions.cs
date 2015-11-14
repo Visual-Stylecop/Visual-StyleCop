@@ -67,6 +67,25 @@ namespace CSharpParserTest.TestData
                 return true ? true : false;
             }
         }
+
+        public class MyTest
+        {
+            public object Invoke()
+            {
+                return null;
+            }
+        }
+        
+        public class Class2
+        {
+            public void Test()
+            {
+                bool y = true;
+                MyTest z = new MyTest();
+                MyTest w = new MyTest();
+
+                var x = y ? z?.Invoke() : w?.Invoke();
+            }
+        }
     }
 }
- 
