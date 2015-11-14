@@ -1384,7 +1384,6 @@ namespace StyleCop.VisualStudio
 
             try
             {
-                Proj
                 // Analyze cs file for ASP V5
                 if (item.Kind == Constants.vsProjectItemKindPhysicalFile && item.ContainingProject.Kind == "{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}")
                 {

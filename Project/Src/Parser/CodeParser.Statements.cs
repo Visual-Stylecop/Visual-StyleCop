@@ -492,6 +492,7 @@ namespace StyleCop.CSharp
                             break;
 
                         default:
+
                             throw new SyntaxException(this.document.SourceCode, symbol.LineNumber);
                     }
                 }
@@ -515,7 +516,7 @@ namespace StyleCop.CSharp
                 index++;
 
                 // Advance to the next non-whitespace symbol.
-                for (; ; ++index)
+                for (;; ++index)
                 {
                     symbol = this.symbols.Peek(index);
                     if (symbol == null)

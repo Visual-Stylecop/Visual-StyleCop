@@ -83,5 +83,61 @@
         </Statement>
       </Element>
     </Element>
+    <Element Name="Test" Type="Class">
+      <Element Name="SearchAsync" Type="Property">
+        <Element Name="get" Type="Accessor" />
+        <Element Name="set" Type="Accessor" />
+      </Element>
+    </Element>
+    <Element Name="Program" Type="Class">
+      <Element Name="index" Type="Property">
+        <Element Name="get" Type="Accessor" />
+        <Element Name="set" Type="Accessor" />
+      </Element>
+      <Element Name="Test" Type="Method">
+        <Statement Type="ExpressionStatement">
+          <Expression Type="MethodInvocationExpression">
+            <Expression Type="MemberAccessExpression">
+              <Expression Text="Console" Type="LiteralExpression" />
+              <Expression Text="WriteLine" Type="LiteralExpression" />
+            </Expression>
+            <Expression Type="NameofExpression">
+              <Expression Text="index" Type="LiteralExpression" />
+            </Expression>
+          </Expression>
+        </Statement>
+        <Statement Type="ExpressionStatement">
+          <Expression Type="MethodInvocationExpression">
+            <Expression Type="MemberAccessExpression">
+              <Expression Text="Console" Type="LiteralExpression" />
+              <Expression Text="WriteLine" Type="LiteralExpression" />
+            </Expression>
+            <Expression Type="NameofExpression">
+              <Expression Type="MemberAccessExpression">
+                <Expression Text="index" Type="LiteralExpression" />
+                <Expression Text="SearchAsync" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Expression>
+        </Statement>
+        <Statement Type="ExpressionStatement">
+          <Expression Type="MethodInvocationExpression">
+            <Expression Type="MemberAccessExpression">
+              <Expression Text="Console" Type="LiteralExpression" />
+              <Expression Text="WriteLine" Type="LiteralExpression" />
+            </Expression>
+            <Expression Type="NameofExpression">
+              <Expression Type="MemberAccessExpression">
+                <Expression Type="MemberAccessExpression">
+                  <Expression Text="this" Type="LiteralExpression" />
+                  <Expression Text="index" Type="LiteralExpression" />
+                </Expression>
+                <Expression Text="SearchAsync" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Expression>
+        </Statement>
+      </Element>
+    </Element>
   </Element>
 </StyleCopCsParserObjectModel>

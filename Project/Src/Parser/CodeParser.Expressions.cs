@@ -2200,8 +2200,8 @@ namespace StyleCop.CSharp
 
             if (literalToken == null)
             {
-                // This is not a generic. Just convert the symbol to a token.
-                literalToken = this.GetToken(CsTokenType.Other, SymbolType.Other, expressionReference);
+                    // This is not a generic. Just convert the symbol to a token.
+                    literalToken = this.GetToken(CsTokenType.Other, SymbolType.Other, expressionReference);
             }
 
             // Add the token to the document.
@@ -4323,8 +4323,8 @@ namespace StyleCop.CSharp
             Node<CsToken> openParenthesisNode = this.tokens.InsertLast(openParenthesis);
 
             // Get the inner expression representing the name.
-            LiteralExpression typeTokenExpression = this.GetNameTokenExpression(expressionReference, unsafeCode, true);
-            if (typeTokenExpression == null)
+            Expression innerExpression = this.GetNextExpression(ExpressionPrecedence.None, expressionReference, unsafeCode) as Expression;
+            if (innerExpression == null)
             {
                 throw this.CreateSyntaxException();
             }
@@ -4340,7 +4340,7 @@ namespace StyleCop.CSharp
             CsTokenList partialTokens = new CsTokenList(this.tokens, firstTokenNode, this.tokens.Last);
 
             // Create and return the expression.
-            NameofExpression expression = new NameofExpression(partialTokens, typeTokenExpression);
+            NameofExpression expression = new NameofExpression(partialTokens, innerExpression);
             expressionReference.Target = expression;
 
             return expression;
@@ -4938,7 +4938,7 @@ namespace StyleCop.CSharp
                 index++;
 
                 // Advance to the next non-whitespace symbol.
-                for (; ; ++index)
+                for (;; ++index)
                 {
                     symbol = this.symbols.Peek(index);
                     if (symbol == null)
@@ -5225,7 +5225,7 @@ namespace StyleCop.CSharp
                 // Advance to the closing parenthesis.
                 int parenthesisCount = 0;
 
-                for (; ; ++index)
+                for (;; ++index)
                 {
                     symbol = this.symbols.Peek(index);
                     if (symbol == null)
@@ -5251,7 +5251,7 @@ namespace StyleCop.CSharp
             ++index;
 
             // Advance to the next non-whitespace symbol.
-            for (; ; ++index)
+            for (;; ++index)
             {
                 symbol = this.symbols.Peek(index);
                 if (symbol == null)
@@ -5284,7 +5284,7 @@ namespace StyleCop.CSharp
             Symbol symbol = this.symbols.Peek(index);
 
             // Advance to the next non-whitespace symbol.
-            for (; ; ++index)
+            for (;; ++index)
             {
                 symbol = this.symbols.Peek(index);
                 if (symbol == null)

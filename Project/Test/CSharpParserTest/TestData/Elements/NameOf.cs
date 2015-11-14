@@ -23,3 +23,20 @@ public class SwitchCaseNameOfClass
         throw new NotImplementedException();
     }
 }
+
+public class Test
+{
+    public int SearchAsync { get; set; }
+}
+
+public class Program
+{
+    public Test index { get; set; }
+
+    public void Test()
+    {
+        Console.WriteLine(nameof(index));
+        Console.WriteLine(nameof(index.SearchAsync));
+        Console.WriteLine(nameof(this.index.SearchAsync));
+    }
+}
