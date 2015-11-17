@@ -79,11 +79,9 @@ namespace CSharpAnalyzersTest
         [DeploymentItem("StyleCop.CSharp.dll")]
         [DeploymentItem("StyleCop.CSharp.Rules.dll")]
         [DeploymentItem("TestData\\StringFormat", "StringFormat")]
-        [DeploymentItem("TestData\\StringFormatCSharp6", "StringFormatCSharp6")]
         public void CsAnalyzerStringFormatTest()
         {
             this.RunTest("StringFormat");
-            this.RunTest("StringFormatCSharp6", 4.6);
         }
 
         /// <summary>

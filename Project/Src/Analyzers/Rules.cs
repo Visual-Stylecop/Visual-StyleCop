@@ -870,11 +870,6 @@ namespace StyleCop.CSharp
         ElementDocumentationMustBeSpelledCorrectly,
 
         /// <summary>
-        /// Use string interpolation rather than string format.
-        /// </summary>
-        AvoidStringFormatUseStringInterpolation,
-
-        /// <summary>
         /// Null conditional operator must not be split by new row or space.
         /// </summary>
         DoNotSplitNullConditionalOperators,
