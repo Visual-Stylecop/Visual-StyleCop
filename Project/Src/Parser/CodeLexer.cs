@@ -1432,7 +1432,7 @@ namespace StyleCop.CSharp
 
                     // If the next character is also the same string type, then this is internal to the string or if next char is open curly bracket we are in a string interpolation with escape char.
                     character = this.codeReader.Peek();
-                    if (character == stringType || character == '{')
+                    if (character == stringType || character == '{' || text.ToString().Contains("$") && text.ToString().Contains("{") && !text.ToString().Contains("}"))
                     {
                         // Also move past this character and add it.
                         this.codeReader.ReadNext();

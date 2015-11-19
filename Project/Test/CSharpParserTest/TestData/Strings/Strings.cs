@@ -72,6 +72,7 @@ namespace Strings
         public const string test = "test";
         private readonly string x = string.Format("string format {0}", test);
         private readonly string y = $"string interpolation {test}";
+        var message = $"ConnectionString missing: {ConfigurationManager.AppSettings["ConnectionStringName"]}";
     }
 
     public class CSSAsString
