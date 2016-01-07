@@ -138,7 +138,7 @@ namespace StyleCop.CSharp
             if (previousToken.CsTokenType == CsTokenType.OperatorSymbol)
             {
                 OperatorSymbol symbol = (OperatorSymbol)previousToken;
-                if (symbol.SymbolType == OperatorType.MemberAccess || symbol.SymbolType == OperatorType.Pointer || symbol.SymbolType == OperatorType.QualifiedAlias)
+                if (symbol.SymbolType == OperatorType.MemberAccess || symbol.SymbolType == OperatorType.Pointer || symbol.SymbolType == OperatorType.QualifiedAlias || symbol.SymbolType == OperatorType.NullConditional)
                 {
                     return true;
                 }
