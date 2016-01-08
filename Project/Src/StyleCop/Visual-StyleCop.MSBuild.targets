@@ -44,7 +44,7 @@
     <StyleCopOverrideSettingsFile>$(SourceAnalysisOverrideSettingsFile)</StyleCopOverrideSettingsFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(StyleCopOverrideSettingsFile)' == '' and Exists('$(AppData)\StyleCop\settings.StyleCop')">
-	<StyleCopOverrideSettingsFile>$(AppData)\StyleCop\settings.StyleCop</StyleCopOverrideSettingsFile>
+    <StyleCopOverrideSettingsFile>$(AppData)\StyleCop\settings.StyleCop</StyleCopOverrideSettingsFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(StyleCopOverrideSettingsFile)' == ''">
     <StyleCopOverrideSettingsFile> </StyleCopOverrideSettingsFile>
@@ -91,8 +91,14 @@
       <Output TaskParameter="Include" ItemName="StyleCopExcludedFiles"/>
     </CreateItem>
 
+    <!-- Add support for .xproj new format. No "Compile" item anymore, so get all sub *.cs files -->
+    <CreateItem Condition="$(MSBuildProjectExtension) == '.xproj'" Include="**\*.cs" Exclude="**\obj\**\*.*;**\bin\**\*.*">
+      <Output TaskParameter="Include" ItemName="XprojCsFiles"/>
+    </CreateItem>
+
     <ItemGroup>
-       <StyleCopFiles Remove="@(ExcludeFromStyleCop)" />    
+      <StyleCopFiles Include="@(XprojCsFiles)" />
+      <StyleCopFiles Remove="@(ExcludeFromStyleCop)" />
     </ItemGroup>
 
     <Message Text="Excluding @(StyleCopExcludedFiles)" Importance="Normal" Condition="'@(StyleCopExcludedFiles)' != ''" />
@@ -111,7 +117,7 @@
       MaxViolationCount="$(StyleCopMaxViolationCount)">
       <Output TaskParameter="ViolationCount" PropertyName="StyleCopViolationCount" />
     </StyleCopTask>
-    
+
     <CreateItem Include="$(StyleCopOutputFile)">
       <Output TaskParameter="Include" ItemName="FileWrites"/>
     </CreateItem>
