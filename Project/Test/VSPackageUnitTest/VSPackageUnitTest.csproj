@@ -162,14 +162,7 @@
     <Compile Include="ProjectCollectionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolutionListenerTest.cs" />
-    <Compile Include="TaskProviderTest.cs" />
-    <Compile Include="TaskTest.cs" />
-    <Compile Include="UpdateSolutionListenerTest.cs" />
     <Compile Include="Utilities.cs" />
-    <Compile Include="ViolationTaskTest.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="VSWindowsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Src\Parser\CSharpParser.csproj">
