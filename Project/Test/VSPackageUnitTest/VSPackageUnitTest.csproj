@@ -123,7 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnalysisHelperTest.cs" />
-    <Compile Include="AnalysisThreadTest.cs" />
     <Compile Include="BasicUnitTest.cs" />
     <Compile Include="Extensions\Mock.cs" />
     <Compile Include="InvisibleFormTest.cs" />
