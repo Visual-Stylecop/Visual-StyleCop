@@ -162,9 +162,6 @@
     <Compile Include="TaskTest.cs" />
     <Compile Include="UpdateSolutionListenerTest.cs" />
     <Compile Include="Utilities.cs" />
-    <Compile Include="ViolationTaskTest.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Src\Parser\CSharpParser.csproj">
