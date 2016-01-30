@@ -26,7 +26,7 @@ namespace VSPackageUnitTest
 
     using StyleCop;
     using StyleCop.VisualStudio;
-
+    using System;
     /// <summary>
     /// This is a test class for AnalysisThreadTest and is intended
     ///  to contain all AnalysisThreadTest Unit Tests
@@ -156,10 +156,8 @@ namespace VSPackageUnitTest
                 // Use try catch to test a workaround on CI build (AppVeyor)
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
-                return target;
-            }
+
+            return target;
         }
 
         #endregion
