@@ -21,8 +21,6 @@ namespace VSPackageUnitTest
 {
     using System.Collections;
 
-    using EnvDTE;
-
     using Microsoft.VisualStudio.TestTools.MockObjects;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
