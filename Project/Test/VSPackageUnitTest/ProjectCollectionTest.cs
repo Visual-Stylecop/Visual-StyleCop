@@ -25,7 +25,7 @@ namespace VSPackageUnitTest
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using StyleCop.VisualStudio;
-
+    using EnvDTE;
     /// <summary>
     /// This is a test class for ProjectCollectionTest and is intended
     ///   to contain all ProjectCollectionTest Unit Tests
