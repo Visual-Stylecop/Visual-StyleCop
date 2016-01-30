@@ -135,6 +135,7 @@
     <Compile Include="AnalysisThreadTest.cs" />
     <Compile Include="BasicUnitTest.cs" />
     <Compile Include="Extensions\Mock.cs" />
+    <Compile Include="InvisibleFormTest.cs" />
     <Compile Include="Mocks\MockBuildEvents.cs" />
     <Compile Include="Mocks\MockDocument.cs" />
     <Compile Include="Mocks\MockDocuments.cs" />
