@@ -167,12 +167,16 @@
     <Compile Include="Mocks\MockWindow.cs" />
     <Compile Include="Mocks\MockWindowFrame.cs" />
     <Compile Include="Mocks\MockWindows.cs" />
+    <Compile Include="PackageCommandSetTest.cs" />
+    <Compile Include="ProjectCollectionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolutionListenerTest.cs" />
     <Compile Include="TaskProviderTest.cs" />
     <Compile Include="TaskTest.cs" />
     <Compile Include="UpdateSolutionListenerTest.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="ViolationTaskTest.cs" />
+    <Compile Include="VSWindowsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Src\Parser\CSharpParser.csproj">
