@@ -351,7 +351,7 @@ namespace StyleCop.CSharp
                     nextType != CsTokenType.CloseSquareBracket && // someIndexer[someArray[1]] = 2;
                     nextType != CsTokenType.OpenSquareBracket && // someArray[1][2] = 2;
                     nextType != CsTokenType.Semicolon && nextType != CsTokenType.Comma && nextType != CsTokenType.CloseGenericBracket && nextNode.Value.Text != "++"
-                    && nextNode.Value.Text != "--" && nextNode.Value.Text != "?." && !nextNode.Value.Text.StartsWith(".", StringComparison.Ordinal))
+                    && nextNode.Value.Text != "--" && nextNode.Value.Text != "?." && nextNode.Value.Text != "?" && !nextNode.Value.Text.StartsWith(".", StringComparison.Ordinal))
                 {
                     this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.ClosingSquareBracketsMustBeSpacedCorrectly);
                 }

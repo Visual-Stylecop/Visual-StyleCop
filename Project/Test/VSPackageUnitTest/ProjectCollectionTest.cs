@@ -21,13 +21,11 @@ namespace VSPackageUnitTest
 {
     using System.Collections;
 
-    using EnvDTE;
-
     using Microsoft.VisualStudio.TestTools.MockObjects;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using StyleCop.VisualStudio;
-
+    using EnvDTE;
     /// <summary>
     /// This is a test class for ProjectCollectionTest and is intended
     ///   to contain all ProjectCollectionTest Unit Tests

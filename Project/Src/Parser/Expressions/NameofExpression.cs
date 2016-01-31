@@ -17,25 +17,12 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace StyleCop.CSharp
 {
-    using System.Diagnostics.CodeAnalysis;
-
     /// <summary>
     /// An expression representing a nameof operation.
     /// </summary>
     /// <subcategory>expression</subcategory>
     public sealed class NameofExpression : Expression
     {
-        #region Fields
-
-        /// <summary>
-        /// The type literal to get the type of.
-        /// </summary>
-        private readonly TypeToken type;
-
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
         /// Initializes a new instance of the NameofExpression class.
         /// </summary>
@@ -45,32 +32,13 @@ namespace StyleCop.CSharp
         /// <param name="name">
         /// The type literal to get the name of.
         /// </param>
-        internal NameofExpression(CsTokenList tokens, LiteralExpression name)
+        internal NameofExpression(CsTokenList tokens, Expression name)
             : base(ExpressionType.NameOf, tokens)
         {
             Param.AssertNotNull(tokens, "tokens");
             Param.AssertNotNull(name, "name");
-
-            this.type = CodeParser.ExtractTypeTokenFromLiteralExpression(name);
+            
             this.AddExpression(name);
         }
-
-        #endregion
-
-        #region Public Properties
-
-        /// <summary>
-        /// Gets the type literal to get the type of.
-        /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1721:PropertyNamesShouldNotMatchGetMethods", Justification = "API has already been published and should not be changed.")]
-        public TypeToken Type
-        {
-            get
-            {
-                return this.type;
-            }
-        }
-
-        #endregion
     }
 }

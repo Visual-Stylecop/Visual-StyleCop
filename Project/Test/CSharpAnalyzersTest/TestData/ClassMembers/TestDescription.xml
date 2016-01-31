@@ -256,4 +256,31 @@
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Program.Method" LineNumber="47" Rule="PrefixLocalCallsWithThis" />
     </ExpectedViolations>
   </Test>
+
+  <!-- Tests that the null propagation ?. doesn't result in incorrect violations. -->
+  <Test Name="NullPropogationsDoesNotResultInReadabilityViolations">
+    <TestCodeFile>NullPropogation.cs</TestCodeFile>
+    <Settings>
+      <GlobalSettings>
+        <StringProperty Name="MergeSettingsFiles">NoMerge</StringProperty>
+        <BooleanProperty Name="RulesEnabledByDefault">False</BooleanProperty>
+      </GlobalSettings>
+      <Analyzers>
+        <Analyzer AnalyzerId="StyleCop.CSharp.ReadabilityRules">
+          <Rules>
+            <Rule Name="PrefixLocalCallsWithThis">
+              <RuleSettings>
+                <BooleanProperty Name="Enabled">True</BooleanProperty>
+              </RuleSettings>
+            </Rule>
+            <Rule Name="PrefixCallsCorrectly">
+              <RuleSettings>
+                <BooleanProperty Name="Enabled">True</BooleanProperty>
+              </RuleSettings>
+            </Rule>
+          </Rules>
+        </Analyzer>
+      </Analyzers>
+    </Settings>
+  </Test>
 </StyleCopTestDescription>

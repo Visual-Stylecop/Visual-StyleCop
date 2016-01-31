@@ -35,6 +35,10 @@ namespace CSharpAnalyzersTest.TestData.Spacing
             posts.First()?. Replace('a', 'z'); // not allowed
             posts.First() ?.Replace('a', 'z'); // not allowed
             posts.First() ?. Replace('a', 'z'); // not allowed
+            var property = node["properties"]?["property"]; // allowed
+            var property = node["properties"] ?["property"]; // not allowed
+            var property = node["properties"]? ["property"]; // not allowed
+            var property = node["properties"] ? ["property"]; // not allowed
         }
     }
 

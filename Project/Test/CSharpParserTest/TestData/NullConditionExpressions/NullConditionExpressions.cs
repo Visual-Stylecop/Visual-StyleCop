@@ -55,6 +55,37 @@ namespace CSharpParserTest.TestData
             var length = list.FirstOrDefault()?
                              .Length;
         }
+
+        internal class myclass
+        {
+            private bool? singleBitValue;
+
+            private bool? foo(object obj)
+            {
+                this.singleBitValue = obj as bool?;
+                this.singleBitValue = obj as bool? ?? false;
+                return true ? true : false;
+            }
+        }
+
+        public class MyTest
+        {
+            public object Invoke()
+            {
+                return null;
+            }
+        }
+        
+        public class Class2
+        {
+            public void Test()
+            {
+                bool y = true;
+                MyTest z = new MyTest();
+                MyTest w = new MyTest();
+
+                var x = y ? z?.Invoke() : w?.Invoke();
+            }
+        }
     }
 }
- 

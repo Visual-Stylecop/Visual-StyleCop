@@ -63,7 +63,6 @@ namespace StyleCop.CSharp
             Settings settings = new Settings();
             settings.DoNotUseRegions = this.IsRuleEnabled(document, Rules.DoNotUseRegions.ToString());
             settings.DoNotPlaceRegionsWithinElements = this.IsRuleEnabled(document, Rules.DoNotPlaceRegionsWithinElements.ToString());
-            settings.AvoidStringFormatUseStringInterpolation = this.IsRuleEnabled(document, Rules.AvoidStringFormatUseStringInterpolation.ToString());
 
             if (csdocument.RootElement != null && !csdocument.RootElement.Generated)
             {
@@ -409,25 +408,6 @@ namespace StyleCop.CSharp
                         this.AddViolation(token.FindParentElement(), token.LineNumber, Rules.DoNotUseRegions);
                     }
                 }
-                else if (settings.AvoidStringFormatUseStringInterpolation && token.CsTokenType == CsTokenType.Other && token.Text == "Format")
-                {
-                    // Check this rule only if project target framework version is greater or equal 4.6
-                    if (document.SourceCode.Project.TargetFrameworkVersion >= 4.6)
-                    {
-                        MemberAccessExpression expression = token.Parent?.Parent as MemberAccessExpression;
-
-                        // Check if literal expression is not null and check text to avoid user's custom code like enumeration.
-                        if (expression != null && expression.Text == "string.Format")
-                        {
-                            CsToken region = (CsToken)token;
-                            if (!region.Generated)
-                            {
-                                // There should not be any regions in the code.
-                                this.AddViolation(token.FindParentElement(), token.LineNumber, Rules.AvoidStringFormatUseStringInterpolation);
-                            }
-                        }
-                    }
-                }
             }
         }
 
@@ -537,11 +517,6 @@ namespace StyleCop.CSharp
             /// Indicates whether the DoNotUseRegions rule is enabled.
             /// </summary>
             public bool DoNotUseRegions;
-
-            /// <summary>
-            /// Indicates whether the AvoidStringFormatUseStringInterpolation SA1127 rule is enabled.
-            /// </summary>
-            public bool AvoidStringFormatUseStringInterpolation;
 
             #endregion
         }

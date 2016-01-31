@@ -1432,7 +1432,7 @@ namespace StyleCop.CSharp
 
                     // If the next character is also the same string type, then this is internal to the string or if next char is open curly bracket we are in a string interpolation with escape char.
                     character = this.codeReader.Peek();
-                    if (character == stringType || character == '{')
+                    if (character == stringType || character == '{' || text.ToString().Contains("$") && text.ToString().Contains("{") && !text.ToString().Contains("}"))
                     {
                         // Also move past this character and add it.
                         this.codeReader.ReadNext();
@@ -2018,25 +2018,25 @@ namespace StyleCop.CSharp
 
                 StringBuilder checkNullCondition = new StringBuilder();
                 int checkIndex = 0;
-         
+
                 while (true)
-                {         
+                {
                     if (character == '\r' || character == '\n' || character == ' ')
                     {
-                        if(character == '\r')
+                        if (character == '\r')
                         {
                             endLineIndex++;
                         }
-                        else if(character == '\n' && this.codeReader.Peek(checkIndex - 1) != '\r')
+                        else if (character == '\n' && this.codeReader.Peek(checkIndex - 1) != '\r')
                         {
                             endLineIndex++;
                         }
 
                         checkNullCondition.Append(character);
                     }
-                    else if(character == '/')
+                    else if (character == '/')
                     {
-                        if(this.codeReader.Peek(checkIndex + 1) == '/')
+                        if (this.codeReader.Peek(checkIndex + 1) == '/')
                         {
                             this.codeReader.ReadNext(checkIndex);
                             Symbol nextComment = this.GetComment();
@@ -2053,7 +2053,7 @@ namespace StyleCop.CSharp
                     character = this.codeReader.Peek(checkIndex);
                 }
 
-                if (character == '?')
+                if (character == '?' && checkNullCondition.Length == 0)
                 {
                     text.Append("?");
                     type = SymbolType.NullCoalescingSymbol;
@@ -2117,7 +2117,7 @@ namespace StyleCop.CSharp
                 throw new SyntaxException(this.source, this.marker.LineNumber);
             }
 
-            if(!updateEndLineIndex)
+            if (!updateEndLineIndex)
             {
                 endLineIndex = this.marker.LineNumber;
             }
@@ -2135,7 +2135,7 @@ namespace StyleCop.CSharp
             {
                 this.marker.LineNumber = endLineIndex;
             }
-            
+
             // Create the token.
             Symbol symbol = new Symbol(text.ToString(), type, location);
 

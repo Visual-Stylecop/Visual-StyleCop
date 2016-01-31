@@ -294,6 +294,123 @@
             </Expression>
           </Statement>
         </Element>
+        <Element Name="myclass" Type="Class">
+          <Element Name="singleBitValue" Type="Field">
+            <Statement Type="VariableDeclarationStatement">
+              <Expression Type="VariableDeclarationExpression">
+                <Expression Text="bool?" Type="LiteralExpression" />
+                <Expression Type="VariableDeclaratorExpression">
+                  <Expression Text="singleBitValue" Type="LiteralExpression" />
+                </Expression>
+              </Expression>
+            </Statement>
+          </Element>
+          <Element Name="foo" Type="Method">
+            <Statement Type="ExpressionStatement">
+              <Expression Type="AssignmentExpression">
+                <Expression Type="MemberAccessExpression">
+                  <Expression Text="this" Type="LiteralExpression" />
+                  <Expression Text="singleBitValue" Type="LiteralExpression" />
+                </Expression>
+                <Expression Type="AsExpression">
+                  <Expression Text="obj" Type="LiteralExpression" />
+                  <Expression Text="bool?" Type="LiteralExpression" />
+                </Expression>
+              </Expression>
+            </Statement>
+            <Statement Type="ExpressionStatement">
+              <Expression Type="AssignmentExpression">
+                <Expression Type="MemberAccessExpression">
+                  <Expression Text="this" Type="LiteralExpression" />
+                  <Expression Text="singleBitValue" Type="LiteralExpression" />
+                </Expression>
+                <Expression Type="NullCoalescingExpression">
+                  <Expression Type="AsExpression">
+                    <Expression Text="obj" Type="LiteralExpression" />
+                    <Expression Text="bool?" Type="LiteralExpression" />
+                  </Expression>
+                  <Expression Text="false" Type="LiteralExpression" />
+                </Expression>
+              </Expression>
+            </Statement>
+            <Statement Type="ReturnStatement">
+              <Expression Type="ConditionalExpression">
+                <Expression Text="true" Type="LiteralExpression" />
+                <Expression Text="true" Type="LiteralExpression" />
+                <Expression Text="false" Type="LiteralExpression" />
+              </Expression>
+            </Statement>
+          </Element>
+        </Element>
+        <Element Name="MyTest" Type="Class">
+          <Element Name="Invoke" Type="Method">
+            <Statement Type="ReturnStatement">
+              <Expression Text="null" Type="LiteralExpression" />
+            </Statement>
+          </Element>
+        </Element>
+        <Element Name="Class2" Type="Class">
+          <Element Name="Test" Type="Method">
+            <Statement Type="VariableDeclarationStatement">
+              <Expression Type="VariableDeclarationExpression">
+                <Expression Text="bool" Type="LiteralExpression" />
+                <Expression Type="VariableDeclaratorExpression">
+                  <Expression Text="y" Type="LiteralExpression" />
+                  <Expression Text="true" Type="LiteralExpression" />
+                </Expression>
+              </Expression>
+            </Statement>
+            <Statement Type="VariableDeclarationStatement">
+              <Expression Type="VariableDeclarationExpression">
+                <Expression Text="MyTest" Type="LiteralExpression" />
+                <Expression Type="VariableDeclaratorExpression">
+                  <Expression Text="z" Type="LiteralExpression" />
+                  <Expression Type="NewExpression">
+                    <Expression Type="MethodInvocationExpression">
+                      <Expression Text="MyTest" Type="LiteralExpression" />
+                    </Expression>
+                  </Expression>
+                </Expression>
+              </Expression>
+            </Statement>
+            <Statement Type="VariableDeclarationStatement">
+              <Expression Type="VariableDeclarationExpression">
+                <Expression Text="MyTest" Type="LiteralExpression" />
+                <Expression Type="VariableDeclaratorExpression">
+                  <Expression Text="w" Type="LiteralExpression" />
+                  <Expression Type="NewExpression">
+                    <Expression Type="MethodInvocationExpression">
+                      <Expression Text="MyTest" Type="LiteralExpression" />
+                    </Expression>
+                  </Expression>
+                </Expression>
+              </Expression>
+            </Statement>
+            <Statement Type="VariableDeclarationStatement">
+              <Expression Type="VariableDeclarationExpression">
+                <Expression Text="var" Type="LiteralExpression" />
+                <Expression Type="VariableDeclaratorExpression">
+                  <Expression Text="x" Type="LiteralExpression" />
+                  <Expression Type="ConditionalExpression">
+                    <Expression Text="y" Type="LiteralExpression" />
+                    <Expression Type="NullConditionExpression">
+                      <Expression Text="z" Type="LiteralExpression" />
+                      <Expression Type="MethodInvocationExpression">
+                        <Expression Text="Invoke" Type="LiteralExpression" />
+                      </Expression>
+                    </Expression>
+                    <Expression Type="NullConditionExpression">
+                      <Expression Text="w" Type="LiteralExpression" />
+                      <Expression Type="MethodInvocationExpression">
+                        <Expression Text="Invoke" Type="LiteralExpression" />
+                      </Expression>
+                    </Expression>
+                  </Expression>
+                </Expression>
+              </Expression>
+            </Statement>
+          </Element>
+        </Element>
       </Element>
     </Element>
   </Element>

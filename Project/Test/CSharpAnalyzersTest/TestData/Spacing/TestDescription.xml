@@ -140,12 +140,20 @@
       <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue"
                  LineNumber="37"
                  Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue"
+                 LineNumber="39"
+                 Rule="SymbolsMustBeSpacedCorrectly" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue"
+                 LineNumber="41"
+                 Rule="SymbolsMustBeSpacedCorrectly" />
 
       <!-- SA1029 -->
-      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="49" StartLine="49" StartColumn="16" EndLine="50" EndColumn="33" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
-      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="53" StartLine="53" StartColumn="26" EndLine="54" EndColumn="54" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
-      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="60" StartLine="60" StartColumn="16" EndLine="61" EndColumn="32" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
-      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="64" StartLine="64" StartColumn="26" EndLine="65" EndColumn="53" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue" LineNumber="40" StartLine="40" StartColumn="46" EndLine="40" EndColumn="47" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.NullConditionalNextTest.TestId10Issue" LineNumber="41" StartLine="41" StartColumn="47" EndLine="41" EndColumn="48" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="53" StartLine="53" StartColumn="16" EndLine="54" EndColumn="33" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="57" StartLine="57" StartColumn="26" EndLine="58" EndColumn="54" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="64" StartLine="64" StartColumn="16" EndLine="65" EndColumn="32" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.SA1029DoNotSplitNullConditionalOperators.SplitNullConditionOperator" LineNumber="68" StartLine="68" StartColumn="26" EndLine="69" EndColumn="53" RuleNamespace="StyleCop.CSharp.SpacingRules" Rule="DoNotSplitNullConditionalOperators" />
     </ExpectedViolations>
   </Test>
   <Test Name="CloseParenthesis">

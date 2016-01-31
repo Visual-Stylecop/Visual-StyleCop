@@ -116,10 +116,6 @@
         <Context>Use string.Empty rather than "".</Context>
         <Description>Enforces the use of the string.Empty property for empty strings.</Description>
       </Rule>
-      <Rule Name="AvoidStringFormatUseStringInterpolation" CheckId="SA1127">
-        <Context>Use string interpolation rather than string format.</Context>
-        <Description>Enforces the use of the string interpolation for formatted strings.</Description>
-      </Rule>
     </RuleGroup>
     <RuleGroup Name="Regions">
       <Rule Name="DoNotPlaceRegionsWithinElements" CheckId="SA1123">

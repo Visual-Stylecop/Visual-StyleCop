@@ -66,10 +66,10 @@
   <ItemGroup>
     <Compile Include="AnalyzerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="TestData\Spacing\StringInterpolation.cs">
+    <None Include="TestData\ClassMembers\NullPropogation.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\StringFormatCSharp6\StringFormatCSharp6.cs">
+    <None Include="TestData\Spacing\StringInterpolation.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\ClassMembers\ClassMembersPrefixLocalCallsWithThisForBodied.cs">
@@ -982,11 +982,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\EmptyStrings\TestDescription.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TestData\StringFormatCSharp6\TestDescription.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

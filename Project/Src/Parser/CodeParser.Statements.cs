@@ -492,6 +492,7 @@ namespace StyleCop.CSharp
                             break;
 
                         default:
+
                             throw new SyntaxException(this.document.SourceCode, symbol.LineNumber);
                     }
                 }
@@ -515,7 +516,7 @@ namespace StyleCop.CSharp
                 index++;
 
                 // Advance to the next non-whitespace symbol.
-                for (; ; ++index)
+                for (;; ++index)
                 {
                     symbol = this.symbols.Peek(index);
                     if (symbol == null)
@@ -1884,7 +1885,7 @@ namespace StyleCop.CSharp
                 && symbol.SymbolType != SymbolType.Null && symbol.SymbolType != SymbolType.OpenParenthesis && symbol.SymbolType != SymbolType.Minus
                 && symbol.SymbolType != SymbolType.Plus && symbol.SymbolType != SymbolType.True && symbol.SymbolType != SymbolType.False
                 && symbol.SymbolType != SymbolType.Sizeof && symbol.SymbolType != SymbolType.Typeof && symbol.SymbolType != SymbolType.Checked
-                && symbol.SymbolType != SymbolType.Unchecked)
+                && symbol.SymbolType != SymbolType.Unchecked && symbol.SymbolType != SymbolType.NameOf)
             {
                 throw this.CreateSyntaxException();
             }

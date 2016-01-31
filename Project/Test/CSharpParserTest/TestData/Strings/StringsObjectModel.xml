@@ -380,6 +380,17 @@
             </Expression>
           </Statement>
         </Element>
+        <Element Name="message" Type="Field">
+          <Statement Type="VariableDeclarationStatement">
+            <Expression Type="VariableDeclarationExpression">
+              <Expression Text="var" Type="LiteralExpression" />
+              <Expression Type="VariableDeclaratorExpression">
+                <Expression Text="message" Type="LiteralExpression" />
+                <Expression Text="$&quot;ConnectionString missing: {ConfigurationManager.AppSettings[&quot;ConnectionStringName&quot;]}&quot;" Type="LiteralExpression" />
+              </Expression>
+            </Expression>
+          </Statement>
+        </Element>
       </Element>
       <Element Name="CSSAsString" Type="Class">
         <Element Name="GetStyle" Type="Method">
