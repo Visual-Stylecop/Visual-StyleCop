@@ -52,6 +52,15 @@ namespace ObjectBasedEnvironmentTest
             styleCop.Start(new[] { project });
         }
 
+        /// <summary>
+        /// Use this to try CI Build.
+        /// </summary>
+        [TestMethod]
+        public void AssertFalseToTestBuildCI()
+        {
+            Assert.IsTrue(false);
+        }
+
         #endregion
 
         #region Methods
