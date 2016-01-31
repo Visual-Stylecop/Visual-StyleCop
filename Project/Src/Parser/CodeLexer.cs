@@ -2018,25 +2018,25 @@ namespace StyleCop.CSharp
 
                 StringBuilder checkNullCondition = new StringBuilder();
                 int checkIndex = 0;
-         
+
                 while (true)
-                {         
+                {
                     if (character == '\r' || character == '\n' || character == ' ')
                     {
-                        if(character == '\r')
+                        if (character == '\r')
                         {
                             endLineIndex++;
                         }
-                        else if(character == '\n' && this.codeReader.Peek(checkIndex - 1) != '\r')
+                        else if (character == '\n' && this.codeReader.Peek(checkIndex - 1) != '\r')
                         {
                             endLineIndex++;
                         }
 
                         checkNullCondition.Append(character);
                     }
-                    else if(character == '/')
+                    else if (character == '/')
                     {
-                        if(this.codeReader.Peek(checkIndex + 1) == '/')
+                        if (this.codeReader.Peek(checkIndex + 1) == '/')
                         {
                             this.codeReader.ReadNext(checkIndex);
                             Symbol nextComment = this.GetComment();
@@ -2117,7 +2117,7 @@ namespace StyleCop.CSharp
                 throw new SyntaxException(this.source, this.marker.LineNumber);
             }
 
-            if(!updateEndLineIndex)
+            if (!updateEndLineIndex)
             {
                 endLineIndex = this.marker.LineNumber;
             }
@@ -2135,7 +2135,7 @@ namespace StyleCop.CSharp
             {
                 this.marker.LineNumber = endLineIndex;
             }
-            
+
             // Create the token.
             Symbol symbol = new Symbol(text.ToString(), type, location);
 
