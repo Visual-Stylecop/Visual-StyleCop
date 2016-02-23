@@ -188,6 +188,15 @@ public interface Interface1
 public class ClassPropInit1
 {
     public int Property1 { get; set; } = 45;
+
+    public int Property2 { get; set; } 
+        = 45;
+
+    public int Property3 { get; set; }
+
+
+
+    = 45;
 }
 
 public class ExpressionBodiedMember

@@ -3296,7 +3296,8 @@ namespace StyleCop.CSharp
                 this.ParseElementContainer(property, elementReference, null, unsafeCode);
 
                 // Check if current property has initializer (C#6).
-                Symbol nextSymbol = this.GetNextSymbol(SkipSymbols.WhiteSpace, elementReference, true);
+                int i = this.GetNextCodeSymbolIndex(1);
+                Symbol nextSymbol = this.symbols[this.symbols.CurrentIndex + i];
                 if (nextSymbol != null && nextSymbol.SymbolType == SymbolType.Equals)
                 {
                     // Get all of the variable declarators.
