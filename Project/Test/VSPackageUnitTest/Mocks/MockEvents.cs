@@ -43,91 +43,98 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets DTEEvents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTEEvents DTEEvents
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets DebuggerEvents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DebuggerEvents DebuggerEvents
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets FindEvents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public FindEvents FindEvents
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets MiscFilesEvents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ProjectItemsEvents MiscFilesEvents
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets SelectionEvents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public SelectionEvents SelectionEvents
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets SolutionEvents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public SolutionEvents SolutionEvents
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets SolutionItemsEvents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ProjectItemsEvents SolutionItemsEvents
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -138,13 +145,14 @@ namespace VSPackageUnitTest.Mocks
         /// The name.
         /// </param>
         /// <returns>
-        /// The get object.
+        /// The object value.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object GetObject(string Name)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -154,13 +162,14 @@ namespace VSPackageUnitTest.Mocks
         /// The command bar control.
         /// </param>
         /// <returns>
-        /// The get_ command bar events.
+        /// The command bar events object.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object get_CommandBarEvents(object CommandBarControl)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -173,12 +182,14 @@ namespace VSPackageUnitTest.Mocks
         /// The id.
         /// </param>
         /// <returns>
+        /// The command events.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public CommandEvents get_CommandEvents(string Guid, int ID)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -188,12 +199,14 @@ namespace VSPackageUnitTest.Mocks
         /// The document.
         /// </param>
         /// <returns>
+        /// The document events.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DocumentEvents get_DocumentEvents(Document Document)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -203,12 +216,14 @@ namespace VSPackageUnitTest.Mocks
         /// The pane.
         /// </param>
         /// <returns>
+        /// The output window events.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public OutputWindowEvents get_OutputWindowEvents(string Pane)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -218,12 +233,14 @@ namespace VSPackageUnitTest.Mocks
         /// The filter.
         /// </param>
         /// <returns>
+        /// The task list events.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public TaskListEvents get_TaskListEvents(string Filter)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -233,12 +250,14 @@ namespace VSPackageUnitTest.Mocks
         /// The text document filter.
         /// </param>
         /// <returns>
+        /// The text editor events.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public TextEditorEvents get_TextEditorEvents(TextDocument TextDocumentFilter)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -248,12 +267,14 @@ namespace VSPackageUnitTest.Mocks
         /// The window filter.
         /// </param>
         /// <returns>
+        /// The Window events.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public WindowEvents get_WindowEvents(Window WindowFilter)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

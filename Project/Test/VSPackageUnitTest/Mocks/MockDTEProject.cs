@@ -51,7 +51,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -64,7 +64,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -77,7 +77,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -90,7 +90,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -103,7 +103,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -116,7 +116,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -140,7 +140,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -166,12 +166,12 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -184,7 +184,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -199,12 +199,12 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -217,7 +217,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -230,7 +230,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -243,7 +243,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -256,7 +256,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -271,12 +271,12 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -289,7 +289,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -300,7 +300,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public void Delete()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -313,7 +313,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public void Save(string fileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -326,7 +326,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public void SaveAs(string NewFileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -342,7 +342,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public object get_Extender(string extenderName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

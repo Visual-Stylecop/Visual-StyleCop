@@ -84,7 +84,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int AdviseHierarchyEvents(IVsHierarchyEvents pEventSink, out uint pdwCookie)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Close()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetCanonicalName(uint itemid, out string pbstrName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetGuidProperty(uint itemid, int propid, out Guid pguid)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetNestedHierarchy(uint itemid, ref Guid iidHierarchyNested, out IntPtr ppHierarchyNested, out uint pitemidNested)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace VSPackageUnitTest.Mocks
                 }
             }
 
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetSite(out IServiceProvider ppSP)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -268,7 +268,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int ParseCanonicalName(string pszName, out uint pitemid)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -284,7 +284,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int QueryClose(out int pfCanClose)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -306,7 +306,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetGuidProperty(uint itemid, int propid, ref Guid rguid)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -328,7 +328,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetProperty(uint itemid, int propid, object var)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -344,7 +344,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetSite(IServiceProvider psp)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -360,7 +360,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int UnadviseHierarchyEvents(uint dwCookie)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -373,7 +373,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Unused0()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -386,7 +386,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Unused1()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -399,7 +399,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Unused2()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -412,7 +412,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Unused3()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -425,7 +425,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Unused4()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -459,7 +459,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int AddItem(uint itemidLoc, VSADDITEMOPERATION dwAddItemOperation, string pszItemName, uint cFilesToOpen, string[] rgpszFilesToOpen, IntPtr hwndDlgOwner, VSADDRESULT[] pResult)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -484,7 +484,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GenerateUniqueItemName(uint itemidLoc, string pszExt, string pszSuggestedRoot, out string pbstrItemName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -503,7 +503,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetItemContext(uint itemid, out IServiceProvider ppSP)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -533,7 +533,7 @@ namespace VSPackageUnitTest.Mocks
                 return VSConstants.S_OK;
             }
 
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -558,7 +558,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int IsDocumentInProject(string pszMkDocument, out int pfFound, VSDOCUMENTPRIORITY[] pdwPriority, out uint pitemid)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -583,7 +583,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int OpenItem(uint itemid, ref Guid rguidLogicalView, IntPtr punkDocDataExisting, out IVsWindowFrame ppWindowFrame)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

@@ -197,7 +197,7 @@ namespace VSPackageUnitTest
 
                 uint cookie = 0;
                 ((IVsSolutionBuildManager)serviceProvider.GetService(typeof(SVsSolutionBuildManager))).AdviseUpdateSolutionEvents(mockUpdateSolutionEvents.Instance as IVsUpdateSolutionEvents, out cookie);
-                Debug.Assert(cookie == 1);
+                Debug.Assert(cookie == 1, "cookie is different of 1.");
 
                 bool disposing = true;
 

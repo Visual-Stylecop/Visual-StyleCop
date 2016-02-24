@@ -33,7 +33,7 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockServiceProvider : IServiceProvider
     {
-        private readonly MockSolutionBuildManager BuildManager = new MockSolutionBuildManager();
+        private readonly MockSolutionBuildManager buildManager = new MockSolutionBuildManager();
 
         private readonly OleMenuCommandService menuService;
 
@@ -74,7 +74,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this.BuildManager;
+                return this.buildManager;
             }
         }
 
@@ -150,7 +150,7 @@ namespace VSPackageUnitTest.Mocks
             }
             else if (serviceType == typeof(SVsSolutionBuildManager))
             {
-                return this.BuildManager;
+                return this.buildManager;
             }
             else
             {

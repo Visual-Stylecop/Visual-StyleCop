@@ -57,7 +57,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int AdviseTextLinesEvents(IVsTextLinesEvents pSink, out uint pdwCookie)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CanReplaceLines(int iStartLine, int iStartIndex, int iEndLine, int iEndIndex, int iNewLen)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CopyLineText(int iStartLine, int iStartIndex, int iEndLine, int iEndIndex, IntPtr pszBuf, ref int pcchBuf)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CreateEditPoint(int iLine, int iIndex, out object ppEditPoint)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CreateLineMarker(int iMarkerType, int iStartLine, int iStartIndex, int iEndLine, int iEndIndex, IVsTextMarkerClient pClient, IVsTextLineMarker[] ppMarker)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -194,7 +194,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CreateTextPoint(int iLine, int iIndex, out object ppTextPoint)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -228,7 +228,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int EnumMarkers(int iStartLine, int iStartIndex, int iEndLine, int iEndIndex, int iMarkerType, uint dwFlags, out IVsEnumLineMarkers ppEnum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int FindMarkerByLineIndex(int iMarkerType, int iStartingLine, int iStartingIndex, uint dwFlags, out IVsTextLineMarker ppMarker)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -272,7 +272,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetLanguageServiceID(out Guid pguidLangService)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -291,7 +291,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetLastLineIndex(out int piLine, out int piIndex)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -310,7 +310,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetLengthOfLine(int iLine, out int piLength)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -326,7 +326,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetLineCount(out int piLineCount)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -348,7 +348,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetLineData(int iLine, LINEDATA[] pLineData, MARKERDATA[] pMarkerData)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -379,7 +379,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetLineDataEx(uint dwFlags, int iLine, int iStartIndex, int iEndIndex, LINEDATAEX[] pLineData, MARKERDATA[] pMarkerData)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -401,7 +401,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetLineIndexOfPosition(int iPosition, out int piLine, out int piColumn)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -429,7 +429,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetLineText(int iStartLine, int iStartIndex, int iEndLine, int iEndIndex, out string pbstrBuf)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -451,7 +451,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetMarkerData(int iTopLine, int iBottomLine, MARKERDATA[] pMarkerData)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -470,7 +470,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetPairExtents(TextSpan[] pSpanIn, TextSpan[] pSpanOut)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -489,7 +489,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetPositionOfLine(int iLine, out int piPosition)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -511,7 +511,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetPositionOfLineIndex(int iLine, int iIndex, out int piPosition)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -527,7 +527,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetSize(out int piLength)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -543,7 +543,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetStateFlags(out uint pdwReadOnlyFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -559,7 +559,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetUndoManager(out IOleUndoManager ppUndoManager)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -581,7 +581,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int IVsTextLinesReserved1(int iLine, LINEDATA[] pLineData, int fAttributes)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -600,7 +600,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int InitializeContent(string pszText, int iLength)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -613,7 +613,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int LockBuffer()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -629,7 +629,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int LockBufferEx(uint dwFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -645,7 +645,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int ReleaseLineData(LINEDATA[] pLineData)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -661,7 +661,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int ReleaseLineDataEx(LINEDATAEX[] pLineData)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -677,7 +677,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int ReleaseMarkerData(MARKERDATA[] pMarkerData)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -693,7 +693,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reload(int fUndoable)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -727,7 +727,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int ReloadLines(int iStartLine, int iStartIndex, int iEndLine, int iEndIndex, IntPtr pszText, int iNewLen, TextSpan[] pChangedSpan)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -761,7 +761,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int ReplaceLines(int iStartLine, int iStartIndex, int iEndLine, int iEndIndex, IntPtr pszText, int iNewLen, TextSpan[] pChangedSpan)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -798,7 +798,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int ReplaceLinesEx(uint dwFlags, int iStartLine, int iStartIndex, int iEndLine, int iEndIndex, IntPtr pszText, int iNewLen, TextSpan[] pChangedSpan)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -811,7 +811,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved1()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -824,7 +824,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved10()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -837,7 +837,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved2()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -850,7 +850,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved3()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -863,7 +863,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved4()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -876,7 +876,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved5()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -889,7 +889,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved6()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -902,7 +902,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved7()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -915,7 +915,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved8()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -928,7 +928,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Reserved9()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -944,7 +944,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetLanguageServiceID(ref Guid guidLangService)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -960,7 +960,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetStateFlags(uint dwReadOnlyFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -976,7 +976,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int UnadviseTextLinesEvents(uint dwCookie)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -989,7 +989,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int UnlockBuffer()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -1005,7 +1005,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int UnlockBufferEx(uint dwFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

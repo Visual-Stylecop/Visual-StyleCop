@@ -25,7 +25,7 @@ namespace VSPackageUnitTest
 
     internal static class Utilities
     {
-        static List<string> tempFiles = new List<string>();
+        private static List<string> tempFiles = new List<string>();
 
         public delegate void ThrowingFunction();
 

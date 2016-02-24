@@ -52,7 +52,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CreateExternalWebBrowser(uint dwCreateFlags, VSPREVIEWRESOLUTION dwResolution, string lpszURL)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace VSPackageUnitTest.Mocks
         public int CreateWebBrowser(
             uint dwCreateFlags, ref Guid rguidOwner, string lpszBaseCaption, string lpszStartURL, IVsWebBrowserUser pUser, out IVsWebBrowser ppBrowser, out IVsWindowFrame ppFrame)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace VSPackageUnitTest.Mocks
         public int CreateWebBrowserEx(
             uint dwCreateFlags, ref Guid rguidPersistenceSlot, uint dwId, string lpszBaseCaption, string lpszStartURL, IVsWebBrowserUser pUser, out IVsWebBrowser ppBrowser, out IVsWindowFrame ppFrame)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetFirstWebBrowser(ref Guid rguidPersistenceSlot, out IVsWindowFrame ppFrame, out IVsWebBrowser ppBrowser)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetWebBrowserEnum(ref Guid rguidPersistenceSlot, out IEnumWindowFrames ppenum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>

@@ -45,7 +45,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CloseFrame(uint grfSaveOptions)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetFramePos(VSSETFRAMEPOS[] pdwSFP, out Guid pguidRelativeTo, out int px, out int py, out int pcx, out int pcy)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetGuidProperty(int propid, out Guid pguid)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProperty(int propid, out object pvar)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Hide()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int IsOnScreen(out int pfOnScreen)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int IsVisible()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetFramePos(VSSETFRAMEPOS dwSFP, ref Guid rguidRelativeTo, int x, int y, int cx, int cy)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -232,7 +232,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetGuidProperty(int propid, ref Guid rguid)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -251,7 +251,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetProperty(int propid, object var)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -275,7 +275,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int ShowNoActivate()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

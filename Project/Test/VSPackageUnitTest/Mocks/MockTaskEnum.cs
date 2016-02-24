@@ -57,7 +57,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Clone(out IVsEnumTaskItems ppenum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int Skip(uint celt)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

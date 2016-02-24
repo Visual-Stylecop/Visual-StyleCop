@@ -1,14 +1,14 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AnalyzerTests.cs">
+// <copyright file="AnalyzerTests.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -35,8 +35,6 @@ namespace CSharpAnalyzersTest
         /// The test context.
         /// </summary>
         private static TestContext testContext;
-
-        #region Public Methods
 
         /// <summary>
         /// Tests the class initialize.
@@ -324,10 +322,6 @@ namespace CSharpAnalyzersTest
             this.RunTest("UnnecessaryCode");
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// The run test.
         /// </summary>
@@ -338,12 +332,10 @@ namespace CSharpAnalyzersTest
             string[] files = new string[2];
             files[0] = Path.Combine(testContext.DeploymentDirectory, "StyleCop.CSharp.dll");
             files[1] = Path.Combine(testContext.DeploymentDirectory, "StyleCop.CSharp.Rules.dll");
-    
+
             bool result = StyleCopTestRunner.Run(testName, testContext.TestDir, testContext.ResultsDirectory,  testContext.DeploymentDirectory, false, simulationFrameworkVersion, files);
 
             Assert.IsTrue(result);
         }
-
-        #endregion
     }
 }

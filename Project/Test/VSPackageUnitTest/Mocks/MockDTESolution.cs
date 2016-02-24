@@ -53,7 +53,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -66,7 +66,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -79,7 +79,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -92,7 +92,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -105,7 +105,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -118,7 +118,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -131,7 +131,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -144,7 +144,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -159,12 +159,12 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -177,7 +177,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -190,7 +190,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -214,7 +214,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -229,12 +229,12 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -247,7 +247,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -261,12 +261,14 @@ namespace VSPackageUnitTest.Mocks
         /// The exclusive.
         /// </param>
         /// <returns>
+        /// The project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Project AddFromFile(string fileName, bool exclusive)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -285,12 +287,14 @@ namespace VSPackageUnitTest.Mocks
         /// The exclusive.
         /// </param>
         /// <returns>
+        /// The project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Project AddFromTemplate(string fileName, string destination, string projectName, bool exclusive)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -299,11 +303,12 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="saveFirst">
         /// The save first.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Close(bool saveFirst)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -315,11 +320,12 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="name">
         /// The name.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Create(string destination, string name)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -329,24 +335,28 @@ namespace VSPackageUnitTest.Mocks
         /// The file name.
         /// </param>
         /// <returns>
+        /// The project item.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ProjectItem FindProjectItem(string fileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
         /// The get enumerator.
         /// </summary>
         /// <returns>
+        /// The IEnumerator.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public IEnumerator GetEnumerator()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -356,12 +366,14 @@ namespace VSPackageUnitTest.Mocks
         /// The index.
         /// </param>
         /// <returns>
+        /// The project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Project Item(object index)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -370,15 +382,16 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="fileName">
         /// The file name.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Open(string fileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The project items template path.
+        /// Gets the project items template path.
         /// </summary>
         /// <param name="projectKind">
         /// The project kind.
@@ -386,11 +399,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The project items template path.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string ProjectItemsTemplatePath(string projectKind)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -399,11 +413,12 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="proj">
         /// The proj.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Remove(Project proj)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -412,43 +427,46 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="fileName">
         /// The file name.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void SaveAs(string fileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get_ extender.
+        /// Gets the extender.
         /// </summary>
         /// <param name="extenderName">
         /// The extender name.
         /// </param>
         /// <returns>
-        /// The get_ extender.
+        /// The extender object.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object get_Extender(string extenderName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get_ template path.
+        /// Gets the template path.
         /// </summary>
         /// <param name="projectType">
         /// The project type.
         /// </param>
         /// <returns>
-        /// The get_ template path.
+        /// The template path.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string get_TemplatePath(string projectType)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

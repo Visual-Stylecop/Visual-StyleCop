@@ -78,7 +78,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int AddVirtualProject(IVsHierarchy pHierarchy, uint grfAddVPFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int AddVirtualProjectEx(IVsHierarchy pHierarchy, uint grfAddVPFlags, ref Guid rguidProjectID)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CanCreateNewProjectAtLocation(int fCreateNewSolution, string pszFullProjectFilePath, out int pfCanCreate)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CloseSolutionElement(uint grfCloseOpts, IVsHierarchy pHier, uint docCookie)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CreateNewProjectViaDlg(string pszExpand, string pszSelect, uint dwReserved)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CreateProject(ref Guid rguidProjectType, string lpszMoniker, string lpszLocation, string lpszName, uint grfCreateFlags, ref Guid iidProject, out IntPtr ppProject)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -241,7 +241,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CreateSolution(string lpszLocation, string lpszName, uint grfCreateFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -263,7 +263,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GenerateNextDefaultProjectName(string pszBaseName, string pszLocation, out string pbstrProjectName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -282,7 +282,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GenerateUniqueProjectName(string lpszRoot, out string pbstrProjectName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -301,7 +301,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetGuidOfProject(IVsHierarchy pHierarchy, out Guid pguidProjectID)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -323,7 +323,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetItemInfoOfProjref(string pszProjref, int propid, out object pvar)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -351,7 +351,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetItemOfProjref(string pszProjref, out IVsHierarchy ppHierarchy, out uint pitemid, out string pbstrUpdatedProjref, VSUPDATEPROJREFREASON[] puprUpdateReason)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -397,7 +397,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProjectFactory(uint dwReserved, Guid[] pguidProjectType, string pszMkProject, out IVsProjectFactory ppProjectFactory)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -456,7 +456,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProjectInfoOfProjref(string pszProjref, int propid, out object pvar)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -475,7 +475,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProjectOfGuid(ref Guid rguidProjectID, out IVsHierarchy ppHierarchy)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -500,7 +500,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProjectOfProjref(string pszProjref, out IVsHierarchy ppHierarchy, out string pbstrUpdatedProjref, VSUPDATEPROJREFREASON[] puprUpdateReason)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -519,7 +519,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProjectOfUniqueName(string pszUniqueName, out IVsHierarchy ppHierarchy)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -541,7 +541,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProjectTypeGuid(uint dwReserved, string pszMkProject, out Guid pguidProjectType)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -563,7 +563,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProjrefOfItem(IVsHierarchy pHierarchy, uint itemid, out string pbstrProjref)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -582,7 +582,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProjrefOfProject(IVsHierarchy pHierarchy, out string pbstrProjref)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -601,7 +601,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetProperty(int propid, out object pvar)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -623,7 +623,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetSolutionInfo(out string pbstrSolutionDirectory, out string pbstrSolutionFile, out string pbstrUserOptsFile)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -642,7 +642,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetUniqueNameOfProject(IVsHierarchy pHierarchy, out string pbstrUniqueName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -661,7 +661,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetVirtualProjectFlags(IVsHierarchy pHierarchy, out uint pgrfAddVPFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -686,7 +686,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int OnAfterRenameProject(IVsProject pProject, string pszMkOldName, string pszMkNewName, uint dwReserved)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -705,7 +705,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int OpenSolutionFile(uint grfOpenOpts, string pszFilename)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -724,7 +724,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int OpenSolutionViaDlg(string pszStartDirectory, int fDefaultToAllProjectsFilter)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -740,7 +740,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int QueryEditSolutionFile(out uint pdwEditResult)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -768,7 +768,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int QueryRenameProject(IVsProject pProject, string pszMkOldName, string pszMkNewName, uint dwReserved, out int pfRenameCanContinue)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -787,7 +787,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int RemoveVirtualProject(IVsHierarchy pHierarchy, uint grfRemoveVPFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -809,7 +809,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SaveSolutionElement(uint grfSaveOpts, IVsHierarchy pHier, uint docCookie)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -828,7 +828,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetProperty(int propid, object var)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -868,7 +868,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CheckForAndSaveDeferredSaveSolution(int fCloseSolution, string pszMessage, string pszTitle, uint grfFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -902,7 +902,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int CreateNewProjectViaDlgEx(string pszDlgTitle, string pszTemplateDir, string pszExpand, string pszSelect, string pszHelpTopic, uint cnpvdeFlags, IVsBrowseProjectLocation pBrowse)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -941,7 +941,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int UpdateProjectFileLocationForUpgrade(string pszCurrentLocation, string pszUpgradedLocation)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

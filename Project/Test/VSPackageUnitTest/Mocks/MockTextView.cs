@@ -19,7 +19,6 @@
 namespace VSPackageUnitTest.Mocks
 {
     using System;
-
     using Microsoft.VisualStudio;
     using Microsoft.VisualStudio.OLE.Interop;
     using Microsoft.VisualStudio.TextManager.Interop;
@@ -35,7 +34,7 @@ namespace VSPackageUnitTest.Mocks
         public event EventHandler<SetCaretPosEventArgs> OnSetCaretPos;
 
         /// <summary>
-        /// The add command filter.
+        /// Add command filter.
         /// </summary>
         /// <param name="pNewCmdTarg">
         /// The p new cmd targ.
@@ -46,15 +45,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The add command filter.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AddCommandFilter(IOleCommandTarget pNewCmdTarg, out IOleCommandTarget ppNextCmdTarg)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The center columns.
+        /// Center columns.
         /// </summary>
         /// <param name="iLine">
         /// The i line.
@@ -68,15 +68,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The center columns.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CenterColumns(int iLine, int iLeftCol, int iColCount)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The center lines.
+        /// Center lines.
         /// </summary>
         /// <param name="iTopLine">
         /// The i top line.
@@ -87,15 +88,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The center lines.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CenterLines(int iTopLine, int iCount)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The clear selection.
+        /// Clear selection.
         /// </summary>
         /// <param name="fMoveToAnchor">
         /// The f move to anchor.
@@ -103,28 +105,30 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The clear selection.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int ClearSelection(int fMoveToAnchor)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The close view.
+        /// Close the view.
         /// </summary>
         /// <returns>
         /// The close view.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CloseView()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The ensure span visible.
+        /// Ensure span visible.
         /// </summary>
         /// <param name="span">
         /// The span.
@@ -132,15 +136,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The ensure span visible.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int EnsureSpanVisible(TextSpan span)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get buffer.
+        /// Gets the buffer.
         /// </summary>
         /// <param name="ppBuffer">
         /// The pp buffer.
@@ -148,15 +153,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get buffer.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetBuffer(out IVsTextLines ppBuffer)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get caret pos.
+        /// Gets the caret pos.
         /// </summary>
         /// <param name="piLine">
         /// The pi line.
@@ -167,15 +173,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get caret pos.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetCaretPos(out int piLine, out int piColumn)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get line and column.
+        /// Gets the line and column.
         /// </summary>
         /// <param name="iPos">
         /// The i pos.
@@ -189,15 +196,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get line and column.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetLineAndColumn(int iPos, out int piLine, out int piIndex)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get line height.
+        /// Gets the line height.
         /// </summary>
         /// <param name="piLineHeight">
         /// The pi line height.
@@ -205,15 +213,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get line height.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetLineHeight(out int piLineHeight)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get nearest position.
+        /// Gets the nearest position.
         /// </summary>
         /// <param name="iLine">
         /// The i line.
@@ -230,15 +239,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get nearest position.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetNearestPosition(int iLine, int iCol, out int piPos, out int piVirtualSpaces)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get point of line column.
+        /// Gets the point of line column.
         /// </summary>
         /// <param name="iLine">
         /// The i line.
@@ -252,15 +262,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get point of line column.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetPointOfLineColumn(int iLine, int iCol, POINT[] ppt)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get scroll info.
+        /// Gets the scroll info.
         /// </summary>
         /// <param name="iBar">
         /// The i bar.
@@ -280,15 +291,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get scroll info.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetScrollInfo(int iBar, out int piMinUnit, out int piMaxUnit, out int piVisibleUnits, out int piFirstVisibleUnit)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get selected text.
+        /// Gets the selected text.
         /// </summary>
         /// <param name="pbstrText">
         /// The pbstr text.
@@ -296,15 +308,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get selected text.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetSelectedText(out string pbstrText)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get selection.
+        /// Gets the selection.
         /// </summary>
         /// <param name="piAnchorLine">
         /// The pi anchor line.
@@ -321,15 +334,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get selection.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetSelection(out int piAnchorLine, out int piAnchorCol, out int piEndLine, out int piEndCol)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get selection data object.
+        /// Gets the selection data object.
         /// </summary>
         /// <param name="ppIDataObject">
         /// The pp i data object.
@@ -337,27 +351,30 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get selection data object.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetSelectionDataObject(out IDataObject ppIDataObject)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get selection mode.
+        /// Get the selection mode.
         /// </summary>
         /// <returns>
+        /// The text selection mode.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public TextSelMode GetSelectionMode()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get selection span.
+        /// Gets selection span.
         /// </summary>
         /// <param name="pSpan">
         /// The p span.
@@ -365,15 +382,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get selection span.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetSelectionSpan(TextSpan[] pSpan)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get text stream.
+        /// Gets text stream.
         /// </summary>
         /// <param name="iTopLine">
         /// The i top line.
@@ -393,27 +411,30 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get text stream.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetTextStream(int iTopLine, int iTopCol, int iBottomLine, int iBottomCol, out string pbstrText)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get window handle.
+        /// Gets window handle.
         /// </summary>
         /// <returns>
+        /// The handler.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public IntPtr GetWindowHandle()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get word extent.
+        /// Gets the word extent.
         /// </summary>
         /// <param name="iLine">
         /// The i line.
@@ -430,15 +451,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get word extent.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetWordExtent(int iLine, int iCol, uint dwFlags, TextSpan[] pSpan)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The highlight matching brace.
+        /// Highlight matching brace.
         /// </summary>
         /// <param name="dwFlags">
         /// The dw flags.
@@ -452,15 +474,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The highlight matching brace.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int HighlightMatchingBrace(uint dwFlags, uint cSpans, TextSpan[] rgBaseSpans)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The initialize.
+        /// Initialize.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -477,15 +500,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The initialize.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Initialize(IVsTextLines pBuffer, IntPtr hwndParent, uint InitFlags, INITVIEW[] pInitView)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The position caret for editing.
+        /// Position caret for editing.
         /// </summary>
         /// <param name="iLine">
         /// The i line.
@@ -496,15 +520,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The position caret for editing.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int PositionCaretForEditing(int iLine, int cIndentLevels)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The remove command filter.
+        /// Remove command filter.
         /// </summary>
         /// <param name="pCmdTarg">
         /// The p cmd targ.
@@ -512,15 +537,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The remove command filter.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RemoveCommandFilter(IOleCommandTarget pCmdTarg)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The replace text on line.
+        /// Replace text on line.
         /// </summary>
         /// <param name="iLine">
         /// The i line.
@@ -540,15 +566,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The replace text on line.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int ReplaceTextOnLine(int iLine, int iStartCol, int iCharsToReplace, string pszNewText, int iNewLen)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The restrict view range.
+        /// Restrict the view range.
         /// </summary>
         /// <param name="iMinLine">
         /// The i min line.
@@ -562,28 +589,30 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The restrict view range.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RestrictViewRange(int iMinLine, int iMaxLine, IVsViewRangeClient pClient)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The send explicit focus.
+        /// Send the explicit focus.
         /// </summary>
         /// <returns>
         /// The send explicit focus.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SendExplicitFocus()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The set buffer.
+        /// Sets the buffer.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -591,15 +620,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set buffer.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetBuffer(IVsTextLines pBuffer)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The set caret pos.
+        /// Sets the caret pos.
         /// </summary>
         /// <param name="iLine">
         /// The i line.
@@ -621,7 +651,7 @@ namespace VSPackageUnitTest.Mocks
         }
 
         /// <summary>
-        /// The set scroll position.
+        /// Sets the set scroll position.
         /// </summary>
         /// <param name="iBar">
         /// The i bar.
@@ -632,15 +662,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set scroll position.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetScrollPosition(int iBar, int iFirstVisibleUnit)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The set selection.
+        /// Gets the set selection.
         /// </summary>
         /// <param name="iAnchorLine">
         /// The i anchor line.
@@ -657,15 +688,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set selection.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetSelection(int iAnchorLine, int iAnchorCol, int iEndLine, int iEndCol)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The set selection mode.
+        /// Gets the set selection mode.
         /// </summary>
         /// <param name="iSelMode">
         /// The i sel mode.
@@ -673,15 +705,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set selection mode.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetSelectionMode(TextSelMode iSelMode)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The set top line.
+        /// Gets the set top line.
         /// </summary>
         /// <param name="iBaseLine">
         /// The i base line.
@@ -689,15 +722,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set top line.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetTopLine(int iBaseLine)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The update completion status.
+        /// Gets the update completion status.
         /// </summary>
         /// <param name="pCompSet">
         /// The p comp set.
@@ -708,15 +742,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The update completion status.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UpdateCompletionStatus(IVsCompletionSet pCompSet, uint dwFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The update tip window.
+        /// Gets the update tip window.
         /// </summary>
         /// <param name="pTipWindow">
         /// The p tip window.
@@ -727,24 +762,26 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The update tip window.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UpdateTipWindow(IVsTipWindow pTipWindow, uint dwFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The update view frame caption.
+        /// Gets the update view frame caption.
         /// </summary>
         /// <returns>
         /// The update view frame caption.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UpdateViewFrameCaption()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>

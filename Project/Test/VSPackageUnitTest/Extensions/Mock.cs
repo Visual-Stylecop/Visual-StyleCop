@@ -203,6 +203,9 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <typeparam name="T">
         /// The type of the return value
         /// </typeparam>
+        /// <returns>
+        /// The convertible constraint wrapper.
+        /// </returns>
         public static ConvertibleConstraintWrapper<T> Any<T>()
             where T : class
         {
@@ -380,6 +383,9 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <typeparam name="T">
         /// The type of the return value
         /// </typeparam>
+        /// <returns>
+        /// The convertible constraint wrapper.
+        /// </returns>
         public static ConvertibleConstraintWrapper<T> NotNull<T>()
             where T : class
         {
@@ -467,7 +473,7 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
             }
 
             /// <summary>
-            ///   Gets or sets the IMockConstraint.
+            /// Gets the IMockConstraint.
             /// </summary>
             public IMockConstraint Constraint { get; private set; }
         }
@@ -502,6 +508,7 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
             ///   needs to be explicitly converted to T.
             /// </summary>
             /// <returns>
+            /// The object of type T.
             /// </returns>
             public T Convert()
             {

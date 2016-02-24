@@ -102,7 +102,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int AutoFilter(VSTASKCATEGORY cat)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int AutoFilter2(ref Guid guidCustomView)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int DumpOutput(uint dwReserved, VSTASKCATEGORY cat, IStream pstmOutput, out int pfOutputWritten)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int EnumTaskItems(out IVsEnumTaskItems ppenum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int RegisterCustomCategory(ref Guid guidCat, uint dwSortOrder, VSTASKCATEGORY[] pCat)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -241,7 +241,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SetSilentOutputMode(int fSilent)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -257,7 +257,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int UnregisterCustomCategory(VSTASKCATEGORY catAssigned)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -294,7 +294,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int UpdateProviderInfo(uint dwProviderCookie)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -313,7 +313,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int BeginTaskEdit(IVsTaskItem pItem, int iFocusField)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -365,7 +365,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetCaretPos(out IVsTaskItem ppItem)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -381,7 +381,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetSelectionCount(out int pnItems)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -394,7 +394,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int RefreshAllProviders()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -416,7 +416,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int RefreshOrAddTasks(uint vsProviderCookie, int nTasks, IVsTaskItem[] prgTasks)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -438,7 +438,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int RemoveTasks(uint vsProviderCookie, int nTasks, IVsTaskItem[] prgTasks)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -463,7 +463,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SelectItems(int nItems, IVsTaskItem[] pItems, uint tsfSelType, uint tsspScrollPos)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -490,8 +490,14 @@ namespace VSPackageUnitTest.Mocks
         /// </summary>
         public class RefreshTasksArgs : EventArgs
         {
+            /// <summary>
+            /// The cookie.
+            /// </summary>
             public readonly uint Cookie;
 
+            /// <summary>
+            /// The provider.
+            /// </summary>
             public readonly IVsTaskProvider Provider;
 
             /// <summary>
@@ -515,8 +521,14 @@ namespace VSPackageUnitTest.Mocks
         /// </summary>
         public class RegisterTaskProviderArgs : EventArgs
         {
+            /// <summary>
+            /// The cookie.
+            /// </summary>
             public readonly uint Cookie;
 
+            /// <summary>
+            /// The provider.
+            /// </summary>
             public readonly IVsTaskProvider Provider;
 
             /// <summary>
@@ -540,6 +552,9 @@ namespace VSPackageUnitTest.Mocks
         /// </summary>
         public class SetActiveProviderArgs : EventArgs
         {
+            /// <summary>
+            /// The provider unique identifier.
+            /// </summary>
             public readonly Guid ProviderGuid;
 
             /// <summary>

@@ -43,6 +43,7 @@ namespace VSPackageUnitTest.Mocks
         /// Gets DTE.
         /// </summary>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
@@ -56,6 +57,7 @@ namespace VSPackageUnitTest.Mocks
         /// Gets Parent.
         /// </summary>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE Parent
         {
@@ -78,8 +80,10 @@ namespace VSPackageUnitTest.Mocks
         /// The link.
         /// </param>
         /// <returns>
+        /// The window.
         /// </returns>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window CreateLinkedWindowFrame(Window Window1, Window Window2, vsLinkedWindowType Link)
         {
@@ -105,8 +109,10 @@ namespace VSPackageUnitTest.Mocks
         /// The doc obj.
         /// </param>
         /// <returns>
+        /// The window.
         /// </returns>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window CreateToolWindow(AddIn AddInInst, string ProgID, string Caption, string GuidPosition, ref object DocObj)
         {
@@ -114,11 +120,13 @@ namespace VSPackageUnitTest.Mocks
         }
 
         /// <summary>
-        /// The get enumerator.
+        /// Gets enumerator.
         /// </summary>
         /// <returns>
+        /// The enumerator
         /// </returns>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public IEnumerator GetEnumerator()
         {
@@ -132,8 +140,10 @@ namespace VSPackageUnitTest.Mocks
         /// The index.
         /// </param>
         /// <returns>
+        /// The window.
         /// </returns>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window Item(object index)
         {

@@ -40,6 +40,7 @@ namespace VSPackageUnitTest.Mocks
         /// The path.
         /// </param>
         /// <returns>
+        /// The mock window frame.
         /// </returns>
         public MockWindowFrame AddDocument(string path)
         {
@@ -95,7 +96,7 @@ namespace VSPackageUnitTest.Mocks
             string pszDDEItemActivate,
             uint aspAddPreviewerFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -117,7 +118,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetFirstDefaultPreviewer(out string pbstrDefBrowserPath, out int pfIsInternalBrowser, out int pfIsSystemBrowser)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -148,7 +149,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int GetStandardEditorFactory(uint dwReserved, ref Guid pguidEditorType, string pszMkDocument, ref Guid rguidLogicalView, out string pbstrPhysicalView, out IVsEditorFactory ppEF)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -221,7 +222,7 @@ namespace VSPackageUnitTest.Mocks
             ref Guid rguidCmdUI,
             out IVsWindowFrame ppWindowFrame)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -249,7 +250,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int IsDocumentInAProject(string pszMkDocument, out IVsUIHierarchy ppUIH, out uint pitemid, out IServiceProvider ppSP, out int pDocInProj)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -298,7 +299,7 @@ namespace VSPackageUnitTest.Mocks
             out IVsWindowFrame ppWindowFrame,
             out int pfOpen)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -351,7 +352,7 @@ namespace VSPackageUnitTest.Mocks
             out IVsWindowFrame ppWindowFrame,
             out int pfOpen)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -373,7 +374,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int MapLogicalView(ref Guid rguidEditorType, ref Guid rguidLogicalView, out string pbstrPhysicalView)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -395,7 +396,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int OpenCopyOfStandardEditor(IVsWindowFrame pWindowFrame, ref Guid rguidLogicalView, out IVsWindowFrame ppNewWindowFrame)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -487,7 +488,7 @@ namespace VSPackageUnitTest.Mocks
             out uint pitemid,
             out IVsWindowFrame ppWindowFrame)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -544,7 +545,7 @@ namespace VSPackageUnitTest.Mocks
             IServiceProvider pSPHierContext,
             out IVsWindowFrame ppWindowFrame)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -593,7 +594,7 @@ namespace VSPackageUnitTest.Mocks
             IServiceProvider psp,
             out IVsWindowFrame ppWindowFrame)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -618,7 +619,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int OpenStandardPreviewer(uint ospOpenDocPreviewer, string pszURL, VSPREVIEWRESOLUTION resolution, uint dwReserved)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -640,7 +641,7 @@ namespace VSPackageUnitTest.Mocks
         /// </exception>
         public int SearchProjectsForRelativePath(uint grfRPS, string pszRelPath, string[] pbstrAbsPath)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

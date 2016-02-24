@@ -56,7 +56,7 @@ namespace VSPackageUnitTest
 
             uint cookie = 0;
             ((IVsSolution)serviceProvider.GetService(typeof(SVsSolution))).AdviseSolutionEvents(mockSolutionEvents.Instance as IVsSolutionEvents, out cookie);
-            Debug.Assert(cookie == 1);
+            Debug.Assert(cookie == 1, "cookie is different of 1.");
 
             SolutionListener target = new SolutionListener(serviceProvider);
 

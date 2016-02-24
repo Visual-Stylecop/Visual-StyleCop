@@ -55,7 +55,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -68,7 +68,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -81,7 +81,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -94,7 +94,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -107,7 +107,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -115,6 +115,7 @@ namespace VSPackageUnitTest.Mocks
         /// The get enumerator.
         /// </summary>
         /// <returns>
+        /// The enumerator for <see cref="MockDTEProject"/>.
         /// </returns>
         public IEnumerator GetEnumerator()
         {
@@ -137,6 +138,7 @@ namespace VSPackageUnitTest.Mocks
         /// The index.
         /// </param>
         /// <returns>
+        /// The project.
         /// </returns>
         public Project Item(object index)
         {
