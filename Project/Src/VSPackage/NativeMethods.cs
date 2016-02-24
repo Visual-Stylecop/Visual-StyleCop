@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="NativeMethods.cs">
+// <copyright file="NativeMethods.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

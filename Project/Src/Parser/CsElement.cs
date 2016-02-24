@@ -242,7 +242,7 @@ namespace StyleCop.CSharp
                 }
 
                 index = this.fullyQualifiedName.IndexOf(".cs.", StringComparison.OrdinalIgnoreCase);
-                if (-1 == index)
+                if (index == -1)
                 {
                     this.fullNamespaceName = this.fullyQualifiedName;
                 }

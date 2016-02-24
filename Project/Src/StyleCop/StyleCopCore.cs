@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="StyleCopCore.cs">
+// <copyright file="StyleCopCore.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
@@ -1806,6 +1806,5 @@ namespace StyleCop
 
         ////    countdown.Signal();
         //// }
-
     }
 }

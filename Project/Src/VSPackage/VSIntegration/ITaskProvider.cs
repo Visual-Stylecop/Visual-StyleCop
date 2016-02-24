@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ITaskProvider.cs">
+// <copyright file="ITaskProvider.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

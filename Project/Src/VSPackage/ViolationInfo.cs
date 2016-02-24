@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="ViolationInfo.cs">
+// <copyright file="ViolationInfo.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

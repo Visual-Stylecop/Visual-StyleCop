@@ -1,5 +1,5 @@
 ﻿//--------------------------------------------------------------------------
-// <copyright file="EnvDTEExtensions.cs">
+// <copyright file="EnvDTEExtensions.cs" company="http://stylecop.codeplex.com">
 //  MS-PL
 // </copyright>
 // <license>

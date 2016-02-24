@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="Program.cs">
+// <copyright file="Program.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

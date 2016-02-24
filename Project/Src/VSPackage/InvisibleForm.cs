@@ -1,5 +1,5 @@
 ﻿//--------------------------------------------------------------------------
-// <copyright file="InvisibleForm.cs">
+// <copyright file="InvisibleForm.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

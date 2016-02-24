@@ -1,5 +1,5 @@
 ﻿//--------------------------------------------------------------------------
-// <copyright file="FileAnalysisHelper.cs">
+// <copyright file="FileAnalysisHelper.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

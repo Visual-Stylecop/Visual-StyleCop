@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="ProjectCollection.cs">
+// <copyright file="ProjectCollection.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

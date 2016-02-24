@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ProjectUtilities.cs">
+// <copyright file="ProjectUtilities.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

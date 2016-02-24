@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="UpdateSolutionListener.cs">
+// <copyright file="UpdateSolutionListener.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

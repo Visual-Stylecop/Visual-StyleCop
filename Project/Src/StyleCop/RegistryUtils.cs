@@ -534,7 +534,7 @@ namespace StyleCop
                 while (true)
                 {
                     int index = path.IndexOf("\\", StringComparison.Ordinal);
-                    if (-1 == index)
+                    if (index == -1)
                     {
                         pathinfo.Stub = path;
                         break;
@@ -583,7 +583,7 @@ namespace StyleCop
             try
             {
                 int index = name.LastIndexOf("\\", StringComparison.Ordinal);
-                if (-1 == index)
+                if (index == -1)
                 {
                     root.DeleteSubKeyTree(name);
                 }
@@ -669,7 +669,7 @@ namespace StyleCop
                 while (true)
                 {
                     int index = path.IndexOf("\\", StringComparison.Ordinal);
-                    if (-1 == index)
+                    if (index == -1)
                     {
                         pathinfo.Stub = path;
                         break;

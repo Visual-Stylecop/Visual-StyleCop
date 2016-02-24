@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="StyleCopVSPackage.cs">
+// <copyright file="StyleCopVSPackage.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

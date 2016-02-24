@@ -41,35 +41,6 @@ namespace StyleCop
         private short smallValue;
 
         /// <summary>
-        /// Compares the two indexes and returns a standard comparison result.
-        /// </summary>
-        /// <param name="index1">
-        /// The first index.
-        /// </param>
-        /// <param name="index2">
-        /// The second index.
-        /// </param>
-        /// <returns>
-        /// Returns a negative value if the first index is less than the second index, a positive
-        /// value if the second index is greater than the first index, or zero if the two indexes are equal.
-        /// </returns>
-        public static int Compare(NodeIndex index1, NodeIndex index2)
-        {
-            Param.Ignore(index1, index2);
-
-            if (index1 < index2)
-            {
-                return -1;
-            }
-            else if (index1 > index2)
-            {
-                return 1;
-            }
-
-            return 0;
-        }
-
-        /// <summary>
         /// Determines whether the two indexes are equal.
         /// </summary>
         /// <param name="index1">The first index.</param>
@@ -139,6 +110,35 @@ namespace StyleCop
         {
             Param.Ignore(index1, index2);
             return index1.bigValue <= index2.bigValue && index1.smallValue <= index2.smallValue;
+        }
+
+        /// <summary>
+        /// Compares the two indexes and returns a standard comparison result.
+        /// </summary>
+        /// <param name="index1">
+        /// The first index.
+        /// </param>
+        /// <param name="index2">
+        /// The second index.
+        /// </param>
+        /// <returns>
+        /// Returns a negative value if the first index is less than the second index, a positive
+        /// value if the second index is greater than the first index, or zero if the two indexes are equal.
+        /// </returns>
+        public static int Compare(NodeIndex index1, NodeIndex index2)
+        {
+            Param.Ignore(index1, index2);
+
+            if (index1 < index2)
+            {
+                return -1;
+            }
+            else if (index1 > index2)
+            {
+                return 1;
+            }
+
+            return 0;
         }
 
         /// <summary>

@@ -533,9 +533,9 @@ namespace StyleCop
             {
                 if (defaultSettings)
                 {
-                    if (DialogResult.No
-                        == AlertDialog.Show(
-                            this.tabControl.Core, this, Strings.EditDefaultSettingsWarning, Strings.Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                    if (AlertDialog.Show(
+                            this.tabControl.Core, this, Strings.EditDefaultSettingsWarning, Strings.Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                        == DialogResult.No)
                     {
                         return;
                     }

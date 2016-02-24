@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="TaskProvider.cs">
+// <copyright file="TaskProvider.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>

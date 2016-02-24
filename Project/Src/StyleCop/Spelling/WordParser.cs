@@ -18,19 +18,12 @@ namespace StyleCop.Spelling
     /// </summary>
     public class WordParser
     {
-        // Fields
-
         private const char NullChar = '\0';
         private readonly StringBuilder buffer;
-
         private readonly string text;
-
         private readonly WordParserOptions wordParserOptions;
-
         private int index;
-
         private string peekedWord;
-
         private char prefixChar;
 
         /// <summary>

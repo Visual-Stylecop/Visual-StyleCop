@@ -98,141 +98,327 @@ namespace StyleCop.Spelling
 
         internal enum ProofLexType : uint
         {
+            /// <summary>
+            /// The change always.
+            /// </summary>
             ChangeAlways = 1,
 
+            /// <summary>
+            /// The change once.
+            /// </summary>
             ChangeOnce = 0,
 
+            /// <summary>
+            /// The exclude.
+            /// </summary>
             Exclude = 3,
 
+            /// <summary>
+            /// The ignore always.
+            /// </summary>
             IgnoreAlways = 2,
 
+            /// <summary>
+            /// The main.
+            /// </summary>
             Main = 4,
 
+            /// <summary>
+            /// The maximum.
+            /// </summary>
             Max = 6,
 
+            /// <summary>
+            /// The system udr.
+            /// </summary>
             SysUdr = 5,
 
+            /// <summary>
+            /// The user.
+            /// </summary>
             User = 2
         }
 
         internal enum PtecMajor : uint
         {
+            /// <summary>
+            /// The buffer too small.
+            /// </summary>
             BufferTooSmall = 6,
 
+            /// <summary>
+            /// The io error main lex.
+            /// </summary>
             IoErrorMainLex = 3,
 
+            /// <summary>
+            /// The io error user lex.
+            /// </summary>
             IoErrorUserLex = 4,
 
+            /// <summary>
+            /// The module error.
+            /// </summary>
             ModuleError = 2,
 
+            /// <summary>
+            /// The module not loaded.
+            /// </summary>
             ModuleNotLoaded = 8,
 
+            /// <summary>
+            /// The no errors.
+            /// </summary>
             NoErrors = 0,
 
+            /// <summary>
+            /// The not found.
+            /// </summary>
             NotFound = 7,
 
+            /// <summary>
+            /// The not supported.
+            /// </summary>
             NotSupported = 5,
 
+            /// <summary>
+            /// The out of memory.
+            /// </summary>
             OutOfMemory = 1
         }
 
         internal enum PtecMinor : uint
         {
+            /// <summary>
+            /// The entry too long.
+            /// </summary>
             EntryTooLong = 0x8f,
 
+            /// <summary>
+            /// The file create.
+            /// </summary>
             FileCreate = 0x8a,
 
+            /// <summary>
+            /// The file open error.
+            /// </summary>
             FileOpenError = 0x92,
 
+            /// <summary>
+            /// The file read.
+            /// </summary>
             FileRead = 0x88,
 
+            /// <summary>
+            /// The file share.
+            /// </summary>
             FileShare = 0x8b,
 
+            /// <summary>
+            /// The file too large error.
+            /// </summary>
             FileTooLargeError = 0x93,
 
+            /// <summary>
+            /// The file write.
+            /// </summary>
             FileWrite = 0x89,
 
+            /// <summary>
+            /// The invalid command.
+            /// </summary>
             InvalidCmd = 0x85,
 
+            /// <summary>
+            /// The invalid entry.
+            /// </summary>
             InvalidEntry = 0x8e,
 
+            /// <summary>
+            /// The invalid format.
+            /// </summary>
             InvalidFormat = 0x86,
 
+            /// <summary>
+            /// The invalid identifier.
+            /// </summary>
             InvalidId = 0x81,
 
+            /// <summary>
+            /// The invalid language.
+            /// </summary>
             InvalidLanguage = 150,
 
+            /// <summary>
+            /// The invalid main lex.
+            /// </summary>
             InvalidMainLex = 0x83,
 
+            /// <summary>
+            /// The invalid user lex.
+            /// </summary>
             InvalidUserLex = 0x84,
 
+            /// <summary>
+            /// The invalid WSC.
+            /// </summary>
             InvalidWsc = 130,
 
+            /// <summary>
+            /// The main lex count exceeded.
+            /// </summary>
             MainLexCountExceeded = 0x90,
 
+            /// <summary>
+            /// The module already busy.
+            /// </summary>
             ModuleAlreadyBusy = 0x80,
 
+            /// <summary>
+            /// The module not terminated.
+            /// </summary>
             ModuleNotTerminated = 140,
 
+            /// <summary>
+            /// The oper not matched user lex.
+            /// </summary>
             OperNotMatchedUserLex = 0x87,
 
+            /// <summary>
+            /// The protect mode only.
+            /// </summary>
             ProtectModeOnly = 0x95,
 
+            /// <summary>
+            /// The user lex count exceeded.
+            /// </summary>
             UserLexCountExceeded = 0x91,
 
+            /// <summary>
+            /// The user lex full.
+            /// </summary>
             UserLexFull = 0x8d,
 
+            /// <summary>
+            /// The user lex read only.
+            /// </summary>
             UserLexReadOnly = 0x94
         }
 
         [Flags]
         internal enum SpellerState : uint
         {
+            /// <summary>
+            /// The is continued.
+            /// </summary>
             IsContinued = 1,
 
+            /// <summary>
+            /// The is edited change.
+            /// </summary>
             IsEditedChange = 4,
 
+            /// <summary>
+            /// The no state information.
+            /// </summary>
             NoStateInfo = 0,
 
+            /// <summary>
+            /// The starts sentence.
+            /// </summary>
             StartsSentence = 2
         }
 
         internal enum SpellerStatus
         {
+            /// <summary>
+            /// The no errors.
+            /// </summary>
             NoErrors,
 
+            /// <summary>
+            /// The unknown input word.
+            /// </summary>
             UnknownInputWord,
 
+            /// <summary>
+            /// The returning change always.
+            /// </summary>
             ReturningChangeAlways,
 
+            /// <summary>
+            /// The returning change once.
+            /// </summary>
             ReturningChangeOnce,
 
+            /// <summary>
+            /// The invalid hyphenation.
+            /// </summary>
             InvalidHyphenation,
 
+            /// <summary>
+            /// The error capitalization.
+            /// </summary>
             ErrorCapitalization,
 
+            /// <summary>
+            /// The word considered abbreviation.
+            /// </summary>
             WordConsideredAbbreviation,
 
+            /// <summary>
+            /// The hyphen changes spelling.
+            /// </summary>
             HyphenChangesSpelling,
 
+            /// <summary>
+            /// The no more suggestions.
+            /// </summary>
             NoMoreSuggestions,
 
+            /// <summary>
+            /// The more information than buffer could hold.
+            /// </summary>
             MoreInfoThanBufferCouldHold,
 
+            /// <summary>
+            /// The no sentence start cap.
+            /// </summary>
             NoSentenceStartCap,
 
+            /// <summary>
+            /// The repeat word.
+            /// </summary>
             RepeatWord,
 
+            /// <summary>
+            /// The extra spaces.
+            /// </summary>
             ExtraSpaces,
 
+            /// <summary>
+            /// The missing space.
+            /// </summary>
             MissingSpace,
 
+            /// <summary>
+            /// The initial numeral.
+            /// </summary>
             InitialNumeral,
 
+            /// <summary>
+            /// The no errors ud hit.
+            /// </summary>
             NoErrorsUdHit,
 
+            /// <summary>
+            /// The returning automatic replace.
+            /// </summary>
             ReturningAutoReplace,
 
+            /// <summary>
+            /// The error accent.
+            /// </summary>
             ErrorAccent
         }
 
@@ -426,6 +612,8 @@ namespace StyleCop.Spelling
 
         internal class Language
         {
+            private static string pathToOfficeProofingTools;
+
             private readonly bool isAvailable;
 
             private readonly ushort lcid;
@@ -435,8 +623,6 @@ namespace StyleCop.Spelling
             private readonly string libraryFullPath;
 
             private readonly string name;
-
-            private static string pathToOfficeProofingTools;
 
             internal Language(string name, string library, string lexicon, ushort lcid)
             {
@@ -461,23 +647,6 @@ namespace StyleCop.Spelling
                             throw new Win32Exception();
                         }
                     }
-                }
-            }
-
-            /// <summary>
-            /// Gets a path to the Office 2010 proof directory. Returns string.Empty if the path could not be found.
-            /// </summary>
-            private static string PathToOfficeProofingTools
-            {
-                get
-                {
-                    if (pathToOfficeProofingTools == null)
-                    {
-                        string registryValue = RegistryUtils.LocalMachineGetValue(@"SOFTWARE\Microsoft\Office\14.0\Common\InstallRoot", "Path");
-                        pathToOfficeProofingTools = registryValue == null ? string.Empty : Path.Combine(registryValue, @"Proof\");
-                    }
-
-                    return pathToOfficeProofingTools;
                 }
             }
 
@@ -518,6 +687,23 @@ namespace StyleCop.Spelling
                 get
                 {
                     return this.lcid;
+                }
+            }
+
+            /// <summary>
+            /// Gets a path to the Office 2010 proof directory. Returns string.Empty if the path could not be found.
+            /// </summary>
+            private static string PathToOfficeProofingTools
+            {
+                get
+                {
+                    if (pathToOfficeProofingTools == null)
+                    {
+                        string registryValue = RegistryUtils.LocalMachineGetValue(@"SOFTWARE\Microsoft\Office\14.0\Common\InstallRoot", "Path");
+                        pathToOfficeProofingTools = registryValue == null ? string.Empty : Path.Combine(registryValue, @"Proof\");
+                    }
+
+                    return pathToOfficeProofingTools;
                 }
             }
 

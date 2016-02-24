@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------
-// <copyright file="PackageCommandSet.cs">
+// <copyright file="PackageCommandSet.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
