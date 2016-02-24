@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,10 +27,8 @@ namespace StyleCop.CSharp
     [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", Justification = "The class describes a C# namespace")]
     public class Namespace : CsElement
     {
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Namespace class.
+        /// Initializes a new instance of the <see cref="Namespace"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -61,7 +59,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the Namespace class.
+        /// Initializes a new instance of the <see cref="Namespace"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -91,20 +89,18 @@ namespace StyleCop.CSharp
         /// Indicates whether the code element was generated or written by hand.
         /// </param>
         internal Namespace(
-            CsDocument document, 
-            CsElement parent, 
-            ElementType type, 
-            string name, 
-            XmlHeader header, 
-            ICollection<Attribute> attributes, 
-            Declaration declaration, 
-            bool unsafeCode, 
+            CsDocument document,
+            CsElement parent,
+            ElementType type,
+            string name,
+            XmlHeader header,
+            ICollection<Attribute> attributes,
+            Declaration declaration,
+            bool unsafeCode,
             bool generated)
             : base(document, parent, type, name, header, attributes, declaration, unsafeCode, generated)
         {
             Param.Ignore(document, parent, type, name, header, attributes, declaration, unsafeCode, generated);
         }
-
-        #endregion
     }
 }

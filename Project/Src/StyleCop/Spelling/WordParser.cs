@@ -19,14 +19,8 @@ namespace StyleCop.Spelling
     public class WordParser
     {
         // Fields
-        #region Constants
 
         private const char NullChar = '\0';
-
-        #endregion
-
-        #region Fields
-
         private readonly StringBuilder buffer;
 
         private readonly string text;
@@ -38,10 +32,6 @@ namespace StyleCop.Spelling
         private string peekedWord;
 
         private char prefixChar;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WordParser"/> class.
@@ -75,10 +65,6 @@ namespace StyleCop.Spelling
             this.prefixChar = prefixChar;
         }
 
-        #endregion
-
-        #region Properties
-
         private bool SkipMnemonics
         {
             get
@@ -94,10 +80,6 @@ namespace StyleCop.Spelling
                 return (this.wordParserOptions & WordParserOptions.SplitCompoundWords) == WordParserOptions.SplitCompoundWords;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// The parse.
@@ -144,10 +126,6 @@ namespace StyleCop.Spelling
         {
             return this.peekedWord ?? (this.peekedWord = this.NextWordCore());
         }
-
-        #endregion
-
-        #region Methods
 
         internal static bool ContainsWord(string text, WordParserOptions options, params string[] words)
         {
@@ -581,7 +559,5 @@ namespace StyleCop.Spelling
 
             this.buffer.Length--;
         }
-
-        #endregion
     }
 }

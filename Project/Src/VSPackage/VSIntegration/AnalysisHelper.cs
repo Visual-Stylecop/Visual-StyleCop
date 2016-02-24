@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -33,8 +33,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal abstract class AnalysisHelper : IDisposable
     {
-        #region Private Fields
-
         /// <summary>
         /// System service provider.
         /// </summary>
@@ -64,12 +62,8 @@ namespace StyleCop.VisualStudio
 
         private string analysisFilePath;
 
-        #endregion Private Fields
-
-        #region Constructor
-
         /// <summary>
-        /// Initializes a new instance of the AnalysisHelper class.
+        /// Initializes a new instance of the <see cref="AnalysisHelper"/> class.
         /// </summary>
         /// <param name="serviceProvider">System service provider.</param>
         /// <param name="core">StyleCop engine.</param>
@@ -81,10 +75,6 @@ namespace StyleCop.VisualStudio
             this.serviceProvider = serviceProvider;
             this.core = core;
         }
-
-        #endregion Constructor
-
-        #region Properties
 
         /// <summary>
         /// Gets the core instance.
@@ -116,10 +106,6 @@ namespace StyleCop.VisualStudio
             get { return this.serviceProvider; }
         }
 
-        #endregion Properties
-
-        #region IDisposable Members
-
         /// <summary>
         /// Disposed the object.
         /// </summary>
@@ -128,10 +114,6 @@ namespace StyleCop.VisualStudio
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        #endregion
-
-        #region Internal Methods
 
         /// <summary>
         /// Initializes the object.
@@ -255,10 +237,6 @@ namespace StyleCop.VisualStudio
             this.core.Cancel = true;
         }
 
-        #endregion Internal Methods
-
-        #region Protected Methods
-
         /// <summary>
         /// Disposes the contents of the class.
         /// </summary>
@@ -326,10 +304,6 @@ namespace StyleCop.VisualStudio
             Param.Ignore(violationsResult);
         }
 
-        #endregion Protected Methods
-
-        #region Private Methods
-
         /// <summary>
         /// Reads parser configuration xml and initializes the dictionary 'projectFullPaths' based on the information in it.
         /// </summary>
@@ -342,7 +316,7 @@ namespace StyleCop.VisualStudio
         ///     <!-- ProjectKind is the guid that identifies the project kind, or in other words the language type C#/C++ etc.
         ///          The C# language kind is defined by prjKindCSharpProject in VSLangProj.DLL.
         ///          The VB language kind is defined by prjKindVBProject  in VSLangProj.DLL.
-        ///          Also look at dte.idl for various vsProjectKind* constants that could be returned by other projects.  
+        ///          Also look at dte.idl for various vsProjectKind* constants that could be returned by other projects.
         ///     -->
         ///     <ProjectKind>FAE04EC0-301F-11D3-BF4B-00C04F79EFBC</ProjectKind>
         ///   </VsProjectLocation>
@@ -374,7 +348,7 @@ namespace StyleCop.VisualStudio
                             throw new InvalidDataException(errorMessage);
                         }
 
-                        // Determine the project kind 
+                        // Determine the project kind
                         string projectKind = projectKindNode.InnerText.Trim();
                         if (string.IsNullOrEmpty(projectKind))
                         {
@@ -547,7 +521,7 @@ namespace StyleCop.VisualStudio
                     }
 
                     var element = e.Element;
-                    var violationInfo = new ViolationInfo();
+                    var violationInfo = default(ViolationInfo);
 
                     violationInfo.Severity = e.SourceCode.Project.ViolationsAsErrors ? TaskErrorCategory.Error : TaskErrorCategory.Warning;
 
@@ -580,7 +554,5 @@ namespace StyleCop.VisualStudio
                 }
             }
         }
-
-        #endregion Private Methods
     }
 }

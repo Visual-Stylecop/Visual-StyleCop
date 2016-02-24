@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.CSharp
     [SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", Justification = "Camel case better serves in this case.")]
     public class CsToken : ICodePart
     {
-        #region Fields
-
         /// <summary>
         /// True if the token is part of a generated code block.
         /// </summary>
@@ -58,12 +56,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private string text;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CsToken class.
+        /// Initializes a new instance of the <see cref="CsToken"/> class.
         /// </summary>
         /// <param name="text">
         /// The token string.
@@ -87,7 +81,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the CsToken class.
+        /// Initializes a new instance of the <see cref="CsToken"/> class.
         /// </summary>
         /// <param name="tokenType">
         /// The token type.
@@ -120,7 +114,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the CsToken class.
+        /// Initializes a new instance of the <see cref="CsToken"/> class.
         /// </summary>
         /// <param name="text">
         /// The token string.
@@ -156,10 +150,6 @@ namespace StyleCop.CSharp
             this.parent = parent;
             this.generated = generated;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the type of this code part.
@@ -266,10 +256,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets or sets the parent reference.
         /// </summary>
@@ -288,10 +274,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Returns the contents of the token as a string.
         /// </summary>
@@ -300,10 +282,6 @@ namespace StyleCop.CSharp
         {
             return this.Text;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Joins the locations of the two tokens.
@@ -381,7 +359,7 @@ namespace StyleCop.CSharp
         {
             Param.AssertNotNull(token1, "token1");
             Param.AssertNotNull(token2, "token2");
-            
+
             return CodeLocation.Join(token1.Location, token2.Location);
         }
 
@@ -433,7 +411,5 @@ namespace StyleCop.CSharp
         protected virtual void CreateTextString()
         {
         }
-
-        #endregion
     }
 }

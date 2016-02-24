@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,19 +28,13 @@ namespace StyleCop
     /// </summary>
     public sealed class WritableSettings : Settings
     {
-        #region Constants
-
         /// <summary>
         /// This is the StyleCop.Settings file version number written into files.
         /// </summary>
         private const string CurrentSettingsVersion = "105";
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the WritableSettings class.
+        /// Initializes a new instance of the <see cref="WritableSettings"/> class.
         /// </summary>
         /// <param name="core">
         /// The StyleCop core instance.
@@ -60,16 +54,11 @@ namespace StyleCop
             Param.Ignore(core, location, contents, writeTime);
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Creates a new settings document.
         /// </summary>
         /// <returns>Returns the new document.</returns>
-        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", 
-            Justification = "Compliance would break the well-defined public API.")]
+        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Compliance would break the well-defined public API.")]
         public static XmlDocument NewDocument()
         {
             XmlDocument document = new XmlDocument();
@@ -94,8 +83,7 @@ namespace StyleCop
         /// <param name="propertyName">
         /// The name of the property to clear.
         /// </param>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InSetting", 
-            Justification = "InSetting is two words in this context.")]
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InSetting", Justification = "InSetting is two words in this context.")]
         public void ClearAddInSetting(StyleCopAddIn addIn, string propertyName)
         {
             Param.RequireNotNull(addIn, "addIn");
@@ -113,8 +101,7 @@ namespace StyleCop
         /// <param name="property">
         /// The setting property to set.
         /// </param>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InSetting", 
-            Justification = "InSetting is two words in this context.")]
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InSetting", Justification = "InSetting is two words in this context.")]
         public void SetAddInSetting(StyleCopAddIn addIn, PropertyValue property)
         {
             Param.RequireNotNull(addIn, "addIn");
@@ -132,8 +119,7 @@ namespace StyleCop
         /// <returns>
         /// Returns the new settings document.
         /// </returns>
-        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", 
-            Justification = "Compliance would break the well-defined public API.")]
+        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Compliance would break the well-defined public API.")]
         public XmlDocument WriteSettingsToDocument(StyleCopEnvironment environment)
         {
             Param.RequireNotNull(environment, "environment");
@@ -145,10 +131,6 @@ namespace StyleCop
 
             return document;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Saves the given boolean property into the given node.
@@ -355,9 +337,9 @@ namespace StyleCop
                     if (index > 0)
                     {
                         propertyWritten |= SaveRuleProperty(
-                            rootNode, 
-                            property, 
-                            property.PropertyName.Substring(0, index), 
+                            rootNode,
+                            property,
+                            property.PropertyName.Substring(0, index),
                             property.PropertyName.Substring(index + 1, property.PropertyName.Length - index - 1));
                     }
                     else
@@ -652,7 +634,5 @@ namespace StyleCop
                 }
             }
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -22,25 +22,15 @@ namespace StyleCop
 
     internal class Countdown
     {
-        #region Static Fields
-
         /// <summary>
         ///   The object we lock on.
         /// </summary>
         private static readonly object LockObject = new object();
 
-        #endregion
-
-        #region Fields
-
         /// <summary>
         ///   The countdown value we use.
         /// </summary>
         private int countdownValue;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Countdown"/> class with the specified count.
@@ -61,10 +51,6 @@ namespace StyleCop
             this.countdownValue = initialCount;
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the number of remaining signals required to release the countdown.
         /// </summary>
@@ -80,15 +66,11 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Increments the Countdown's current count by a specified value.
         /// </summary>
         /// <param name="signalCount">
-        /// The value by which to increase <see cref="Countdown.CurrentCount"/> . 
+        /// The value by which to increase <see cref="Countdown.CurrentCount"/> .
         /// </param>
         public void AddCount(int signalCount)
         {
@@ -114,7 +96,7 @@ namespace StyleCop
         /// Registers multiple signals with the <see cref="Countdown"/> , decrementing the value of <see cref="Countdown.CurrentCount"/> by the specified amount.
         /// </summary>
         /// <param name="signalCount">
-        /// The number of signals to register. 
+        /// The number of signals to register.
         /// </param>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// <paramref name="signalCount"/> is less than 1.
@@ -143,7 +125,5 @@ namespace StyleCop
                 }
             }
         }
-
-        #endregion
     }
 }

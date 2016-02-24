@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -36,87 +36,87 @@ namespace StyleCop.CSharp
         /// <summary>
         /// A block statement.
         /// </summary>
-        Block, 
+        Block,
 
         /// <summary>
         /// A break statement.
         /// </summary>
-        Break, 
+        Break,
 
         /// <summary>
         /// A catch statement.
         /// </summary>
-        Catch, 
+        Catch,
 
         /// <summary>
         /// A checked statement.
         /// </summary>
-        Checked, 
+        Checked,
 
         /// <summary>
         /// A constructor initialization statement.
         /// </summary>
-        ConstructorInitializer, 
+        ConstructorInitializer,
 
         /// <summary>
         /// A continue statement.
         /// </summary>
-        Continue, 
+        Continue,
 
         /// <summary>
         /// A do-while statement.
         /// </summary>
-        DoWhile, 
+        DoWhile,
 
         /// <summary>
         /// An else statement.
         /// </summary>
-        Else, 
+        Else,
 
         /// <summary>
         /// An empty statement.
         /// </summary>
-        Empty, 
+        Empty,
 
         /// <summary>
         /// An expression statement.
         /// </summary>
-        Expression, 
+        Expression,
 
         /// <summary>
         /// A finally statement.
         /// </summary>
-        Finally, 
+        Finally,
 
         /// <summary>
         /// A fixed statement.
         /// </summary>
-        Fixed, 
+        Fixed,
 
         /// <summary>
         /// A foreach statement.
         /// </summary>
-        Foreach, 
+        Foreach,
 
         /// <summary>
         /// A for statement.
         /// </summary>
-        For, 
+        For,
 
         /// <summary>
         /// A goto statement.
         /// </summary>
-        Goto, 
+        Goto,
 
         /// <summary>
         /// An if statement.
         /// </summary>
-        If, 
+        If,
 
         /// <summary>
         /// A label statement.
         /// </summary>
-        Label, 
+        Label,
 
         /// <summary>
         /// A lock statement.
@@ -131,52 +131,52 @@ namespace StyleCop.CSharp
         /// <summary>
         /// A return statement.
         /// </summary>
-        Return, 
+        Return,
 
         /// <summary>
         /// A switch case statement.
         /// </summary>
-        SwitchCase, 
+        SwitchCase,
 
         /// <summary>
         /// A switch default statement.
         /// </summary>
-        SwitchDefault, 
+        SwitchDefault,
 
         /// <summary>
         /// A switch statement.
         /// </summary>
-        Switch, 
+        Switch,
 
         /// <summary>
         /// A throw statement.
         /// </summary>
-        Throw, 
+        Throw,
 
         /// <summary>
         /// A try statement.
         /// </summary>
-        Try, 
+        Try,
 
         /// <summary>
         /// An unchecked statement.
         /// </summary>
-        Unchecked, 
+        Unchecked,
 
         /// <summary>
         /// An unsafe statement.
         /// </summary>
-        Unsafe, 
+        Unsafe,
 
         /// <summary>
         /// A using statement.
         /// </summary>
-        Using, 
+        Using,
 
         /// <summary>
         /// A variable declaration statement.
         /// </summary>
-        VariableDeclaration, 
+        VariableDeclaration,
 
         /// <summary>
         /// A while statement.

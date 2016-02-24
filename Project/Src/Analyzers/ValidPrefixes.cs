@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop.CSharp
     /// </summary>
     internal class ValidPrefixes : UserControl, IPropertyControlPage
     {
-        #region Fields
-
         /// <summary>
         /// The analyzer that this settings page is attached to.
         /// </summary>
@@ -90,12 +88,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private PropertyControl tabControl;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the ValidPrefixes class.
+        /// Initializes a new instance of the <see cref="ValidPrefixes"/> class.
         /// </summary>
         public ValidPrefixes()
         {
@@ -103,7 +97,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the ValidPrefixes class.
+        /// Initializes a new instance of the <see cref="ValidPrefixes"/> class.
         /// </summary>
         /// <param name="analyzer">
         /// The analyzer that this settings page is attached to.
@@ -114,10 +108,6 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(analyzer, "analyzer");
             this.analyzer = analyzer;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets or sets a value indicating whether any data on the page is dirty.
@@ -151,10 +141,6 @@ namespace StyleCop.CSharp
                 return Strings.HungarianTab;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Called when the page is activated.
@@ -299,10 +285,6 @@ namespace StyleCop.CSharp
                 }
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Event that is fired when the add button is clicked.
@@ -461,8 +443,8 @@ namespace StyleCop.CSharp
             }
         }
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -636,7 +618,5 @@ namespace StyleCop.CSharp
                 item.Font = new Font(this.prefixList.Font, FontStyle.Regular);
             }
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,8 +29,6 @@ namespace StyleCop
     /// </summary>
     public class FileBasedEnvironment : StyleCopEnvironment
     {
-        #region Fields
-
         /// <summary>
         /// The list of file types and their associated parsers.
         /// </summary>
@@ -40,10 +38,6 @@ namespace StyleCop
         /// The path to the default settings file, if any.
         /// </summary>
         private string defaultSettingsFilePath;
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether the environment supports settings documents
@@ -68,10 +62,6 @@ namespace StyleCop
                 return true;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Invoked when a new parser is loaded.
@@ -574,7 +564,7 @@ namespace StyleCop
         /// The settings to save.
         /// </param>
         /// <param name="exception">
-        /// If the document could not be saved, this returns the 
+        /// If the document could not be saved, this returns the
         /// resulting exception information.
         /// </param>
         /// <returns>
@@ -623,10 +613,6 @@ namespace StyleCop
 
             return false;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Creates a new <see cref="CodeFile"/> instance with the given values.
@@ -680,7 +666,7 @@ namespace StyleCop
         /// The path to the document to create.
         /// </param>
         /// <param name="exception">
-        /// If the document could not be created, this returns the 
+        /// If the document could not be created, this returns the
         /// resulting exception information.
         /// </param>
         /// <returns>
@@ -736,7 +722,7 @@ namespace StyleCop
         /// Indicates whether a read-only document should be returned.
         /// </param>
         /// <param name="exception">
-        /// If the document could not be loaded, this returns the 
+        /// If the document could not be loaded, this returns the
         /// resulting exception information.
         /// </param>
         /// <returns>
@@ -793,7 +779,5 @@ namespace StyleCop
 
             return null;
         }
-
-        #endregion
     }
 }

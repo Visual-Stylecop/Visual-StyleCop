@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,8 +25,6 @@ namespace StyleCop
     /// </summary>
     public class SettingsComparer
     {
-        #region Fields
-
         /// <summary>
         /// The local settings.
         /// </summary>
@@ -37,12 +35,8 @@ namespace StyleCop
         /// </summary>
         private readonly Settings parentSettings;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the SettingsComparer class.
+        /// Initializes a new instance of the <see cref="SettingsComparer"/> class.
         /// </summary>
         /// <param name="localSettings">
         /// The local settings.
@@ -58,10 +52,6 @@ namespace StyleCop
             this.localSettings = localSettings;
             this.parentSettings = parentSettings;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the local settings.
@@ -84,10 +74,6 @@ namespace StyleCop
                 return this.parentSettings;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Determines whether the local property overrides the parent property.
@@ -135,8 +121,7 @@ namespace StyleCop
         /// <returns>
         /// Returns true if the given add-in setting overrides the parent setting.
         /// </returns>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InSetting", 
-            Justification = "InSetting is two words in this context.")]
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InSetting", Justification = "InSetting is two words in this context.")]
         public bool IsAddInSettingOverwritten(StyleCopAddIn addIn, string propertyName, PropertyValue localProperty)
         {
             Param.RequireNotNull(addIn, "addIn");
@@ -261,7 +246,5 @@ namespace StyleCop
 
             return this.IsAddInSettingOverwritten(addIn, propertyName, localProperty);
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.CSharp
     [SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", Justification = "Camel case better serves in this case.")]
     public sealed class CsDocument : CodeDocument, ICodePart, ITokenContainer
     {
-        #region Fields
-
         /// <summary>
         /// The contents at the root of the document.
         /// </summary>
@@ -40,7 +38,7 @@ namespace StyleCop.CSharp
 
         /// <summary>
         /// The parser that created this object.
-        /// </summary>        
+        /// </summary>
         private CsParser parser;
 
         /// <summary>
@@ -48,12 +46,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private MasterList<CsToken> tokens;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CsDocument class.
+        /// Initializes a new instance of the <see cref="CsDocument"/> class.
         /// </summary>
         /// <param name="sourceCode">
         /// The source code that this document represents.
@@ -76,7 +70,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the CsDocument class.
+        /// Initializes a new instance of the <see cref="CsDocument"/> class.
         /// </summary>
         /// <param name="sourceCode">
         /// The source code that this document represents.
@@ -92,10 +86,6 @@ namespace StyleCop.CSharp
 
             this.tokens = new MasterList<CsToken>();
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the type of this code part.
@@ -206,10 +196,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Explicit Interface Properties
-
         /// <summary>
         /// Gets the list of child tokens contained within this object.
         /// </summary>
@@ -221,10 +207,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets a reference to a writable version of the token list for this document.
         /// </summary>
@@ -235,10 +217,6 @@ namespace StyleCop.CSharp
                 return this.tokens;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Walks through the code units in the document.
@@ -262,10 +240,10 @@ namespace StyleCop.CSharp
         /// The type of the context item.
         /// </typeparam>
         public void WalkDocument<T>(
-            CodeWalkerElementVisitor<T> elementCallback, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CodeWalkerElementVisitor<T> elementCallback,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.Ignore(elementCallback, statementCallback, expressionCallback, queryClauseCallback, context);
@@ -352,9 +330,9 @@ namespace StyleCop.CSharp
         /// Callback executed when a query clause is visited.
         /// </param>
         public void WalkDocument(
-            CodeWalkerElementVisitor<object> elementCallback, 
-            CodeWalkerStatementVisitor<object> statementCallback, 
-            CodeWalkerExpressionVisitor<object> expressionCallback, 
+            CodeWalkerElementVisitor<object> elementCallback,
+            CodeWalkerStatementVisitor<object> statementCallback,
+            CodeWalkerExpressionVisitor<object> expressionCallback,
             CodeWalkerQueryClauseVisitor<object> queryClauseCallback)
         {
             Param.Ignore(elementCallback, statementCallback, expressionCallback, queryClauseCallback);
@@ -407,10 +385,6 @@ namespace StyleCop.CSharp
             this.WalkDocument(elementCallback, null, null, null, null);
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Disposes the contents of the class.
         /// </summary>
@@ -431,7 +405,5 @@ namespace StyleCop.CSharp
                 this.parser = null;
             }
         }
-
-        #endregion
     }
 }

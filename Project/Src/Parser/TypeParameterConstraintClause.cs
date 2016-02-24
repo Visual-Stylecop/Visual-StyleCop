@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop.CSharp
     /// <subcategory>other</subcategory>
     public class TypeParameterConstraintClause : ICodePart
     {
-        #region Fields
-
         /// <summary>
         /// The list of constraints on the type.
         /// </summary>
@@ -49,12 +47,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly CsToken type;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the TypeParameterConstraintClause class.
+        /// Initializes a new instance of the <see cref="TypeParameterConstraintClause"/> class.
         /// </summary>
         /// <param name="tokens">
         /// The list of tokens that form the constraint.
@@ -85,10 +79,6 @@ namespace StyleCop.CSharp
             this.tokens.Trim();
             Debug.Assert(this.tokens.First != null, "The type parameter constraint claus should not be empty.");
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the type of this code part.
@@ -177,7 +167,5 @@ namespace StyleCop.CSharp
                 return this.type;
             }
         }
-
-        #endregion
     }
 }

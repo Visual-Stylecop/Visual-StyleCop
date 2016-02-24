@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,8 +30,6 @@ namespace StyleCop.CSharp
     /// </content>
     internal partial class CodeParser
     {
-        #region Enums
-
         /// <summary>
         /// The operator type of an expression.
         /// </summary>
@@ -127,10 +125,6 @@ namespace StyleCop.CSharp
             /// </summary>
             None = 17
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Compares the precedence of the previous expression with the precedence of the next expression,
@@ -290,7 +284,7 @@ namespace StyleCop.CSharp
                 Symbol symbol = this.symbols.Peek(index);
                 if (symbol.SymbolType == SymbolType.GreaterThan)
                 {
-                    // If the last character was a comma or a member access symbol, 
+                    // If the last character was a comma or a member access symbol,
                     // this is not a valid generic statement.
                     if (comma || memberAccess)
                     {
@@ -326,7 +320,7 @@ namespace StyleCop.CSharp
                 }
                 else if (symbol.SymbolType == SymbolType.OpenSquareBracket)
                 {
-                    // If we've already seen an opening square bracket or if this is coming after a comma, this 
+                    // If we've already seen an opening square bracket or if this is coming after a comma, this
                     // is not a valid generic statement.
                     if (openSquareBracket || comma)
                     {
@@ -391,7 +385,7 @@ namespace StyleCop.CSharp
                 }
                 else
                 {
-                    // This symbol type cannot exist inside of a generic. 
+                    // This symbol type cannot exist inside of a generic.
                     index = -1;
                     break;
                 }
@@ -1708,7 +1702,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Given an expression, reads further to see if it is actually a sub-expression 
+        /// Given an expression, reads further to see if it is actually a sub-expression
         /// within a larger expression.
         /// </summary>
         /// <param name="leftSide">
@@ -1733,9 +1727,7 @@ namespace StyleCop.CSharp
         /// Returns the expression.
         /// </returns>
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "May be simplified later.")]
-        [SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters",
-            MessageId = "StyleCop.CSharp.SymbolManager.Combine(System.Int32,System.Int32,System.String,StyleCop.CSharp.SymbolType)",
-            Justification = "The literal represents a non-localizable C# operator symbol")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId = "StyleCop.CSharp.SymbolManager.Combine(System.Int32,System.Int32,System.String,StyleCop.CSharp.SymbolType)", Justification = "The literal represents a non-localizable C# operator symbol")]
         private Expression GetExpressionExtension(
             Expression leftSide,
             ExpressionPrecedence previousPrecedence,
@@ -2448,7 +2440,7 @@ namespace StyleCop.CSharp
             // The first symbol must be the new keyword.
             Node<CsToken> firstTokenNode = this.tokens.InsertLast(this.GetToken(CsTokenType.New, SymbolType.New, parentReference, expressionReference));
 
-            // The next token must be a type identifier, or an opening curly bracket for an anonymous type creation, 
+            // The next token must be a type identifier, or an opening curly bracket for an anonymous type creation,
             // or an opening square bracket for a implicitly typed array creation.
             Symbol symbol = this.GetNextSymbol(expressionReference);
             if (symbol.SymbolType == SymbolType.OpenCurlyBracket)
@@ -2474,7 +2466,7 @@ namespace StyleCop.CSharp
             // Figure out the type of the new expression. If we hit an open parenthesis first,
             // then this is standard new type expression. If we hit an open square bracket first,
             // then this is a new array expression. If we hit an opening curly bracket first,
-            // then this is a new expression which omits the argument list and uses an object 
+            // then this is a new expression which omits the argument list and uses an object
             // or collection initializer.
             symbol = this.GetNextSymbol(expressionReference);
 
@@ -3448,7 +3440,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -3504,7 +3496,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -3550,7 +3542,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <param name="clauses">
@@ -3663,7 +3655,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -3713,7 +3705,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -3768,7 +3760,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -3860,7 +3852,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -3910,7 +3902,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -3933,7 +3925,7 @@ namespace StyleCop.CSharp
 
             while (true)
             {
-                QueryOrderByOrdering ordering = new QueryOrderByOrdering();
+                QueryOrderByOrdering ordering = default(QueryOrderByOrdering);
 
                 // Get the ordering expression.
                 ordering.Expression = this.GetNextExpression(ExpressionPrecedence.Query, clauseReference, unsafeCode);
@@ -3989,7 +3981,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -4027,7 +4019,7 @@ namespace StyleCop.CSharp
         /// The parent code unit.
         /// </param>
         /// <param name="unsafeCode">
-        /// Indicates whether the code being parsed resides 
+        /// Indicates whether the code being parsed resides
         /// in an unsafe code block.
         /// </param>
         /// <returns>
@@ -4938,8 +4930,9 @@ namespace StyleCop.CSharp
             {
                 index++;
 
+                // TODO: Replace for by while.
                 // Advance to the next non-whitespace symbol.
-                for (;; ++index)
+                for (; ; ++index)
                 {
                     symbol = this.symbols.Peek(index);
                     if (symbol == null)
@@ -5012,7 +5005,7 @@ namespace StyleCop.CSharp
                                     symbol = this.symbols.Peek(index);
                                     if (symbol.SymbolType == SymbolType.CloseParenthesis)
                                     {
-                                        // This looks like it might be a cast, but a cast can only appear in front 
+                                        // This looks like it might be a cast, but a cast can only appear in front
                                         // of the following types of symbols.
                                         index = this.GetNextCodeSymbolIndex(index + 1);
                                         if (index != -1)
@@ -5183,7 +5176,7 @@ namespace StyleCop.CSharp
                     leftSide is MemberAccessExpression ||*/
                     leftSide is UnsafeAccessExpression)
                 {
-                    // This is a dereference expression if the next word is an unknown word, and 
+                    // This is a dereference expression if the next word is an unknown word, and
                     // the next symbol after that is either an equals sign or a semicolon.
                     int index = this.GetNextCodeSymbolIndex(2);
                     if (index != -1)
@@ -5226,7 +5219,8 @@ namespace StyleCop.CSharp
                 // Advance to the closing parenthesis.
                 int parenthesisCount = 0;
 
-                for (;; ++index)
+                // TODO: Replace for by while.
+                for (; ; ++index)
                 {
                     symbol = this.symbols.Peek(index);
                     if (symbol == null)
@@ -5251,8 +5245,9 @@ namespace StyleCop.CSharp
             // Move past the current symbol, which is either an "other" symbol or a closing parenthesis.
             ++index;
 
+            // TODO: Replace for by while.
             // Advance to the next non-whitespace symbol.
-            for (;; ++index)
+            for (; ; ++index)
             {
                 symbol = this.symbols.Peek(index);
                 if (symbol == null)
@@ -5284,8 +5279,9 @@ namespace StyleCop.CSharp
             int index = 1;
             Symbol symbol = this.symbols.Peek(index);
 
+            // TODO: Replace for by while.
             // Advance to the next non-whitespace symbol.
-            for (;; ++index)
+            for (; ; ++index)
             {
                 symbol = this.symbols.Peek(index);
                 if (symbol == null)
@@ -5493,7 +5489,5 @@ namespace StyleCop.CSharp
 
             return operatorToken;
         }
-
-        #endregion
     }
 }

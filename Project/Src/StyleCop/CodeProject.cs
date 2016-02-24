@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop
     /// </summary>
     public class CodeProject
     {
-        #region Constants
-
         /// <summary>
         /// The default culture.
         /// </summary>
@@ -38,10 +36,6 @@ namespace StyleCop
         /// The default maximum violation count.
         /// </summary>
         private const int DefaultMaxViolationCount = 1000;
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The configuration for the project.
@@ -120,12 +114,8 @@ namespace StyleCop
 
         private bool? violationsAsErrors;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CodeProject class.
+        /// Initializes a new instance of the <see cref="CodeProject"/> class.
         /// </summary>
         /// <param name="key">The unique key for the project.</param>
         /// <param name="location">The location where the project is contained.</param>
@@ -150,10 +140,6 @@ namespace StyleCop
                 this.location = StyleCopCore.CleanPath(location);
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether to automatically check for updates to StyleCop.
@@ -635,10 +621,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Adds the given source code document to the project.
         /// </summary>
@@ -656,7 +638,5 @@ namespace StyleCop
 
             this.sourceCodes.Add(sourceCode);
         }
-
-        #endregion
     }
 }

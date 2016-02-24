@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -35,8 +35,6 @@ namespace StyleCop
     /// </summary>
     internal partial class StyleCopThread
     {
-        #region Fields
-
         /// <summary>
         /// The data for this worker thread.
         /// </summary>
@@ -47,12 +45,8 @@ namespace StyleCop
         /// </summary>
         private bool complete;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the StyleCopThread class.
+        /// Initializes a new instance of the <see cref="StyleCopThread"/> class.
         /// </summary>
         /// <param name="data">
         /// The thread data.
@@ -63,18 +57,10 @@ namespace StyleCop
             this.data = data;
         }
 
-        #endregion
-
-        #region Public Events
-
         /// <summary>
         /// Event that is fired when the thread is completed.
         /// </summary>
         public event EventHandler<EventArgs> ThreadCompleted;
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether the analysis of all source code documents is complete.
@@ -86,10 +72,6 @@ namespace StyleCop
                 return this.complete;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Runs the thread operation.
@@ -103,7 +85,7 @@ namespace StyleCop
             Param.Ignore(sender);
             StyleCopTrace.In(sender);
 
-            // This flag will indicated whether any source code documents need to passed through 
+            // This flag will indicated whether any source code documents need to passed through
             // another round of analysis after this one is completed.
             this.complete = true;
 
@@ -182,10 +164,6 @@ namespace StyleCop
 
             StyleCopTrace.Out();
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Formats the exception message and stack trace into a loggable string.
@@ -363,7 +341,7 @@ namespace StyleCop
 
             if (!documentStatus.Complete)
             {
-                // Analysis of this document is not complete, so we will need to 
+                // Analysis of this document is not complete, so we will need to
                 // perform another round of analysis after this one is finished.
                 this.complete = false;
 
@@ -405,7 +383,7 @@ namespace StyleCop
                 }
                 else
                 {
-                    // Loop through each of the parser's analyzers. 
+                    // Loop through each of the parser's analyzers.
                     // Only call analyzers that are also in the enabled list.
                     foreach (SourceAnalyzer analyzer in parser.Analyzers)
                     {
@@ -497,7 +475,5 @@ namespace StyleCop
 
             return StyleCopTrace.Out(!delay);
         }
-
-        #endregion
     }
 }

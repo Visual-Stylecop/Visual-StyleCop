@@ -26,10 +26,8 @@ namespace StyleCop.CSharp
     /// <subcategory>expression</subcategory>
     public sealed class DictionaryItemInitializationExpression : Expression
     {
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the DictionaryItemInitializationExpression class.
+        /// Initializes a new instance of the <see cref="DictionaryItemInitializationExpression"/> class.
         /// </summary>
         /// <param name="tokens">The list of tokens that form the statement.</param>
         internal DictionaryItemInitializationExpression(CsTokenList tokens)
@@ -37,10 +35,6 @@ namespace StyleCop.CSharp
         {
             Param.AssertNotNull(tokens, "tokens");
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the list of initializers within the expression.
@@ -52,7 +46,5 @@ namespace StyleCop.CSharp
                 return this.ChildExpressions;
             }
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop
     /// </summary>
     internal static class V102Settings
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Changes the name of an analyzer setting property, if it exists.
         /// </summary>
@@ -109,10 +107,6 @@ namespace StyleCop
             LoadAnalyzerSettings(document, settings);
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Adds a boolean property.
         /// </summary>
@@ -145,7 +139,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Adds or updates a property to enable or disable a rule depending on the value of a 
+        /// Adds or updates a property to enable or disable a rule depending on the value of a
         /// legacy property.
         /// </summary>
         /// <param name="ruleName">
@@ -716,7 +710,7 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "CurlyBracketsForMultiLineStatementsMustNotShareLine", "StatementMustNotBeOnSingleLine", "ElementMustNotBeOnSingleLine", 
+                               "CurlyBracketsForMultiLineStatementsMustNotShareLine", "StatementMustNotBeOnSingleLine", "ElementMustNotBeOnSingleLine",
                                "CurlyBracketsMustNotBeOmitted", "AllAccessorsMustBeMultiLineOrSingleLine"
                            };
             }
@@ -728,17 +722,17 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "ElementsMustBeDocumented", "PartialElementsMustBeDocumented", "EnumerationItemsMustBeDocumented", "DocumentationMustContainValidXml", 
-                               "ElementDocumentationMustHaveSummary", "PartialElementDocumentationMustHaveSummary", "ElementDocumentationMustHaveSummaryText", 
-                               "PartialElementDocumentationMustHaveSummaryText", "ElementDocumentationMustNotHaveDefaultSummary", "PropertyDocumentationMustHaveValue", 
-                               "PropertyDocumentationMustHaveValueText", "ElementParametersMustBeDocumented", "ElementParameterDocumentationMustMatchElementParameters", 
-                               "ElementParameterDocumentationMustDeclareParameterName", "ElementParameterDocumentationMustHaveText", "ElementReturnValueMustBeDocumented", 
-                               "ElementReturnValueDocumentationMustHaveText", "VoidReturnValueMustNotBeDocumented", "GenericTypeParametersMustBeDocumented", 
-                               "GenericTypeParametersMustBeDocumentedPartialClass", "GenericTypeParameterDocumentationMustMatchTypeParameters", 
-                               "GenericTypeParameterDocumentationMustDeclareParameterName", "GenericTypeParameterDocumentationMustHaveText", 
-                               "PropertySummaryDocumentationMustMatchAccessors", "PropertySummaryDocumentationMustOmitSetAccessorWithRestrictedAccess", 
-                               "ElementDocumentationMustNotBeCopiedAndPasted", "SingleLineCommentsMustNotUseDocumentationStyleSlashes", "DocumentationTextMustNotBeEmpty", 
-                               "DocumentationTextMustBeginWithACapitalLetter", "DocumentationTextMustEndWithAPeriod", "DocumentationTextMustContainWhitespace", 
+                               "ElementsMustBeDocumented", "PartialElementsMustBeDocumented", "EnumerationItemsMustBeDocumented", "DocumentationMustContainValidXml",
+                               "ElementDocumentationMustHaveSummary", "PartialElementDocumentationMustHaveSummary", "ElementDocumentationMustHaveSummaryText",
+                               "PartialElementDocumentationMustHaveSummaryText", "ElementDocumentationMustNotHaveDefaultSummary", "PropertyDocumentationMustHaveValue",
+                               "PropertyDocumentationMustHaveValueText", "ElementParametersMustBeDocumented", "ElementParameterDocumentationMustMatchElementParameters",
+                               "ElementParameterDocumentationMustDeclareParameterName", "ElementParameterDocumentationMustHaveText", "ElementReturnValueMustBeDocumented",
+                               "ElementReturnValueDocumentationMustHaveText", "VoidReturnValueMustNotBeDocumented", "GenericTypeParametersMustBeDocumented",
+                               "GenericTypeParametersMustBeDocumentedPartialClass", "GenericTypeParameterDocumentationMustMatchTypeParameters",
+                               "GenericTypeParameterDocumentationMustDeclareParameterName", "GenericTypeParameterDocumentationMustHaveText",
+                               "PropertySummaryDocumentationMustMatchAccessors", "PropertySummaryDocumentationMustOmitSetAccessorWithRestrictedAccess",
+                               "ElementDocumentationMustNotBeCopiedAndPasted", "SingleLineCommentsMustNotUseDocumentationStyleSlashes", "DocumentationTextMustNotBeEmpty",
+                               "DocumentationTextMustBeginWithACapitalLetter", "DocumentationTextMustEndWithAPeriod", "DocumentationTextMustContainWhitespace",
                                "DocumentationMustMeetCharacterPercentage", "DocumentationTextMustMeetMinimumCharacterLength"
                            };
             }
@@ -746,7 +740,7 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "UsingDirectivesMustBePlacedWithinNamespace", "ElementsMustAppearInTheCorrectOrder", "ElementsMustBeOrderedByAccess", 
+                               "UsingDirectivesMustBePlacedWithinNamespace", "ElementsMustAppearInTheCorrectOrder", "ElementsMustBeOrderedByAccess",
                                "ConstantsMustAppearBeforeFields", "StaticElementsMustAppearBeforeInstanceElements", "PartialElementsMustDeclareAccess"
                            };
             }
@@ -754,7 +748,7 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "FileMustHaveHeader", "FileHeaderMustShowCopyright", "FileHeaderMustHaveCopyrightText", "FileHeaderMustContainFileName", 
+                               "FileMustHaveHeader", "FileHeaderMustShowCopyright", "FileHeaderMustHaveCopyrightText", "FileHeaderMustContainFileName",
                                "FileHeaderFileNameDocumentationMustMatchFileName", "FileHeaderMustHaveSummary", "FileHeaderMustHaveValidCompanyText"
                            };
             }
@@ -762,9 +756,9 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "OpeningCurlyBracketsMustNotBeFollowedByBlankLine", "ElementDocumentationHeadersMustNotBeFollowedByBlankLine", 
-                               "CodeMustNotContainMultipleBlankLinesInARow", "ClosingCurlyBracketsMustNotBePrecededByBlankLine", 
-                               "OpeningCurlyBracketsMustNotBePrecededByBlankLine", "ChainedStatementBlocksMustNotBePrecededByBlankLine", 
+                               "OpeningCurlyBracketsMustNotBeFollowedByBlankLine", "ElementDocumentationHeadersMustNotBeFollowedByBlankLine",
+                               "CodeMustNotContainMultipleBlankLinesInARow", "ClosingCurlyBracketsMustNotBePrecededByBlankLine",
+                               "OpeningCurlyBracketsMustNotBePrecededByBlankLine", "ChainedStatementBlocksMustNotBePrecededByBlankLine",
                                "WhileDoFooterMustNotBePrecededByBlankLine", "SingleLineCommentsMustNotBeFollowedByBlankLine", "ClosingCurlyBracketMustBeFollowedByBlankLine",
                                "ElementDocumentationHeaderMustBePrecededByBlankLine", "SingleLineCommentMustBePrecededByBlankLine"
                            };
@@ -773,9 +767,9 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "OpeningParenthesisMustBeOnDeclarationLine", "ClosingParenthesisMustBeOnLineOfLastParameter", 
-                               "ClosingParenthesisMustBeOnLineOfOpeningParenthesis", "CommaMustBeOnSameLineAsPreviousParameter", "ParameterListMustFollowDeclaration", 
-                               "ParameterMustFollowComma", "SplitParametersMustStartOnLineAfterDeclaration", "ParametersMustBeOnSameLineOrSeparateLines", 
+                               "OpeningParenthesisMustBeOnDeclarationLine", "ClosingParenthesisMustBeOnLineOfLastParameter",
+                               "ClosingParenthesisMustBeOnLineOfOpeningParenthesis", "CommaMustBeOnSameLineAsPreviousParameter", "ParameterListMustFollowDeclaration",
+                               "ParameterMustFollowComma", "SplitParametersMustStartOnLineAfterDeclaration", "ParametersMustBeOnSameLineOrSeparateLines",
                                "ParameterMustNotSpanMultipleLines"
                            };
             }
@@ -783,9 +777,9 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "ElementMustBeginWithUpperCaseLetter", "ElementMustBeginWithLowerCaseLetter", "InterfaceNamesMustBeginWithI", 
-                               "ConstFieldNamesMustBeginWithUpperCaseLetter", "NonPrivateReadonlyFieldsMustBeginWithUpperCaseLetter", 
-                               "FieldNamesMustNotUseHungarianNotation", "FieldNamesMustBeginWithLowerCaseLetter", "AccessibleFieldsMustBeginWithUpperCaseLetter", 
+                               "ElementMustBeginWithUpperCaseLetter", "ElementMustBeginWithLowerCaseLetter", "InterfaceNamesMustBeginWithI",
+                               "ConstFieldNamesMustBeginWithUpperCaseLetter", "NonPrivateReadonlyFieldsMustBeginWithUpperCaseLetter",
+                               "FieldNamesMustNotUseHungarianNotation", "FieldNamesMustBeginWithLowerCaseLetter", "AccessibleFieldsMustBeginWithUpperCaseLetter",
                                "VariableNamesMustNotBePrefixed", "FieldNamesMustNotBeginWithUnderscore", "FieldNamesMustNotContainUnderscore"
                            };
             }
@@ -797,15 +791,15 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "KeywordsMustBeSpacedCorrectly", "CommasMustBeSpacedCorrectly", "SemicolonsMustBeSpacedCorrectly", "SymbolsMustBeSpacedCorrectly", 
-                               "DocumentationLinesMustBeginWithSingleSpace", "SingleLineCommentsMustBeginWithSingleSpace", "PreprocessorKeywordsMustNotBePrecededBySpace", 
-                               "OperatorKeywordMustBeFollowedBySpace", "OpeningParenthesisMustBeSpacedCorrectly", "ClosingParenthesisMustBeSpacedCorrectly", 
-                               "OpeningSquareBracketsMustBeSpacedCorrectly", "ClosingSquareBracketsMustBeSpacedCorrectly", "OpeningCurlyBracketsMustBeSpacedCorrectly", 
-                               "ClosingCurlyBracketsMustBeSpacedCorrectly", "OpeningGenericBracketsMustBeSpacedCorrectly", "ClosingGenericBracketsMustBeSpacedCorrectly", 
-                               "OpeningAttributeBracketsMustBeSpacedCorrectly", "ClosingAttributeBracketsMustBeSpacedCorrectly", 
-                               "NullableTypeSymbolsMustNotBePrecededBySpace", "MemberAccessSymbolsMustBeSpacedCorrectly", "IncrementDecrementSymbolsMustBeSpacedCorrectly", 
-                               "NegativeSignsMustBeSpacedCorrectly", "PositiveSignsMustBeSpacedCorrectly", "DereferenceAndAccessOfSymbolsMustBeSpacedCorrectly", 
-                               "ColonsMustBeSpacedCorrectly", "CodeMustNotContainMultipleWhitespaceInARow", 
+                               "KeywordsMustBeSpacedCorrectly", "CommasMustBeSpacedCorrectly", "SemicolonsMustBeSpacedCorrectly", "SymbolsMustBeSpacedCorrectly",
+                               "DocumentationLinesMustBeginWithSingleSpace", "SingleLineCommentsMustBeginWithSingleSpace", "PreprocessorKeywordsMustNotBePrecededBySpace",
+                               "OperatorKeywordMustBeFollowedBySpace", "OpeningParenthesisMustBeSpacedCorrectly", "ClosingParenthesisMustBeSpacedCorrectly",
+                               "OpeningSquareBracketsMustBeSpacedCorrectly", "ClosingSquareBracketsMustBeSpacedCorrectly", "OpeningCurlyBracketsMustBeSpacedCorrectly",
+                               "ClosingCurlyBracketsMustBeSpacedCorrectly", "OpeningGenericBracketsMustBeSpacedCorrectly", "ClosingGenericBracketsMustBeSpacedCorrectly",
+                               "OpeningAttributeBracketsMustBeSpacedCorrectly", "ClosingAttributeBracketsMustBeSpacedCorrectly",
+                               "NullableTypeSymbolsMustNotBePrecededBySpace", "MemberAccessSymbolsMustBeSpacedCorrectly", "IncrementDecrementSymbolsMustBeSpacedCorrectly",
+                               "NegativeSignsMustBeSpacedCorrectly", "PositiveSignsMustBeSpacedCorrectly", "DereferenceAndAccessOfSymbolsMustBeSpacedCorrectly",
+                               "ColonsMustBeSpacedCorrectly", "CodeMustNotContainMultipleWhitespaceInARow",
                                "CodeMustNotContainSpaceAfterNewKeywordInImplicitlyTypedArrayAllocation", "TabsMustNotBeUsed"
                            };
             }
@@ -813,7 +807,7 @@ namespace StyleCop
             {
                 return new[]
                            {
-                               "CodeMustNotContainEmptyStatements", "CodeMustNotContainMultipleStatementsOnOneLine", "BlockStatementsMustNotContainEmbeddedComments", 
+                               "CodeMustNotContainEmptyStatements", "CodeMustNotContainMultipleStatementsOnOneLine", "BlockStatementsMustNotContainEmbeddedComments",
                                "BlockStatementsMustNotContainEmbeddedRegions"
                            };
             }
@@ -824,7 +818,5 @@ namespace StyleCop
 
             return new string[] { };
         }
-
-        #endregion
     }
 }

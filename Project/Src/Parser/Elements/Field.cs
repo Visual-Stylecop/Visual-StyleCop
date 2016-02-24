@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.CSharp
     /// <subcategory>element</subcategory>
     public sealed class Field : CsElement
     {
-        #region Fields
-
         /// <summary>
         /// Indicates whether the item is declared as a constant.
         /// </summary>
@@ -53,12 +51,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private VariableDeclarationStatement declaration;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Field class.
+        /// Initializes a new instance of the <see cref="Field"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -85,13 +79,13 @@ namespace StyleCop.CSharp
         /// Indicates whether the code element was generated or written by hand.
         /// </param>
         internal Field(
-            CsDocument document, 
-            CsElement parent, 
-            XmlHeader header, 
-            ICollection<Attribute> attributes, 
-            Declaration declaration, 
-            TypeToken fieldType, 
-            bool unsafeCode, 
+            CsDocument document,
+            CsElement parent,
+            XmlHeader header,
+            ICollection<Attribute> attributes,
+            Declaration declaration,
+            TypeToken fieldType,
+            bool unsafeCode,
             bool generated)
             : base(document, parent, ElementType.Field, "field " + declaration.Name, header, attributes, declaration, unsafeCode, generated)
         {
@@ -111,10 +105,6 @@ namespace StyleCop.CSharp
             this.isReadOnly = this.Declaration.ContainsModifier(CsTokenType.Readonly);
             this.isStatic = this.Declaration.ContainsModifier(CsTokenType.Static);
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether the field is declared as a constant.
@@ -141,8 +131,7 @@ namespace StyleCop.CSharp
         /// <summary>
         /// Gets a value indicating whether the field is declared read only.
         /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Readonly", 
-            Justification = "API has already been published and should not be changed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "Readonly", Justification = "API has already been published and should not be changed.")]
         public bool Readonly
         {
             get
@@ -181,7 +170,5 @@ namespace StyleCop.CSharp
                 }
             }
         }
-
-        #endregion
     }
 }

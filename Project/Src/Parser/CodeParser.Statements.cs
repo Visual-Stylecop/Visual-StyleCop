@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop.CSharp
     /// </content>
     internal partial class CodeParser
     {
-        #region Methods
-
         /// <summary>
         /// Looks for a catch-statement, and if it is found, parses and returns it.
         /// </summary>
@@ -515,8 +513,9 @@ namespace StyleCop.CSharp
             {
                 index++;
 
+                // TODO: Replace for by while.
                 // Advance to the next non-whitespace symbol.
-                for (;; ++index)
+                for (; ; ++index)
                 {
                     symbol = this.symbols.Peek(index);
                     if (symbol == null)
@@ -1814,7 +1813,7 @@ namespace StyleCop.CSharp
             // Keep looping until all the child elements within this container element have been processed.
             while (true)
             {
-                // If the next symbol is a closing curly bracket, or we've reached the end of the symbols list, 
+                // If the next symbol is a closing curly bracket, or we've reached the end of the symbols list,
                 // we're done with this scope.
                 Symbol symbol = this.GetNextSymbol(parentReference);
                 if (symbol == null)
@@ -2596,7 +2595,5 @@ namespace StyleCop.CSharp
 
             return statement;
         }
-
-        #endregion
     }
 }

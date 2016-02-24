@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -21,13 +21,11 @@ namespace StyleCop
     using System;
 
     /// <summary>
-    /// A "fake" parser class used by the StyleCop engine to register 
+    /// A "fake" parser class used by the StyleCop engine to register
     /// violations exposed by the core engine.
     /// </summary>
     internal class CoreParser : SourceParser
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Parses a source code document.
         /// </summary>
@@ -48,7 +46,5 @@ namespace StyleCop
             Param.Ignore(sourceCode, passNumber, document);
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

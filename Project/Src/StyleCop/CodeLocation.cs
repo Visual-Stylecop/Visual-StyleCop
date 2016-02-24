@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,17 +27,11 @@ namespace StyleCop
     /// <subcategory>other</subcategory>
     public struct CodeLocation
     {
-        #region Static Fields
-
         /// <summary>
         /// An empty code location.
         /// </summary>
         [SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes", Justification = "A static value.")]
-        public static readonly CodeLocation Empty = new CodeLocation();
-
-        #endregion
-
-        #region Fields
+        public static readonly CodeLocation Empty = default(CodeLocation);
 
         /// <summary>
         /// The ending position within the code.
@@ -49,12 +43,8 @@ namespace StyleCop
         /// </summary>
         private readonly CodePoint startPoint;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CodeLocation structure.
+        /// Initializes a new instance of the <see cref="CodeLocation"/> struct.
         /// </summary>
         /// <param name="index">
         /// The index of the first character of the item within the file.
@@ -98,15 +88,10 @@ namespace StyleCop
             this.endPoint = new CodePoint(endIndex, endIndexOnLine, endLineNumber);
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the ending point within the code.
         /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "EndPoint", 
-            Justification = "EndPoint is two words in this context, to be consistent with StartPoint")]
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "EndPoint", Justification = "EndPoint is two words in this context, to be consistent with StartPoint")]
         public CodePoint EndPoint
         {
             get
@@ -148,10 +133,6 @@ namespace StyleCop
                 return this.startPoint;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Joins the two given locations.
@@ -205,8 +186,8 @@ namespace StyleCop
 
             return new CodeLocation(
                 Math.Min(location1.Value.StartPoint.Index, location2.Value.StartPoint.Index),
-                Math.Max(location1.Value.EndPoint.Index, location2.Value.EndPoint.Index), 
-                indexOnLine, 
+                Math.Max(location1.Value.EndPoint.Index, location2.Value.EndPoint.Index),
+                indexOnLine,
                 endIndexOnLine,
                 Math.Min(location1.Value.StartPoint.LineNumber, location2.Value.StartPoint.LineNumber),
                 Math.Max(location2.Value.EndPoint.LineNumber, location2.Value.EndPoint.LineNumber));
@@ -227,7 +208,7 @@ namespace StyleCop
         public static CodeLocation Join(CodeLocation location1, CodeLocation? location2)
         {
             Param.Ignore(location1, location2);
-            
+
             if (location2 == null)
             {
                 return location1;
@@ -304,7 +285,5 @@ namespace StyleCop
                 Math.Min(location1.StartPoint.LineNumber, location2.StartPoint.LineNumber),
                 Math.Max(location2.EndPoint.LineNumber, location2.EndPoint.LineNumber));
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -23,8 +23,6 @@ namespace StyleCop.CSharp
     /// <subcategory>token</subcategory>
     public sealed class ConditionalCompilationDirective : Preprocessor
     {
-        #region Fields
-
         /// <summary>
         /// The expression that makes up the body of the directive.
         /// </summary>
@@ -35,12 +33,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly ConditionalCompilationDirectiveType type;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the ConditionalCompilationDirective class.
+        /// Initializes a new instance of the <see cref="ConditionalCompilationDirective"/> class.
         /// </summary>
         /// <param name="text">
         /// The line text.
@@ -75,10 +69,6 @@ namespace StyleCop.CSharp
             this.body = body;
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the expression that makes up the body of the directive.
         /// </summary>
@@ -100,7 +90,5 @@ namespace StyleCop.CSharp
                 return this.type;
             }
         }
-
-        #endregion
     }
 }

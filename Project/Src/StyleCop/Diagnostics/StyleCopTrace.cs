@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -17,15 +17,11 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace StyleCop.Diagnostics
 {
-    #region Using Directives
-
     using System;
     using System.Configuration;
     using System.Diagnostics;
     using System.Globalization;
     using System.IO;
-
-    #endregion
 
     /// <summary>
     /// The central manager class for application tracing, through which all application tracing should be done.
@@ -33,8 +29,6 @@ namespace StyleCop.Diagnostics
     [DebuggerStepThrough]
     public static partial class StyleCopTrace
     {
-        #region Constructors and Destructors
-
         /// <summary>
         /// Initializes static members of the <see cref="StyleCopTrace"/> class.
         /// </summary>
@@ -79,18 +73,10 @@ namespace StyleCop.Diagnostics
             Switch = new StyleCopSwitch("StyleCop", "Provides tracing for StyleCop", level);
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the <see cref="StyleCopSwitch"/> that this class uses to decide whether to produce tracing messages.
         /// </summary>
         public static StyleCopSwitch Switch { get; private set; }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Write an error message containing the passed text.
@@ -313,10 +299,6 @@ namespace StyleCop.Diagnostics
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Returns the current processes private bytes.
         /// </summary>
@@ -325,7 +307,5 @@ namespace StyleCop.Diagnostics
         {
             return Process.GetCurrentProcess().PrivateMemorySize64;
         }
-
-        #endregion
     }
 }

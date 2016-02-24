@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,8 +29,6 @@ namespace StyleCop.CSharp
     /// </content>
     public partial class ReadabilityRules
     {
-        #region Methods
-
         /// <summary>
         /// Gets the child block statement from the given statement. If the statement itself is a block statement,
         /// it will be returned instead.
@@ -439,7 +437,7 @@ namespace StyleCop.CSharp
             {
                 Debug.Assert(statement.Tokens.First != null, "The statement has no tokens.");
 
-                // There is a special case where an empty statement is allowed. In some cases, a label statement must be used to mark the end of a 
+                // There is a special case where an empty statement is allowed. In some cases, a label statement must be used to mark the end of a
                 // scope. C# requires that labels have at least one statement after them. In the developer wants to use a label to mark the end of the
                 // scope, he does not want to put a statement after the label. The best course of action is to insert a single semicolon here. For example:\
                 ////    {
@@ -554,7 +552,5 @@ namespace StyleCop.CSharp
                 }
             }
         }
-
-        #endregion
     }
 }

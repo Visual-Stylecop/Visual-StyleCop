@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,19 +25,13 @@ namespace StyleCop
     /// </summary>
     public abstract class PropertyValue
     {
-        #region Fields
-
         /// <summary>
         /// The property descriptor.
         /// </summary>
         private readonly PropertyDescriptor propertyDescriptor;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the PropertyValue class.
+        /// Initializes a new instance of the <see cref="PropertyValue"/> class.
         /// </summary>
         /// <param name="propertyDescriptor">
         /// The property descriptor that this value represents.
@@ -49,7 +43,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the PropertyValue class.
+        /// Initializes a new instance of the <see cref="PropertyValue"/> class.
         /// </summary>
         /// <param name="propertyContainer">
         /// The container of this property.
@@ -70,10 +64,6 @@ namespace StyleCop
 
             this.propertyDescriptor = descriptor;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the description of the property.
@@ -145,10 +135,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Clones the contents of the property.
         /// </summary>
@@ -165,7 +151,5 @@ namespace StyleCop
         /// Returns true if this property overrides the given property.
         /// </returns>
         public abstract bool OverridesProperty(PropertyValue parentProperty);
-
-        #endregion
     }
 }

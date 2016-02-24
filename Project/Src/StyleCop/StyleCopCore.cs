@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -36,16 +36,10 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "StyleCop", Justification = "This is the correct casing.")]
     public sealed class StyleCopCore : IPropertyContainer
     {
-        #region Internal Constants
-
         /// <summary>
         /// The name of the ID for the project settings property page dialog.
         /// </summary>
         internal const string ProjectSettingsPropertyPageIdProperty = "StyleCopLocalProperties";
-
-        #endregion Internal Constants
-
-        #region Private Fields
 
         //// <summary>
         //// Provides a countdown for each of the threads we will start later. We will use CountdownEvent in Framework 4.0.
@@ -123,28 +117,26 @@ namespace StyleCop
         /// </summary>
         private object hostTag;
 
-        #endregion Private Fields
-
-        #region Public Constructors
-
         /// <summary>
-        /// Initializes a new instance of the StyleCopCore class.
+        /// Initializes a new instance of the <see cref="StyleCopCore"/> class.
         /// </summary>
-        public StyleCopCore() : this(null)
+        public StyleCopCore()
+            : this(null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the StyleCopCore class.
+        /// Initializes a new instance of the <see cref="StyleCopCore"/> class.
         /// </summary>
         /// <param name="environment">The environment that StyleCop is running under.</param>
-        public StyleCopCore(StyleCopEnvironment environment) : this(environment, null)
+        public StyleCopCore(StyleCopEnvironment environment)
+            : this(environment, null)
         {
             Param.Ignore(environment);
         }
 
         /// <summary>
-        /// Initializes a new instance of the StyleCopCore class.
+        /// Initializes a new instance of the <see cref="StyleCopCore"/> class.
         /// </summary>
         /// <param name="environment">The environment that StyleCop is running under.</param>
         /// <param name="hostTag">A tag object which can be optionally filled in by the host.</param>
@@ -190,10 +182,6 @@ namespace StyleCop
             StyleCopTrace.Out();
         }
 
-        #endregion Public Constructors
-
-        #region Public Events
-
         /// <summary>
         /// Event that is fired when a violation has been encountered.
         /// </summary>
@@ -215,10 +203,6 @@ namespace StyleCop
         /// </summary>
         public event EventHandler<AddSettingsPagesEventArgs> AddSettingsPages;
 
-        #endregion Public Events
-
-        #region Public Static Properties
-
         /// <summary>
         /// Gets the current operating system PlatformID.
         /// </summary>
@@ -235,10 +219,6 @@ namespace StyleCop
                 return System.Environment.OSVersion.Platform;
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether StyleCop is currently analyzing files.
@@ -393,10 +373,6 @@ namespace StyleCop
             }
         }
 
-        #endregion Public Properties
-
-        #region Internal Properties
-
         /// <summary>
         /// Gets the list of violations that can be triggered by the core module.
         /// </summary>
@@ -455,10 +431,6 @@ namespace StyleCop
             }
         }
 
-        #endregion Internal Properties
-
-        #region Public Static Methods
-
         /// <summary>
         /// Loads the add-in resource xml at the given path.
         /// </summary>
@@ -508,10 +480,6 @@ namespace StyleCop
                 return analyzerXml;
             }
         }
-
-        #endregion Public Static Methods
-
-        #region Public Methods
 
         /// <summary>
         /// Initializes the StyleCop core instance. This must be called before
@@ -717,10 +685,6 @@ namespace StyleCop
             return null;
         }
 
-        #endregion Public Methods
-
-        #region Internal Static Methods
-
         /// <summary>
         /// Gets the pages to display on the settings dialog.
         /// </summary>
@@ -797,10 +761,6 @@ namespace StyleCop
 
             return cleanedPath;
         }
-
-        #endregion Internal Static Methods
-
-        #region Internal Methods
 
         /// <summary>
         /// Adds a generic violation.
@@ -1089,10 +1049,6 @@ namespace StyleCop
             }
         }
 
-        #endregion Internal Methods
-
-        #region Private Static Methods
-
 #if !DEBUGTHREADING
         /// <summary>
         /// Gets the number of CPUs on a Mac machine using system_profiler.
@@ -1253,7 +1209,7 @@ namespace StyleCop
             ProjectStatus projectStatus = data.GetProjectStatus(project);
             Debug.Assert(projectStatus != null, "There is no status for the given project.");
 
-            // Load the settings for the project. If the project already contains settings, use those. 
+            // Load the settings for the project. If the project already contains settings, use those.
             // Otherwise, load them from scratch.
             if (!project.SettingsLoaded)
             {
@@ -1381,10 +1337,6 @@ namespace StyleCop
             return true;
         }
 
-        #endregion Private Static Methods
-
-        #region Private Methods
-
         /// <summary>
         /// Called when a violation is encountered while analyzing a code document. This can be called simultaneously from several threads and so any code must be thread safe.
         /// </summary>
@@ -1498,7 +1450,7 @@ namespace StyleCop
                             Assembly assembly = Assembly.LoadFrom(assemblyPath);
 
                             // BUGBUG: For some reason, GetExportedTypes throws a FileNotFoundException
-                            // while loading addins that reference StyleCop.dll (this assembly). 
+                            // while loading addins that reference StyleCop.dll (this assembly).
                             // This exception is NOT thrown as long as I call GetCustomAttributes on
                             // the assembly before calling GetExportedTypes. I have no idea why this is.
                             assembly.GetCustomAttributes(true);
@@ -1767,7 +1719,7 @@ namespace StyleCop
             }
             catch (Exception ex)
             {
-                // We catch all exceptions here so that we can log a violation. 
+                // We catch all exceptions here so that we can log a violation.
                 Debug.Assert(false, "Unhandled exception while analyzing files: " + ex.Message);
                 this.coreParser.AddViolation(null, 1, Rules.ExceptionOccurred, ex.GetType(), ex.Message);
 
@@ -1818,7 +1770,7 @@ namespace StyleCop
 
             //// Register for the completion event on the thread data class. We do not use the standard BackgroundWorker
             //// completion event because for some reason it does not get fired when running inside of Visual Studio using
-            //// the MSBuild task, and so everything ends up blocked. This may have to do with the way Visual Studio uses 
+            //// the MSBuild task, and so everything ends up blocked. This may have to do with the way Visual Studio uses
             //// threads when running a build. Therefore, we do not rely on the BackgroundWorker's completion event, and
             //// instead use our own event.
             //// threadClasses[i].ThreadCompleted += this.StyleCopThreadCompleted;
@@ -1855,6 +1807,5 @@ namespace StyleCop
         ////    countdown.Signal();
         //// }
 
-        #endregion Private Methods
     }
 }

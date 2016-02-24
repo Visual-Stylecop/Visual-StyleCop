@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,8 +25,6 @@ namespace StyleCop.CSharp
     /// <subcategory>expression</subcategory>
     public sealed class UnaryExpression : Expression
     {
-        #region Fields
-
         /// <summary>
         /// The type of operation being performed.
         /// </summary>
@@ -37,12 +35,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly Expression value;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the UnaryExpression class.
+        /// Initializes a new instance of the <see cref="UnaryExpression"/> class.
         /// </summary>
         /// <param name="tokens">
         /// The list of tokens that form the expression.
@@ -66,10 +60,6 @@ namespace StyleCop.CSharp
             this.AddExpression(value);
         }
 
-        #endregion
-
-        #region Enums
-
         /// <summary>
         /// The possible unary operator types.
         /// </summary>
@@ -81,27 +71,23 @@ namespace StyleCop.CSharp
             /// <summary>
             /// The + operator.
             /// </summary>
-            Positive, 
+            Positive,
 
             /// <summary>
             /// The - operator.
             /// </summary>
-            Negative, 
+            Negative,
 
             /// <summary>
             /// The ! operator.
             /// </summary>
-            Not, 
+            Not,
 
             /// <summary>
             /// The ~ operator.
             /// </summary>
             BitwiseCompliment
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the type of operation being performed.
@@ -124,7 +110,5 @@ namespace StyleCop.CSharp
                 return this.value;
             }
         }
-
-        #endregion
     }
 }

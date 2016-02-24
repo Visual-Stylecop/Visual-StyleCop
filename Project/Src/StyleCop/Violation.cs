@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -24,8 +24,6 @@ namespace StyleCop
     /// </summary>
     public class Violation
     {
-        #region Fields
-
         /// <summary>
         /// The element that the violation appears in.
         /// </summary>
@@ -61,12 +59,8 @@ namespace StyleCop
         /// </summary>
         private int key;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Violation class.
+        /// Initializes a new instance of the <see cref="Violation"/> class.
         /// </summary>
         /// <param name="rule">
         /// The rule that triggered the violation.
@@ -93,11 +87,11 @@ namespace StyleCop
             // The CodeLocation passed in is zero based everywhere in StyleCop for the column. The line number is already 1 based.
             // We convert is to 1 based here so that are xml reports etc and VisualStudio UI friendly.
             this.location = new CodeLocation(
-                location.StartPoint.Index, 
-                location.EndPoint.Index, 
-                location.StartPoint.IndexOnLine + 1, 
-                location.EndPoint.IndexOnLine + 1, 
-                location.StartPoint.LineNumber, 
+                location.StartPoint.Index,
+                location.EndPoint.Index,
+                location.StartPoint.IndexOnLine + 1,
+                location.EndPoint.IndexOnLine + 1,
+                location.StartPoint.LineNumber,
                 location.EndPoint.LineNumber);
 
             // If the location has been passed in we set the linenumber.
@@ -113,7 +107,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the Violation class.
+        /// Initializes a new instance of the <see cref="Violation"/> class.
         /// </summary>
         /// <param name="rule">
         /// The rule that triggered the violation.
@@ -152,7 +146,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the Violation class.
+        /// Initializes a new instance of the <see cref="Violation"/> class.
         /// </summary>
         /// <param name="rule">
         /// The rule that triggered the violation.
@@ -179,11 +173,11 @@ namespace StyleCop
             // The CodeLocation passed in is zero based everywhere in StyleCop for the column. The line number is already 1 based.
             // We convert is to 1 based here so that are xml reports etc and VisualStudio UI friendly.
             this.location = new CodeLocation(
-                location.StartPoint.Index, 
-                location.EndPoint.Index, 
-                location.StartPoint.IndexOnLine + 1, 
-                location.EndPoint.IndexOnLine + 1, 
-                location.StartPoint.LineNumber, 
+                location.StartPoint.Index,
+                location.EndPoint.Index,
+                location.StartPoint.IndexOnLine + 1,
+                location.EndPoint.IndexOnLine + 1,
+                location.StartPoint.LineNumber,
                 location.EndPoint.LineNumber);
 
             // If the location has been passed in we set the linenumber.
@@ -195,7 +189,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the Violation class.
+        /// Initializes a new instance of the <see cref="Violation"/> class.
         /// </summary>
         /// <param name="rule">
         /// The rule that triggered the violation.
@@ -223,10 +217,6 @@ namespace StyleCop
 
             this.UpdateKey();
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the element that contains the violation.
@@ -306,10 +296,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Updates the internal key.
         /// </summary>
@@ -326,8 +312,8 @@ namespace StyleCop
             else
             {
                 lineText = string.Format(
-                    "{0},{1},{2},{3}", 
-                    this.location.Value.StartPoint.LineNumber, 
+                    "{0},{1},{2},{3}",
+                    this.location.Value.StartPoint.LineNumber,
                     this.location.Value.StartPoint.IndexOnLine,
                     this.location.Value.EndPoint.LineNumber,
                     this.location.Value.EndPoint.IndexOnLine);
@@ -335,7 +321,5 @@ namespace StyleCop
 
             this.key = string.Format("{0}:{1}:{2}", this.rule.Name, lineText, this.message).GetHashCode();
         }
-
-        #endregion
     }
 }

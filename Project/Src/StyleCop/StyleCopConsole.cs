@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -33,8 +33,6 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "StyleCop", Justification = "This is the correct casing.")]
     public sealed class StyleCopConsole : StyleCopRunner
     {
-        #region Fields
-
         /// <summary>
         /// The output file path.
         /// </summary>
@@ -45,12 +43,8 @@ namespace StyleCop
         /// </summary>
         private readonly string settingsPath;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the StyleCopConsole class.
+        /// Initializes a new instance of the <see cref="StyleCopConsole"/> class.
         /// </summary>
         /// <param name="settings">
         /// The path to the settings to load or
@@ -77,7 +71,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the StyleCopConsole class.
+        /// Initializes a new instance of the <see cref="StyleCopConsole"/> class.
         /// </summary>
         /// <param name="settings">
         /// The path to the settings to load or
@@ -125,10 +119,6 @@ namespace StyleCop
             this.Core.Initialize(addInPaths, loadFromDefaultPath);
             this.Core.WriteResultsCache = writeResultsCache;
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Starts analyzing the source code documents contained within the given projects.
@@ -224,10 +214,6 @@ namespace StyleCop
             return !error;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Loads the settings files to use for the analysis.
         /// </summary>
@@ -268,7 +254,5 @@ namespace StyleCop
                 }
             }
         }
-
-        #endregion
     }
 }

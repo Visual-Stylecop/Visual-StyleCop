@@ -19,13 +19,10 @@ namespace StyleCop.Internal
     /// <summary>
     /// Checks the usage of the <see cref="Param"/> class to verify method parameters.
     /// </summary>
-    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Param", 
-        Justification = "The naming is consistent with the name of the Param class.")]
+    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Param", Justification = "The naming is consistent with the name of the Param class.")]
     [SourceAnalyzer(typeof(CsParser))]
     public class ParamCheck : SourceAnalyzer
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Checks the methods within the given document.
         /// </summary>
@@ -47,7 +44,7 @@ namespace StyleCop.Internal
                     flag = document.File.Project.GlobalSettings.GetProperty("ParamCheckAutomatic");
                 }
             }
-             
+
             this.autoUpdate = (flag != null && flag == "1");
              */
 
@@ -58,10 +55,6 @@ namespace StyleCop.Internal
                 this.ProcessElement(csdocument, csdocument.RootElement);
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Gets the list of all tokens within <c>Param</c> statements found in the given element.
@@ -415,8 +408,6 @@ namespace StyleCop.Internal
 
             return false;
         }
-
-        #endregion
 
         /*
         /// <summary>

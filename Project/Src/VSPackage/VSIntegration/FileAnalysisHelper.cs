@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -31,8 +31,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal class FileAnalysisHelper : AnalysisHelper
     {
-        #region Fields
-
         /// <summary>
         /// The Major.Minor parts of the StyleCop version number i.e. 4.3 or 4.5.
         /// </summary>
@@ -58,24 +56,17 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private SolutionListener solutionListener;
 
-        #endregion Fields
-
-        #region Constructors
-
         /// <summary>
-        /// Initializes a new instance of the FileAnalysisHelper class.
+        /// Initializes a new instance of the <see cref="FileAnalysisHelper"/> class.
         /// </summary>
         /// <param name="serviceProvider">System service provider.</param>
         /// <param name="core">Source analysis engine.</param>
-        internal FileAnalysisHelper(IServiceProvider serviceProvider, StyleCopCore core) : base(serviceProvider, core)
+        internal FileAnalysisHelper(IServiceProvider serviceProvider, StyleCopCore core)
+            : base(serviceProvider, core)
         {
             Param.AssertNotNull(serviceProvider, "serviceProvider");
             Param.AssertNotNull(core, "core");
         }
-
-        #endregion Constructors
-
-        #region Properties
 
         /// <summary>
         /// Gets the Major.Minor parts of the StyleCop version number i.e. 4.3 or 4.5.
@@ -121,10 +112,6 @@ namespace StyleCop.VisualStudio
                 return this.taskProvider;
             }
         }
-
-        #endregion Properties
-
-        #region Protected Methods
 
         /// <summary>
         /// Disposes the contents of the class.
@@ -269,7 +256,7 @@ namespace StyleCop.VisualStudio
                     CultureInfo.InvariantCulture, Strings.MiniLogBreak, string.Format(CultureInfo.InvariantCulture, Strings.StyleCopStarted, this.VersionNumberMajorMinor, this.VersionNumberFull)));
             }
         }
-        
+
         /// <summary>
         /// Signals the helper to output that no files were available for analysis.
         /// </summary>
@@ -298,10 +285,6 @@ namespace StyleCop.VisualStudio
             StyleCopTrace.Out();
         }
 
-        #endregion Protected Methods
-
-        #region Private Static Methods
-
         /// <summary>
         /// Called when a build begins.
         /// </summary>
@@ -313,10 +296,6 @@ namespace StyleCop.VisualStudio
 
             this.TaskProvider.Clear();
         }
-
-        #endregion Private Static Methods
-        
-        #region Private Methods
 
         /// <summary>
         /// Called when a solution is opened.
@@ -363,7 +342,5 @@ namespace StyleCop.VisualStudio
                 }
             }
         }
-
-        #endregion Private Methods
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,8 +30,6 @@ namespace StyleCop
     /// </summary>
     internal class AnalyzersOptions : UserControl, IPropertyControlPage
     {
-        #region Constants
-
         /// <summary>
         /// The name of an analyzer node.
         /// </summary>
@@ -51,10 +49,6 @@ namespace StyleCop
         /// The name of a rule node.
         /// </summary>
         private const string RuleNode = "RuleNode";
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// Stores the properties for each analyzer and parser.
@@ -141,21 +135,13 @@ namespace StyleCop
         /// </summary>
         private PropertyControl tabControl;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the AnalyzersOptions class.
+        /// Initializes a new instance of the <see cref="AnalyzersOptions"/> class.
         /// </summary>
         public AnalyzersOptions()
         {
             this.InitializeComponent();
         }
-
-        #endregion
-
-        #region Delegates
 
         /// <summary>
         /// Handler for matching nodes in the rules tree while searching for a node.
@@ -164,10 +150,6 @@ namespace StyleCop
         /// <param name="searchText">The search text to match against.</param>
         /// <returns>Returns true if the node matches the given text; false otherwise.</returns>
         private delegate bool MatchRuleHandler(TreeNode node, string searchText);
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets or sets a value indicating whether the pages are dirty.
@@ -201,10 +183,6 @@ namespace StyleCop
                 return Strings.AnalyzersTab;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Called when the page is activated.
@@ -334,10 +312,6 @@ namespace StyleCop
                 this.AdjustBoldState();
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Clean up any resources being used.
@@ -856,15 +830,11 @@ namespace StyleCop
         /// <param name="analyzerNode">
         /// The parent node for the analyzer.
         /// </param>
-        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", 
-            MessageId = "System.Windows.Forms.TreeNode.set_SelectedImageKey(System.String)", Justification = "This is not a user-visible value.")]
-        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", 
-            MessageId = "System.Windows.Forms.TreeNode.set_ImageKey(System.String)", Justification = "This is not a user-visible value.")]
-        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", 
-            MessageId = "System.Windows.Forms.TreeNode.#ctor(System.String)", Justification = "This is not a user-visible value.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Windows.Forms.TreeNode.set_SelectedImageKey(System.String)", Justification = "This is not a user-visible value.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Windows.Forms.TreeNode.set_ImageKey(System.String)", Justification = "This is not a user-visible value.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Windows.Forms.TreeNode.#ctor(System.String)", Justification = "This is not a user-visible value.")]
         [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "RuleNode", Justification = "This is not a user-visible value.")]
-        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "RuleGroupNode", 
-            Justification = "This is not a user-visible value.")]
+        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "RuleGroupNode", Justification = "This is not a user-visible value.")]
         private void FillAnalyzerRules(SourceAnalyzer analyzer, TreeNode analyzerNode)
         {
             Param.AssertNotNull(analyzer, "analyzer");
@@ -904,14 +874,10 @@ namespace StyleCop
         /// <summary>
         /// Fills in the analyzer tree.
         /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "ParserNode", Justification = "This is not a user-visible value.")
-        ]
-        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "AnalyzerNode", 
-            Justification = "This is not a user-visible value.")]
-        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", 
-            MessageId = "System.Windows.Forms.TreeNode.set_SelectedImageKey(System.String)", Justification = "This is not a user-visible value.")]
-        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", 
-            MessageId = "System.Windows.Forms.TreeNode.set_ImageKey(System.String)", Justification = "This is not a user-visible value.")]
+        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "ParserNode", Justification = "This is not a user-visible value.")]
+        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "AnalyzerNode", Justification = "This is not a user-visible value.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Windows.Forms.TreeNode.set_SelectedImageKey(System.String)", Justification = "This is not a user-visible value.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Windows.Forms.TreeNode.set_ImageKey(System.String)", Justification = "This is not a user-visible value.")]
         private void FillAnalyzerTree()
         {
             // Add each of the parsers and analyzers to the tree.
@@ -974,7 +940,7 @@ namespace StyleCop
                     {
                         foreach (BooleanProperty property in addInProperties)
                         {
-                            PropertyAddInPair propertyAddInPair = new PropertyAddInPair();
+                            PropertyAddInPair propertyAddInPair = default(PropertyAddInPair);
                             propertyAddInPair.Property = property;
                             propertyAddInPair.AddIn = addIn;
 
@@ -1077,8 +1043,8 @@ namespace StyleCop
             }
         }
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -1331,9 +1297,9 @@ namespace StyleCop
 
             // Try to match by the checkid.
             TreeNode match = this.IterateAndFindRule(
-                this.analyzeTree.Nodes, 
-                searchText, 
-                delegate(TreeNode node, string text)
+                this.analyzeTree.Nodes,
+                searchText,
+                (TreeNode node, string text) =>
                     {
                         Rule rule = node.Tag as Rule;
                         if (rule != null)
@@ -1348,9 +1314,9 @@ namespace StyleCop
             {
                 // Try to match by the rule name.
                 match = this.IterateAndFindRule(
-                    this.analyzeTree.Nodes, 
-                    searchText, 
-                    delegate(TreeNode node, string text)
+                    this.analyzeTree.Nodes,
+                    searchText,
+                    (TreeNode node, string text) =>
                         {
                             Rule rule = node.Tag as Rule;
                             if (rule != null)
@@ -1366,9 +1332,9 @@ namespace StyleCop
             {
                 // Try to match by the beginning of the rule name.
                 match = this.IterateAndFindRule(
-                    this.analyzeTree.Nodes, 
-                    searchText, 
-                    delegate(TreeNode node, string text)
+                    this.analyzeTree.Nodes,
+                    searchText,
+                    (TreeNode node, string text) =>
                         {
                             Rule rule = node.Tag as Rule;
                             if (rule != null)
@@ -1427,15 +1393,11 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
         /// <summary>
         /// A property addin pair.
         /// </summary>
         private struct PropertyAddInPair
         {
-            #region Fields
-
             /// <summary>
             /// The add-in.
             /// </summary>
@@ -1445,8 +1407,6 @@ namespace StyleCop
             /// The property.
             /// </summary>
             public BooleanProperty Property;
-
-            #endregion
         }
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,8 +29,6 @@ namespace StyleCop.CSharp
     [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix", Justification = "The class should not have any suffix.")]
     public sealed class Delegate : CsElement, IParameterContainer, ITypeConstraintContainer
     {
-        #region Fields
-
         /// <summary>
         /// The delegate's input parameters.
         /// </summary>
@@ -46,12 +44,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly ICollection<TypeParameterConstraintClause> typeConstraints;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Delegate class.
+        /// Initializes a new instance of the <see cref="Delegate"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -84,15 +78,15 @@ namespace StyleCop.CSharp
         /// Indicates whether this is generated code.
         /// </param>
         internal Delegate(
-            CsDocument document, 
-            CsElement parent, 
-            XmlHeader header, 
-            ICollection<Attribute> attributes, 
-            Declaration declaration, 
-            TypeToken returnType, 
-            IList<Parameter> parameters, 
-            ICollection<TypeParameterConstraintClause> typeConstraints, 
-            bool unsafeCode, 
+            CsDocument document,
+            CsElement parent,
+            XmlHeader header,
+            ICollection<Attribute> attributes,
+            Declaration declaration,
+            TypeToken returnType,
+            IList<Parameter> parameters,
+            ICollection<TypeParameterConstraintClause> typeConstraints,
+            bool unsafeCode,
             bool generated)
             : base(document, parent, ElementType.Delegate, "delegate " + declaration.Name, header, attributes, declaration, unsafeCode, generated)
         {
@@ -128,10 +122,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the list of input parameters in the delegate's declaration.
         /// </summary>
@@ -164,7 +154,5 @@ namespace StyleCop.CSharp
                 return this.typeConstraints;
             }
         }
-
-        #endregion
     }
 }

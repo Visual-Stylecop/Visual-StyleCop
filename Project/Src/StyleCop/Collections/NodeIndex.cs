@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,16 +25,10 @@ namespace StyleCop
     /// </summary>
     public struct NodeIndex
     {
-        #region Constants
-
         /// <summary>
         /// The amount of space to leave between each node index.
         /// </summary>
         internal const int Spacer = 5;
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The main part of the index.
@@ -45,10 +39,6 @@ namespace StyleCop
         /// The small part of the index.
         /// </summary>
         private short smallValue;
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Compares the two indexes and returns a standard comparison result.
@@ -198,10 +188,6 @@ namespace StyleCop
             return this.bigValue + "." + this.smallValue;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Creates an index for a new node being inserted at the beginning of the list.
         /// </summary>
@@ -315,13 +301,13 @@ namespace StyleCop
             // Validate the conditions we allow.
             Debug.Assert(
                 (previousBigValue < nextBigValue) || ((previousBigValue == nextBigValue) && (previousSmallValue < nextSmallValue))
-                || ((previousBigValue == nextSmallValue) && (previousSmallValue == nextSmallValue)), 
+                || ((previousBigValue == nextSmallValue) && (previousSmallValue == nextSmallValue)),
                 "The values are not allowed.");
 
             int bigValue;
             short smallValue;
 
-            index = new NodeIndex();
+            index = default(NodeIndex);
 
             // Check whether the indexes are the same up to the small value.
             if (previousBigValue == nextBigValue)
@@ -384,7 +370,7 @@ namespace StyleCop
                 return false;
             }
 
-            // The algorithm to use depends on where this node is in relation to other 
+            // The algorithm to use depends on where this node is in relation to other
             // nodes in the list.
             if (previous == int.MinValue)
             {
@@ -455,7 +441,7 @@ namespace StyleCop
                 return false;
             }
 
-            // The algorithm to use depends on where this node is in relation to other 
+            // The algorithm to use depends on where this node is in relation to other
             // nodes in the list.
             if (previous == short.MinValue)
             {
@@ -499,7 +485,5 @@ namespace StyleCop
 
             return true;
         }
-
-        #endregion
     }
 }

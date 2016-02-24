@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,16 +26,14 @@ namespace StyleCop.CSharp
     /// </summary>
     internal class Utils
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Adds all members of a class to a dictionary, taking into account partial classes.
         /// </summary>
         /// <param name="parentClass">
-        /// The class to collect. 
+        /// The class to collect.
         /// </param>
         /// <returns>
-        /// Returns the dictionary of class members. 
+        /// Returns the dictionary of class members.
         /// </returns>
         public static Dictionary<string, List<CsElement>> CollectClassMembers(ClassBase parentClass)
         {
@@ -62,10 +60,10 @@ namespace StyleCop.CSharp
         /// Determines whether the given element contains any partial members.
         /// </summary>
         /// <param name="element">
-        /// The element to check. 
+        /// The element to check.
         /// </param>
         /// <returns>
-        /// Returns true if the element contains at least one partial member. 
+        /// Returns true if the element contains at least one partial member.
         /// </returns>
         public static bool ContainsPartialMembers(CsElement element)
         {
@@ -98,13 +96,13 @@ namespace StyleCop.CSharp
         /// Extracts the name of the member being called from the base class.
         /// </summary>
         /// <param name="parentExpression">
-        /// The expression containing the tokens. 
+        /// The expression containing the tokens.
         /// </param>
         /// <param name="baseTokenNode">
-        /// The 'base' keyword token. 
+        /// The 'base' keyword token.
         /// </param>
         /// <returns>
-        /// Returns the name of the member or null if there is no member name. 
+        /// Returns the name of the member or null if there is no member name.
         /// </returns>
         public static CsToken ExtractBaseClassMemberName(Expression parentExpression, Node<CsToken> baseTokenNode)
         {
@@ -152,19 +150,19 @@ namespace StyleCop.CSharp
         /// Finds the given class member in the given class.
         /// </summary>
         /// <param name="word">
-        /// The word to check. 
+        /// The word to check.
         /// </param>
         /// <param name="parentClass">
-        /// The class the word appears in. 
+        /// The class the word appears in.
         /// </param>
         /// <param name="members">
-        /// The collection of members of the parent class. 
+        /// The collection of members of the parent class.
         /// </param>
         /// <param name="interfaces">
-        /// True if interface implementations should be included. 
+        /// True if interface implementations should be included.
         /// </param>
         /// <returns>
-        /// Returns the class members that match against the given name. 
+        /// Returns the class members that match against the given name.
         /// </returns>
         public static ICollection<CsElement> FindClassMember(string word, ClassBase parentClass, Dictionary<string, List<CsElement>> members, bool interfaces)
         {
@@ -191,10 +189,10 @@ namespace StyleCop.CSharp
         /// Finds the ClassBase object above this element representing a Class or Struct.
         /// </summary>
         /// <param name="element">
-        /// The element to start at. 
+        /// The element to start at.
         /// </param>
         /// <returns>
-        /// The ClassBase for the element. 
+        /// The ClassBase for the element.
         /// </returns>
         public static ClassBase GetClassBase(CsElement element)
         {
@@ -251,10 +249,10 @@ namespace StyleCop.CSharp
         /// Checks the token text matches a ReSharper suppression.
         /// </summary>
         /// <param name="token">
-        /// The token to check. 
+        /// The token to check.
         /// </param>
         /// <returns>
-        /// True if its a ReSharper token otherwise false. 
+        /// True if its a ReSharper token otherwise false.
         /// </returns>
         public static bool IsAReSharperComment(CsToken token)
         {
@@ -306,10 +304,10 @@ namespace StyleCop.CSharp
         /// Returns true if the node Contains any sort of <see cref="Nullable"/>.
         /// </summary>
         /// <param name="token">
-        /// The token to check. 
+        /// The token to check.
         /// </param>
         /// <returns>
-        /// True if <see cref="Nullable"/> otherwise False. 
+        /// True if <see cref="Nullable"/> otherwise False.
         /// </returns>
         public static bool TokenContainNullable(Node<CsToken> token)
         {
@@ -323,21 +321,17 @@ namespace StyleCop.CSharp
             return false;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Adds a class members to the dictionary.
         /// </summary>
         /// <param name="members">
-        /// The dictionary of class members. 
+        /// The dictionary of class members.
         /// </param>
         /// <param name="child">
-        /// The class member. 
+        /// The class member.
         /// </param>
         /// <param name="name">
-        /// The name of the class member. 
+        /// The name of the class member.
         /// </param>
         private static void AddClassMember(Dictionary<string, List<CsElement>> members, CsElement child, string name)
         {
@@ -359,13 +353,13 @@ namespace StyleCop.CSharp
         /// Adds a class members to the dictionary.
         /// </summary>
         /// <param name="members">
-        /// The dictionary of class members. 
+        /// The dictionary of class members.
         /// </param>
         /// <param name="child">
-        /// The class member. 
+        /// The class member.
         /// </param>
         /// <param name="name">
-        /// The name of the class member. 
+        /// The name of the class member.
         /// </param>
         private static void AddClassMemberAux(Dictionary<string, List<CsElement>> members, CsElement child, string name)
         {
@@ -387,10 +381,10 @@ namespace StyleCop.CSharp
         /// Adds all members of a class to a dictionary.
         /// </summary>
         /// <param name="class">
-        /// The class to collect. 
+        /// The class to collect.
         /// </param>
         /// <param name="members">
-        /// Adds all members of the class to the given dictionary. 
+        /// Adds all members of the class to the given dictionary.
         /// </param>
         private static void CollectClassMembersAux(ClassBase @class, Dictionary<string, List<CsElement>> members)
         {
@@ -426,16 +420,16 @@ namespace StyleCop.CSharp
         /// Matches the given word with members of the given class.
         /// </summary>
         /// <param name="word">
-        /// The word to check. 
+        /// The word to check.
         /// </param>
         /// <param name="members">
-        /// The collection of members of the parent class. 
+        /// The collection of members of the parent class.
         /// </param>
         /// <param name="interfaces">
-        /// True if interface implementations should be included. 
+        /// True if interface implementations should be included.
         /// </param>
         /// <returns>
-        /// Returns the class members that matches against the given name. 
+        /// Returns the class members that matches against the given name.
         /// </returns>
         private static ICollection<CsElement> MatchClassMember(string word, Dictionary<string, List<CsElement>> members, bool interfaces)
         {
@@ -469,7 +463,5 @@ namespace StyleCop.CSharp
 
             return matchesFound;
         }
-
-        #endregion
     }
 }

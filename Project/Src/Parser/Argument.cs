@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.CSharp
     [DebuggerDisplay("{Expression.Text}")]
     public class Argument : ICodePart
     {
-        #region Fields
-
         /// <summary>
         /// The expression that forms the body of the argument.
         /// </summary>
@@ -63,12 +61,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly CsTokenList tokens;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Argument class.
+        /// Initializes a new instance of the <see cref="Argument"/> class.
         /// </summary>
         /// <param name="name">
         /// The optional name of the argument.
@@ -92,12 +86,12 @@ namespace StyleCop.CSharp
         /// Indicates whether the argument is located within a block of generated code.
         /// </param>
         internal Argument(
-            CsToken name, 
-            ParameterModifiers modifiers, 
-            Expression argumentExpression, 
-            CodeLocation location, 
-            Reference<ICodePart> parent, 
-            CsTokenList tokens, 
+            CsToken name,
+            ParameterModifiers modifiers,
+            Expression argumentExpression,
+            CodeLocation location,
+            Reference<ICodePart> parent,
+            CsTokenList tokens,
             bool generated)
         {
             Param.Ignore(name);
@@ -116,10 +110,6 @@ namespace StyleCop.CSharp
             this.tokens = tokens;
             this.generated = generated;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the type of this code part.
@@ -219,7 +209,5 @@ namespace StyleCop.CSharp
                 return this.tokens;
             }
         }
-
-        #endregion
     }
 }

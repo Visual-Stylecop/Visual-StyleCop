@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,8 +25,6 @@ namespace StyleCop
     /// </summary>
     public class AddSettingsPagesEventArgs : EventArgs
     {
-        #region Fields
-
         /// <summary>
         /// The pages that have been added.
         /// </summary>
@@ -36,10 +34,6 @@ namespace StyleCop
         /// The path to the settings file.
         /// </summary>
         private readonly string settingsPath;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AddSettingsPagesEventArgs"/> class.
@@ -52,10 +46,6 @@ namespace StyleCop
             Param.AssertValidString(settingsPath, "settingsPath");
             this.settingsPath = settingsPath;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the pages that were added to the StyleCop settings dialog.
@@ -79,10 +69,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Adds a page to be displayed on the StyleCop project settings dialog.
         /// </summary>
@@ -98,7 +84,5 @@ namespace StyleCop
                 this.pages.Add(page);
             }
         }
-
-        #endregion
     }
 }

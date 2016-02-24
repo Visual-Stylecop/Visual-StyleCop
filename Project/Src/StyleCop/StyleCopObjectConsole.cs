@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -33,19 +33,13 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "StyleCop", Justification = "This is the correct casing.")]
     public class StyleCopObjectConsole : StyleCopRunner
     {
-        #region Fields
-
         /// <summary>
         /// The default settings document.
         /// </summary>
         private readonly Settings defaultSettings;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the StyleCopObjectConsole class.
+        /// Initializes a new instance of the <see cref="StyleCopObjectConsole"/> class.
         /// </summary>
         /// <param name="environment">
         /// The environment.
@@ -71,7 +65,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the StyleCopObjectConsole class.
+        /// Initializes a new instance of the <see cref="StyleCopObjectConsole"/> class.
         /// </summary>
         /// <param name="environment">
         /// The environment.
@@ -106,10 +100,6 @@ namespace StyleCop
 
             this.defaultSettings = defaultSettings;
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Starts analyzing the source code documents contained within the given projects.
@@ -176,10 +166,6 @@ namespace StyleCop
             return !error;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Gets the settings for the given project.
         /// </summary>
@@ -187,7 +173,7 @@ namespace StyleCop
         /// The project.
         /// </param>
         /// <returns>
-        /// Returns the settings, or null if there 
+        /// Returns the settings, or null if there
         /// </returns>
         protected virtual Settings GetSettingsForProject(CodeProject project)
         {
@@ -220,7 +206,5 @@ namespace StyleCop
                 }
             }
         }
-
-        #endregion
     }
 }

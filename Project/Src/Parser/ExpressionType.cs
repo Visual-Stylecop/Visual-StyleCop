@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,37 +26,37 @@ namespace StyleCop.CSharp
         /// <summary>
         /// An anonymous method expression.
         /// </summary>
-        AnonymousMethod, 
+        AnonymousMethod,
 
         /// <summary>
         /// An arithmetic expression.
         /// </summary>
-        Arithmetic, 
+        Arithmetic,
 
         /// <summary>
         /// An array access expression.
         /// </summary>
-        ArrayAccess, 
+        ArrayAccess,
 
         /// <summary>
         /// An array initializer expression.
         /// </summary>
-        ArrayInitializer, 
+        ArrayInitializer,
 
         /// <summary>
         /// An as-expression.
         /// </summary>
-        As, 
+        As,
 
         /// <summary>
         /// An assignment expression.
         /// </summary>
-        Assignment, 
+        Assignment,
 
         /// <summary>
         /// An attribute call expression.
         /// </summary>
-        Attribute, 
+        Attribute,
 
         /// <summary>
         /// An await expression.
@@ -71,72 +71,72 @@ namespace StyleCop.CSharp
         /// <summary>
         /// A cast expression.
         /// </summary>
-        Cast, 
+        Cast,
 
         /// <summary>
         /// A checked expression.
         /// </summary>
-        Checked, 
+        Checked,
 
         /// <summary>
         /// A collection initializer expression.
         /// </summary>
-        CollectionInitializer, 
+        CollectionInitializer,
 
         /// <summary>
         /// A conditional expression.
         /// </summary>
-        Conditional, 
+        Conditional,
 
         /// <summary>
         /// A conditional logical expression.
         /// </summary>
-        ConditionalLogical, 
+        ConditionalLogical,
 
         /// <summary>
         /// A decrement expression.
         /// </summary>
-        Decrement, 
+        Decrement,
 
         /// <summary>
         /// A default value expression.
         /// </summary>
-        DefaultValue, 
+        DefaultValue,
 
         /// <summary>
         /// A comma-separated list of expressions.
         /// </summary>
-        ExpressionList, 
+        ExpressionList,
 
         /// <summary>
         /// An increment expression.
         /// </summary>
-        Increment, 
+        Increment,
 
         /// <summary>
         /// An is-expression.
         /// </summary>
-        Is, 
+        Is,
 
         /// <summary>
         /// A lambda expression.
         /// </summary>
-        Lambda, 
+        Lambda,
 
         /// <summary>
         /// A literal expression.
         /// </summary>
-        Literal, 
+        Literal,
 
         /// <summary>
         /// A logical expression.
         /// </summary>
-        Logical, 
+        Logical,
 
         /// <summary>
         /// A member access expression.
         /// </summary>
-        MemberAccess, 
+        MemberAccess,
 
         /// <summary>
         /// A method invocation expression.
@@ -151,77 +151,77 @@ namespace StyleCop.CSharp
         /// <summary>
         /// A new array allocation expression.
         /// </summary>
-        NewArray, 
+        NewArray,
 
         /// <summary>
         /// A new allocation expression.
         /// </summary>
-        New, 
+        New,
 
         /// <summary>
         /// A null-coalescing expression.
         /// </summary>
-        NullCoalescing, 
+        NullCoalescing,
 
         /// <summary>
         /// An object initializer expression.
         /// </summary>
-        ObjectInitializer, 
+        ObjectInitializer,
 
         /// <summary>
         /// A parenthesized expression.
         /// </summary>
-        Parenthesized, 
+        Parenthesized,
 
         /// <summary>
         /// A query expression.
         /// </summary>
-        Query, 
+        Query,
 
         /// <summary>
         /// A relational expression.
         /// </summary>
-        Relational, 
+        Relational,
 
         /// <summary>
         /// A sizeof expression.
         /// </summary>
-        Sizeof, 
+        Sizeof,
 
         /// <summary>
         /// A stackalloc expression.
         /// </summary>
-        Stackalloc, 
+        Stackalloc,
 
         /// <summary>
         /// A typeof expression.
         /// </summary>
-        Typeof, 
+        Typeof,
 
         /// <summary>
         /// A unary expression.
         /// </summary>
-        Unary, 
+        Unary,
 
         /// <summary>
         /// An unchecked expression.
         /// </summary>
-        Unchecked, 
+        Unchecked,
 
         /// <summary>
         /// An unsafe access expression.
         /// </summary>
-        UnsafeAccess, 
+        UnsafeAccess,
 
         /// <summary>
         /// A variable declaration expression.
         /// </summary>
-        VariableDeclaration, 
+        VariableDeclaration,
 
         /// <summary>
         /// A variable declarator expression.
         /// </summary>
-        VariableDeclarator, 
+        VariableDeclarator,
 
         /// <summary>
         /// An event declarator expression.

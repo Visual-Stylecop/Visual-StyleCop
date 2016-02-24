@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop
     /// </summary>
     internal class ResultsCache
     {
-        #region Constants
-
         /// <summary>
         /// The current file cache version.
         /// </summary>
@@ -39,10 +37,6 @@ namespace StyleCop
         /// The DateTime format we use for the results cache.
         /// </summary>
         private const string TimestampFormat = "yyyy/MM/dd HH:mm:ss.fff";
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The StyleCop core instance.
@@ -54,12 +48,8 @@ namespace StyleCop
         /// </summary>
         private readonly Dictionary<string, XmlDocument> documentHash = new Dictionary<string, XmlDocument>();
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the ResultsCache class.
+        /// Initializes a new instance of the <see cref="ResultsCache"/> class.
         /// </summary>
         /// <param name="core">
         /// The StyleCop core instance.
@@ -69,10 +59,6 @@ namespace StyleCop
             Param.AssertNotNull(core, "core");
             this.core = core;
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Saves the cached results.
@@ -98,7 +84,7 @@ namespace StyleCop
         /// The project to load.
         /// </param>
         /// <returns>
-        /// Returns the project configuration or null if the 
+        /// Returns the project configuration or null if the
         /// project does not exist in the cache.
         /// </returns>
         public string LoadProject(CodeProject project)
@@ -207,7 +193,7 @@ namespace StyleCop
 
                             if (
                                 !IsNodeUpToDate(
-                                    item.SelectSingleNode(string.Concat("timestamps/", analyzer.Id + ".FilesHashCode")), 
+                                    item.SelectSingleNode(string.Concat("timestamps/", analyzer.Id + ".FilesHashCode")),
                                     analyzer.GetDependantFilesHashCode(sourceCode.Project.Culture)))
                             {
                                 return false;
@@ -454,10 +440,6 @@ namespace StyleCop
                 return success;
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Determines whether the timestamp information contained in the given
@@ -709,7 +691,5 @@ namespace StyleCop
 
             return doc;
         }
-
-        #endregion
     }
 }

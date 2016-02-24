@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -22,19 +22,13 @@ namespace StyleCop.CSharp
     /// </summary>
     public abstract class QueryClause : CodeUnit
     {
-        #region Fields
-
         /// <summary>
         /// The type of the query clause.
         /// </summary>
         private readonly QueryClauseType type;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the QueryClause class.
+        /// Initializes a new instance of the <see cref="QueryClause"/> class.
         /// </summary>
         /// <param name="type">
         /// The type of the clause.
@@ -50,10 +44,6 @@ namespace StyleCop.CSharp
 
             this.type = type;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the query clause that contains this clause, if there is one.
@@ -77,10 +67,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Walks through the code units in the query clause.
         /// </summary>
@@ -100,9 +86,9 @@ namespace StyleCop.CSharp
         /// The type of the context item.
         /// </typeparam>
         public void WalkQueryClause<T>(
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.Ignore(statementCallback, expressionCallback, queryClauseCallback, context);
@@ -161,8 +147,8 @@ namespace StyleCop.CSharp
         /// Callback executed when a query clause is visited.
         /// </param>
         public void WalkQueryClause(
-            CodeWalkerStatementVisitor<object> statementCallback, 
-            CodeWalkerExpressionVisitor<object> expressionCallback, 
+            CodeWalkerStatementVisitor<object> statementCallback,
+            CodeWalkerExpressionVisitor<object> expressionCallback,
             CodeWalkerQueryClauseVisitor<object> queryClauseCallback)
         {
             Param.Ignore(statementCallback, expressionCallback, queryClauseCallback);
@@ -195,7 +181,5 @@ namespace StyleCop.CSharp
             Param.Ignore(statementCallback);
             this.WalkQueryClause(statementCallback, null, null, null);
         }
-
-        #endregion
     }
 }

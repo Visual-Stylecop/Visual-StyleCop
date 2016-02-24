@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -32,8 +32,6 @@ namespace StyleCop
     internal class LinkedItemList<T> : ICollection<T>
         where T : class
     {
-        #region Fields
-
         /// <summary>
         /// The number of items in the list.
         /// </summary>
@@ -49,12 +47,8 @@ namespace StyleCop
         /// </summary>
         private Node<T> tail;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinkedItemList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="LinkedItemList{T}"/> class.
         /// Initializes a new instance of the LinkedItemList class.
         /// </summary>
         internal LinkedItemList()
@@ -62,7 +56,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinkedItemList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="LinkedItemList{T}"/> class.
         /// Initializes a new instance of the LinkedItemList class.
         /// </summary>
         /// <param name="items">
@@ -80,7 +74,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinkedItemList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="LinkedItemList{T}"/> class.
         /// Initializes a new instance of the LinkedItemList class.
         /// </summary>
         /// <param name="nodes">
@@ -97,18 +91,10 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Events
-
         /// <summary>
         /// Event that is fired when the node indexes are reset.
         /// </summary>
         public event EventHandler NodeIndexesReset;
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the number of items in the collection.
@@ -153,10 +139,6 @@ namespace StyleCop
                 return this.tail;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Adds an item to the collection.
@@ -251,7 +233,7 @@ namespace StyleCop
                     // Set the back pointer to the previous node.
                     node.Previous = previousNode;
 
-                    // This is now the last node in the list. Set this as the tail node and make sure 
+                    // This is now the last node in the list. Set this as the tail node and make sure
                     // it's forward pointer is null.
                     this.tail = node;
                     node.Next = null;
@@ -765,10 +747,6 @@ namespace StyleCop
             return new LinkedItemListEnumerators<T>.BackwardNodeEnumerable(start, this.head);
         }
 
-        #endregion
-
-        #region Explicit Interface Methods
-
         /// <summary>
         /// Gets an enumerator that iterates through the nodes in the collection.
         /// </summary>
@@ -777,10 +755,6 @@ namespace StyleCop
         {
             return this.GetEnumerator();
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Called when the node indexes are reset.
@@ -991,7 +965,5 @@ namespace StyleCop
             // Notify that the node indexes have been reset.
             this.OnNodeIndexesReset(new EventArgs());
         }
-
-        #endregion
     }
 }

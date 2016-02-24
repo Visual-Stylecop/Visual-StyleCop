@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -37,8 +37,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal static class ProjectUtilities
     {
-        #region Private Static Fields
-
         /// <summary>
         /// The cache used to prevent costly deep COM interactions after the "project enabled" data has already been collected.
         /// </summary>
@@ -54,7 +52,7 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private static readonly Dictionary<string, List<string>> ProjectsMissingProperties = new Dictionary<string, List<string>>();
 
-        /// <summary>   
+        /// <summary>
         /// System Service provider.
         /// </summary>
         private static IServiceProvider serviceProvider;
@@ -68,10 +66,6 @@ namespace StyleCop.VisualStudio
         /// The Solution events.
         /// </summary>
         private static SolutionEvents solutionEvents;
-
-        #endregion Private Static Fields
-
-        #region Private Delegates
 
         /// <summary>
         /// Invokes a method to operate on the given project.
@@ -94,10 +88,6 @@ namespace StyleCop.VisualStudio
         /// <param name="fileContext">File-specific context information.</param>
         /// <returns>If an object is returned, enumeration will end.</returns>
         private delegate object ProjectItemInvoker(ProjectItem projectItem, string path, AnalysisType analysisType, ref object projectContext, ref object fileContext);
-
-        #endregion Private Delegates
-
-        #region Internal Static Methods
 
         /// <summary>
         /// Initializes this static class.
@@ -144,9 +134,9 @@ namespace StyleCop.VisualStudio
 
         /// <summary>
         /// Determines the target framework version for the c# project file.
-        /// </summary> 
-        /// <param name="project">The project file to read property.</param> 
-        /// <returns>The target framework version, or 0 if none is specified.</returns> 
+        /// </summary>
+        /// <param name="project">The project file to read property.</param>
+        /// <returns>The target framework version, or 0 if none is specified.</returns>
         internal static double TargetFrameworkVersion(Project project)
         {
             string projectFilePathName = GetProjectFileName(project);
@@ -167,19 +157,19 @@ namespace StyleCop.VisualStudio
                         {
                             if (projectTargetFrameworkVersion.ToString().Length > 4)
                             {
-                                // TargetFrameworkVersion will be something like "v4.5.1", so skip the "v" and last char when parsing to double: 
+                                // TargetFrameworkVersion will be something like "v4.5.1", so skip the "v" and last char when parsing to double:
                                 double.TryParse(((string)projectTargetFrameworkVersion).Substring(1, 3), out targetFrameworkVersion);
                             }
                             else
                             {
-                                // TargetFrameworkVersion will be something like "v3.5", so skip the "v" when parsing to double: 
+                                // TargetFrameworkVersion will be something like "v3.5", so skip the "v" when parsing to double:
                                 double.TryParse(((string)projectTargetFrameworkVersion).Substring(1), out targetFrameworkVersion);
                             }
                         }
                     }
                     catch
                     {
-                        // Ignore missing TargetFrameworkVersion version. targetFrameworkVersion will remain 0. 
+                        // Ignore missing TargetFrameworkVersion version. targetFrameworkVersion will remain 0.
                     }
                 }
             }
@@ -421,7 +411,7 @@ namespace StyleCop.VisualStudio
                     if (project != null)
                     {
                         // If we've already cached a value for whether this project supports StyleCop, use it, since it is very
-                        // expensive to constantly scan massive unmanaged project trees through COM.  This used to render Visual 
+                        // expensive to constantly scan massive unmanaged project trees through COM.  This used to render Visual
                         // Studio unusable in largely unmanaged solutions (#6662).
                         bool isEnabled;
 
@@ -721,7 +711,7 @@ namespace StyleCop.VisualStudio
                     }
                     catch (ArgumentException)
                     {
-                        // For certain project types, accessing the project.Properties.Item method can throw 
+                        // For certain project types, accessing the project.Properties.Item method can throw
                         // an ArgumentException if the name of the property does not exist. In this case
                         // we simply skip this project.
                     }
@@ -787,7 +777,7 @@ namespace StyleCop.VisualStudio
             catch (ArgumentException)
             {
                 // For certain types of projects, the ConfigurationManager.ActiveConfiguration
-                // property will throw an ArgumentException immediately when you try to access 
+                // property will throw an ArgumentException immediately when you try to access
                 // the property. This just means there is no configuration defined.
             }
 
@@ -797,10 +787,6 @@ namespace StyleCop.VisualStudio
             // There is no active configuration. Just return an empty configuration object.
             return new StyleCop.Configuration(null);
         }
-
-        #endregion Internal Static Methods
-
-        #region Private Static Methods
 
         /// <summary>
         /// Gets a list of all the files for the given projectItem. Includes all dependant files for partial types.
@@ -835,10 +821,10 @@ namespace StyleCop.VisualStudio
         }
 
         /// <summary>
-        /// Gets an instance of the extensibility application object (DTE). 
+        /// Gets an instance of the extensibility application object (DTE).
         /// </summary>
         /// <remarks>
-        /// This is not thread safe and should only be called from the UI thread. 
+        /// This is not thread safe and should only be called from the UI thread.
         /// </remarks>
         /// <returns>An instance of <see cref="T:EnvDTE.DTE."/>.</returns>
         private static DTE GetDTE()
@@ -1156,7 +1142,7 @@ namespace StyleCop.VisualStudio
             }
             catch
             {
-                // For some project kinds (and we can't know them all i.e. wixproj) 
+                // For some project kinds (and we can't know them all i.e. wixproj)
                 // The project won't load as the item.ContainingProject.Filename is not the fullpath
                 // Any exceptions whilst attempting this we assume the item is not excluded.
                 return false;
@@ -1217,7 +1203,7 @@ namespace StyleCop.VisualStudio
             }
             catch
             {
-                // For some project kinds (and we can't know them all i.e. wixproj) 
+                // For some project kinds (and we can't know them all i.e. wixproj)
                 // The project won't load as the item.ContainingProject.Filename is not the fullpath
                 // Any exceptions whilst attempting this we assume the item is not excluded.
                 return false;
@@ -1389,7 +1375,7 @@ namespace StyleCop.VisualStudio
                 {
                     return true;
                 }
-                 
+
                 Property buildAction = item.Properties.Item("BuildAction");
                 if (buildAction == null)
                 {
@@ -1495,7 +1481,7 @@ namespace StyleCop.VisualStudio
             // Get the list of code projects.
             var codeProjects = (List<CodeProject>)projectContext;
 
-            // Create a new CodeProject for this project.          
+            // Create a new CodeProject for this project.
             var codeProject = new CodeProject(projectKey, path, GetProjectConfiguration(project), TargetFrameworkVersion(project));
 
             // Set this new CodeProject as the outgoing file context.
@@ -1785,7 +1771,7 @@ namespace StyleCop.VisualStudio
             }
             catch (ArgumentException)
             {
-                // The path is not a valid file system path. This can happen for example with Web Service projects, 
+                // The path is not a valid file system path. This can happen for example with Web Service projects,
                 // where the project.FullName property contains a path like http://localhost/etc rather than a path on the file system.
             }
             catch (NotSupportedException)
@@ -1885,7 +1871,5 @@ namespace StyleCop.VisualStudio
         {
             ClearCaches();
         }
-
-        #endregion Private Static Methods
     }
 }

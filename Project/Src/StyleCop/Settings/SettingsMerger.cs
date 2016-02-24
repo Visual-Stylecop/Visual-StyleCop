@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop
     /// </summary>
     public class SettingsMerger
     {
-        #region Constants
-
         /// <summary>
         /// The name of the linked settings property.
         /// </summary>
@@ -53,10 +51,6 @@ namespace StyleCop
         /// </summary>
         internal const string MergeStyleParent = "Parent";
 
-        #endregion
-
-        #region Fields
-
         /// <summary>
         /// The environment in which StyleCop is running.
         /// </summary>
@@ -67,12 +61,8 @@ namespace StyleCop
         /// </summary>
         private readonly Settings localSettings;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the SettingsMerger class.
+        /// Initializes a new instance of the <see cref="SettingsMerger"/> class.
         /// </summary>
         /// <param name="localSettings">
         /// The settings which should be merged.
@@ -88,10 +78,6 @@ namespace StyleCop
             this.localSettings = localSettings;
             this.environment = environment;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the local settings merged with parent settings.
@@ -182,10 +168,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Merged two sets of property collections together.
         /// </summary>
@@ -228,7 +210,7 @@ namespace StyleCop
             }
             else if (originalPropertyCollection != null && overridingPropertyCollection != null)
             {
-                // There are settings in both settings files. Fist, loop through each property collection 
+                // There are settings in both settings files. Fist, loop through each property collection
                 // in the original settings file.
                 foreach (PropertyValue originalProperty in originalPropertyCollection)
                 {
@@ -264,7 +246,7 @@ namespace StyleCop
                     }
                 }
 
-                // Now look through each property in the overriding property collection. If there is any 
+                // Now look through each property in the overriding property collection. If there is any
                 // property here which is not contained in the merged collection, just add it directly.
                 // This means that it was not present in the original collection.
                 foreach (PropertyValue overridingProperty in overridingPropertyCollection)
@@ -550,7 +532,5 @@ namespace StyleCop
 
             return mergeOriginal ? originalSettings : null;
         }
-
-        #endregion
     }
 }

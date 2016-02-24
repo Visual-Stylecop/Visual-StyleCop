@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,30 +27,22 @@ namespace StyleCop
     /// Delegate used for getting error text.
     /// </summary>
     /// <returns>Returns the error text.</returns>
-    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Param", 
-        Justification = "This name represents a Parameter, and should be short as it is used often.")]
+    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Param", Justification = "This name represents a Parameter, and should be short as it is used often.")]
     public delegate string ParamErrorTextHandler();
 
     /// <summary>
     /// Used to verify method parameters.
     /// </summary>
     /// <exclude/>
-    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Param", 
-        Justification = "This name represents a Parameter, and should be short as it is used often.")]
+    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Param", Justification = "This name represents a Parameter, and should be short as it is used often.")]
     public sealed class Param
     {
-        #region Constructors and Destructors
-
         /// <summary>
         /// Prevents a default instance of the <see cref="Param"/> class from being created.
         /// </summary>
         private Param()
         {
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Asserts on the given value. This is meant to be used in non-public facing methods.
@@ -662,7 +654,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Asserts that an index be between a valid range. 
+        /// Asserts that an index be between a valid range.
         /// </summary>
         /// <param name="test">
         /// The test for validity.
@@ -1120,7 +1112,7 @@ namespace StyleCop
         public static void RequireGreaterThanOrEqualToZero(int number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number >= 0, parameterName, delegate { return Strings.MustBeGreaterThanOrEqualToZero; });
+            Param.RequireValidIndex(number >= 0, parameterName, () => Strings.MustBeGreaterThanOrEqualToZero);
         }
 
         /// <summary>
@@ -1135,7 +1127,7 @@ namespace StyleCop
         public static void RequireGreaterThanOrEqualToZero(long number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number >= 0, parameterName, delegate { return Strings.MustBeGreaterThanOrEqualToZero; });
+            Param.RequireValidIndex(number >= 0, parameterName, () => Strings.MustBeGreaterThanOrEqualToZero);
         }
 
         /// <summary>
@@ -1150,7 +1142,7 @@ namespace StyleCop
         public static void RequireGreaterThanOrEqualToZero(short number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number >= 0, parameterName, delegate { return Strings.MustBeGreaterThanOrEqualToZero; });
+            Param.RequireValidIndex(number >= 0, parameterName, () => Strings.MustBeGreaterThanOrEqualToZero);
         }
 
         /// <summary>
@@ -1165,7 +1157,7 @@ namespace StyleCop
         public static void RequireGreaterThanOrEqualToZero(double number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number >= 0, parameterName, delegate { return Strings.MustBeGreaterThanOrEqualToZero; });
+            Param.RequireValidIndex(number >= 0, parameterName, () => Strings.MustBeGreaterThanOrEqualToZero);
         }
 
         /// <summary>
@@ -1180,7 +1172,7 @@ namespace StyleCop
         public static void RequireGreaterThanOrEqualToZero(float number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number >= 0, parameterName, delegate { return Strings.MustBeGreaterThanOrEqualToZero; });
+            Param.RequireValidIndex(number >= 0, parameterName, () => Strings.MustBeGreaterThanOrEqualToZero);
         }
 
         /// <summary>
@@ -1195,7 +1187,7 @@ namespace StyleCop
         public static void RequireGreaterThanZero(int number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number > 0, parameterName, delegate { return Strings.MustBeGreaterThanZero; });
+            Param.RequireValidIndex(number > 0, parameterName, () => Strings.MustBeGreaterThanZero);
         }
 
         /// <summary>
@@ -1210,7 +1202,7 @@ namespace StyleCop
         public static void RequireGreaterThanZero(long number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number > 0, parameterName, delegate { return Strings.MustBeGreaterThanZero; });
+            Param.RequireValidIndex(number > 0, parameterName, () => Strings.MustBeGreaterThanZero);
         }
 
         /// <summary>
@@ -1225,7 +1217,7 @@ namespace StyleCop
         public static void RequireGreaterThanZero(short number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number > 0, parameterName, delegate { return Strings.MustBeGreaterThanZero; });
+            Param.RequireValidIndex(number > 0, parameterName, () => Strings.MustBeGreaterThanZero);
         }
 
         /// <summary>
@@ -1240,7 +1232,7 @@ namespace StyleCop
         public static void RequireGreaterThanZero(double number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number > 0, parameterName, delegate { return Strings.MustBeGreaterThanZero; });
+            Param.RequireValidIndex(number > 0, parameterName, () => Strings.MustBeGreaterThanZero);
         }
 
         /// <summary>
@@ -1255,7 +1247,7 @@ namespace StyleCop
         public static void RequireGreaterThanZero(float number, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.RequireValidIndex(number > 0, parameterName, delegate { return Strings.MustBeGreaterThanZero; });
+            Param.RequireValidIndex(number > 0, parameterName, () => Strings.MustBeGreaterThanZero);
         }
 
         /// <summary>
@@ -1500,7 +1492,7 @@ namespace StyleCop
         public static void RequireNotNull(object parameter, string parameterName)
         {
             Param.Ignore(parameter, parameterName);
-            RequireNotNull(parameter, parameterName, delegate { return Strings.CannotBeNull; });
+            RequireNotNull(parameter, parameterName, () => Strings.CannotBeNull);
         }
 
         /// <summary>
@@ -1568,11 +1560,11 @@ namespace StyleCop
         public static void RequireValidCollection(ICollection parameter, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.Require(parameter != null && parameter.Count > 0, parameterName, delegate { return Strings.CollectionCannotBeEmptyOrNull; });
+            Param.Require(parameter != null && parameter.Count > 0, parameterName, () => Strings.CollectionCannotBeEmptyOrNull);
         }
 
         /// <summary>
-        /// Requires that an index be between a valid range. 
+        /// Requires that an index be between a valid range.
         /// </summary>
         /// <param name="test">
         /// The test for validity.
@@ -1594,7 +1586,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Requires that an index be between a valid range. 
+        /// Requires that an index be between a valid range.
         /// </summary>
         /// <param name="test">
         /// The test for validity.
@@ -1637,7 +1629,7 @@ namespace StyleCop
         public static void RequireValidString(string parameter, string parameterName)
         {
             Param.Ignore(parameterName);
-            Param.Require(parameter != null && parameter.Length > 0, parameterName, delegate { return Strings.StringCannotBeEmptyOrNull; });
+            Param.Require(parameter != null && parameter.Length > 0, parameterName, () => Strings.StringCannotBeEmptyOrNull);
         }
 
         /// <summary>
@@ -1659,7 +1651,7 @@ namespace StyleCop
         {
             Param.Ignore(parameterName);
             Param.RequireValidIndex(
-                number >= low && number <= high, parameterName, delegate { return string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high); });
+                number >= low && number <= high, parameterName, () => string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high));
         }
 
         /// <summary>
@@ -1681,7 +1673,7 @@ namespace StyleCop
         {
             Param.Ignore(parameterName);
             Param.RequireValidIndex(
-                number >= low && number <= high, parameterName, delegate { return string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high); });
+                number >= low && number <= high, parameterName, () => string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high));
         }
 
         /// <summary>
@@ -1703,7 +1695,7 @@ namespace StyleCop
         {
             Param.Ignore(parameterName);
             Param.RequireValidIndex(
-                number >= low && number <= high, parameterName, delegate { return string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high); });
+                number >= low && number <= high, parameterName, () => string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high));
         }
 
         /// <summary>
@@ -1725,7 +1717,7 @@ namespace StyleCop
         {
             Param.Ignore(parameterName);
             Param.RequireValidIndex(
-                number >= low && number <= high, parameterName, delegate { return string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high); });
+                number >= low && number <= high, parameterName, () => string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high));
         }
 
         /// <summary>
@@ -1747,9 +1739,7 @@ namespace StyleCop
         {
             Param.Ignore(parameterName);
             Param.RequireValidIndex(
-                number >= low && number <= high, parameterName, delegate { return string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high); });
+                number >= low && number <= high, parameterName, () => string.Format(CultureInfo.CurrentCulture, Strings.MustBeBetween, low, high));
         }
-
-        #endregion
     }
 }

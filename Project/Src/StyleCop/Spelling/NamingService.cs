@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -32,18 +32,11 @@ namespace StyleCop.Spelling
     /// </summary>
     public class NamingService : IDisposable
     {
-        #region Static Fields
-
         private static readonly Dictionary<string, NamingService> ServiceCache = new Dictionary<string, NamingService>();
 
         private static readonly object ServiceCacheLock = new object();
 
         private static NamingService defaultNamingService;
-
-        #endregion
-
-        #region Fields
-
         private readonly CultureInfo culture;
 
         private IDictionary<string, string> alternatesForDeprecatedWords;
@@ -60,10 +53,6 @@ namespace StyleCop.Spelling
 
         private SpellChecker spellChecker;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         private NamingService(CultureInfo culture)
         {
             this.culture = culture;
@@ -75,10 +64,6 @@ namespace StyleCop.Spelling
 
             this.InitCustomDictionaries();
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the default naming service.
@@ -124,10 +109,6 @@ namespace StyleCop.Spelling
             }
         }
 
-        #endregion
-
-        #region Properties
-
         internal bool IsEnglishCulture
         {
             get
@@ -135,10 +116,6 @@ namespace StyleCop.Spelling
                 return this.culture.Name.Equals("en", StringComparison.OrdinalIgnoreCase) || this.culture.Parent.Name.Equals("en", StringComparison.OrdinalIgnoreCase);
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Clears the cached services.
@@ -391,10 +368,6 @@ namespace StyleCop.Spelling
 
             return this.casingExceptions.ContainsKey(word);
         }
-
-        #endregion
-
-        #region Methods
 
         internal static CultureInfo TryParseCulture(string cultureName)
         {
@@ -692,7 +665,5 @@ namespace StyleCop.Spelling
                 }
             }
         }
-
-        #endregion
     }
 }

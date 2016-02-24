@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,19 +30,17 @@ namespace StyleCop
     /// </summary>
     public sealed class Utils
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Checks for a valid UTF8 byte sequence. An implementation of http://www.ietf.org/rfc/rfc2279.txt?number=2279
         /// </summary>
         /// <param name="buffer">
-        /// The buffer to check. 
+        /// The buffer to check.
         /// </param>
         /// <param name="length">
-        /// The number of bytes to check. 
+        /// The number of bytes to check.
         /// </param>
         /// <returns>
-        /// True if the bytes checked are UTF8; otherwise False. 
+        /// True if the bytes checked are UTF8; otherwise False.
         /// </returns>
         public static bool DetectIfByteArrayIsUtf8(IList<byte> buffer, int length)
         {
@@ -62,17 +60,17 @@ namespace StyleCop
 
                 if (currentByte >= 0xc2 && currentByte <= 0xdf)
                 {
-                    // 0b110xxxxx: 2 bytes sequence 
+                    // 0b110xxxxx: 2 bytes sequence
                     codeLength = 2;
                 }
                 else if (currentByte >= 0xe0 && currentByte <= 0xef)
                 {
-                    // 0b1110xxxx: 3 bytes sequence 
+                    // 0b1110xxxx: 3 bytes sequence
                     codeLength = 3;
                 }
                 else if (currentByte >= 0xf0 && currentByte <= 0xf4)
                 {
-                    // 0b11110xxx: 4 bytes sequence 
+                    // 0b11110xxx: 4 bytes sequence
                     codeLength = 4;
                 }
                 else
@@ -102,7 +100,7 @@ namespace StyleCop
                 {
                     case 2:
                         {
-                            // 2 bytes U+0080 - U+07FF 
+                            // 2 bytes U+0080 - U+07FF
                             int ch = ((buffer[currentIndex] & 0x1f) << 6) + (buffer[currentIndex + 1] & 0x3f);
                             if (ch < 0x0080)
                             {
@@ -113,14 +111,14 @@ namespace StyleCop
                         break;
                     case 3:
                         {
-                            // 3 bytes U+0800 - U+FFFF 
+                            // 3 bytes U+0800 - U+FFFF
                             int ch = ((buffer[currentIndex] & 0x0f) << 12) + ((buffer[currentIndex + 1] & 0x3f) << 6) + (buffer[currentIndex + 2] & 0x3f);
                             if (ch < 0x0800)
                             {
                                 return false;
                             }
 
-                            // U+D800 - U+DFFF are invalid in UTF-8 
+                            // U+D800 - U+DFFF are invalid in UTF-8
                             if ((ch >= 0xD800) && (ch <= 0xDFFF))
                             {
                                 return false;
@@ -130,7 +128,7 @@ namespace StyleCop
                         break;
                     case 4:
                         {
-                            // 4 bytes sequence: U+10000 - U+10FFFF 
+                            // 4 bytes sequence: U+10000 - U+10FFFF
                             int ch = ((buffer[currentIndex] & 0x07) << 18) + ((buffer[currentIndex + 1] & 0x3f) << 12) + ((buffer[currentIndex + 2] & 0x3f) << 6)
                                      + (buffer[currentIndex + 3] & 0x3f);
                             if ((ch < 0x10000) || (ch > 0x10FFFF))
@@ -160,7 +158,8 @@ namespace StyleCop
         /// <returns>
         /// The attribute required or null.
         /// </returns>
-        public static T GetAssemblyAttribute<T>(Assembly assembly) where T : Attribute
+        public static T GetAssemblyAttribute<T>(Assembly assembly)
+            where T : Attribute
         {
             if (assembly == null)
             {
@@ -333,7 +332,7 @@ namespace StyleCop
                     int lastSlashIndex = absolutePath.LastIndexOf("\\", StringComparison.Ordinal);
                     if (lastSlashIndex == -1)
                     {
-                        // We've reached the end of the string. It's not possible to create 
+                        // We've reached the end of the string. It's not possible to create
                         // an absolute path.
                         return relativePath;
                     }
@@ -377,30 +376,28 @@ namespace StyleCop
 
             Dictionary<string, string> stringDictionary = new Dictionary<string, string>
                                                               {
-                                                                  { "$USER_LOGIN$", Environment.UserName }, 
-                                                                  { "$USER_NAME$", GetDisplayUserName() }, 
-                                                                  { "$FILENAME$", file.Name }, 
-                                                                  { "$CURRENT_YEAR$", nowDate.ToString("yyyy") }, 
-                                                                  { "$CURRENT_MONTH$", nowDate.ToString("MM") }, 
-                                                                  { "$CURRENT_DAY$", nowDate.ToString("dd") }, 
-                                                                  { "$CURRENT_TIME$", nowDate.ToString("t") }, 
-                                                                  { "$CREATED_YEAR$", creationTime.ToString("yyyy") }, 
-                                                                  { "$CREATED_MONTH$", creationTime.ToString("MM") }, 
-                                                                  { "$CREATED_DAY$", creationTime.ToString("dd") }, 
-                                                                  { "$CREATED_TIME$", creationTime.ToString("t") }, 
-                                                                  { "$MODIFIED_YEAR$", lastWriteTime.ToString("yyyy") }, 
-                                                                  { "$MODIFIED_MONTH$", lastWriteTime.ToString("MM") }, 
-                                                                  { "$MODIFIED_DAY$", lastWriteTime.ToString("dd") }, 
-                                                                  { "$MODIFIED_TIME$", lastWriteTime.ToString("t") }, 
-                                                                  { "$ACCESSED_YEAR$", lastAccessTime.ToString("yyyy") }, 
-                                                                  { "$ACCESSED_MONTH$", lastAccessTime.ToString("MM") }, 
-                                                                  { "$ACCESSED_DAY$", lastAccessTime.ToString("dd") }, 
-                                                                  { "$ACCESSED_TIME$", lastAccessTime.ToString("t") }, 
+                                                                  { "$USER_LOGIN$", Environment.UserName },
+                                                                  { "$USER_NAME$", GetDisplayUserName() },
+                                                                  { "$FILENAME$", file.Name },
+                                                                  { "$CURRENT_YEAR$", nowDate.ToString("yyyy") },
+                                                                  { "$CURRENT_MONTH$", nowDate.ToString("MM") },
+                                                                  { "$CURRENT_DAY$", nowDate.ToString("dd") },
+                                                                  { "$CURRENT_TIME$", nowDate.ToString("t") },
+                                                                  { "$CREATED_YEAR$", creationTime.ToString("yyyy") },
+                                                                  { "$CREATED_MONTH$", creationTime.ToString("MM") },
+                                                                  { "$CREATED_DAY$", creationTime.ToString("dd") },
+                                                                  { "$CREATED_TIME$", creationTime.ToString("t") },
+                                                                  { "$MODIFIED_YEAR$", lastWriteTime.ToString("yyyy") },
+                                                                  { "$MODIFIED_MONTH$", lastWriteTime.ToString("MM") },
+                                                                  { "$MODIFIED_DAY$", lastWriteTime.ToString("dd") },
+                                                                  { "$MODIFIED_TIME$", lastWriteTime.ToString("t") },
+                                                                  { "$ACCESSED_YEAR$", lastAccessTime.ToString("yyyy") },
+                                                                  { "$ACCESSED_MONTH$", lastAccessTime.ToString("MM") },
+                                                                  { "$ACCESSED_DAY$", lastAccessTime.ToString("dd") },
+                                                                  { "$ACCESSED_TIME$", lastAccessTime.ToString("t") },
                                                               };
 
             return Environment.ExpandEnvironmentVariables(stringDictionary.Keys.Aggregate(value, (current, key) => current.Replace(key, stringDictionary[key])));
         }
-
-        #endregion
     }
 }

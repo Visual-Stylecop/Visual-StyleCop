@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop.CSharp
     /// </summary>
     internal static class CommentVerifier
     {
-        #region Constants
-
         /// <summary>
         /// The minimum number of characters in a valid comment.
         /// </summary>
@@ -39,10 +37,6 @@ namespace StyleCop.CSharp
         /// The minimum length for a valid comment.
         /// </summary>
         internal const int MinimumHeaderCommentLength = 10;
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Extracts text from a comment Xml, including special values in attributes.
@@ -271,10 +265,6 @@ namespace StyleCop.CSharp
             return IsGarbageComment(commentWithAttributesRemoved, commentWithAttributesPreserved, element, out spellingError);
         }
 
-        #endregion
-
-        #region Methods
-
         private static void AddAttributeValue(StringBuilder commentWithAttributesBuilder, XmlNode childNode, string attributeName)
         {
             if (childNode.Attributes != null)
@@ -356,7 +346,5 @@ namespace StyleCop.CSharp
 
             return !string.IsNullOrEmpty(spellingError);
         }
-
-        #endregion
     }
 }

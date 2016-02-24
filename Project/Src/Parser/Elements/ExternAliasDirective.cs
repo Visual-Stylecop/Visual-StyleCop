@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -23,19 +23,13 @@ namespace StyleCop.CSharp
     /// <subcategory>element</subcategory>
     public sealed class ExternAliasDirective : CsElement
     {
-        #region Fields
-
         /// <summary>
         /// The identifier name of the alias.
         /// </summary>
         private string identifier = string.Empty;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the ExternAliasDirective class.
+        /// Initializes a new instance of the <see cref="ExternAliasDirective"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -55,10 +49,6 @@ namespace StyleCop.CSharp
             Param.Ignore(document, parent, declaration, generated);
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the identifier of the alias.
         /// </summary>
@@ -69,10 +59,6 @@ namespace StyleCop.CSharp
                 return this.identifier;
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Initializes the element.
@@ -109,7 +95,5 @@ namespace StyleCop.CSharp
                 }
             }
         }
-
-        #endregion
     }
 }

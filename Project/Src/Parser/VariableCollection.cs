@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.CSharp
     /// </summary>
     public sealed class VariableCollection : ICollection<Variable>
     {
-        #region Static Fields
-
         /// <summary>
         /// An empty array of variables.
         /// </summary>
@@ -38,29 +36,17 @@ namespace StyleCop.CSharp
         /// </summary>
         private static LegacyEnumeratorAdapter<Variable> emptyVariableArrayEnumerator;
 
-        #endregion
-
-        #region Fields
-
         /// <summary>
         /// The variable collection.
         /// </summary>
         private Dictionary<string, Variable> variables;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the VariableCollection class.
+        /// Initializes a new instance of the <see cref="VariableCollection"/> class.
         /// </summary>
         internal VariableCollection()
         {
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the number of variables in the collection.
@@ -89,10 +75,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Public Indexers
-
         /// <summary>
         /// Gets the variable with the given name.
         /// </summary>
@@ -109,10 +91,6 @@ namespace StyleCop.CSharp
                 return this.GetVariable(name);
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Determines whether a variable with the given name is contained within the collection.
@@ -203,10 +181,6 @@ namespace StyleCop.CSharp
             return null;
         }
 
-        #endregion
-
-        #region Explicit Interface Methods
-
         /// <summary>
         /// Adds the given variable.
         /// </summary>
@@ -281,10 +255,6 @@ namespace StyleCop.CSharp
             throw new NotSupportedException();
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Adds a variable to the collection.
         /// </summary>
@@ -321,7 +291,5 @@ namespace StyleCop.CSharp
                 this.Add(variable);
             }
         }
-
-        #endregion
     }
 }

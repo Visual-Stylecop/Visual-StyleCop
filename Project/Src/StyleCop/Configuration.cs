@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,22 +26,16 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1724:TypeNamesShouldNotMatchNamespaces", Justification = "Configuration is an appropriate name for the class.")]
     public class Configuration
     {
-        #region Fields
-
         /// <summary>
         /// The list of conditional compilation flags for this configuration.
         /// </summary>
         private readonly Dictionary<string, string> conditionalCompilationDefinitions;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Configuration class.
+        /// Initializes a new instance of the <see cref="Configuration"/> class.
         /// </summary>
         /// <param name="conditionalCompilationDefinitions">
-        /// The list of conditional compilation flags for 
+        /// The list of conditional compilation flags for
         /// this configuration.
         /// </param>
         public Configuration(string[] conditionalCompilationDefinitions)
@@ -61,10 +55,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the list of flags defined in the configuration.
         /// </summary>
@@ -82,10 +72,6 @@ namespace StyleCop
                 return new string[] { };
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Determines whether the given flag is contained in the configuration.
@@ -128,7 +114,5 @@ namespace StyleCop
 
             return null;
         }
-
-        #endregion
     }
 }

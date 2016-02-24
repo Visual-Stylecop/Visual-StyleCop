@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -22,19 +22,13 @@ namespace StyleCop.CSharp
     /// </summary>
     public sealed class QueryFromClause : QueryClauseWithExpression
     {
-        #region Fields
-
         /// <summary>
         /// The variable that ranges over the values in the query result.
         /// </summary>
         private readonly Variable rangeVariable;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the QueryFromClause class.
+        /// Initializes a new instance of the <see cref="QueryFromClause"/> class.
         /// </summary>
         /// <param name="tokens">
         /// The list of tokens that form the clause.
@@ -55,10 +49,6 @@ namespace StyleCop.CSharp
             this.rangeVariable = rangeVariable;
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the variable that ranges over the values in the query result.
         /// </summary>
@@ -69,7 +59,5 @@ namespace StyleCop.CSharp
                 return this.rangeVariable;
             }
         }
-
-        #endregion
     }
 }

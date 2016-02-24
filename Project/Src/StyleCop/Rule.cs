@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -24,8 +24,6 @@ namespace StyleCop
     /// </summary>
     public class Rule
     {
-        #region Fields
-
         /// <summary>
         /// Indicates whether the rule can be disabled.
         /// </summary>
@@ -81,12 +79,8 @@ namespace StyleCop
         /// </summary>
         private readonly bool warning;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Rule class.
+        /// Initializes a new instance of the <see cref="Rule"/> class.
         /// </summary>
         /// <param name="name">
         /// The name of this rule.
@@ -110,7 +104,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the Rule class.
+        /// Initializes a new instance of the <see cref="Rule"/> class.
         /// </summary>
         /// <param name="name">
         /// The name of this rule.
@@ -195,10 +189,6 @@ namespace StyleCop
             this.namespaceID = GenerateUniqueRuleNamespaceID(this.@namespace);
             this.uniqueID = GenerateUniqueRuleID(this.@namespace, this.checkId, this.name);
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether the rule can be disabled.
@@ -321,10 +311,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Gets a unique ID for identifying a rule.
         /// </summary>
@@ -365,10 +351,6 @@ namespace StyleCop
             return this.uniqueID;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Generates a unique ID for a specific rule, which can be used as a hash for identifying the rule.
         /// </summary>
@@ -407,7 +389,5 @@ namespace StyleCop
             Param.AssertValidString(@namespace, "namespace");
             return @namespace.GetHashCode();
         }
-
-        #endregion
     }
 }

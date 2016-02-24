@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -38,8 +38,6 @@ namespace StyleCop.CSharp
     [SourceAnalyzer(typeof(CsParser))]
     public class DocumentationRules : SourceAnalyzer
     {
-        #region Constants
-
         /// <summary>
         /// The name of the property contains the company name.
         /// </summary>
@@ -97,30 +95,18 @@ namespace StyleCop.CSharp
         /// </remarks>
         private const string CrefRegex = @"(?'see'<see\s+cref\s*=\s*"")?" + // Optionally matches '<see cref="'
                                          @"(?(see)({2}|(T:{0}))|({1}))"
-                                         + // if <see> tag then either the typename or the T:typename, or if no <see> tag then the typename with no generics.   
+                                         + // if <see> tag then either the typename or the T:typename, or if no <see> tag then the typename with no generics.
                                          @"(?(see)(""\s*(/>|>[\w\s]*</see>)))"; // Optionally matches '"/>' or '">some text</see>' if <see> tag is included.
-
-        #endregion
-
-        #region Static Fields
 
         /// <summary>
         /// Various version of the @ character.
         /// </summary>
         private static readonly int[] CopyrightCharTable = new[] { 169, 65533 };
 
-        #endregion
-
-        #region Fields
-
         /// <summary>
         /// Dictionary of external documentation which has been included into the code being analyzed.
         /// </summary>
         private Dictionary<string, CachedXmlDocument> includedDocs;
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the property pages to expose on the StyleCop settings dialog for this analyzer.
@@ -133,10 +119,6 @@ namespace StyleCop.CSharp
                 return new IPropertyControlPage[] { new CompanyInformation(this) };
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Checks the element headers within the given document.
@@ -199,13 +181,13 @@ namespace StyleCop.CSharp
         /// Returns a value indicating whether to delay analysis of this document until the next pass.
         /// </summary>
         /// <param name="document">
-        /// The document to analyze. 
+        /// The document to analyze.
         /// </param>
         /// <param name="passNumber">
-        /// The current pass number. 
+        /// The current pass number.
         /// </param>
         /// <returns>
-        /// Returns true if analysis should be delayed. 
+        /// Returns true if analysis should be delayed.
         /// </returns>
         public override bool DelayAnalysis(CodeDocument document, int passNumber)
         {
@@ -266,12 +248,8 @@ namespace StyleCop.CSharp
             this.includedDocs = null;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
-        /// Builds a regular expression that can be used to validate the name of the given type when 
+        /// Builds a regular expression that can be used to validate the name of the given type when
         /// used within a documentation <c>cref</c> attribute.
         /// </summary>
         /// <param name="type">
@@ -691,7 +669,7 @@ namespace StyleCop.CSharp
         /// The start index of the generic type parameter.
         /// </param>
         /// <param name="endIndex">
-        /// The index just past the end of the generic type parameter. 
+        /// The index just past the end of the generic type parameter.
         /// </param>
         /// <returns>
         /// Returns the extracted type.
@@ -972,7 +950,7 @@ namespace StyleCop.CSharp
                 return true;
             }
 
-            // If the set accessor has internal access, and the property also has internal or protected internal access, 
+            // If the set accessor has internal access, and the property also has internal or protected internal access,
             // then include the set accessor in the docs since it effectively has the same access as the overall property.
             if (setAccessor.AccessModifier == AccessModifierType.Internal
                 && (property.ActualAccess == AccessModifierType.Internal || property.ActualAccess == AccessModifierType.ProtectedAndInternal))
@@ -1459,11 +1437,11 @@ namespace StyleCop.CSharp
                 if (!documentationXml.InnerXml.StartsWith("<", StringComparison.Ordinal))
                 {
                     this.AddViolation(
-                        element, 
-                        lineNumber, 
-                        Rules.DocumentationMustMeetCharacterPercentage, 
-                        documentationType, 
-                        CommentVerifier.MinimumCharacterPercentage, 
+                        element,
+                        lineNumber,
+                        Rules.DocumentationMustMeetCharacterPercentage,
+                        documentationType,
+                        CommentVerifier.MinimumCharacterPercentage,
                         100 - CommentVerifier.MinimumCharacterPercentage);
                 }
             }
@@ -1513,7 +1491,7 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(document, "document");
 
             // Get the settings.
-            AnalyzerSettings settings = new AnalyzerSettings();
+            AnalyzerSettings settings = default(AnalyzerSettings);
             settings.IgnorePrivates = DocumentationRules.IgnorePrivatesDefaultValue;
             settings.IgnoreInternals = DocumentationRules.IgnoreInternalsDefaultValue;
             settings.RequireFields = DocumentationRules.IncludeFieldsDefaultValue;
@@ -2517,7 +2495,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Returns True if the first type defined is partial, otherwise False and also returns the first type name and first ElementType in the document. 
+        /// Returns True if the first type defined is partial, otherwise False and also returns the first type name and first ElementType in the document.
         /// For partial classes it returns the name of the partial class concatenated with its first non-partial child.
         /// </summary>
         /// <param name="parentElement">
@@ -2640,7 +2618,7 @@ namespace StyleCop.CSharp
 
             // This method is optimized for performance. It loops through the collection of child nodes under the given
             // documentation node. Each time it finds an 'include' node, it will remove that node and replace it with
-            // the included contents, inline. Doing this replacement unfortunately destroys the enumerator that we are 
+            // the included contents, inline. Doing this replacement unfortunately destroys the enumerator that we are
             // using to loop through the child nodes. Therefor, whenever the count of child nodes is two or greater,
             // we copy the collection of child nodes into a temporary array before doing the search and replace.
             // We omit this step whenever there is only a single child node.
@@ -2913,7 +2891,7 @@ namespace StyleCop.CSharp
 
             if (rawDocs != null && formattedDocs != null)
             {
-                // Check whether the method has an <inheritdoc> tag at the root. If so, discontinue checking the contents of the header, 
+                // Check whether the method has an <inheritdoc> tag at the root. If so, discontinue checking the contents of the header,
                 // but verify that the class actually inherits from a base class. Otherwise this tag is not allowed.
                 if (rawDocs.SelectSingleNode("root/inheritdoc") != null)
                 {
@@ -3004,7 +2982,7 @@ namespace StyleCop.CSharp
 
             IList<string> knownExtensions = new[]
                                                 {
-                                                    ".asax", ".ascx", ".ashx", ".asmx", ".aspx", ".axd", ".browser", ".cd", ".compile", ".config", ".master", ".msgx", 
+                                                    ".asax", ".ascx", ".ashx", ".asmx", ".aspx", ".axd", ".browser", ".cd", ".compile", ".config", ".master", ".msgx",
                                                     ".svc", ".cs"
                                                 };
 
@@ -3072,15 +3050,11 @@ namespace StyleCop.CSharp
             return true;
         }
 
-        #endregion
-
         /// <summary>
         /// The settings for the analyzer.
         /// </summary>
         private struct AnalyzerSettings
         {
-            #region Fields
-
             /// <summary>
             /// Indicates whether to ignore internal members.
             /// </summary>
@@ -3095,8 +3069,6 @@ namespace StyleCop.CSharp
             /// Indicates whether to require documentation for fields.
             /// </summary>
             public bool RequireFields;
-
-            #endregion
         }
 
         /// <summary>
@@ -3104,8 +3076,6 @@ namespace StyleCop.CSharp
         /// </summary>
         private class CachedXmlDocument
         {
-            #region Fields
-
             /// <summary>
             /// The document.
             /// </summary>
@@ -3116,12 +3086,8 @@ namespace StyleCop.CSharp
             /// </summary>
             private readonly string filePath;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the CachedXmlDocument class.
+            /// Initializes a new instance of the <see cref="CachedXmlDocument"/> class.
             /// </summary>
             /// <param name="filePath">
             /// The path to the file on disk.
@@ -3137,10 +3103,6 @@ namespace StyleCop.CSharp
                 this.filePath = filePath;
                 this.document = document;
             }
-
-            #endregion
-
-            #region Public Properties
 
             /// <summary>
             /// Gets the document.
@@ -3163,8 +3125,6 @@ namespace StyleCop.CSharp
                     return this.filePath;
                 }
             }
-
-            #endregion
         }
     }
 }

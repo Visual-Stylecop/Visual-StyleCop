@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,8 +30,6 @@ namespace StyleCop
     [Serializable]
     public sealed class SyntaxException : Exception
     {
-        #region Fields
-
         /// <summary>
         /// The line number that the error appears on.
         /// </summary>
@@ -42,19 +40,15 @@ namespace StyleCop
         /// </summary>
         private readonly SourceCode sourceCode;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the SyntaxException class.
+        /// Initializes a new instance of the <see cref="SyntaxException"/> class.
         /// </summary>
         public SyntaxException()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the SyntaxException class.
+        /// Initializes a new instance of the <see cref="SyntaxException"/> class.
         /// </summary>
         /// <param name="sourceCode">
         /// The source code document containing the exception.
@@ -73,7 +67,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the SyntaxException class.
+        /// Initializes a new instance of the <see cref="SyntaxException"/> class.
         /// </summary>
         /// <param name="sourceCode">
         /// The source code document containing the exception.
@@ -96,7 +90,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the SyntaxException class.
+        /// Initializes a new instance of the <see cref="SyntaxException"/> class.
         /// </summary>
         /// <param name="sourceCode">
         /// The source code document containing the exception.
@@ -119,7 +113,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the SyntaxException class.
+        /// Initializes a new instance of the <see cref="SyntaxException"/> class.
         /// </summary>
         /// <param name="sourceCode">
         /// The source code document containing the exception.
@@ -146,7 +140,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the SyntaxException class.
+        /// Initializes a new instance of the <see cref="SyntaxException"/> class.
         /// </summary>
         /// <param name="serializationInfo">
         /// Holds the serialization info about the exception.
@@ -159,10 +153,6 @@ namespace StyleCop
         {
             Param.Ignore(serializationInfo, streamingContext);
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the line number that the syntax error appears on.
@@ -186,10 +176,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Populates a SerializationInfo with the data needed to serialize the target object.
         /// </summary>
@@ -205,7 +191,5 @@ namespace StyleCop
             Param.Ignore(info, context);
             base.GetObjectData(info, context);
         }
-
-        #endregion
     }
 }

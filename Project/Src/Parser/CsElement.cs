@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,16 +29,10 @@ namespace StyleCop.CSharp
     [SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", Justification = "Camel case better serves in this case.")]
     public abstract class CsElement : CodeUnit, ICodeElement
     {
-        #region Static Fields
-
         /// <summary>
         /// An empty array of elements.
         /// </summary>
         private static readonly CsElement[] EmptyElementArray = new CsElement[0];
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The list of attributes attached to the element.
@@ -115,12 +109,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private string fullyQualifiedName;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CsElement class.
+        /// Initializes a new instance of the <see cref="CsElement"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -150,14 +140,14 @@ namespace StyleCop.CSharp
         /// Indicates whether the element was generated or written by hand.
         /// </param>
         internal CsElement(
-            CsDocument document, 
-            CsElement parent, 
-            ElementType type, 
-            string name, 
-            XmlHeader header, 
-            ICollection<Attribute> attributes, 
-            Declaration declaration, 
-            bool unsafeCode, 
+            CsDocument document,
+            CsElement parent,
+            ElementType type,
+            string name,
+            XmlHeader header,
+            ICollection<Attribute> attributes,
+            Declaration declaration,
+            bool unsafeCode,
             bool generated)
             : base(CodePartType.Element)
         {
@@ -263,7 +253,7 @@ namespace StyleCop.CSharp
             }
 
             // There is only one type of element which is allowed to have a token
-            // list consisting of nothing other than whitespace, newlines, etc., 
+            // list consisting of nothing other than whitespace, newlines, etc.,
             // which is the document root. This happens if you have a document which
             // contains nothing other than whitespace. Due to this we do not want to
             // trim down the token list for the root element, but we do want to for
@@ -273,10 +263,6 @@ namespace StyleCop.CSharp
                 this.TrimTokens = false;
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the element's access modifier.
@@ -304,7 +290,7 @@ namespace StyleCop.CSharp
         /// <summary>
         /// Gets or sets the analyzer tag.
         /// </summary>
-        /// <remarks>A StyleCop rules analyzer can temporarily store and retrieve a value in this property. This value will be lost once 
+        /// <remarks>A StyleCop rules analyzer can temporarily store and retrieve a value in this property. This value will be lost once
         /// the rules analyzer has completed its analysis of the document containing this code element.</remarks>
         public object AnalyzerTag
         {
@@ -480,10 +466,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets or sets the fully qualified name of the element.
         /// </summary>
@@ -500,10 +482,6 @@ namespace StyleCop.CSharp
                 this.fullyQualifiedName = value;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Adds one violation to this element.
@@ -559,10 +537,10 @@ namespace StyleCop.CSharp
         /// The type of the context item.
         /// </typeparam>
         public void WalkElement<T>(
-            CodeWalkerElementVisitor<T> elementCallback, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CodeWalkerElementVisitor<T> elementCallback,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.Ignore(elementCallback, statementCallback, expressionCallback, queryClauseCallback, context);
@@ -649,9 +627,9 @@ namespace StyleCop.CSharp
         /// Callback executed when a query clause is visited.
         /// </param>
         public void WalkElement(
-            CodeWalkerElementVisitor<object> elementCallback, 
-            CodeWalkerStatementVisitor<object> statementCallback, 
-            CodeWalkerExpressionVisitor<object> expressionCallback, 
+            CodeWalkerElementVisitor<object> elementCallback,
+            CodeWalkerStatementVisitor<object> statementCallback,
+            CodeWalkerExpressionVisitor<object> expressionCallback,
             CodeWalkerQueryClauseVisitor<object> queryClauseCallback)
         {
             Param.Ignore(elementCallback, statementCallback, expressionCallback, queryClauseCallback);
@@ -703,10 +681,6 @@ namespace StyleCop.CSharp
             Param.Ignore(elementCallback);
             this.WalkElement(elementCallback, null, null, null, null);
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Adds a child element to this element.
@@ -808,7 +782,5 @@ namespace StyleCop.CSharp
                 this.actualAccess = AccessModifierType.Private;
             }
         }
-
-        #endregion
     }
 }

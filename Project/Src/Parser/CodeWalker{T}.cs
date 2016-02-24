@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -129,8 +129,6 @@ namespace StyleCop.CSharp
     /// </typeparam>
     internal class CodeWalker<T>
     {
-        #region Fields
-
         /// <summary>
         /// Callback executed when an element is visited.
         /// </summary>
@@ -151,12 +149,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly CodeWalkerStatementVisitor<T> statementCallback;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class. 
+        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class.
         /// Initializes a new instance of the CodeWalker class.
         /// </summary>
         /// <param name="document">
@@ -178,11 +172,11 @@ namespace StyleCop.CSharp
         /// The optional visitor context data.
         /// </param>
         private CodeWalker(
-            CsDocument document, 
-            CodeWalkerElementVisitor<T> elementCallback, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CsDocument document,
+            CodeWalkerElementVisitor<T> elementCallback,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(document, "document");
@@ -201,7 +195,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class. 
+        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class.
         /// Initializes a new instance of the CodeWalker class.
         /// </summary>
         /// <param name="element">
@@ -223,11 +217,11 @@ namespace StyleCop.CSharp
         /// The optional visitor context data.
         /// </param>
         private CodeWalker(
-            CsElement element, 
-            CodeWalkerElementVisitor<T> elementCallback, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CsElement element,
+            CodeWalkerElementVisitor<T> elementCallback,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(element, "element");
@@ -246,7 +240,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class. 
+        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class.
         /// Initializes a new instance of the CodeWalker class.
         /// </summary>
         /// <param name="statement">
@@ -265,10 +259,10 @@ namespace StyleCop.CSharp
         /// The optional visitor context data.
         /// </param>
         private CodeWalker(
-            Statement statement, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            Statement statement,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(statement, "statement");
@@ -285,7 +279,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class. 
+        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class.
         /// Initializes a new instance of the CodeWalker class.
         /// </summary>
         /// <param name="expression">
@@ -304,10 +298,10 @@ namespace StyleCop.CSharp
         /// The optional visitor context data.
         /// </param>
         private CodeWalker(
-            Expression expression, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            Expression expression,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(expression, "expression");
@@ -324,7 +318,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class. 
+        /// Initializes a new instance of the <see cref="CodeWalker{T}"/> class.
         /// Initializes a new instance of the CodeWalker class.
         /// </summary>
         /// <param name="queryClause">
@@ -343,10 +337,10 @@ namespace StyleCop.CSharp
         /// The optional visitor context data.
         /// </param>
         private CodeWalker(
-            QueryClause queryClause, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            QueryClause queryClause,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(queryClause, "queryClause");
@@ -360,17 +354,13 @@ namespace StyleCop.CSharp
             this.queryClauseCallback = queryClauseCallback;
 
             this.WalkQueryClause(
-                queryClause, 
-                queryClause.ParentQueryClause, 
-                queryClause.FindParentExpression(), 
-                queryClause.FindParentStatement(), 
-                queryClause.FindParentElement(), 
+                queryClause,
+                queryClause.ParentQueryClause,
+                queryClause.FindParentExpression(),
+                queryClause.FindParentStatement(),
+                queryClause.FindParentElement(),
                 context);
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Creates and starts a code walker.
@@ -393,14 +383,13 @@ namespace StyleCop.CSharp
         /// <param name="context">
         /// The optional visitor context data.
         /// </param>
-        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", 
-            Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
+        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
         public static void Start(
-            CsDocument document, 
-            CodeWalkerElementVisitor<T> elementCallback, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CsDocument document,
+            CodeWalkerElementVisitor<T> elementCallback,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(document, "document");
@@ -434,14 +423,13 @@ namespace StyleCop.CSharp
         /// <param name="context">
         /// The optional visitor context data.
         /// </param>
-        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", 
-            Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
+        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
         public static void Start(
-            CsElement element, 
-            CodeWalkerElementVisitor<T> elementCallback, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CsElement element,
+            CodeWalkerElementVisitor<T> elementCallback,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(element, "element");
@@ -472,13 +460,12 @@ namespace StyleCop.CSharp
         /// <param name="context">
         /// The optional visitor context data.
         /// </param>
-        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", 
-            Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
+        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
         public static void Start(
-            Statement statement, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            Statement statement,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(statement, "statement");
@@ -508,13 +495,12 @@ namespace StyleCop.CSharp
         /// <param name="context">
         /// The optional visitor context data.
         /// </param>
-        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", 
-            Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
+        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
         public static void Start(
-            Expression expression, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            Expression expression,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(expression, "expression");
@@ -544,13 +530,12 @@ namespace StyleCop.CSharp
         /// <param name="context">
         /// The optional visitor context data.
         /// </param>
-        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", 
-            Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
+        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", Justification = "The CodeWalker instance is create but not saved because the constructor walks through the elements.")]
         public static void Start(
-            QueryClause queryClause, 
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            QueryClause queryClause,
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.AssertNotNull(queryClause, "queryClause");
@@ -561,10 +546,6 @@ namespace StyleCop.CSharp
 
             new CodeWalker<T>(queryClause, statementCallback, expressionCallback, queryClauseCallback, context);
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Delegate for a callback executed when an element is visited.
@@ -936,7 +917,5 @@ namespace StyleCop.CSharp
 
             return true;
         }
-
-        #endregion
     }
 }

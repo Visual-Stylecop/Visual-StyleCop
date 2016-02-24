@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -24,8 +24,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal class UpdateSolutionListener : IVsUpdateSolutionEvents, IDisposable
     {
-        #region Private fields
-
         /// <summary>
         /// Mutex for thread safety.
         /// </summary>
@@ -51,12 +49,8 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private IServiceProvider serviceProvider;
 
-        #endregion Private fields
-        
-        #region Constructors
-
         /// <summary>
-        /// Initializes a new instance of the UpdateSolutionListener class.
+        /// Initializes a new instance of the <see cref="UpdateSolutionListener"/> class.
         /// </summary>
         /// <param name="serviceProvider">The system service provider.</param>
         internal UpdateSolutionListener(IServiceProvider serviceProvider)
@@ -66,14 +60,10 @@ namespace StyleCop.VisualStudio
             this.serviceProvider = serviceProvider;
         }
 
-        #endregion Constructors
-
         /// <summary>
         /// Fired when the build begins.
         /// </summary>
         internal event EventHandler BeginBuild;
-
-        #region Private properties
 
         /// <summary>
         /// Gets the instance of the <see cref="T:IVsSolutionBuildManager"/>
@@ -91,10 +81,6 @@ namespace StyleCop.VisualStudio
                 return this.solutionBuildManager;
             }
         }
-
-        #endregion Private properties
-
-        #region Public Methods
 
         /// <summary>
         /// Initializes the object.
@@ -116,10 +102,6 @@ namespace StyleCop.VisualStudio
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        #endregion Public Methods
-
-        #region IVsUpdateSolutionEvents Members
 
         /// <summary>
         /// Method is not implemented.
@@ -169,7 +151,7 @@ namespace StyleCop.VisualStudio
         }
 
         /// <summary>
-        /// Called before the first project configuration is about to be built. 
+        /// Called before the first project configuration is about to be built.
         /// </summary>
         /// <param name="cancelUpdate">The parameter is not used.</param>
         /// <returns>Returns S_OK.</returns>
@@ -185,17 +167,13 @@ namespace StyleCop.VisualStudio
             return VSConstants.S_OK;
         }
 
-        #endregion
-
-        #region Protected methods
-
         /// <summary>
         /// Disposes the object.
         /// </summary>
         /// <param name="disposing">Is the object being disposed?</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage", 
-            "CA1806:DoNotIgnoreMethodResults", 
+            "Microsoft.Usage",
+            "CA1806:DoNotIgnoreMethodResults",
             MessageId = "Microsoft.VisualStudio.Shell.Interop.IVsSolutionBuildManager.UnadviseUpdateSolutionEvents(System.UInt32)",
             Justification = "We ignore the HRESULT since we dont want to throw in the dispose")]
         protected virtual void Dispose(bool disposing)
@@ -216,7 +194,5 @@ namespace StyleCop.VisualStudio
                 }
             }
         }
-
-        #endregion Protected methods
     }
 }

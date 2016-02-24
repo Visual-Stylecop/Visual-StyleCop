@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,19 +25,13 @@ namespace StyleCop.CSharp
     /// <subcategory>token</subcategory>
     public sealed class Region : Preprocessor
     {
-        #region Fields
-
         /// <summary>
         /// Indicates whether this is a beginning region.
         /// </summary>
         private readonly bool beginning;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Region class.
+        /// Initializes a new instance of the <see cref="Region"/> class.
         /// </summary>
         /// <param name="text">
         /// The line text.
@@ -66,10 +60,6 @@ namespace StyleCop.CSharp
             this.beginning = beginning;
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets a value indicating whether this is the beginning of a region block.
         /// </summary>
@@ -97,7 +87,5 @@ namespace StyleCop.CSharp
         /// Gets the partner of this region tag.
         /// </summary>
         public Region Partner { get; internal set; }
-
-        #endregion
     }
 }

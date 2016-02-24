@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -33,8 +33,6 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "StyleCop", Justification = "This is the correct casing.")]
     public sealed class StyleCopTask : Task
     {
-        #region Constants
-
         /// <summary>
         /// Allow 10000 violations by default.
         /// </summary>
@@ -49,10 +47,6 @@ namespace StyleCop
         /// SubCategory used when logging errors/warnings to MSBuild.
         /// </summary>
         private const string MSBuildSubCategory = null;
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// MSBuild input - see corresponding public property for details.
@@ -119,16 +113,11 @@ namespace StyleCop
         /// </summary>
         private int violationLimit;
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets or sets the array of folders to search for addin modules.
         /// </summary>
         /// <remarks>This value is set by MSBuild.</remarks>
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Addin", 
-            Justification = "API has already been published and should not be changed.")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Addin", Justification = "API has already been published and should not be changed.")]
         public ITaskItem[] AdditionalAddinPaths
         {
             get
@@ -181,7 +170,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether StyleCop should ignore cached results and 
+        /// Gets or sets a value indicating whether StyleCop should ignore cached results and
         /// perform a clean analysis.
         /// </summary>
         /// <remarks>This value is set by MSBuild.</remarks>
@@ -318,10 +307,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Executes this MSBuild task, based on the input values passed in by the MSBuild engine.
         /// </summary>
@@ -406,10 +391,6 @@ namespace StyleCop
             return StyleCopTrace.Out(this.succeeded);
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Called when StyleCop outputs messages.
         /// </summary>
@@ -479,14 +460,14 @@ namespace StyleCop
                         else
                         {
                             this.Log.LogWarning(
-                                MSBuildSubCategory, 
-                                MSBuildErrorCode, 
-                                null, 
+                                MSBuildSubCategory,
+                                MSBuildErrorCode,
+                                null,
                                 path,
                                 e.Location.Value.StartPoint.LineNumber,
                                 e.Location.Value.StartPoint.IndexOnLine,
                                 e.Location.Value.EndPoint.LineNumber,
-                                e.Location.Value.EndPoint.IndexOnLine, 
+                                e.Location.Value.EndPoint.IndexOnLine,
                                 description);
                         }
                     }
@@ -499,21 +480,19 @@ namespace StyleCop
                         else
                         {
                             this.Log.LogError(
-                                MSBuildSubCategory, 
-                                MSBuildErrorCode, 
-                                null, 
+                                MSBuildSubCategory,
+                                MSBuildErrorCode,
+                                null,
                                 path,
                                 e.Location.Value.StartPoint.LineNumber,
                                 e.Location.Value.StartPoint.IndexOnLine,
                                 e.Location.Value.EndPoint.LineNumber,
-                                e.Location.Value.EndPoint.IndexOnLine, 
+                                e.Location.Value.EndPoint.IndexOnLine,
                                 description);
                         }
                     }
                 }
             }
         }
-
-        #endregion
     }
 }

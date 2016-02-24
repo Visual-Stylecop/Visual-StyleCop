@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -37,8 +37,6 @@ namespace StyleCop.VisualStudio
     [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "The class is complex.")]
     public sealed class StyleCopVSPackage : Package, IDisposable, IVsShellPropertyEvents
     {
-        #region Private Fields
-
         /// <summary>
         /// The helper class for performing analysis.
         /// </summary>
@@ -58,10 +56,6 @@ namespace StyleCop.VisualStudio
         /// Used to track whether VS has left its zombie state.
         /// </summary>
         private uint cookie;
-        
-        #endregion Private Fields
-
-        #region Private Delegates
 
         /// <summary>
         /// Delegate for text added to the output pane.
@@ -69,10 +63,6 @@ namespace StyleCop.VisualStudio
         /// <param name="output">The text to add.</param>
         private delegate void AddOutputEventHandler(string output);
 
-        #endregion Private Delegates
-
-        #region Internal Properties
-        
         /// <summary>
         /// Gets the StyleCop core object.
         /// </summary>
@@ -105,10 +95,6 @@ namespace StyleCop.VisualStudio
             }
         }
 
-        #endregion Internal Properties
-
-        #region Private Properties
-
         /// <summary>
         /// Gets a value indicating whether the VS DTE object is available yet. This object is available once the zombie state has gone.
         /// </summary>
@@ -138,10 +124,6 @@ namespace StyleCop.VisualStudio
                 return present == 1;
             }
         }
-
-        #endregion Private Properties
-
-        #region Public Methods
 
         /// <summary>
         /// Disposes the contents of the class.
@@ -187,7 +169,7 @@ namespace StyleCop.VisualStudio
             if (propid == (int)__VSSPROPID.VSSPROPID_Zombie && (bool)var == false)
             {
                 this.InitializeMenus();
-                
+
                 // Our VS Shell EventListener is no longer needed
                 IVsShell shellService = this.GetService(typeof(SVsShell)) as IVsShell;
 
@@ -195,17 +177,13 @@ namespace StyleCop.VisualStudio
                 {
                     ErrorHandler.ThrowOnFailure(shellService.UnadviseShellPropertyChanges(this.cookie));
                 }
-                
+
                 this.cookie = 0;
             }
-            
+
             return VSConstants.S_OK;
         }
-        
-        #endregion Public Methods
 
-        #region Protected Override Methods
-       
         /// <summary>
         /// Initializes the package.
         /// </summary>
@@ -233,7 +211,7 @@ namespace StyleCop.VisualStudio
                 }
             }
         }
-        
+
         /// <summary>
         /// Disposes the contents of the class.
         /// </summary>
@@ -255,10 +233,6 @@ namespace StyleCop.VisualStudio
             }
         }
 
-        #endregion Protected Override Methods
-
-        #region Private Methods
-       
         /// <summary>
         /// Completes our initialization. This may be called from out overridden Initialize method and sometimes waiting until after the zombie state has
         /// gone from VS.
@@ -292,7 +266,5 @@ namespace StyleCop.VisualStudio
                 this.commandSet.Initialize();
             }
         }
-
-        #endregion Private Methods
     }
 }

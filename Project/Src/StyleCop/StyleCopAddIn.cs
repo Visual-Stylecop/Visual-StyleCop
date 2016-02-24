@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -33,24 +33,13 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "StyleCop", Justification = "This is the correct casing.")]
     public abstract class StyleCopAddIn : IPropertyContainer
     {
-        #region Constants
-
         /// <summary>
         /// The default CheckId prefix for rules.
         /// </summary>
         private const string DefaultCheckIdPrefix = "SA";
-
-        #endregion
-
-        #region Static Fields
-
         private static DateTime lastWriteTime;
 
         private static bool lastWriteTimeInitialized;
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The unique ID of the add-in.
@@ -82,21 +71,13 @@ namespace StyleCop
         /// </summary>
         private string name;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the StyleCopAddIn class.
+        /// Initializes a new instance of the <see cref="StyleCopAddIn"/> class.
         /// </summary>
         protected StyleCopAddIn()
         {
             this.id = GetIdFromAddInType(this.GetType());
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the StyleCop core instance.
@@ -193,10 +174,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets the collection of rules exposed by this analyzer.
         /// </summary>
@@ -207,10 +184,6 @@ namespace StyleCop
                 return this.rules.Values;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Adds one violation to the given code element.
@@ -559,10 +532,6 @@ namespace StyleCop
         {
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Gets the ID of an add-in given the type of that add-in.
         /// </summary>
@@ -588,7 +557,7 @@ namespace StyleCop
         /// The add-in's XML initialization document.
         /// </param>
         /// <param name="topMostType">
-        /// Indicates whether the xml document comes from the top-most type in the 
+        /// Indicates whether the xml document comes from the top-most type in the
         /// add-in's type hierarchy.
         /// </param>
         /// <param name="isKnownAssembly">
@@ -615,14 +584,13 @@ namespace StyleCop
         /// The xml document to load.
         /// </param>
         /// <param name="topmostType">
-        /// Indicates whether the xml document comes from the top-most type in the 
+        /// Indicates whether the xml document comes from the top-most type in the
         /// add-in's type hierarchy.
         /// </param>
         /// <param name="isKnownAssembly">
         /// Indicates whether the add-in comes from a known assembly.
         /// </param>
-        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", 
-            Justification = "Compliance would break well-defined public API.")]
+        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Compliance would break well-defined public API.")]
         protected virtual void ImportInitializationXml(XmlDocument document, bool topmostType, bool isKnownAssembly)
         {
             Param.RequireNotNull(document, "document");
@@ -824,21 +792,19 @@ namespace StyleCop
                     }
 
                     Rule type = new Rule(
-                        ruleName.Value, 
-                        this.id, 
-                        ruleCheckId.Value, 
-                        context, 
-                        warningValue, 
-                        ruleDescription == null ? string.Empty : TrimXmlContent(ruleDescription.InnerText), 
-                        ruleGroup, 
-                        !disabledByDefaultValue, 
+                        ruleName.Value,
+                        this.id,
+                        ruleCheckId.Value,
+                        context,
+                        warningValue,
+                        ruleDescription == null ? string.Empty : TrimXmlContent(ruleDescription.InnerText),
+                        ruleGroup,
+                        !disabledByDefaultValue,
                         canDisableValue);
 
                     this.rules.Add(ruleName.Value, type);
                 }
             }
         }
-
-        #endregion
     }
 }

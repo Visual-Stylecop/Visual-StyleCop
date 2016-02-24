@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.Internal
     /// </summary>
     internal class ParamTokens
     {
-        #region Fields
-
         /// <summary>
         /// The parameter check token.
         /// </summary>
@@ -37,10 +35,6 @@ namespace StyleCop.Internal
         /// The tokens that make up the parameter.
         /// </summary>
         private readonly ICollection<Node<CsToken>> tokenNodes;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ParamTokens"/> class.
@@ -59,10 +53,6 @@ namespace StyleCop.Internal
             this.paramTokenNode = paramTokenNode;
             this.tokenNodes = tokenNodes;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the node.
@@ -85,7 +75,5 @@ namespace StyleCop.Internal
                 return this.tokenNodes;
             }
         }
-
-        #endregion
     }
 }

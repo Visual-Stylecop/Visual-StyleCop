@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop.CSharp
     /// </summary>
     public class CodeUnit : IWriteableCodeUnit
     {
-        #region Static Fields
-
         /// <summary>
         /// An empty array of expressions.
         /// </summary>
@@ -43,10 +41,6 @@ namespace StyleCop.CSharp
         /// An empty master list of tokens.
         /// </summary>
         private static CsTokenList emptyTokenList;
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The type of the code unit.
@@ -98,12 +92,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private bool trimTokens = true;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CodeUnit class.
+        /// Initializes a new instance of the <see cref="CodeUnit"/> class.
         /// </summary>
         /// <param name="codeUnitType">
         /// The type of the code unit.
@@ -115,7 +105,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the CodeUnit class.
+        /// Initializes a new instance of the <see cref="CodeUnit"/> class.
         /// </summary>
         /// <param name="codeUnitType">
         /// The type of the code unit.
@@ -134,10 +124,6 @@ namespace StyleCop.CSharp
 
             Debug.Assert(this.tokens.First != null, "The tokens should not be empty");
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the collection of expressions beneath this code unit.
@@ -335,12 +321,8 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
-        /// Gets or sets a value indicating whether to automatically trim down the 
+        /// Gets or sets a value indicating whether to automatically trim down the
         /// token list whenever it is set.
         /// </summary>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "A property should always have a get accessor.")]
@@ -357,10 +339,6 @@ namespace StyleCop.CSharp
                 this.trimTokens = value;
             }
         }
-
-        #endregion
-
-        #region Explicit Interface Methods
 
         /// <summary>
         /// Adds a child expression.
@@ -421,10 +399,6 @@ namespace StyleCop.CSharp
             Param.Ignore(parentCodeUnit);
             this.parent = parentCodeUnit;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Adds a child expression.
@@ -539,7 +513,5 @@ namespace StyleCop.CSharp
 
             return this.friendlyTypeName;
         }
-
-        #endregion
     }
 }

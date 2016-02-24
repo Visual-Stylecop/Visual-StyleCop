@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,28 +27,18 @@ namespace StyleCop.CSharp
     /// <subcategory>statement</subcategory>
     public abstract class Statement : CodeUnit
     {
-        #region Static Fields
-
         /// <summary>
         /// An empty array of statements.
         /// </summary>
         private static readonly Statement[] EmptyStatementArray = new Statement[0];
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The type of the statement.
         /// </summary>
         private readonly StatementType type;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Statement class.
+        /// Initializes a new instance of the <see cref="Statement"/> class.
         /// </summary>
         /// <param name="type">
         /// The type of the statement.
@@ -62,7 +52,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the Statement class.
+        /// Initializes a new instance of the <see cref="Statement"/> class.
         /// </summary>
         /// <param name="type">
         /// The type of the statement.
@@ -70,8 +60,7 @@ namespace StyleCop.CSharp
         /// <param name="tokens">
         /// The list of tokens that form the statement.
         /// </param>
-        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors", 
-            Justification = "The tokens property is virtual but it this is safe as statements are sealed.")]
+        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors", Justification = "The tokens property is virtual but it this is safe as statements are sealed.")]
         internal Statement(StatementType type, CsTokenList tokens)
             : base(CodePartType.Statement, tokens)
         {
@@ -85,10 +74,6 @@ namespace StyleCop.CSharp
 
             Debug.Assert(this.Tokens.First != null, "The tokens list should not be empty");
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the collection of statements which are attached to
@@ -115,10 +100,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Walks through the code units in the statement.
         /// </summary>
@@ -138,9 +119,9 @@ namespace StyleCop.CSharp
         /// The type of the context item.
         /// </typeparam>
         public void WalkStatement<T>(
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.Ignore(statementCallback, expressionCallback, queryClauseCallback, context);
@@ -199,8 +180,8 @@ namespace StyleCop.CSharp
         /// Callback executed when a query clause is visited.
         /// </param>
         public void WalkStatement(
-            CodeWalkerStatementVisitor<object> statementCallback, 
-            CodeWalkerExpressionVisitor<object> expressionCallback, 
+            CodeWalkerStatementVisitor<object> statementCallback,
+            CodeWalkerExpressionVisitor<object> expressionCallback,
             CodeWalkerQueryClauseVisitor<object> queryClauseCallback)
         {
             Param.Ignore(statementCallback, expressionCallback, queryClauseCallback);
@@ -233,7 +214,5 @@ namespace StyleCop.CSharp
             Param.Ignore(statementCallback);
             this.WalkStatement(statementCallback, null, null, null);
         }
-
-        #endregion
     }
 }

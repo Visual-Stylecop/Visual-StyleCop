@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop
     /// </summary>
     public class PropertyControl : TabControl
     {
-        #region Fields
-
         /// <summary>
         /// The context for the property pages.
         /// </summary>
@@ -85,21 +83,13 @@ namespace StyleCop
         /// </summary>
         private TabPage[] tabPages;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the PropertyControl class.
+        /// Initializes a new instance of the <see cref="PropertyControl"/> class.
         /// </summary>
         public PropertyControl()
         {
             this.InitializeComponent();
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the currently active page.
@@ -206,10 +196,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Called when the property control should be cancelled.
         /// </summary>
@@ -262,10 +248,6 @@ namespace StyleCop
                 }
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Applies the data on the property pages.
@@ -337,11 +319,11 @@ namespace StyleCop
                     if (!this.core.Environment.SaveSettings(this.localSettings, out exception))
                     {
                         AlertDialog.Show(
-                            this.core, 
-                            this, 
-                            string.Format(CultureInfo.CurrentUICulture, Strings.CouldNotSaveSettingsFile, exception.Message), 
-                            Strings.Title, 
-                            MessageBoxButtons.OK, 
+                            this.core,
+                            this,
+                            string.Format(CultureInfo.CurrentUICulture, Strings.CouldNotSaveSettingsFile, exception.Message),
+                            Strings.Title,
+                            MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
 
                         result = PropertyControlSaveResult.SaveError;
@@ -385,10 +367,10 @@ namespace StyleCop
         /// The context for the property control.
         /// </param>
         internal void Initialize(
-            IPropertyControlHost hostInstance, 
-            IList<IPropertyControlPage> propertyPages, 
-            WritableSettings settings, 
-            StyleCopCore coreInstance, 
+            IPropertyControlHost hostInstance,
+            IList<IPropertyControlPage> propertyPages,
+            WritableSettings settings,
+            StyleCopCore coreInstance,
             params object[] contextItem)
         {
             Param.AssertNotNull(hostInstance, "hostInstance");
@@ -458,8 +440,8 @@ namespace StyleCop
             this.SizeChanged += this.OnSizeChanged;
         }
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -507,7 +489,5 @@ namespace StyleCop
             this.tabPages[index].Height = rect.Height;
             this.tabPages[index].Width = rect.Width;
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,14 +26,10 @@ namespace StyleCop.CSharp
     /// <summary>
     /// Parses a C# code file.
     /// </summary>
-    [SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable", 
-        Justification = "The class does not create anything that it should dispose.")]
-    [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Class is split across multiple files for added maintainability.")
-    ]
+    [SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable", Justification = "The class does not create anything that it should dispose.")]
+    [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Class is split across multiple files for added maintainability.")]
     internal partial class CodeParser
     {
-        #region Fields
-
         /// <summary>
         /// The code lexer.
         /// </summary>
@@ -59,12 +55,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private SymbolManager symbols;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CodeParser class.
+        /// Initializes a new instance of the <see cref="CodeParser"/> class.
         /// </summary>
         /// <param name="parser">
         /// The C# parser.
@@ -82,7 +74,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the CodeParser class.
+        /// Initializes a new instance of the <see cref="CodeParser"/> class.
         /// </summary>
         /// <param name="parser">
         /// The C# parser.
@@ -99,10 +91,6 @@ namespace StyleCop.CSharp
             this.symbols = symbols;
         }
 
-        #endregion
-
-        #region Enums
-
         /// <summary>
         /// The types of symbols to skip while advancing past symbols.
         /// </summary>
@@ -112,47 +100,43 @@ namespace StyleCop.CSharp
             /// <summary>
             /// Don't skip any symbols.
             /// </summary>
-            None = 0x00, 
+            None = 0x00,
 
             /// <summary>
             /// Skip past all whitespace symbols.
             /// </summary>
-            WhiteSpace = 0x01, 
+            WhiteSpace = 0x01,
 
             /// <summary>
             /// Skip past all end-of-line characters.
             /// </summary>
-            EndOfLine = 0x02, 
+            EndOfLine = 0x02,
 
             /// <summary>
             /// Skip past all single-line comments.
             /// </summary>
-            SingleLineComment = 0x04, 
+            SingleLineComment = 0x04,
 
             /// <summary>
             /// Skip past all multi-line comments.
             /// </summary>
-            MultiLineComment = 0x08, 
+            MultiLineComment = 0x08,
 
             /// <summary>
             /// Skip past all Xml header lines.
             /// </summary>
-            XmlHeader = 0x10, 
+            XmlHeader = 0x10,
 
             /// <summary>
             /// Skip past all preprocessor directives.
             /// </summary>
             Preprocessor = 0x20,
-            
+
             /// <summary>
             /// Skip past all of these types of symbols.
             /// </summary>
             All = 0xFF
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the parsed document.
@@ -164,10 +148,6 @@ namespace StyleCop.CSharp
                 return this.document;
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Adds parameters to the fully qualified name of the item.
@@ -209,7 +189,7 @@ namespace StyleCop.CSharp
 
             Debug.Assert(
                 literal.TokenNode != null && literal.TokenNode.Value != null
-                && (literal.TokenNode.Value.CsTokenClass == CsTokenClass.Type || literal.TokenNode.Value.CsTokenClass == CsTokenClass.GenericType), 
+                && (literal.TokenNode.Value.CsTokenClass == CsTokenClass.Type || literal.TokenNode.Value.CsTokenClass == CsTokenClass.GenericType),
                 "The literal expression does not contain a TypeToken");
 
             return (TypeToken)literal.TokenNode.Value;
@@ -351,18 +331,18 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(start, "start");
 
             return MovePastTokens(
-                tokens, 
-                ref start, 
-                CsTokenType.WhiteSpace, 
-                CsTokenType.EndOfLine, 
-                CsTokenType.SingleLineComment, 
-                CsTokenType.MultiLineComment, 
-                CsTokenType.PreprocessorDirective, 
+                tokens,
+                ref start,
+                CsTokenType.WhiteSpace,
+                CsTokenType.EndOfLine,
+                CsTokenType.SingleLineComment,
+                CsTokenType.MultiLineComment,
+                CsTokenType.PreprocessorDirective,
                 CsTokenType.Attribute);
         }
 
         /// <summary>
-        /// Given a string containing a type, trims out all whitespace and comments from the type string. 
+        /// Given a string containing a type, trims out all whitespace and comments from the type string.
         /// </summary>
         /// <param name="type">
         /// The original type string.
@@ -876,7 +856,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Creates a new syntax exception which attempts to find the best line number 
+        /// Creates a new syntax exception which attempts to find the best line number
         /// given the current set up symbols and tokens.
         /// </summary>
         /// <returns>Returns the exception.</returns>
@@ -886,7 +866,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Walks through the document model and ensures that every item in the model is 
+        /// Walks through the document model and ensures that every item in the model is
         /// correctly mapped to a parent code part.
         /// </summary>
         [Conditional("DEBUG")]
@@ -1263,7 +1243,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Checks whether the symbol manager is currently sitting on the start of a generic token. 
+        /// Checks whether the symbol manager is currently sitting on the start of a generic token.
         /// If so, reads the generic and returns it as a token.
         /// </summary>
         /// <param name="parentReference">
@@ -1355,7 +1335,7 @@ namespace StyleCop.CSharp
         /// The first index to peek.
         /// </param>
         /// <returns>
-        /// Returns the peek index of the next code symbol or -1 if there 
+        /// Returns the peek index of the next code symbol or -1 if there
         /// are no more code symbols.
         /// </returns>
         private int GetNextCodeSymbolIndex(int startIndex)
@@ -1397,7 +1377,7 @@ namespace StyleCop.CSharp
         /// Returns the next code symbol.
         /// </returns>
         /// <exception cref="SyntaxException">
-        /// Will be thrown if there are no more symbols in the document or if the 
+        /// Will be thrown if there are no more symbols in the document or if the
         /// next symbol is not of the expected type.
         /// </exception>
         private Symbol GetNextSymbol(SymbolType symbolType, Reference<ICodePart> parentReference)
@@ -1424,7 +1404,7 @@ namespace StyleCop.CSharp
         /// Returns the next code symbol.
         /// </returns>
         /// <exception cref="SyntaxException">
-        /// Will be thrown if there are no more symbols in the document or if the 
+        /// Will be thrown if there are no more symbols in the document or if the
         /// next symbol is not of the expected type.
         /// </exception>
         private Symbol GetNextSymbol(SymbolType symbolType, SkipSymbols skip, Reference<ICodePart> parentReference)
@@ -1679,11 +1659,11 @@ namespace StyleCop.CSharp
 
                         // The variable has both a type and an identifier.
                         variable = new Variable(
-                            type, 
-                            identifier.Text, 
-                            VariableModifiers.None, 
-                            CodeLocation.Join(type.Location, identifier.Location), 
-                            parentReference, 
+                            type,
+                            identifier.Text,
+                            VariableModifiers.None,
+                            CodeLocation.Join(type.Location, identifier.Location),
+                            parentReference,
                             type.Generated || identifier.Generated);
                     }
                 }
@@ -1692,7 +1672,5 @@ namespace StyleCop.CSharp
             variableReference.Target = variable;
             return variable;
         }
-
-        #endregion
     }
 }

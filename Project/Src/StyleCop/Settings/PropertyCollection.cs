@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop
     /// </summary>
     public class PropertyCollection : ICollection<PropertyValue>
     {
-        #region Fields
-
         /// <summary>
         /// The properties.
         /// </summary>
@@ -39,21 +37,13 @@ namespace StyleCop
         /// </summary>
         private bool readOnly;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the PropertyCollection class.
+        /// Initializes a new instance of the <see cref="PropertyCollection"/> class.
         /// </summary>
         internal PropertyCollection()
         {
             this.properties = new Dictionary<string, PropertyValue>();
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the number of properties in the collection.
@@ -101,10 +91,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Indexers
-
         /// <summary>
         /// Gets the property with the given name.
         /// </summary>
@@ -114,8 +100,7 @@ namespace StyleCop
         /// <returns>
         /// Returns the property or null if there is no property with the given name.
         /// </returns>
-        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "propertyName", 
-            Justification = "The set accessor does not use the propertyName parameter since the name of the property is built-in to the PropertyValue object.")]
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "propertyName", Justification = "The set accessor does not use the propertyName parameter since the name of the property is built-in to the PropertyValue object.")]
         public PropertyValue this[string propertyName]
         {
             get
@@ -132,18 +117,13 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Adds a property to the collection.
         /// </summary>
         /// <param name="property">
         /// The property to add.
         /// </param>
-        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", 
-            Justification = "'Property' is a more appropriate name than 'item' for a property.")]
+        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", Justification = "'Property' is a more appropriate name than 'item' for a property.")]
         public void Add(PropertyValue property)
         {
             Param.RequireNotNull(property, "property");
@@ -187,8 +167,7 @@ namespace StyleCop
         /// <returns>
         /// Returns true if the property is contained within the collection.
         /// </returns>
-        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", 
-            Justification = "'Property' is a more appropriate name than 'item' for a property.")]
+        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", Justification = "'Property' is a more appropriate name than 'item' for a property.")]
         public bool Contains(PropertyValue property)
         {
             Param.RequireNotNull(property, "property");
@@ -266,8 +245,7 @@ namespace StyleCop
         /// Returns true if the property was removed from the property collection, or
         /// false if it did not exist in the collection.
         /// </returns>
-        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", 
-            Justification = "'Property' is a more appropriate name than 'item' for a property.")]
+        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", Justification = "'Property' is a more appropriate name than 'item' for a property.")]
         public bool Remove(PropertyValue property)
         {
             Param.RequireNotNull(property, "property");
@@ -327,10 +305,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Explicit Interface Methods
-
         /// <summary>
         /// Gets an enumerator for iterating through the values in the property collection.
         /// </summary>
@@ -339,7 +313,5 @@ namespace StyleCop
         {
             return this.GetEnumerator();
         }
-
-        #endregion
     }
 }

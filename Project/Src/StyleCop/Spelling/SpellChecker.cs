@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // --------------------------------------------------------------------------------------------------------------------
@@ -27,14 +27,7 @@ namespace StyleCop.Spelling
 
     internal sealed class SpellChecker : IDisposable
     {
-        #region Constants
-
         internal const int MaximumTextLength = 0x40;
-
-        #endregion
-
-        #region Static Fields
-
         private static readonly Language[] Languages = new[]
             {
                 new Language("ar", "mssp7ar.dll", "mssp7ar.lex", 0xc01), new Language("cs", "mssp7cz.dll", "mssp7cz.lex", 0x405),
@@ -58,11 +51,6 @@ namespace StyleCop.Spelling
 
         // The Languages array above needs to be initialized before this static executes.
         private static Dictionary<string, Language> languageTable = BuildLanguageTable();
-
-        #endregion
-
-        #region Fields
-
         private readonly CultureInfo culture;
 
         private readonly int dependantFilesHashCode;
@@ -74,10 +62,6 @@ namespace StyleCop.Spelling
         private NativeMethods.Speller speller;
 
         private Dictionary<string, WordSpelling> wordSpellingCache = new Dictionary<string, WordSpelling>();
-
-        #endregion
-
-        #region Constructors and Destructors
 
         private SpellChecker(CultureInfo culture, Language language)
         {
@@ -91,10 +75,6 @@ namespace StyleCop.Spelling
             this.dependantFilesHashCode =
                 string.Concat(libraryTimestamp.ToString(CultureInfo.InvariantCulture), lexiconTimestamp.ToString(CultureInfo.InvariantCulture)).GetHashCode();
         }
-
-        #endregion
-
-        #region Delegates
 
         private delegate NativeMethods.Ptec ProofCloseLex(IntPtr id, IntPtr lex, bool force);
 
@@ -115,10 +95,6 @@ namespace StyleCop.Spelling
         private delegate NativeMethods.Ptec SpellerClearUdr(IntPtr sid, IntPtr lex);
 
         private delegate NativeMethods.Ptec SpellerDelUdr(IntPtr sid, IntPtr lex, [MarshalAs(UnmanagedType.LPTStr)] string delete);
-
-        #endregion
-
-        #region Enums
 
         internal enum ProofLexType : uint
         {
@@ -275,10 +251,6 @@ namespace StyleCop.Spelling
             Wildcard = 6
         }
 
-        #endregion
-
-        #region Public Properties
-
         public WordCollection AlwaysMisspelledWords
         {
             get
@@ -306,10 +278,6 @@ namespace StyleCop.Spelling
             }
         }
 
-        #endregion
-
-        #region Properties
-
         private bool IsDisposed
         {
             get
@@ -317,10 +285,6 @@ namespace StyleCop.Spelling
                 return this.speller == null;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         public static SpellChecker FromCulture(CultureInfo culture)
         {
@@ -415,10 +379,6 @@ namespace StyleCop.Spelling
             return this.dependantFilesHashCode;
         }
 
-        #endregion
-
-        #region Methods
-
         private static Dictionary<string, Language> BuildLanguageTable()
         {
             Dictionary<string, Language> dictionary = new Dictionary<string, Language>(Languages.Length, StringComparer.OrdinalIgnoreCase);
@@ -451,8 +411,6 @@ namespace StyleCop.Spelling
             }
         }
 
-        #endregion
-
         internal static class KernalNativeMethods
         {
             [return: MarshalAs(UnmanagedType.Bool)]
@@ -468,42 +426,36 @@ namespace StyleCop.Spelling
 
         internal class Language
         {
-            #region Fields
+            private readonly bool isAvailable;
 
-            internal readonly bool IsAvailable;
+            private readonly ushort lcid;
 
-            internal readonly ushort Lcid;
+            private readonly string lexiconFullPath;
 
-            internal readonly string LexiconFullPath;
+            private readonly string libraryFullPath;
 
-            internal readonly string LibraryFullPath;
+            private readonly string name;
 
-            internal readonly string Name;
-            
             private static string pathToOfficeProofingTools;
-            
-            #endregion
-
-            #region Constructors and Destructors
 
             internal Language(string name, string library, string lexicon, ushort lcid)
             {
-                this.Name = name;
-                this.Lcid = lcid;
-                this.LibraryFullPath = Probe(library);
-                this.LexiconFullPath = Probe(lexicon);
+                this.name = name;
+                this.lcid = lcid;
+                this.libraryFullPath = Probe(library);
+                this.lexiconFullPath = Probe(lexicon);
 
-                if (this.LibraryFullPath != null && this.LexiconFullPath != null)
+                if (this.libraryFullPath != null && this.lexiconFullPath != null)
                 {
-                    IntPtr handle = KernalNativeMethods.LoadLibrary(this.LibraryFullPath);
+                    IntPtr handle = KernalNativeMethods.LoadLibrary(this.libraryFullPath);
 
                     if (handle == IntPtr.Zero)
                     {
-                        this.IsAvailable = false;
+                        this.isAvailable = false;
                     }
                     else
                     {
-                        this.IsAvailable = true;
+                        this.isAvailable = true;
                         if (!KernalNativeMethods.FreeLibrary(handle))
                         {
                             throw new Win32Exception();
@@ -512,10 +464,6 @@ namespace StyleCop.Spelling
                 }
             }
 
-            #endregion
-
-            #region Methods
-            
             /// <summary>
             /// Gets a path to the Office 2010 proof directory. Returns string.Empty if the path could not be found.
             /// </summary>
@@ -533,8 +481,48 @@ namespace StyleCop.Spelling
                 }
             }
 
+            internal string LexiconFullPath
+            {
+                get
+                {
+                    return this.lexiconFullPath;
+                }
+            }
+
+            internal bool IsAvailable
+            {
+                get
+                {
+                    return this.isAvailable;
+                }
+            }
+
+            internal string LibraryFullPath
+            {
+                get
+                {
+                    return this.libraryFullPath;
+                }
+            }
+
+            internal string Name
+            {
+                get
+                {
+                    return this.name;
+                }
+            }
+
+            internal ushort Lcid
+            {
+                get
+                {
+                    return this.lcid;
+                }
+            }
+
             private static string Probe(string library)
-            { 
+            {
                 if (!string.IsNullOrEmpty(PathToOfficeProofingTools))
                 {
                     string path = Path.Combine(PathToOfficeProofingTools, library);
@@ -565,8 +553,6 @@ namespace StyleCop.Spelling
 
                 return null;
             }
-
-            #endregion
         }
 
         internal class NativeMethods
@@ -704,8 +690,6 @@ namespace StyleCop.Spelling
 
             internal sealed class Speller : IDisposable
             {
-                #region Fields
-
                 private SpellerAddUdr addUdr;
 
                 private SpellerCheck check;
@@ -727,10 +711,6 @@ namespace StyleCop.Spelling
                 private ProofOpenLex openLex;
 
                 private ProofTerminate terminate;
-
-                #endregion
-
-                #region Constructors and Destructors
 
                 internal Speller(string path)
                 {
@@ -762,19 +742,11 @@ namespace StyleCop.Spelling
                     this.Dispose(false);
                 }
 
-                #endregion
-
-                #region Public Methods and Operators
-
                 public void Dispose()
                 {
                     this.Dispose(true);
                     GC.SuppressFinalize(this);
                 }
-
-                #endregion
-
-                #region Methods
 
                 internal void AddIgnoredWord(string word)
                 {
@@ -841,7 +813,8 @@ namespace StyleCop.Spelling
                     }
                 }
 
-                private static T GetProc<T>(IntPtr library, string procName) where T : class
+                private static T GetProc<T>(IntPtr library, string procName)
+                    where T : class
                 {
                     IntPtr procAddress = KernalNativeMethods.GetProcAddress(library, procName);
                     if (procAddress == IntPtr.Zero)
@@ -926,8 +899,6 @@ namespace StyleCop.Spelling
                         throw new InvalidOperationException("Failed to get the ignored dictionary handle.");
                     }
                 }
-
-                #endregion
             }
         }
     }

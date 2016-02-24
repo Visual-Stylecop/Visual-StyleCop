@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,23 +25,16 @@ namespace StyleCop
     /// <summary>
     /// Contains a collection of strings.
     /// </summary>
-    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", 
-        Justification = "The name should not end in Collection as it will resuilt in a very confusing name.")]
+    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "The name should not end in Collection as it will resuilt in a very confusing name.")]
     public class CollectionProperty : PropertyValue, ICollection<string>
     {
-        #region Fields
-
         /// <summary>
         /// The inner property collection.
         /// </summary>
         private readonly List<string> collection;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CollectionProperty class.
+        /// Initializes a new instance of the <see cref="CollectionProperty"/> class.
         /// </summary>
         /// <param name="propertyDescriptor">
         /// The property descriptor that this value represents.
@@ -53,7 +46,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the CollectionProperty class.
+        /// Initializes a new instance of the <see cref="CollectionProperty"/> class.
         /// </summary>
         /// <param name="propertyDescriptor">
         /// The property descriptor that this value represents.
@@ -78,7 +71,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the CollectionProperty class.
+        /// Initializes a new instance of the <see cref="CollectionProperty"/> class.
         /// </summary>
         /// <param name="propertyContainer">
         /// The container of this property.
@@ -94,7 +87,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the CollectionProperty class.
+        /// Initializes a new instance of the <see cref="CollectionProperty"/> class.
         /// </summary>
         /// <param name="propertyContainer">
         /// The container of this property.
@@ -121,10 +114,6 @@ namespace StyleCop
                 this.collection = new List<string>();
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether to aggregate the collection when merged.
@@ -181,10 +170,6 @@ namespace StyleCop
                 return this.collection;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Adds a value to the property list.
@@ -310,10 +295,6 @@ namespace StyleCop
             return this.collection.Remove(item);
         }
 
-        #endregion
-
-        #region Explicit Interface Methods
-
         /// <summary>
         /// Gets an enumerator for iterating through the values in the property collection.
         /// </summary>
@@ -322,10 +303,6 @@ namespace StyleCop
         {
             return this.GetEnumerator();
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Determines whether the local values overrides the parent values.
@@ -386,7 +363,5 @@ namespace StyleCop
 
             return false;
         }
-
-        #endregion
     }
 }

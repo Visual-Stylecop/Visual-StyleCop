@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -31,8 +31,6 @@ namespace StyleCop
     /// </summary>
     internal partial class PropertyDialog : Form, IPropertyControlHost
     {
-        #region Fields
-
         /// <summary>
         /// The context for the property control.
         /// </summary>
@@ -68,12 +66,8 @@ namespace StyleCop
         /// </summary>
         private bool settingsChanged;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the PropertyDialog class.
+        /// Initializes a new instance of the <see cref="PropertyDialog"/> class.
         /// </summary>
         public PropertyDialog()
         {
@@ -81,7 +75,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the PropertyDialog class.
+        /// Initializes a new instance of the <see cref="PropertyDialog"/> class.
         /// </summary>
         /// <param name="pages">
         /// The array of pages to display on the property control.
@@ -122,19 +116,11 @@ namespace StyleCop
             this.core.Registry.RestoreWindowPosition(this.id, this, this.Location, this.Size);
         }
 
-        #endregion
-
-        #region Delegates
-
         /// <summary>
         /// Delegate that is called when the user hits the Help button.
         /// </summary>
         /// <param name="activePage">The currently active page on the control.</param>
         public delegate void Help(IPropertyControlPage activePage);
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether the user saved any changes to settings on the property pages.
@@ -146,10 +132,6 @@ namespace StyleCop
                 return this.settingsChanged;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Cancels the dialog.
@@ -173,10 +155,6 @@ namespace StyleCop
 
             this.apply.Enabled = isDirty;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// The form's OnClosing event. Saves the window position.
@@ -220,11 +198,11 @@ namespace StyleCop
             catch (IOException ioex)
             {
                 AlertDialog.Show(
-                    this.core, 
-                    this, 
-                    string.Format(CultureInfo.CurrentUICulture, Strings.LocalSettingsNotOpenedOrCreated, ioex.Message), 
-                    Strings.Title, 
-                    MessageBoxButtons.OK, 
+                    this.core,
+                    this,
+                    string.Format(CultureInfo.CurrentUICulture, Strings.LocalSettingsNotOpenedOrCreated, ioex.Message),
+                    Strings.Title,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.Close();
@@ -232,11 +210,11 @@ namespace StyleCop
             catch (SecurityException secex)
             {
                 AlertDialog.Show(
-                    this.core, 
-                    this, 
-                    string.Format(CultureInfo.CurrentUICulture, Strings.LocalSettingsNotOpenedOrCreated, secex.Message), 
-                    Strings.Title, 
-                    MessageBoxButtons.OK, 
+                    this.core,
+                    this,
+                    string.Format(CultureInfo.CurrentUICulture, Strings.LocalSettingsNotOpenedOrCreated, secex.Message),
+                    Strings.Title,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.Close();
@@ -244,11 +222,11 @@ namespace StyleCop
             catch (UnauthorizedAccessException unauthex)
             {
                 AlertDialog.Show(
-                    this.core, 
-                    this, 
-                    string.Format(CultureInfo.CurrentUICulture, Strings.LocalSettingsNotOpenedOrCreated, unauthex.Message), 
-                    Strings.Title, 
-                    MessageBoxButtons.OK, 
+                    this.core,
+                    this,
+                    string.Format(CultureInfo.CurrentUICulture, Strings.LocalSettingsNotOpenedOrCreated, unauthex.Message),
+                    Strings.Title,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.Close();
@@ -256,11 +234,11 @@ namespace StyleCop
             catch (XmlException xmlex)
             {
                 AlertDialog.Show(
-                    this.core, 
-                    this, 
-                    string.Format(CultureInfo.CurrentUICulture, Strings.LocalSettingsNotOpenedOrCreated, xmlex.Message), 
-                    Strings.Title, 
-                    MessageBoxButtons.OK, 
+                    this.core,
+                    this,
+                    string.Format(CultureInfo.CurrentUICulture, Strings.LocalSettingsNotOpenedOrCreated, xmlex.Message),
+                    Strings.Title,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.Close();
@@ -306,10 +284,10 @@ namespace StyleCop
                 this.settingsChanged = true;
             }
 
-            // The dialog is closed when an error occurs while saving the settings. 
-            // This can result in an undesirable user experience, since the settings 
-            // changes may be lost when a save error occurs, however, this is the best 
-            // solution for now until the property pages can recover from a save error 
+            // The dialog is closed when an error occurs while saving the settings.
+            // This can result in an undesirable user experience, since the settings
+            // changes may be lost when a save error occurs, however, this is the best
+            // solution for now until the property pages can recover from a save error
             // and save themselves properly a second or third time.
             if (result == PropertyControlSaveResult.SaveError)
             {
@@ -374,16 +352,14 @@ namespace StyleCop
 
             // The dialog is closed whenever the settings were successfully saved,
             // or when an error occurred while saving the settings. This can result
-            // in an undesirable user experience, since the settings changes may 
+            // in an undesirable user experience, since the settings changes may
             // be lost when a save error occurs, however, this is the best solution
-            // for now until the property pages can recover from a save error and 
+            // for now until the property pages can recover from a save error and
             // save themselves properly a second or third time.
             if (result == PropertyControlSaveResult.Success)
             {
                 this.Close();
             }
         }
-
-        #endregion
     }
 }

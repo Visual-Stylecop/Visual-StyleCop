@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -24,8 +24,6 @@ namespace StyleCop.CSharp
     /// </summary>
     public interface ICodeUnit : ICodePart
     {
-        #region Public Properties
-
         /// <summary>
         /// Gets the collection of expressions beneath this code unit.
         /// </summary>
@@ -55,7 +53,5 @@ namespace StyleCop.CSharp
         /// Gets the list of variables and constants defined by this code unit.
         /// </summary>
         VariableCollection Variables { get; }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -22,8 +22,6 @@ namespace StyleCop.VisualStudio
     /// <remarks>The guids defined in this class must match those in commands.h.</remarks>
     internal static class CommandIdList
     {
-        #region Public Static Readonly Fields
-
         /// <summary>
         /// Menu Command ID for the menu item that starts analysis of a project.
         /// </summary>
@@ -88,7 +86,5 @@ namespace StyleCop.VisualStudio
         /// Menu Command ID for the menu item that cancels a running analysis.
         /// </summary>
         public static readonly CommandID Cancel = new CommandID(GuidList.StyleCopCommandSetId, (int)0x250);
-
-        #endregion Public Static Readonly Fields
     }
 }

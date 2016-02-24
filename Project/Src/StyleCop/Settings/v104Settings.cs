@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop
     /// </summary>
     internal static class V104Settings
     {
-        #region Enums
-
         /// <summary>
         /// The types of settings properties.
         /// </summary>
@@ -37,32 +35,28 @@ namespace StyleCop
             /// <summary>
             /// A property containing a boolean value.
             /// </summary>
-            Boolean, 
+            Boolean,
 
             /// <summary>
             /// A property containing an integer value.
             /// </summary>
-            Integer, 
+            Integer,
 
             /// <summary>
             /// A property containing a string value.
             /// </summary>
-            String, 
+            String,
 
             /// <summary>
             /// A property containing a collection of properties.
             /// </summary>
-            Collection, 
+            Collection,
 
             /// <summary>
             /// Not a valid property.
             /// </summary>
             None
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Loads the settings from the document.
@@ -111,10 +105,6 @@ namespace StyleCop
             // Load the collection of excluded files.
             LoadFileLists(documentRoot, settings);
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Converts a legacy "Microsoft.SourceAnalysis" or "Microsoft.StyleCop" AddIn name to the new name.
@@ -598,7 +588,5 @@ namespace StyleCop
                 properties.Add(new StringProperty(descriptor, propertyNode.InnerText));
             }
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop.CSharp
     /// <subcategory>other</subcategory>
     public class FileHeader : ICodePart
     {
-        #region Fields
-
         /// <summary>
         ///   Indicates whether the file header has the generated attribute.
         /// </summary>
@@ -60,21 +58,17 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly CsTokenList tokens;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the FileHeader class.
+        /// Initializes a new instance of the <see cref="FileHeader"/> class.
         /// </summary>
         /// <param name="headerText">
-        /// The header text. 
+        /// The header text.
         /// </param>
         /// <param name="tokens">
-        /// The collection of tokens in the header. 
+        /// The collection of tokens in the header.
         /// </param>
         /// <param name="parent">
-        /// The parent of the header. 
+        /// The parent of the header.
         /// </param>
         internal FileHeader(string headerText, CsTokenList tokens, Reference<ICodePart> parent)
         {
@@ -132,10 +126,6 @@ namespace StyleCop.CSharp
             {
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         ///   Gets the type of this code part.
@@ -230,24 +220,18 @@ namespace StyleCop.CSharp
         /// </summary>
         public bool UnStyled { get; private set; }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Converts a string to an HTML-encoded string.
         /// </summary>
         /// <returns>
-        /// An encoded string. 
+        /// An encoded string.
         /// </returns>
         /// <param name="value">
-        /// The string to encode. 
+        /// The string to encode.
         /// </param>
         public static string HtmlEncode(string value)
         {
             return value.Replace("&", "&amp;");
         }
-
-        #endregion
     }
 }

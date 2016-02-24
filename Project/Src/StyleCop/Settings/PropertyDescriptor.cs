@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -19,11 +19,9 @@ namespace StyleCop
 {
     /// <summary>
     /// A property descriptor.
-    /// </summary> 
+    /// </summary>
     public abstract class PropertyDescriptor
     {
-        #region Fields
-
         /// <summary>
         /// The description of the property.
         /// </summary>
@@ -54,12 +52,8 @@ namespace StyleCop
         /// </summary>
         private readonly PropertyType propertyType;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the PropertyDescriptor class.
+        /// Initializes a new instance of the <see cref="PropertyDescriptor"/> class.
         /// </summary>
         /// <param name="propertyName">
         /// The name of the property.
@@ -95,10 +89,6 @@ namespace StyleCop
             this.merge = merge;
             this.displaySettings = displaySettings;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the description of the property.
@@ -165,7 +155,5 @@ namespace StyleCop
                 return this.propertyType;
             }
         }
-
-        #endregion
     }
 }
