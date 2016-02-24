@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -31,15 +31,9 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockIVsProject : IVsProject, IVsHierarchy
     {
-        #region Constants and Fields
+        private readonly List<string> items = new List<string>();
 
-        private readonly List<string> _items = new List<string>();
-
-        private readonly string _projFile;
-
-        #endregion
-
-        #region Constructors and Destructors
+        private readonly string projFile;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockIVsProject"/> class.
@@ -49,12 +43,8 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public MockIVsProject(string projFile)
         {
-            this._projFile = projFile;
+            this.projFile = projFile;
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Gets FullPath.
@@ -63,13 +53,9 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._projFile;
+                return this.projFile;
             }
         }
-
-        #endregion
-
-        #region Public Methods
 
         /// <summary>
         /// The add item.
@@ -79,14 +65,8 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public void AddItem(string itemName)
         {
-            this._items.Add(itemName);
+            this.items.Add(itemName);
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsHierarchy
 
         /// <summary>
         /// The advise hierarchy events.
@@ -209,7 +189,7 @@ namespace VSPackageUnitTest.Mocks
             {
                 if (propid == (int)__VSHPROPID.VSHPROPID_FirstChild)
                 {
-                    if (this._items.Count > 0)
+                    if (this.items.Count > 0)
                     {
                         pvar = 0;
                     }
@@ -224,11 +204,11 @@ namespace VSPackageUnitTest.Mocks
                     return VSConstants.S_OK;
                 }
             }
-            else if (itemid >= 0 && itemid < this._items.Count)
+            else if (itemid >= 0 && itemid < this.items.Count)
             {
                 if (propid == (int)__VSHPROPID.VSHPROPID_NextSibling)
                 {
-                    if (itemid < this._items.Count - 1)
+                    if (itemid < this.items.Count - 1)
                     {
                         pvar = (int)itemid + 1;
                     }
@@ -448,10 +428,6 @@ namespace VSPackageUnitTest.Mocks
             throw new Exception("The method or operation is not implemented.");
         }
 
-        #endregion
-
-        #region IVsProject
-
         /// <summary>
         /// The add item.
         /// </summary>
@@ -548,12 +524,12 @@ namespace VSPackageUnitTest.Mocks
         {
             if (itemid == VSConstants.VSITEMID_ROOT)
             {
-                pbstrMkDocument = this._projFile;
+                pbstrMkDocument = this.projFile;
                 return VSConstants.S_OK;
             }
-            else if (itemid >= 0 && itemid < this._items.Count)
+            else if (itemid >= 0 && itemid < this.items.Count)
             {
-                pbstrMkDocument = this._items[(int)itemid];
+                pbstrMkDocument = this.items[(int)itemid];
                 return VSConstants.S_OK;
             }
 
@@ -609,9 +585,5 @@ namespace VSPackageUnitTest.Mocks
         {
             throw new Exception("The method or operation is not implemented.");
         }
-
-        #endregion
-
-        #endregion
     }
 }

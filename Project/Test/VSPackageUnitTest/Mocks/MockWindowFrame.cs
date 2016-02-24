@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,15 +30,7 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockWindowFrame : IVsWindowFrame
     {
-        #region Constants and Fields
-
         public MockTextLines TextLines = null;
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsWindowFrame
 
         /// <summary>
         /// The close frame.
@@ -285,9 +277,5 @@ namespace VSPackageUnitTest.Mocks
         {
             throw new Exception("The method or operation is not implemented.");
         }
-
-        #endregion
-
-        #endregion
     }
 }

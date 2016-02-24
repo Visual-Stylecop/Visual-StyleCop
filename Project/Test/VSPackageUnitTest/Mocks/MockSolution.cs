@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,15 +29,9 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockSolution : IVsSolution, IVsSolution3
     {
-        #region Constants and Fields
+        private readonly List<IVsSolutionEvents> eventSinks = new List<IVsSolutionEvents>();
 
-        private readonly List<IVsSolutionEvents> _eventSinks = new List<IVsSolutionEvents>();
-
-        private readonly List<MockIVsProject> _projects = new List<MockIVsProject>();
-
-        #endregion
-
-        #region Properties
+        private readonly List<MockIVsProject> projects = new List<MockIVsProject>();
 
         /// <summary>
         /// Gets Projects.
@@ -46,13 +40,9 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._projects;
+                return this.projects;
             }
         }
-
-        #endregion
-
-        #region Public Methods
 
         /// <summary>
         /// The add project.
@@ -62,8 +52,8 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public void AddProject(MockIVsProject project)
         {
-            this._projects.Add(project);
-            foreach (IVsSolutionEvents sink in this._eventSinks)
+            this.projects.Add(project);
+            foreach (IVsSolutionEvents sink in this.eventSinks)
             {
                 if (sink != null)
                 {
@@ -71,12 +61,6 @@ namespace VSPackageUnitTest.Mocks
                 }
             }
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsSolution
 
         /// <summary>
         /// The add virtual project.
@@ -133,8 +117,8 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int AdviseSolutionEvents(IVsSolutionEvents pSink, out uint pdwCookie)
         {
-            this._eventSinks.Add(pSink);
-            pdwCookie = (uint)this._eventSinks.Count;
+            this.eventSinks.Add(pSink);
+            pdwCookie = (uint)this.eventSinks.Count;
             return VSConstants.S_OK;
         }
 
@@ -387,7 +371,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int GetProjectEnum(uint grfEnumFlags, ref Guid rguidEnumOnlyThisType, out IEnumHierarchies ppenum)
         {
-            ppenum = new MockEnumHierarchies(this._projects);
+            ppenum = new MockEnumHierarchies(this.projects);
             return VSConstants.S_OK;
         }
 
@@ -438,13 +422,13 @@ namespace VSPackageUnitTest.Mocks
         {
             if (cProjects == 0)
             {
-                pcProjectsFetched = (uint)this._projects.Count;
+                pcProjectsFetched = (uint)this.projects.Count;
             }
             else
             {
                 for (int i = 0; i < cProjects; ++i)
                 {
-                    rgbstrProjectNames[i] = this._projects[i].FullPath;
+                    rgbstrProjectNames[i] = this.projects[i].FullPath;
                 }
 
                 pcProjectsFetched = cProjects;
@@ -858,13 +842,9 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int UnadviseSolutionEvents(uint dwCookie)
         {
-            this._eventSinks[(int)dwCookie - 1] = null;
+            this.eventSinks[(int)dwCookie - 1] = null;
             return VSConstants.S_OK;
         }
-
-        #endregion
-
-        #region IVsSolution3
 
         /// <summary>
         /// The check for and save deferred save solution.
@@ -963,9 +943,5 @@ namespace VSPackageUnitTest.Mocks
         {
             throw new Exception("The method or operation is not implemented.");
         }
-
-        #endregion
-
-        #endregion
     }
 }

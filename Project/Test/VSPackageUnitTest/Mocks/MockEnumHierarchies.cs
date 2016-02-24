@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,15 +28,9 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockEnumHierarchies : IEnumHierarchies
     {
-        #region Constants and Fields
+        private int next = 0;
 
-        private int _next = 0;
-
-        private List<MockIVsProject> _projects;
-
-        #endregion
-
-        #region Constructors and Destructors
+        private List<MockIVsProject> projects;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockEnumHierarchies"/> class.
@@ -46,14 +40,8 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public MockEnumHierarchies(IEnumerable<MockIVsProject> projects)
         {
-            this._projects = new List<MockIVsProject>(projects);
+            this.projects = new List<MockIVsProject>(projects);
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IEnumHierarchies
 
         /// <summary>
         /// The clone.
@@ -66,7 +54,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int Clone(out IEnumHierarchies ppenum)
         {
-            ppenum = new MockEnumHierarchies(this._projects);
+            ppenum = new MockEnumHierarchies(this.projects);
             return VSConstants.S_OK;
         }
 
@@ -89,11 +77,11 @@ namespace VSPackageUnitTest.Mocks
         {
             pceltFetched = 0;
 
-            while (pceltFetched < celt && this._next < this._projects.Count)
+            while (pceltFetched < celt && this.next < this.projects.Count)
             {
-                rgelt[pceltFetched] = this._projects[this._next];
+                rgelt[pceltFetched] = this.projects[this.next];
                 pceltFetched++;
-                ++this._next;
+                ++this.next;
             }
 
             if (pceltFetched == celt)
@@ -114,7 +102,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int Reset()
         {
-            this._next = 0;
+            this.next = 0;
             return VSConstants.S_OK;
         }
 
@@ -134,9 +122,5 @@ namespace VSPackageUnitTest.Mocks
 
             return this.Next(celt, items, out fetched);
         }
-
-        #endregion
-
-        #endregion
     }
 }

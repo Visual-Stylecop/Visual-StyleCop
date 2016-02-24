@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -38,17 +38,11 @@ namespace VSPackageUnitTest
     [TestClass]
     public class SolutionListenerTest
     {
-        #region Properties
-
         /// <summary>
         ///   Gets or sets the test context which provides
         ///   information about and functionality for the current test run.
         /// </summary>
         public TestContext TestContext { get; set; }
-
-        #endregion
-
-        #region Public Methods
 
         /// <summary>
         /// A test for Dispose
@@ -85,9 +79,7 @@ namespace VSPackageUnitTest
             SolutionListener target = new SolutionListener(serviceProvider);
             uint expected = 0;
 
-
             PrivateObject solutionListner = new PrivateObject(target, new PrivateType(typeof(SolutionListener)));
-
 
             uint actual = (uint)solutionListner.GetFieldOrProperty("eventsCookie");
             Assert.AreEqual(expected, actual, "initial value should be zero");
@@ -475,10 +467,6 @@ namespace VSPackageUnitTest
             Assert.IsNotNull(actual, "Cnstructor did not get the solution class.");
         }
 
-        #endregion
-
-        #region Methods
-
         private IServiceProvider PrepareServiceProvider()
         {
             var mock = new Mock<IServiceProvider>();
@@ -486,7 +474,5 @@ namespace VSPackageUnitTest
             mock.ImplementExpr(m => m.GetService(typeof(SVsSolution)), mockSolution.Instance as IVsSolution);
             return mock.Instance as IServiceProvider;
         }
-
-        #endregion
     }
 }

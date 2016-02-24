@@ -1,14 +1,14 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="UpdateSolutionListenerTest.cs">
+// <copyright file="UpdateSolutionListenerTest.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -62,8 +62,8 @@ namespace VSPackageUnitTest
         }
 
         /// <summary>
-        ///A test for UpdateSolution_Done
-        ///</summary>
+        /// A test for UpdateSolution_Done
+        /// </summary>
         [TestMethod]
         [DeploymentItem("StyleCop.VSPackage.dll")]
         public void UpdateSolution_DoneTest()
@@ -87,8 +87,8 @@ namespace VSPackageUnitTest
         }
 
         /// <summary>
-        ///A test for UpdateSolution_Cancel
-        ///</summary>
+        /// A test for UpdateSolution_Cancel
+        /// </summary>
         [TestMethod]
         [DeploymentItem("StyleCop.VSPackage.dll")]
         public void UpdateSolution_CancelTest()
@@ -110,8 +110,8 @@ namespace VSPackageUnitTest
         }
 
         /// <summary>
-        ///A test for UpdateSolution_Begin
-        ///</summary>
+        /// A test for UpdateSolution_Begin
+        /// </summary>
         [TestMethod]
         [DeploymentItem("StyleCop.VSPackage.dll")]
         public void UpdateSolution_BeginTest()
@@ -135,8 +135,8 @@ namespace VSPackageUnitTest
         }
 
         /// <summary>
-        ///A test for OnActiveProjectCfgChange
-        ///</summary>
+        /// A test for OnActiveProjectCfgChange
+        /// </summary>
         [TestMethod]
         [DeploymentItem("StyleCop.VSPackage.dll")]
         public void OnActiveProjectCfgChangeTest()
@@ -157,8 +157,8 @@ namespace VSPackageUnitTest
         }
 
         /// <summary>
-        ///A test for Initialize
-        ///</summary>
+        /// A test for Initialize
+        /// </summary>
         [TestMethod]
         [DeploymentItem("StyleCop.VSPackage.dll")]
         public void InitializeTest()
@@ -183,8 +183,8 @@ namespace VSPackageUnitTest
         }
 
         /// <summary>
-        ///A test for Dispose
-        ///</summary>
+        /// A test for Dispose
+        /// </summary>
         [TestMethod]
         [DeploymentItem("StyleCop.VSPackage.dll")]
         public void DisposeTest()
@@ -213,8 +213,8 @@ namespace VSPackageUnitTest
         }
 
         /// <summary>
-        ///A test for UpdateSolutionListener Constructor
-        ///</summary>
+        /// A test for UpdateSolutionListener Constructor
+        /// </summary>
         [TestMethod]
         [DeploymentItem("StyleCop.VSPackage.dll")]
         public void UpdateSolutionListenerConstructorTest()

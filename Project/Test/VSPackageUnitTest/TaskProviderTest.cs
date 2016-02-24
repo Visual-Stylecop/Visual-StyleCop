@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -19,10 +19,9 @@
 
 namespace VSPackageUnitTest
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using StyleCop.VisualStudio;
     using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using StyleCop.VisualStudio;
     using VSPackageUnitTest.Mocks;
 
     /// <summary>
@@ -34,13 +33,7 @@ namespace VSPackageUnitTest
     [DeploymentItem("StyleCop.VSPackage.dll")]
     public class TaskProviderTest : BasicUnitTest
     {
-        #region Constants and Fields
-
         private MockServiceProvider serviceProvider;
-
-        #endregion
-
-        #region Public Methods
 
         /// <summary>
         /// Unit Test Case for the constructor.
@@ -72,7 +65,5 @@ namespace VSPackageUnitTest
         {
             this.serviceProvider = new MockServiceProvider();
         }
-
-        #endregion
     }
 }

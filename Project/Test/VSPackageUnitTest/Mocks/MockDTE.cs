@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,19 +27,13 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockDTE : EnvDTE.DTE
     {
-        #region Constants and Fields
+        private readonly MockEvents events = new MockEvents();
 
-        private readonly MockEvents _events = new MockEvents();
+        private readonly IServiceProvider serviceProvider;
 
-        private readonly IServiceProvider _serviceProvider;
+        private readonly MockDTESolution solution;
 
-        private readonly MockDTESolution _solution;
-
-        private readonly MockDocuments _documents;
-
-        #endregion
-
-        #region Constructors and Destructors
+        private readonly MockDocuments documents;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockDTE"/> class.
@@ -49,14 +43,10 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public MockDTE(IServiceProvider serviceProvider)
         {
-            this._serviceProvider = serviceProvider;
-            this._solution = new MockDTESolution(this._serviceProvider);
-            this._documents = new MockDocuments(this);
+            this.serviceProvider = serviceProvider;
+            this.solution = new MockDTESolution(this.serviceProvider);
+            this.documents = new MockDocuments(this);
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Gets ActiveDocument.
@@ -230,7 +220,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._documents;
+                return this.documents;
             }
         }
 
@@ -254,7 +244,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._events;
+                return this.events;
             }
         }
 
@@ -447,7 +437,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._solution;
+                return this.solution;
             }
         }
 
@@ -561,12 +551,6 @@ namespace VSPackageUnitTest.Mocks
         /// </summary>
         public Windows Windows { get; set; }
 
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region _DTE
-
         /// <summary>
         /// The execute command.
         /// </summary>
@@ -586,7 +570,7 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The get object.
         /// </summary>
-        /// <param name="Name">
+        /// <param name="name">
         /// The name.
         /// </param>
         /// <returns>
@@ -594,7 +578,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         /// <exception cref="Exception">
         /// </exception>
-        public object GetObject(string Name)
+        public object GetObject(string name)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -686,23 +670,19 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The get_ properties.
         /// </summary>
-        /// <param name="Category">
+        /// <param name="category">
         /// The category.
         /// </param>
-        /// <param name="Page">
+        /// <param name="page">
         /// The page.
         /// </param>
         /// <returns>
         /// </returns>
         /// <exception cref="Exception">
         /// </exception>
-        public Properties get_Properties(string Category, string Page)
+        public Properties get_Properties(string category, string page)
         {
             throw new Exception("The method or operation is not implemented.");
         }
-
-        #endregion
-
-        #endregion
     }
 }

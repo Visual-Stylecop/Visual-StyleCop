@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,18 +29,10 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockTextView : IVsTextView
     {
-        #region Events
-
         /// <summary>
         /// The on set caret pos.
         /// </summary>
         public event EventHandler<SetCaretPosEventArgs> OnSetCaretPos;
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsTextView
 
         /// <summary>
         /// The add command filter.
@@ -755,24 +747,14 @@ namespace VSPackageUnitTest.Mocks
             throw new Exception("The method or operation is not implemented.");
         }
 
-        #endregion
-
-        #endregion
-
         /// <summary>
         /// The set caret pos event args.
         /// </summary>
         public class SetCaretPosEventArgs : EventArgs
         {
-            #region Constants and Fields
-
             public readonly int Column;
 
             public readonly int Line;
-
-            #endregion
-
-            #region Constructors and Destructors
 
             /// <summary>
             /// Initializes a new instance of the <see cref="SetCaretPosEventArgs"/> class.
@@ -788,8 +770,6 @@ namespace VSPackageUnitTest.Mocks
                 this.Line = line;
                 this.Column = column;
             }
-
-            #endregion
         }
     }
 }

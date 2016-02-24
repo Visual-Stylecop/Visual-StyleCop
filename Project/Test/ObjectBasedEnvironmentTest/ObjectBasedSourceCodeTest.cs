@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace ObjectBasedEnvironmentTest
     [TestClass]
     public class ObjectBasedSourceCodeTest
     {
-        #region Public Methods
-
         /// <summary>
         /// The test object based source code with no settings.
         /// </summary>
@@ -51,10 +49,6 @@ namespace ObjectBasedEnvironmentTest
 
             styleCop.Start(new[] { project });
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Retrieves a <see cref="Settings"/> object corresponding to a given project path.
@@ -100,7 +94,5 @@ namespace ObjectBasedEnvironmentTest
 
             return new ObjectBasedSourceCode(project, parser, index);
         }
-
-        #endregion
     }
 }

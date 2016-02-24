@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,15 +28,9 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockDTESolution : EnvDTE.Solution
     {
-        #region Constants and Fields
+        private readonly MockDTEProjects projects;
 
-        private readonly MockDTEProjects _projects;
-
-        private readonly IServiceProvider _serviceProvider;
-
-        #endregion
-
-        #region Constructors and Destructors
+        private readonly IServiceProvider serviceProvider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockDTESolution"/> class.
@@ -46,13 +40,9 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public MockDTESolution(IServiceProvider serviceProvider)
         {
-            this._serviceProvider = serviceProvider;
-            this._projects = new MockDTEProjects(this._serviceProvider);
+            this.serviceProvider = serviceProvider;
+            this.projects = new MockDTEProjects(this.serviceProvider);
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Gets AddIns.
@@ -211,7 +201,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._projects;
+                return this.projects;
             }
         }
 
@@ -261,26 +251,20 @@ namespace VSPackageUnitTest.Mocks
             }
         }
 
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region _Solution
-
         /// <summary>
         /// The add from file.
         /// </summary>
-        /// <param name="FileName">
+        /// <param name="fileName">
         /// The file name.
         /// </param>
-        /// <param name="Exclusive">
+        /// <param name="exclusive">
         /// The exclusive.
         /// </param>
         /// <returns>
         /// </returns>
         /// <exception cref="Exception">
         /// </exception>
-        public Project AddFromFile(string FileName, bool Exclusive)
+        public Project AddFromFile(string fileName, bool exclusive)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -288,23 +272,23 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The add from template.
         /// </summary>
-        /// <param name="FileName">
+        /// <param name="fileName">
         /// The file name.
         /// </param>
-        /// <param name="Destination">
+        /// <param name="destination">
         /// The destination.
         /// </param>
-        /// <param name="ProjectName">
+        /// <param name="projectName">
         /// The project name.
         /// </param>
-        /// <param name="Exclusive">
+        /// <param name="exclusive">
         /// The exclusive.
         /// </param>
         /// <returns>
         /// </returns>
         /// <exception cref="Exception">
         /// </exception>
-        public Project AddFromTemplate(string FileName, string Destination, string ProjectName, bool Exclusive)
+        public Project AddFromTemplate(string fileName, string destination, string projectName, bool exclusive)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -312,12 +296,12 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The close.
         /// </summary>
-        /// <param name="SaveFirst">
+        /// <param name="saveFirst">
         /// The save first.
         /// </param>
         /// <exception cref="Exception">
         /// </exception>
-        public void Close(bool SaveFirst)
+        public void Close(bool saveFirst)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -325,15 +309,15 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The create.
         /// </summary>
-        /// <param name="Destination">
+        /// <param name="destination">
         /// The destination.
         /// </param>
-        /// <param name="Name">
+        /// <param name="name">
         /// The name.
         /// </param>
         /// <exception cref="Exception">
         /// </exception>
-        public void Create(string Destination, string Name)
+        public void Create(string destination, string name)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -341,14 +325,14 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The find project item.
         /// </summary>
-        /// <param name="FileName">
+        /// <param name="fileName">
         /// The file name.
         /// </param>
         /// <returns>
         /// </returns>
         /// <exception cref="Exception">
         /// </exception>
-        public ProjectItem FindProjectItem(string FileName)
+        public ProjectItem FindProjectItem(string fileName)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -383,12 +367,12 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The open.
         /// </summary>
-        /// <param name="FileName">
+        /// <param name="fileName">
         /// The file name.
         /// </param>
         /// <exception cref="Exception">
         /// </exception>
-        public void Open(string FileName)
+        public void Open(string fileName)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -396,7 +380,7 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The project items template path.
         /// </summary>
-        /// <param name="ProjectKind">
+        /// <param name="projectKind">
         /// The project kind.
         /// </param>
         /// <returns>
@@ -404,7 +388,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         /// <exception cref="Exception">
         /// </exception>
-        public string ProjectItemsTemplatePath(string ProjectKind)
+        public string ProjectItemsTemplatePath(string projectKind)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -425,12 +409,12 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The save as.
         /// </summary>
-        /// <param name="FileName">
+        /// <param name="fileName">
         /// The file name.
         /// </param>
         /// <exception cref="Exception">
         /// </exception>
-        public void SaveAs(string FileName)
+        public void SaveAs(string fileName)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -438,7 +422,7 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The get_ extender.
         /// </summary>
-        /// <param name="ExtenderName">
+        /// <param name="extenderName">
         /// The extender name.
         /// </param>
         /// <returns>
@@ -446,7 +430,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         /// <exception cref="Exception">
         /// </exception>
-        public object get_Extender(string ExtenderName)
+        public object get_Extender(string extenderName)
         {
             throw new Exception("The method or operation is not implemented.");
         }
@@ -454,7 +438,7 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The get_ template path.
         /// </summary>
-        /// <param name="ProjectType">
+        /// <param name="projectType">
         /// The project type.
         /// </param>
         /// <returns>
@@ -462,13 +446,9 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         /// <exception cref="Exception">
         /// </exception>
-        public string get_TemplatePath(string ProjectType)
+        public string get_TemplatePath(string projectType)
         {
             throw new Exception("The method or operation is not implemented.");
         }
-
-        #endregion
-
-        #endregion
     }
 }

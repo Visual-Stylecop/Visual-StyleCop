@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,15 +29,7 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     public class MockSolutionBuildManager : IVsSolutionBuildManager
     {
-        #region Constants and Fields
-
-        private readonly List<IVsUpdateSolutionEvents> _eventSinks = new List<IVsUpdateSolutionEvents>();
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsSolutionBuildManager
+        private readonly List<IVsUpdateSolutionEvents> eventSinks = new List<IVsUpdateSolutionEvents>();
 
         /// <summary>
         /// The advise update solution events.
@@ -53,8 +45,8 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int AdviseUpdateSolutionEvents(IVsUpdateSolutionEvents sink, out uint pdwCookie)
         {
-            this._eventSinks.Add(sink);
-            pdwCookie = (uint)this._eventSinks.Count;
+            this.eventSinks.Add(sink);
+            pdwCookie = (uint)this.eventSinks.Count;
             return VSConstants.S_OK;
         }
 
@@ -253,7 +245,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int UnadviseUpdateSolutionEvents(uint dwCookie)
         {
-            this._eventSinks[(int)dwCookie - 1] = null;
+            this.eventSinks[(int)dwCookie - 1] = null;
             return VSConstants.S_OK;
         }
 
@@ -368,9 +360,5 @@ namespace VSPackageUnitTest.Mocks
         {
             throw new NotImplementedException();
         }
-
-        #endregion
-
-        #endregion
     }
 }

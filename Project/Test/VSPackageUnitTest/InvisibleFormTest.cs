@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -19,12 +19,11 @@
 
 namespace VSPackageUnitTest
 {
-    using System.Windows.Forms;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using StyleCop.VisualStudio;
     using System;
+    using System.Windows.Forms;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using StyleCop.VisualStudio;
+
     /// <summary>
     /// This is a test class for InvisibleFormTest and is intended
     ///   to contain all InvisibleFormTest Unit Tests
@@ -32,8 +31,6 @@ namespace VSPackageUnitTest
     [TestClass]
     public class InvisibleFormTest : BasicUnitTest
     {
-        #region Public Methods
-
         /// <summary>
         /// A test for Instance
         /// </summary>
@@ -102,7 +99,5 @@ namespace VSPackageUnitTest
                 Console.WriteLine(ex.Message);
             }
         }
-
-        #endregion
     }
 }
