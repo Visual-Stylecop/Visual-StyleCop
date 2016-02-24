@@ -49,7 +49,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Count.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Count
         {
@@ -62,7 +63,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets DTE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
@@ -75,7 +77,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Kind.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Kind
         {
@@ -88,7 +91,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Parent.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE Parent
         {
@@ -101,7 +105,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Properties.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Properties Properties
         {

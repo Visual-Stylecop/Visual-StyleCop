@@ -74,7 +74,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The add virtual project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AddVirtualProject(IVsHierarchy pHierarchy, uint grfAddVPFlags)
         {
@@ -96,7 +97,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The add virtual project ex.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AddVirtualProjectEx(IVsHierarchy pHierarchy, uint grfAddVPFlags, ref Guid rguidProjectID)
         {
@@ -137,7 +139,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The can create new project at location.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CanCreateNewProjectAtLocation(int fCreateNewSolution, string pszFullProjectFilePath, out int pfCanCreate)
         {
@@ -159,7 +162,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The close solution element.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CloseSolutionElement(uint grfCloseOpts, IVsHierarchy pHier, uint docCookie)
         {
@@ -181,7 +185,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The create new project via dlg.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CreateNewProjectViaDlg(string pszExpand, string pszSelect, uint dwReserved)
         {
@@ -215,7 +220,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The create project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CreateProject(ref Guid rguidProjectType, string lpszMoniker, string lpszLocation, string lpszName, uint grfCreateFlags, ref Guid iidProject, out IntPtr ppProject)
         {
@@ -237,7 +243,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The create solution.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CreateSolution(string lpszLocation, string lpszName, uint grfCreateFlags)
         {
@@ -259,7 +266,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The generate next default project name.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GenerateNextDefaultProjectName(string pszBaseName, string pszLocation, out string pbstrProjectName)
         {
@@ -278,7 +286,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The generate unique project name.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GenerateUniqueProjectName(string lpszRoot, out string pbstrProjectName)
         {
@@ -297,7 +306,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get guid of project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetGuidOfProject(IVsHierarchy pHierarchy, out Guid pguidProjectID)
         {
@@ -319,7 +329,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get item info of projref.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetItemInfoOfProjref(string pszProjref, int propid, out object pvar)
         {
@@ -347,7 +358,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get item of projref.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetItemOfProjref(string pszProjref, out IVsHierarchy ppHierarchy, out uint pitemid, out string pbstrUpdatedProjref, VSUPDATEPROJREFREASON[] puprUpdateReason)
         {
@@ -393,7 +405,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get project factory.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProjectFactory(uint dwReserved, Guid[] pguidProjectType, string pszMkProject, out IVsProjectFactory ppProjectFactory)
         {
@@ -452,7 +465,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get project info of projref.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProjectInfoOfProjref(string pszProjref, int propid, out object pvar)
         {
@@ -471,7 +485,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get project of guid.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProjectOfGuid(ref Guid rguidProjectID, out IVsHierarchy ppHierarchy)
         {
@@ -496,7 +511,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get project of projref.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProjectOfProjref(string pszProjref, out IVsHierarchy ppHierarchy, out string pbstrUpdatedProjref, VSUPDATEPROJREFREASON[] puprUpdateReason)
         {
@@ -515,7 +531,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get project of unique name.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProjectOfUniqueName(string pszUniqueName, out IVsHierarchy ppHierarchy)
         {
@@ -537,7 +554,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get project type guid.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProjectTypeGuid(uint dwReserved, string pszMkProject, out Guid pguidProjectType)
         {
@@ -559,7 +577,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get projref of item.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProjrefOfItem(IVsHierarchy pHierarchy, uint itemid, out string pbstrProjref)
         {
@@ -578,7 +597,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get projref of project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProjrefOfProject(IVsHierarchy pHierarchy, out string pbstrProjref)
         {
@@ -597,7 +617,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProperty(int propid, out object pvar)
         {
@@ -619,7 +640,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get solution info.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetSolutionInfo(out string pbstrSolutionDirectory, out string pbstrSolutionFile, out string pbstrUserOptsFile)
         {
@@ -638,7 +660,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get unique name of project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetUniqueNameOfProject(IVsHierarchy pHierarchy, out string pbstrUniqueName)
         {
@@ -657,7 +680,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get virtual project flags.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetVirtualProjectFlags(IVsHierarchy pHierarchy, out uint pgrfAddVPFlags)
         {
@@ -682,7 +706,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The on after rename project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int OnAfterRenameProject(IVsProject pProject, string pszMkOldName, string pszMkNewName, uint dwReserved)
         {
@@ -701,7 +726,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The open solution file.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int OpenSolutionFile(uint grfOpenOpts, string pszFilename)
         {
@@ -720,7 +746,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The open solution via dlg.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int OpenSolutionViaDlg(string pszStartDirectory, int fDefaultToAllProjectsFilter)
         {
@@ -736,7 +763,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The query edit solution file.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int QueryEditSolutionFile(out uint pdwEditResult)
         {
@@ -764,7 +792,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The query rename project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int QueryRenameProject(IVsProject pProject, string pszMkOldName, string pszMkNewName, uint dwReserved, out int pfRenameCanContinue)
         {
@@ -783,7 +812,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The remove virtual project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RemoveVirtualProject(IVsHierarchy pHierarchy, uint grfRemoveVPFlags)
         {
@@ -805,7 +835,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The save solution element.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SaveSolutionElement(uint grfSaveOpts, IVsHierarchy pHier, uint docCookie)
         {
@@ -824,7 +855,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetProperty(int propid, object var)
         {
@@ -864,7 +896,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The check for and save deferred save solution.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CheckForAndSaveDeferredSaveSolution(int fCloseSolution, string pszMessage, string pszTitle, uint grfFlags)
         {
@@ -898,7 +931,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The create new project via dlg ex.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CreateNewProjectViaDlgEx(string pszDlgTitle, string pszTemplateDir, string pszExpand, string pszSelect, string pszHelpTopic, uint cnpvdeFlags, IVsBrowseProjectLocation pBrowse)
         {
@@ -937,7 +971,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The update project file location for upgrade.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UpdateProjectFileLocationForUpgrade(string pszCurrentLocation, string pszUpgradedLocation)
         {

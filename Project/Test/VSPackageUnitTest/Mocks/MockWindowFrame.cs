@@ -41,7 +41,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The close frame.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CloseFrame(uint grfSaveOptions)
         {
@@ -72,7 +73,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get frame pos.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetFramePos(VSSETFRAMEPOS[] pdwSFP, out Guid pguidRelativeTo, out int px, out int py, out int pcx, out int pcy)
         {
@@ -91,7 +93,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get guid property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetGuidProperty(int propid, out Guid pguid)
         {
@@ -110,7 +113,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProperty(int propid, out object pvar)
         {
@@ -123,7 +127,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The hide.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Hide()
         {
@@ -139,7 +144,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The is on screen.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int IsOnScreen(out int pfOnScreen)
         {
@@ -152,7 +158,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The is visible.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int IsVisible()
         {
@@ -209,7 +216,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set frame pos.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetFramePos(VSSETFRAMEPOS dwSFP, ref Guid rguidRelativeTo, int x, int y, int cx, int cy)
         {
@@ -228,7 +236,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set guid property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetGuidProperty(int propid, ref Guid rguid)
         {
@@ -247,7 +256,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetProperty(int propid, object var)
         {
@@ -271,7 +281,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The show no activate.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int ShowNoActivate()
         {

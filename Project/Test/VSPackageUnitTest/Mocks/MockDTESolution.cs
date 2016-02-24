@@ -47,7 +47,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets AddIns.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public AddIns AddIns
         {
@@ -60,7 +61,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Count.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Count
         {
@@ -73,7 +75,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets DTE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
@@ -86,7 +89,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ExtenderCATID.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string ExtenderCATID
         {
@@ -99,7 +103,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ExtenderNames.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object ExtenderNames
         {
@@ -112,7 +117,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets FileName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string FileName
         {
@@ -125,7 +131,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets FullName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string FullName
         {
@@ -138,7 +145,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Globals.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Globals Globals
         {
@@ -151,9 +159,11 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets or sets a value indicating whether IsDirty.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool IsDirty
         {
@@ -171,7 +181,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets a value indicating whether IsOpen.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool IsOpen
         {
@@ -184,7 +195,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Parent.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE Parent
         {
@@ -208,7 +220,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Properties.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Properties Properties
         {
@@ -221,9 +234,11 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets or sets a value indicating whether Saved.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool Saved
         {
@@ -241,7 +256,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets SolutionBuild.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public SolutionBuild SolutionBuild
         {

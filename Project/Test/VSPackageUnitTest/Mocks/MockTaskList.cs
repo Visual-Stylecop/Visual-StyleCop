@@ -98,7 +98,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The auto filter.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AutoFilter(VSTASKCATEGORY cat)
         {
@@ -114,7 +115,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The auto filter 2.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AutoFilter2(ref Guid guidCustomView)
         {
@@ -139,7 +141,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The dump output.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int DumpOutput(uint dwReserved, VSTASKCATEGORY cat, IStream pstmOutput, out int pfOutputWritten)
         {
@@ -155,7 +158,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The enum task items.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int EnumTaskItems(out IVsEnumTaskItems ppenum)
         {
@@ -196,7 +200,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The register custom category.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RegisterCustomCategory(ref Guid guidCat, uint dwSortOrder, VSTASKCATEGORY[] pCat)
         {
@@ -237,7 +242,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set silent output mode.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetSilentOutputMode(int fSilent)
         {
@@ -253,7 +259,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The unregister custom category.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UnregisterCustomCategory(VSTASKCATEGORY catAssigned)
         {
@@ -290,7 +297,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The update provider info.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UpdateProviderInfo(uint dwProviderCookie)
         {
@@ -309,7 +317,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The begin task edit.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int BeginTaskEdit(IVsTaskItem pItem, int iFocusField)
         {
@@ -361,7 +370,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get caret pos.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetCaretPos(out IVsTaskItem ppItem)
         {
@@ -377,7 +387,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get selection count.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetSelectionCount(out int pnItems)
         {
@@ -390,7 +401,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The refresh all providers.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RefreshAllProviders()
         {
@@ -412,7 +424,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The refresh or add tasks.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RefreshOrAddTasks(uint vsProviderCookie, int nTasks, IVsTaskItem[] prgTasks)
         {
@@ -434,7 +447,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The remove tasks.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RemoveTasks(uint vsProviderCookie, int nTasks, IVsTaskItem[] prgTasks)
         {
@@ -459,7 +473,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The select items.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SelectItems(int nItems, IVsTaskItem[] pItems, uint tsfSelType, uint tsspScrollPos)
         {

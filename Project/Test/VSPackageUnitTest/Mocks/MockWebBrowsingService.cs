@@ -48,7 +48,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The create external web browser.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CreateExternalWebBrowser(uint dwCreateFlags, VSPREVIEWRESOLUTION dwResolution, string lpszURL)
         {
@@ -82,7 +83,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The create web browser.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CreateWebBrowser(
             uint dwCreateFlags, ref Guid rguidOwner, string lpszBaseCaption, string lpszStartURL, IVsWebBrowserUser pUser, out IVsWebBrowser ppBrowser, out IVsWindowFrame ppFrame)
@@ -120,7 +122,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The create web browser ex.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CreateWebBrowserEx(
             uint dwCreateFlags, ref Guid rguidPersistenceSlot, uint dwId, string lpszBaseCaption, string lpszStartURL, IVsWebBrowserUser pUser, out IVsWebBrowser ppBrowser, out IVsWindowFrame ppFrame)
@@ -143,7 +146,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get first web browser.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetFirstWebBrowser(ref Guid rguidPersistenceSlot, out IVsWindowFrame ppFrame, out IVsWebBrowser ppBrowser)
         {
@@ -162,7 +166,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get web browser enum.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetWebBrowserEnum(ref Guid rguidPersistenceSlot, out IEnumWindowFrames ppenum)
         {

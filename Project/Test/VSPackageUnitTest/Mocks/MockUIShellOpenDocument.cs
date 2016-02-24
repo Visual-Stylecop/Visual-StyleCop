@@ -83,7 +83,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The add standard previewer.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AddStandardPreviewer(
             string pszExePath,
@@ -114,7 +115,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get first default previewer.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetFirstDefaultPreviewer(out string pbstrDefBrowserPath, out int pfIsInternalBrowser, out int pfIsSystemBrowser)
         {
@@ -145,7 +147,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get standard editor factory.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetStandardEditorFactory(uint dwReserved, ref Guid pguidEditorType, string pszMkDocument, ref Guid rguidLogicalView, out string pbstrPhysicalView, out IVsEditorFactory ppEF)
         {
@@ -203,7 +206,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The initialize editor instance.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int InitializeEditorInstance(
             uint grfIEI,
@@ -246,7 +250,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The is document in a project.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int IsDocumentInAProject(string pszMkDocument, out IVsUIHierarchy ppUIH, out uint pitemid, out IServiceProvider ppSP, out int pDocInProj)
         {
@@ -286,7 +291,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The is document open.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int IsDocumentOpen(
             IVsUIHierarchy pHierCaller,
@@ -338,7 +344,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The is specific document view open.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int IsSpecificDocumentViewOpen(
             IVsUIHierarchy pHierCaller,
@@ -370,7 +377,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The map logical view.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int MapLogicalView(ref Guid rguidEditorType, ref Guid rguidLogicalView, out string pbstrPhysicalView)
         {
@@ -392,7 +400,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The open copy of standard editor.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int OpenCopyOfStandardEditor(IVsWindowFrame pWindowFrame, ref Guid rguidLogicalView, out IVsWindowFrame ppNewWindowFrame)
         {
@@ -475,7 +484,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The open document via project with specific.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int OpenDocumentViaProjectWithSpecific(
             string pszMkDocument,
@@ -530,7 +540,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The open specific editor.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int OpenSpecificEditor(
             uint grfOpenSpecific,
@@ -581,7 +592,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The open standard editor.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int OpenStandardEditor(
             uint grfOpenStandard,
@@ -615,7 +627,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The open standard previewer.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int OpenStandardPreviewer(uint ospOpenDocPreviewer, string pszURL, VSPREVIEWRESOLUTION resolution, uint dwReserved)
         {
@@ -637,7 +650,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The search projects for relative path.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SearchProjectsForRelativePath(uint grfRPS, string pszRelPath, string[] pbstrAbsPath)
         {

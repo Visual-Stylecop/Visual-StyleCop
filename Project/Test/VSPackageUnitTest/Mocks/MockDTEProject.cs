@@ -45,7 +45,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets CodeModel.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public CodeModel CodeModel
         {
@@ -58,7 +59,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Collection.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Projects Collection
         {
@@ -71,7 +73,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ConfigurationManager.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ConfigurationManager ConfigurationManager
         {
@@ -84,7 +87,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets DTE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
@@ -97,7 +101,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ExtenderCATID.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string ExtenderCATID
         {
@@ -110,7 +115,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ExtenderNames.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object ExtenderNames
         {
@@ -134,7 +140,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets FullName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string FullName
         {
@@ -158,9 +165,11 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets or sets a value indicating whether IsDirty.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool IsDirty
         {
@@ -178,7 +187,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Kind.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Kind
         {
@@ -191,9 +201,11 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets or sets Name.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Name
         {
@@ -211,7 +223,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Object.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object Object
         {
@@ -224,7 +237,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ParentProjectItem.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ProjectItem ParentProjectItem
         {
@@ -237,7 +251,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ProjectItems.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ProjectItems ProjectItems
         {
@@ -250,7 +265,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Properties.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Properties Properties
         {
@@ -263,9 +279,11 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets or sets a value indicating whether Saved.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool Saved
         {
@@ -283,7 +301,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets UniqueName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string UniqueName
         {
@@ -296,7 +315,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// The delete.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Delete()
         {
@@ -309,7 +329,8 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="fileName">
         /// The file name.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Save(string fileName)
         {
@@ -322,7 +343,8 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="NewFileName">
         /// The new file name.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void SaveAs(string NewFileName)
         {
@@ -338,7 +360,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get_ extender.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object get_Extender(string extenderName)
         {

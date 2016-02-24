@@ -51,7 +51,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ActiveDocument.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Document ActiveDocument
         {
@@ -64,7 +65,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ActiveSolutionProjects.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object ActiveSolutionProjects
         {
@@ -77,7 +79,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ActiveWindow.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window ActiveWindow
         {
@@ -90,7 +93,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets AddIns.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public AddIns AddIns
         {
@@ -103,7 +107,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Application.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE Application
         {
@@ -116,7 +121,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets CommandBars.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object CommandBars
         {
@@ -129,7 +135,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets CommandLineArguments.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string CommandLineArguments
         {
@@ -142,7 +149,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Commands.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Commands Commands
         {
@@ -155,7 +163,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ContextAttributes.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ContextAttributes ContextAttributes
         {
@@ -168,7 +177,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets DTE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
@@ -181,7 +191,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Debugger.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Debugger Debugger
         {
@@ -194,9 +205,11 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets or sets DisplayMode.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public vsDisplay DisplayMode
         {
@@ -214,7 +227,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Documents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Documents Documents
         {
@@ -227,7 +241,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Edition.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Edition
         {
@@ -251,7 +266,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets FileName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string FileName
         {
@@ -264,7 +280,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Find.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Find Find
         {
@@ -277,7 +294,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets FullName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string FullName
         {
@@ -290,7 +308,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Globals.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Globals Globals
         {
@@ -303,7 +322,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ItemOperations.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ItemOperations ItemOperations
         {
@@ -316,7 +336,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets LocaleID.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int LocaleID
         {
@@ -329,7 +350,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Macros.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Macros Macros
         {
@@ -342,7 +364,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets MacrosIDE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE MacrosIDE
         {
@@ -355,7 +378,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets MainWindow.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window MainWindow
         {
@@ -368,7 +392,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Mode.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public vsIDEMode Mode
         {
@@ -381,7 +406,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Name.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Name
         {
@@ -394,7 +420,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ObjectExtenders.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ObjectExtenders ObjectExtenders
         {
@@ -407,7 +434,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets RegistryRoot.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string RegistryRoot
         {
@@ -420,7 +448,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets SelectedItems.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public SelectedItems SelectedItems
         {
@@ -444,7 +473,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets SourceControl.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public SourceControl SourceControl
         {
@@ -457,7 +487,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets StatusBar.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public StatusBar StatusBar
         {
@@ -470,7 +501,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets or sets a value indicating whether SuppressUI.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool SuppressUI
         {
@@ -488,7 +520,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets UndoContext.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public UndoContext UndoContext
         {
@@ -501,7 +534,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets or sets a value indicating whether UserControl.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool UserControl
         {
@@ -519,7 +553,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets Version.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Version
         {
@@ -532,7 +567,8 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets WindowConfigurations.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public WindowConfigurations WindowConfigurations
         {
@@ -556,7 +592,8 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="commandArgs">
         /// The command args.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void ExecuteCommand(string commandName, string commandArgs)
         {
@@ -572,7 +609,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get object.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object GetObject(string name)
         {

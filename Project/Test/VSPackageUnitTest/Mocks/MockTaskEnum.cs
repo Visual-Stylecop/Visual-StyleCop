@@ -53,7 +53,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The clone.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Clone(out IVsEnumTaskItems ppenum)
         {
@@ -111,7 +112,8 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The skip.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Skip(uint celt)
         {
