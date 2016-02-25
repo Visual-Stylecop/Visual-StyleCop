@@ -56,6 +56,25 @@
             </Expression>
           </Statement>
         </Element>
+        <Element Name="bug" Type="Field">
+          <Statement Type="VariableDeclarationStatement">
+            <Expression Type="VariableDeclarationExpression">
+              <Expression Text="IDictionary&lt;string,string[]&gt;" Type="LiteralExpression" />
+              <Expression Type="VariableDeclaratorExpression">
+                <Expression Text="bug" Type="LiteralExpression" />
+                <Expression Type="NewExpression">
+                  <Expression Type="MethodInvocationExpression">
+                    <Expression Text="Dictionary&lt;string,string[]&gt;" Type="LiteralExpression" />
+                  </Expression>
+                  <Expression Type="CollectionInitializerExpression">
+                    <Expression Type="DictionaryItemInitializationExpression" />
+                    <Expression Type="DictionaryItemInitializationExpression" />
+                  </Expression>
+                </Expression>
+              </Expression>
+            </Expression>
+          </Statement>
+        </Element>
       </Element>
     </Element>
   </Element>

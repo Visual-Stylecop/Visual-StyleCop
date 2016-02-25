@@ -1006,7 +1006,18 @@ namespace StyleCop.CSharp
                             && token.CsTokenType != CsTokenType.PreprocessorDirective && token.CsTokenType != CsTokenType.Select && token.CsTokenType != CsTokenType.From
                             && token.CsTokenType != CsTokenType.Let && token.CsTokenType != CsTokenType.OperatorSymbol && token.CsTokenType != CsTokenType.By)
                         {
-                            this.AddViolation(closingCurlyBracket.FindParentElement(), closingCurlyBracket.LineNumber, Rules.ClosingCurlyBracketMustBeFollowedByBlankLine);
+                            var parent = closingCurlyBracket.FindParentElement();
+
+                            // Use token to find parent.
+                            if (parent == null)
+                            {
+                                CsElement element = token.FindParentElement();
+                            }
+
+                            if (parent != null)
+                            {
+                                this.AddViolation(parent, closingCurlyBracket.LineNumber, Rules.ClosingCurlyBracketMustBeFollowedByBlankLine);
+                            }
                         }
                     }
                 }

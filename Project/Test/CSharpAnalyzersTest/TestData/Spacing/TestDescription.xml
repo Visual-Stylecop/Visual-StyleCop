@@ -317,6 +317,51 @@
                  Rule="ClosingCurlyBracketsMustBeSpacedCorrectly" />
     </ExpectedViolations>
   </Test>
+  <Test Name="OpenParenthesis">
+    <TestCodeFile>OpenParenthesis.cs</TestCodeFile>
+    <Settings>
+      <GlobalSettings>
+        <StringProperty Name="MergeSettingsFiles">NoMerge</StringProperty>
+        <BooleanProperty Name="RulesEnabledByDefault">False</BooleanProperty>
+      </GlobalSettings>
+      <Analyzers>
+        <Analyzer AnalyzerId="StyleCop.CSharp.SpacingRules">
+          <Rules>
+            <Rule Name="OpeningParenthesisMustBeSpacedCorrectly">
+              <RuleSettings>
+                <BooleanProperty Name="Enabled">True</BooleanProperty>
+              </RuleSettings>
+            </Rule>
+          </Rules>
+        </Analyzer>
+      </Analyzers>
+    </Settings>
+  </Test>
+  <Test Name="OpenSquareBracket">
+    <TestCodeFile>OpenSquareBracket.cs</TestCodeFile>
+    <Settings>
+      <GlobalSettings>
+        <StringProperty Name="MergeSettingsFiles">NoMerge</StringProperty>
+        <BooleanProperty Name="RulesEnabledByDefault">False</BooleanProperty>
+      </GlobalSettings>
+      <Analyzers>
+        <Analyzer AnalyzerId="StyleCop.CSharp.SpacingRules">
+          <Rules>
+            <Rule Name="OpeningSquareBracketsMustBeSpacedCorrectly">
+              <RuleSettings>
+                <BooleanProperty Name="Enabled">True</BooleanProperty>
+              </RuleSettings>
+            </Rule>
+          </Rules>
+        </Analyzer>
+      </Analyzers>
+    </Settings>
+    <ExpectedViolations>
+      <Violation Section="Root.CSharpAnalyzersTest.TestData.Spacing.OpenSquareBracket.Foo1"
+                 LineNumber="7" StartLine="7" StartColumn="20" EndLine="7" EndColumn="20"
+                 Rule="OpeningSquareBracketsMustBeSpacedCorrectly" />
+    </ExpectedViolations>
+  </Test>
   <Test Name="MemberAccessSymbol">
     <TestCodeFile>MemberAccessSymbol.cs</TestCodeFile>
     <Settings>
