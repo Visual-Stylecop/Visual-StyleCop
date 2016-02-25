@@ -342,7 +342,27 @@ namespace StyleCop.CSharp
                         }
                     }
 
-                    this.AddViolation(genericType.FindParentElement(), genericType.LineNumber, Rules.UseShorthandForNullableTypes);
+                    // Search if parent is nameof expression then allow it.
+                    var parent = genericType.FindParentExpression();
+                    bool nameofExpression = false;
+
+                    while (parent != null && !nameofExpression)
+                    {
+                        if (parent is NameofExpression)
+                        {
+                            nameofExpression = true;
+                            parent = null;
+                        }
+                        else
+                        {
+                            parent = parent.FindParentExpression();
+                        }
+                    }
+
+                    if (!nameofExpression)
+                    {
+                        this.AddViolation(genericType.FindParentElement(), genericType.LineNumber, Rules.UseShorthandForNullableTypes);
+                    }
                 }
             }
             else
