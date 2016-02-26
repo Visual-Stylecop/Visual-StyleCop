@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8FBEC870-B153-4917-A53A-9FB8B369FCA4}"
 	ProjectSection(SolutionItems) = preProject
@@ -37,6 +37,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpParser", "Src\Parser\CSharpParser.csproj", "{C173ACF5-2CE5-4771-83A4-D01453C8CB09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalAnalyzers", "Src\InternalAnalyzers\InternalAnalyzers.csproj", "{5E566973-8BA3-4B6A-B300-7A5CC015B3D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build-CI", "Build-CI", "{CEBA6063-F6C9-4C09-91CF-2C1A31A254F3}"
+	ProjectSection(SolutionItems) = preProject
+		..\Build\AfterBuild.ps1 = ..\Build\AfterBuild.ps1
+		..\Build\BeforeBuild.ps1 = ..\Build\BeforeBuild.ps1
+		..\Build\BuildFinish.ps1 = ..\Build\BuildFinish.ps1
+		..\Build\Init.ps1 = ..\Build\Init.ps1
+		..\Build\Install.ps1 = ..\Build\Install.ps1
+		..\Build\StyleCop.nuspec = ..\Build\StyleCop.nuspec
+		..\Build\Tests.ps1 = ..\Build\Tests.ps1
+		..\Build\Extensions\vsix.ps1 = ..\Build\Extensions\vsix.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
