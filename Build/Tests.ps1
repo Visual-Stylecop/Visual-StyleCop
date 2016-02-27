@@ -11,22 +11,22 @@ $f = $fs.GetFile("C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\ID
 $mstestPath = $f.shortpath   
 
 # Run tests for VSPackage
-$testDLL = "C:\VisualStyleCop\Visual-Stylecop\project\Test\VSPackageUnitTest\bin\$configuration\VSPackageUnitTest.dll"
+$testDLL = ".\project\Test\VSPackageUnitTest\bin\$configuration\VSPackageUnitTest.dll"
 $arguments = " /testcontainer:" + $testDLL
 Invoke-Expression "$mstestPath $arguments"
 
 # Run tests for ObjectBasedEnvironment
-$testDLL = "C:\VisualStyleCop\Visual-Stylecop\project\Test\ObjectBasedEnvironmentTest\bin\$configuration\ObjectBasedEnvironmentTest.dll"
+$testDLL = ".\project\Test\ObjectBasedEnvironmentTest\bin\$configuration\ObjectBasedEnvironmentTest.dll"
 $arguments = " /testcontainer:" + $testDLL
 Invoke-Expression "$mstestPath $arguments"
 
 # Run tests for CSharpAnalyzers
-$testDLL = "C:\VisualStyleCop\Visual-Stylecop\project\Test\CSharpAnalyzersTest\bin\$configuration\CSharpAnalyzersTest.dll"
+$testDLL = ".\project\Test\CSharpAnalyzersTest\bin\$configuration\CSharpAnalyzersTest.dll"
 $arguments = " /testcontainer:" + $testDLL
 Invoke-Expression "$mstestPath $arguments"
 
 # Run test for CSharpParserTest
-$testDLL = "C:\VisualStyleCop\Visual-Stylecop\project\Test\CSharpParserTest\bin\$configuration\CSharpParserTest.dll"
+$testDLL = ".\project\Test\CSharpParserTest\bin\$configuration\CSharpParserTest.dll"
 $arguments = " /testcontainer:" + $testDLL
 Invoke-Expression "$mstestPath $arguments"
 
