@@ -11,5 +11,5 @@ if ($versionNumber -notmatch "-")
 	Push-AppveyorArtifact Visual-StyleCop.MSBuild.$versionNumber.nupkg -FileName Visual-StyleCop.MSBuild.$versionNumber.nupkg -DeploymentName Visual-StyleCop.MSBuild.$versionNumber.nupkg
 }
 
-# RDP Debug
-$blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+# Remote desktop, uncomment to wait for an hour
+# $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
