@@ -92,6 +92,7 @@ $results = [xml](GC .\VSPackageUnitTest.trx)
 $outcome = $results.TestRun.ResultSummary.outcome
 if($outcome -eq "Failed")
 {
+    Write-Host "VSPackageUnitTest Failed" -ForegroundColor "Red" -BackgroundColor "Black"
   $LastExitCode = 1
   $host.SetShouldExit($LastExitCode)
 } 
@@ -101,6 +102,7 @@ $results = [xml](GC .\ObjectBasedEnvironmentTest.trx)
 $outcome = $results.TestRun.ResultSummary.outcome
 if($outcome -eq "Failed")
 {
+  Write-Host "ObjectBasedEnvironmentTest Failed" -ForegroundColor "Red" -BackgroundColor "Black"
   $LastExitCode = 1
   $host.SetShouldExit($LastExitCode)
 } 
@@ -110,6 +112,7 @@ $results = [xml](GC .\CSharpAnalyzersTest.trx)
 $outcome = $results.TestRun.ResultSummary.outcome
 if($outcome -eq "Failed")
 {
+  Write-Host "CSharpAnalyzersTest Failed" -ForegroundColor "Red" -BackgroundColor "Black"
   $LastExitCode = 1
   $host.SetShouldExit($LastExitCode)
 } 
@@ -119,6 +122,7 @@ $results = [xml](GC .\CSharpParserTest.trx)
 $outcome = $results.TestRun.ResultSummary.outcome
 if($outcome -eq "Failed")
 {
+  Write-Host "CSharpParserTest Failed" -ForegroundColor "Red" -BackgroundColor "Black"
   $LastExitCode = 1
   $host.SetShouldExit($LastExitCode)
 } 
