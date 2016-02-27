@@ -69,7 +69,7 @@ Try
   # Upload CodeCov results for CSharpParser
   Invoke-Expression @"
   codecov -f ".\StyleCop.CSharp_coverage.xml" --no-fail
-  "@ -ErrorAction 'silentlyStop'
+"@ -ErrorAction 'silentlyStop'
 }
 Catch
 {
@@ -81,7 +81,7 @@ Try
   # Upload CodeCov results for CSharpAnalyzers
   Invoke-Expression @"
   codecov -f ".\StyleCop.CSharp.Rules_coverage.xml" --no-fail
-  "@ -ErrorAction 'silentlyStop'
+"@ -ErrorAction 'silentlyStop'
 }
 Catch
 {
@@ -93,7 +93,7 @@ Try
   # Upload CodeCov results for VSPackage
   Invoke-Expression @"
   codecov -f ".\StyleCop.VSPackage_coverage.xml" --no-fail
-  "@ -ErrorAction 'silentlyStop'
+"@ -ErrorAction 'silentlyStop'
 }
 Catch
 {
