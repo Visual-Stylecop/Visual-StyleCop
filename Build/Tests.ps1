@@ -58,23 +58,44 @@ $codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:"/testc
 Invoke-Expression $CSharpParserTest
 
 # =========================================================================================================================
-# CodeCov Upload
+# CodeCov Upload, Use try catch blocks to avoid build exception with file not found.
 # =========================================================================================================================
 
 # Install missing package
 Invoke-Expression "pip -q install codecov"
 
-# Upload CodeCov results for CSharpParser
-Invoke-Expression @"
-codecov -f ".\StyleCop.CSharp_coverage.xml" --no-fail
-"@
+Try
+{
+  # Upload CodeCov results for CSharpParser
+  Invoke-Expression @"
+  codecov -f ".\StyleCop.CSharp_coverage.xml" --no-fail
+  "@ -ErrorAction 'silentlyStop'
+}
+Catch
+{
+    Write-Host "Error while uploading CSharp coverage"
+}
 
-# Upload CodeCov results for CSharpAnalyzers
-Invoke-Expression @"
-codecov -f ".\StyleCop.CSharp.Rules_coverage.xml" --no-fail
-"@
+Try
+{
+  # Upload CodeCov results for CSharpAnalyzers
+  Invoke-Expression @"
+  codecov -f ".\StyleCop.CSharp.Rules_coverage.xml" --no-fail
+  "@ -ErrorAction 'silentlyStop'
+}
+Catch
+{
+    Write-Host "Error while uploading CSharp Rules coverage"
+}
 
-# Upload CodeCov results for VSPackage
-Invoke-Expression @"
-codecov -f ".\StyleCop.VSPackage_coverage.xml" --no-fail
-"@
+Try
+{
+  # Upload CodeCov results for VSPackage
+  Invoke-Expression @"
+  codecov -f ".\StyleCop.VSPackage_coverage.xml" --no-fail
+  "@ -ErrorAction 'silentlyStop'
+}
+Catch
+{
+    Write-Host "Error while uploading VSPackage coverage"
+}
