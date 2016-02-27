@@ -50,16 +50,16 @@ $codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:"/testc
 Invoke-Expression $CSharpParserTest
 
 # Run CodeCov for CSharpAnalyzers
-$CSharpParserTest = @" 
+$CSharpAnalyzers = @" 
 $codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:"/testcontainer:.\Project\Test\CSharpAnalyzersTest\bin\$configuration\CSharpAnalyzersTest.dll" "-filter:+[StyleCop.CSharp.Rules*]*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp.Rules_coverage.xml -log:Off
 "@
-Invoke-Expression $CSharpParserTest
+Invoke-Expression $CSharpAnalyzers
 
-# Run CodeCov for VSPackage
-$CSharpParserTest = @" 
+# Run CodeCov for VSPackageTest
+$VSPackageTest = @" 
 $codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:"/testcontainer:.\Project\Test\VSPackageUnitTest\bin\$configuration\VSPackageUnitTest.dll" "-filter:+[StyleCop.VSPackage*]*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.VSPackage_coverage.xml -log:Off
 "@
-Invoke-Expression $CSharpParserTest
+Invoke-Expression $VSPackageTest
 
 # =========================================================================================================================
 # CodeCov Upload, disable gcov to avoid file not found exception and build fail
@@ -82,3 +82,43 @@ codecov -f ".\StyleCop.CSharp.Rules_coverage.xml" -X gcov
 Invoke-Expression @"
 codecov -f ".\StyleCop.VSPackage_coverage.xml" -X gcov
 "@
+
+# =========================================================================================================================
+# Check MsTest result by script
+# =========================================================================================================================
+
+# VSPackageUnitTest
+$results = [xml](GC .\VSPackageUnitTest.trx)
+$outcome = $results.TestRun.ResultSummary.outcome
+if($outcome -eq "Failed")
+{
+  $LastExitCode = 1
+  $host.SetShouldExit($LastExitCode)
+} 
+
+# ObjectBasedEnvironmentTest
+$results = [xml](GC .\ObjectBasedEnvironmentTest.trx)
+$outcome = $results.TestRun.ResultSummary.outcome
+if($outcome -eq "Failed")
+{
+  $LastExitCode = 1
+  $host.SetShouldExit($LastExitCode)
+} 
+
+# CSharpAnalyzersTest
+$results = [xml](GC .\CSharpAnalyzersTest.trx)
+$outcome = $results.TestRun.ResultSummary.outcome
+if($outcome -eq "Failed")
+{
+  $LastExitCode = 1
+  $host.SetShouldExit($LastExitCode)
+} 
+
+# CSharpParserTest
+$results = [xml](GC .\CSharpParserTest.trx)
+$outcome = $results.TestRun.ResultSummary.outcome
+if($outcome -eq "Failed")
+{
+  $LastExitCode = 1
+  $host.SetShouldExit($LastExitCode)
+} 
