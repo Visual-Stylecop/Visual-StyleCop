@@ -12,23 +12,30 @@ $mstestPath = $f.shortpath
 
 # Run tests for VSPackage
 $testDLL = ".\project\Test\VSPackageUnitTest\bin\$configuration\VSPackageUnitTest.dll"
-$arguments = " /testcontainer:" + $testDLL
+$arguments = " /resultsfile:VSPackageUnitTest.trx  /testcontainer:" + $testDLL
 Invoke-Expression "$mstestPath $arguments"
 
 # Run tests for ObjectBasedEnvironment
 $testDLL = ".\project\Test\ObjectBasedEnvironmentTest\bin\$configuration\ObjectBasedEnvironmentTest.dll"
-$arguments = " /testcontainer:" + $testDLL
+$arguments = " /resultsfile:ObjectBasedEnvironmentTest.trx /testcontainer:" + $testDLL
 Invoke-Expression "$mstestPath $arguments"
 
 # Run tests for CSharpAnalyzers
 $testDLL = ".\project\Test\CSharpAnalyzersTest\bin\$configuration\CSharpAnalyzersTest.dll"
-$arguments = " /testcontainer:" + $testDLL
+$arguments = " /resultsfile:CSharpAnalyzersTest.trx /testcontainer:" + $testDLL
 Invoke-Expression "$mstestPath $arguments"
 
 # Run test for CSharpParserTest
 $testDLL = ".\project\Test\CSharpParserTest\bin\$configuration\CSharpParserTest.dll"
-$arguments = " /testcontainer:" + $testDLL
+$arguments = " /resultsfile:CSharpParserTest.trx /testcontainer:" + $testDLL
 Invoke-Expression "$mstestPath $arguments"
+
+# upload test results to AppVeyor
+$wc = New-Object 'System.Net.WebClient'
+$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path ".\VSPackageUnitTest.trx"))
+$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path ".\ObjectBasedEnvironmentTest.trx"))
+$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path ".\CSharpAnalyzersTest.trx"))
+$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path ".\CSharpParserTest.trx"))
 
 # =========================================================================================================================
 # CodeCov Process
@@ -40,21 +47,18 @@ $codeCovPath = "Project\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe"
 $CSharpParserTest = @" 
 $codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:"/testcontainer:.\Project\Test\CSharpParserTest\bin\$configuration\CSharpParserTest.dll" "-filter:+[StyleCop.CSharp*]* -[StyleCop.CSharp*]*CodeParser" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp_coverage.xml -log:Off
 "@
-
 Invoke-Expression $CSharpParserTest
 
 # Run CodeCov for CSharpAnalyzers
 $CSharpParserTest = @" 
 $codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:"/testcontainer:.\Project\Test\CSharpAnalyzersTest\bin\$configuration\CSharpAnalyzersTest.dll" "-filter:+[StyleCop.CSharp.Rules*]*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp.Rules_coverage.xml -log:Off
 "@
-
 Invoke-Expression $CSharpParserTest
 
 # Run CodeCov for VSPackage
 $CSharpParserTest = @" 
 $codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:"/testcontainer:.\Project\Test\VSPackageUnitTest\bin\$configuration\VSPackageUnitTest.dll" "-filter:+[StyleCop.VSPackage*]*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.VSPackage_coverage.xml -log:Off
 "@
-
 Invoke-Expression $CSharpParserTest
 
 # =========================================================================================================================
