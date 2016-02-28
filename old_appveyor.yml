@@ -2,15 +2,15 @@
 -
   branches:
     only:
-    - develop
+      - develop
   version: 4.7.59.{build}-{branch}
   configuration:
-  - Debug
-  - Release
+    - Debug
+    - Release
   platform: Any CPU
   clone_folder: C:\projects\visual-stylecop-ci
   init:
-  - ps: git config --global core.autocrlf true
+    - ps: git config --global core.autocrlf true
   assembly_info:
     patch: true
     file: '**\AssemblyInfo.*'
@@ -18,51 +18,51 @@
     assembly_file_version: '{version}'
     assembly_informational_version: '{version}'
   install:
-  - ps: .\Build\Install.ps1
+    - ps: .\Build\Install.ps1
   before_build:
-  - ps: .\Build\BeforeBuild.ps1
+    - ps: .\Build\BeforeBuild.ps1
   build:
     project: Project\StyleCop.sln
     verbosity: quiet
   after_build:
-  - ps: .\Build\AfterBuild.ps1
+    - ps: .\Build\AfterBuild.ps1
   test_script:
-  - ps: .\Build\Tests.ps1
+    - ps: .\Build\Tests.ps1
   artifacts:
-  - path: Project/Src/VSIXProject/bin/%CONFIGURATION%/VSIXProject.vsix
-    name: VisualStyleCop.vsix
-  - path: Visual-StyleCop.MSBuild.%Version%.nupkg
-    name: Visual-StyleCop.MSBuild.%Version%.nupkg
+    - path: Project/Src/VSIXProject/bin/%CONFIGURATION%/VSIXProject.vsix
+      name: VisualStyleCop.vsix
+    - path: Visual-StyleCop.MSBuild.%Version%.nupkg
+      name: Visual-StyleCop.MSBuild.%Version%.nupkg
   deploy: off
   notifications:
-  - provider: Email
-    to:
-    - visualstylecop@gmail.com
-    subject: Visual StyleCop CI Build
-    message: Failed to build branch develop of Visual-StyleCop
-    on_build_success: false
-    on_build_failure: true
-    on_build_status_changed: false
+    - provider: Email
+      to:
+        - visualstylecop@gmail.com
+          subject: Visual StyleCop CI Build
+          message: Failed to build branch develop of Visual-StyleCop
+          on_build_success: false
+          on_build_failure: true
+          on_build_status_changed: false
   on_finish:
-  - ps: >-
+    - ps: >-
       .\Build\BuildFinish.ps1
       # Uncomment to stop build for remote desktop
       # $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 # Build configuration for Master branch (Release Build)
 -
+  branches:
+    only:
+      - master
   version: 4.7.59.{build}
   pull_requests:
     do_not_increment_build_number: true
-  branches:
-    only:
-    - master
   configuration:
-  - Debug
-  - Release
+    - Debug
+    - Release
   platform: Any CPU
   init:
-  - ps: git config --global core.autocrlf true
+    - ps: git config --global core.autocrlf true
   assembly_info:
     patch: true
     file: '**\AssemblyInfo.*'
@@ -70,30 +70,30 @@
     assembly_file_version: '{version}'
     assembly_informational_version: '{version}'
   install:
-  - ps: .\Build\Install.ps1
+    - ps: .\Build\Install.ps1
   before_build:
-  - ps: .\Build\BeforeBuild.ps1
+    - ps: .\Build\BeforeBuild.ps1
   build:
     project: Project\StyleCop.sln
     verbosity: minimal
   after_build:
-  - ps: .\Build\AfterBuild.ps1
+    - ps: .\Build\AfterBuild.ps1
   test_script:
-  - cmd: .\Build\Tests.ps1
+    - cmd: .\Build\Tests.ps1
   artifacts:
-  - path: Project/Src/VSIXProject/bin/%CONFIGURATION%/VSIXProject.vsix
-    name: VisualStyleCop.vsix
-  - path: Visual-StyleCop.MSBuild.%Version%.nupkg
-    name: Visual-StyleCop.MSBuild.%Version%.nupkg
+    - path: Project/Src/VSIXProject/bin/%CONFIGURATION%/VSIXProject.vsix
+      name: VisualStyleCop.vsix
+    - path: Visual-StyleCop.MSBuild.%Version%.nupkg
+      name: Visual-StyleCop.MSBuild.%Version%.nupkg
   deploy: off
   notifications:
-  - provider: Email
-    to:
-    - visualstylecop@gmail.com
-    subject: Visual StyleCop Build
-    on_build_success: true
-    on_build_failure: true
-    on_build_status_changed: true
+    - provider: Email
+      to:
+        - visualstylecop@gmail.com
+          subject: Visual StyleCop Build
+          on_build_success: true
+          on_build_failure: true
+          on_build_status_changed: true
   on_finish:
   - ps: >-
       .\Build\BuildFinish.ps1
