@@ -68,19 +68,9 @@ Invoke-Expression $VSPackageTest
 # Install missing package
 Invoke-Expression "pip -q install codecov"
 
-# Upload CodeCov results for CSharpParser
+# Upload CodeCov results
 Invoke-Expression @"
-codecov -f ".\StyleCop.CSharp_coverage.xml" -X gcov
-"@
-
-# Upload CodeCov results for CSharpAnalyzers
-Invoke-Expression @"
-codecov -f ".\StyleCop.CSharp.Rules_coverage.xml" -X gcov
-"@
-
-# Upload CodeCov results for VSPackage
-Invoke-Expression @"
-codecov -f ".\StyleCop.VSPackage_coverage.xml" -X gcov
+codecov -f ".\StyleCop.CSharp_coverage.xml",".\StyleCop.CSharp.Rules_coverage.xml",".\StyleCop.VSPackage_coverage.xml" -X gcov
 "@
 
 # =========================================================================================================================
