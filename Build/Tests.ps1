@@ -18,23 +18,23 @@ $codeCovPath = "Project\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe"
 # =========================================================================================================================
 
 # Run CodeCov for VSPackageTest
-$targetArgs = """/testcontainer:.\Project\Test\VSPackageUnitTest\bin\$configuration\VSPackageUnitTest.dll /resultsfile:.\VSPackageUnitTest.trx"""
+$targetArgs = "/testcontainer:.\Project\Test\VSPackageUnitTest\bin\$configuration\VSPackageUnitTest.dll /resultsfile:.\VSPackageUnitTest.trx"
 $VSPackageTest = @" 
-$codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:$targetArgs "-filter:+[StyleCop.VSPackage*]*" -excludebyattribute:*.ExcludeFromCodeCoverage*  -output:.\StyleCop.VSPackage_coverage.xml -log:Off
+$codeCovPath -register:visual-stylecop "-target:$mstestPath" "-targetargs:$targetArgs" "-filter:+[StyleCop.VSPackage*]*" -excludebyattribute:*.ExcludeFromCodeCoverage*  -output:.\StyleCop.VSPackage_coverage.xml -log:Off
 "@
 Invoke-Expression $VSPackageTest
 
 # Run CodeCov For CSharpParser
-$targetArgs = """/testcontainer:.\Project\Test\CSharpParserTest\bin\$configuration\CSharpParserTest.dll /resultsfile:.\CSharpParserTest.trx"""
+$targetArgs = "/testcontainer:.\Project\Test\CSharpParserTest\bin\$configuration\CSharpParserTest.dll /resultsfile:.\CSharpParserTest.trx"
 $CSharpParserTest = @" 
-$codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:$targetArgs "-filter:+[StyleCop.CSharp*]* -[StyleCop.CSharp*]*CodeParser" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp_coverage.xml -log:Off
+$codeCovPath -register:visual-stylecop "-target:$mstestPath" "-targetargs:$targetArgs" "-filter:+[StyleCop.CSharp*]* -[StyleCop.CSharp*]*CodeParser" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp_coverage.xml -log:Off
 "@
 Invoke-Expression $CSharpParserTest
 
 # Run CodeCov for CSharpAnalyzers
-$targetArgs = """/testcontainer:.\Project\Test\CSharpAnalyzers\bin\$configuration\CSharpAnalyzers.dll /resultsfile:.\CSharpAnalyzers.trx"""
+$targetArgs = "/testcontainer:.\Project\Test\CSharpAnalyzersTest\bin\$configuration\CSharpAnalyzersTest.dll /resultsfile:.\CSharpAnalyzersTest.trx"
 $CSharpAnalyzers = @" 
-$codeCovPath -register:visual-stylecop "-target:$mstestPath" -targetargs:$targetArgs "-filter:+[StyleCop.CSharp.Rules*]*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp.Rules_coverage.xml -log:Off
+$codeCovPath -register:visual-stylecop "-target:$mstestPath" "-targetargs:$targetArgs" "-filter:+[StyleCop.CSharp.Rules*]*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp.Rules_coverage.xml -log:Off
 "@
 Invoke-Expression $CSharpAnalyzers
 
