@@ -11,7 +11,7 @@ $f = $fs.GetFile("C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\ID
 $mstestPath = $f.shortpath
 
 $env:Path = "C:\Python34;C:\Python34\Scripts;" + $env:Path
-$codeCovPath = "Project\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe"
+$codeCovPath = "Project\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe"
 
 # =========================================================================================================================
 # CodeCov Process
@@ -27,7 +27,7 @@ Invoke-Expression $VSPackageTest
 # Run CodeCov For CSharpParser
 $targetArgs = "/testcontainer:.\Project\Test\CSharpParserTest\bin\$configuration\CSharpParserTest.dll /resultsfile:.\CSharpParserTest.trx"
 $CSharpParserTest = @" 
-$codeCovPath -register:visual-stylecop "-target:$mstestPath" "-targetargs:$targetArgs" "-filter:+[StyleCop.CSharp*]* -[StyleCop.CSharp*]*CodeParser" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp_coverage.xml -log:Off
+$codeCovPath -register:visual-stylecop "-target:$mstestPath" "-targetargs:$targetArgs" "-filter:+[StyleCop.CSharp*]*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\StyleCop.CSharp_coverage.xml -log:Off
 "@
 Invoke-Expression $CSharpParserTest
 
