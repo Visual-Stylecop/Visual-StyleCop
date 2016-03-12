@@ -412,7 +412,7 @@ namespace StyleCop
                                 // Add exception message for help on bugfix.
                                 if (!string.IsNullOrEmpty(ex.Message))
                                 {
-                                    details.AppendLine(string.Format(CultureInfo.CurrentCulture, "Exception message : {0}"));
+                                    details.AppendLine(string.Format(CultureInfo.CurrentCulture, "Exception message : {0}", ex.Message));
                                 }
 
                                 this.data.Core.SignalOutput(MessageImportance.High, details.ToString());
