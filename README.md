@@ -35,7 +35,7 @@ The wiki is in progress and sometimes you can browse to a broken link, please be
     This package is based on [Nuget - StyleCop.MSBuild](https://www.nuget.org/packages/StyleCop.MSBuild/) with StyleCop libraries for C#6.
     - Current version: [Nuget - Visual-StyleCop.MSBuild](https://www.nuget.org/packages/Visual-StyleCop.MSBuild)
 
-<H2>Roadmap / Futur of StyleCop</H2>
+<H2>Roadmap / Future of StyleCop</H2>
 
 I think the futur of StyleCop for Roslyn should be [SyleCopAnalyzers](https://github.com/DotNetAnalyzers/StyleCopAnalyzers) I encourage you to use it for new projects based on VS2015/Roslyn.
 
