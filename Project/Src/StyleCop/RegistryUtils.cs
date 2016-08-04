@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,20 +29,13 @@ namespace StyleCop
     /// <summary>
     /// Performs operations in the registry.
     /// </summary>
-    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Utils", 
-        Justification = "API has already been published and should not be changed.")]
+    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Utils", Justification = "API has already been published and should not be changed.")]
     public partial class RegistryUtils
     {
-        #region Constants
-
         /// <summary>
         /// The StyleCop sub key.
         /// </summary>
         private const string StyleCopSubKey = @"Software\CodePlex\StyleCop";
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The current user registry key for StyleCop.
@@ -54,12 +47,8 @@ namespace StyleCop
         /// </summary>
         private RegistryKey localMachineRoot;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Finalizes an instance of the RegistryUtils class.
+        /// Finalizes an instance of the <see cref="RegistryUtils"/> class.
         /// </summary>
         ~RegistryUtils()
         {
@@ -73,10 +62,6 @@ namespace StyleCop
                 this.localMachineRoot.Close();
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the HKCU root key for the StyleCop key as read/write. It will be created if it doesn't exist.
@@ -115,10 +100,6 @@ namespace StyleCop
                 return this.localMachineRoot;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Gets a RegistryKey value for the specified <paramref name="keyName"/> and <paramref name="valueName"/> for the Current User.
@@ -315,7 +296,7 @@ namespace StyleCop
         /// The form to restore.
         /// </param>
         /// <returns>
-        /// Returns false if there is no registry information for this form, or if 
+        /// Returns false if there is no registry information for this form, or if
         /// the position of the form could not be restored.
         /// </returns>
         public bool RestoreWindowPosition(string name, Form form)
@@ -341,7 +322,7 @@ namespace StyleCop
         /// Form's default size (optional).
         /// </param>
         /// <returns>
-        /// Returns false if there is no registry information for this form, or if 
+        /// Returns false if there is no registry information for this form, or if
         /// the position of the form could not be restored.
         /// </returns>
         public bool RestoreWindowPosition(string name, Form form, object location, object size)
@@ -481,10 +462,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Adds one key to the registry under the given root node.
         /// </summary>
@@ -547,7 +524,7 @@ namespace StyleCop
             Param.AssertNotNull(root, "root");
             Param.AssertValidString(name, "name");
 
-            PathInfo pathinfo = new PathInfo();
+            PathInfo pathinfo = default(PathInfo);
 
             try
             {
@@ -557,7 +534,7 @@ namespace StyleCop
                 while (true)
                 {
                     int index = path.IndexOf("\\", StringComparison.Ordinal);
-                    if (-1 == index)
+                    if (index == -1)
                     {
                         pathinfo.Stub = path;
                         break;
@@ -606,7 +583,7 @@ namespace StyleCop
             try
             {
                 int index = name.LastIndexOf("\\", StringComparison.Ordinal);
-                if (-1 == index)
+                if (index == -1)
                 {
                     root.DeleteSubKeyTree(name);
                 }
@@ -682,7 +659,7 @@ namespace StyleCop
             Param.AssertNotNull(root, "root");
             Param.AssertValidString(name, "name");
 
-            PathInfo pathinfo = new PathInfo();
+            PathInfo pathinfo = default(PathInfo);
 
             try
             {
@@ -692,7 +669,7 @@ namespace StyleCop
                 while (true)
                 {
                     int index = path.IndexOf("\\", StringComparison.Ordinal);
-                    if (-1 == index)
+                    if (index == -1)
                     {
                         pathinfo.Stub = path;
                         break;
@@ -856,15 +833,11 @@ namespace StyleCop
             return false;
         }
 
-        #endregion
-
         /// <summary>
         /// Used by the GetPath and CreatePath functions.
         /// </summary>
         private struct PathInfo
         {
-            #region Fields
-
             /// <summary>
             /// The path key.
             /// </summary>
@@ -874,8 +847,6 @@ namespace StyleCop
             /// The path stub.
             /// </summary>
             public string Stub;
-
-            #endregion
         }
     }
 }

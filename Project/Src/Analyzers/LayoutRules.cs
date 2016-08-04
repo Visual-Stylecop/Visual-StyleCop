@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop.CSharp
     [SourceAnalyzer(typeof(CsParser))]
     public class LayoutRules : SourceAnalyzer
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Checks the placement of brackets within the given document.
         /// </summary>
@@ -62,10 +60,6 @@ namespace StyleCop.CSharp
             return csdocument.FileHeader == null || !csdocument.FileHeader.UnStyled;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Determines whether the given bracket is the only thing on its line or whether it shares the line.
         /// </summary>
@@ -73,7 +67,7 @@ namespace StyleCop.CSharp
         /// The bracket to check.
         /// </param>
         /// <param name="allowTrailingCharacters">
-        /// Indicates whether a semicolon, comma or closing parenthesis after the 
+        /// Indicates whether a semicolon, comma or closing parenthesis after the
         /// bracket is allowed.
         /// </param>
         /// <returns>
@@ -138,7 +132,7 @@ namespace StyleCop.CSharp
 
         /// <summary>
         /// 4
-        /// Determines whether the given accessor contains a body. 
+        /// Determines whether the given accessor contains a body.
         /// </summary>
         /// <param name="accessor">
         /// The accessor to check.
@@ -394,9 +388,9 @@ namespace StyleCop.CSharp
                             if (!(parentStatement is VariableDeclarationStatement) || !foundObjectInializer)
                             {
                                 this.AddViolation(
-                                    parentElement, 
-                                    openBracket.LineNumber, 
-                                    Rules.CurlyBracketsForMultiLineStatementsMustNotShareLine, 
+                                    parentElement,
+                                    openBracket.LineNumber,
+                                    Rules.CurlyBracketsForMultiLineStatementsMustNotShareLine,
                                     GetOpeningOrClosingBracketText(openBracket));
                             }
                         }
@@ -414,9 +408,9 @@ namespace StyleCop.CSharp
                     if (LayoutRules.BracketSharesLine(openBracket.MatchingBracketNode, true))
                     {
                         this.AddViolation(
-                            parentElement, 
-                            openBracket.MatchingBracket.LineNumber, 
-                            Rules.CurlyBracketsForMultiLineStatementsMustNotShareLine, 
+                            parentElement,
+                            openBracket.MatchingBracket.LineNumber,
+                            Rules.CurlyBracketsForMultiLineStatementsMustNotShareLine,
                             GetOpeningOrClosingBracketText(openBracket.MatchingBracket));
                     }
                 }
@@ -517,7 +511,7 @@ namespace StyleCop.CSharp
 
                         if (allowAllOnOneLine && element.ElementType == ElementType.Accessor)
                         {
-                            // If this accessor is all one one line, any other accessors in this 
+                            // If this accessor is all one one line, any other accessors in this
                             // property must also be all on one line.
                             this.CheckSiblingAccessors(element, tokenNode);
                         }
@@ -641,7 +635,7 @@ namespace StyleCop.CSharp
                     // expression, then use the token list of the parent expression.
                     // This ensures that the initializer cannot only exist all on
                     // one single line if it is also on the same line as the rest of the
-                    // parent expression. If this is not a direct child of aanother expression, 
+                    // parent expression. If this is not a direct child of aanother expression,
                     // this restriction does not apply.
                     CsTokenList tokens = expression.Tokens;
                     Expression expressionParent = expression.Parent as Expression;
@@ -774,7 +768,7 @@ namespace StyleCop.CSharp
             Param.AssertGreaterThanOrEqualToZero(count, "count");
 
             // If we've seen two end-of-line characters in a row, then there is a blank
-            // line in the code. 
+            // line in the code.
             if (count == 2)
             {
                 // Check whether we've seen at least one token before this blank line.
@@ -790,8 +784,8 @@ namespace StyleCop.CSharp
                     {
                         // The blank line comes just after an Xml header.
                         this.AddViolation(
-                            precedingTokenNode.Value.FindParentElement(), 
-                            precedingTokenNode.Value.LineNumber, 
+                            precedingTokenNode.Value.FindParentElement(),
+                            precedingTokenNode.Value.LineNumber,
                             Rules.ElementDocumentationHeadersMustNotBeFollowedByBlankLine);
                     }
                 }
@@ -943,7 +937,7 @@ namespace StyleCop.CSharp
                         }
 
                         // Now make sure this comment does not begin with '////'. If so, this is the signal
-                        // that StyleCop should ignore this particular error. This is used when the 
+                        // that StyleCop should ignore this particular error. This is used when the
                         // developer is commenting out a line of code. In this case it is not a true comment.
                         string trimmedComment = precedingTokenNode.Value.Text.Trim();
                         if (!tokenSeen && !trimmedComment.StartsWith(@"////", StringComparison.Ordinal))
@@ -952,8 +946,8 @@ namespace StyleCop.CSharp
                             if (!IsCommentInFileHeader(precedingTokenNode))
                             {
                                 this.AddViolation(
-                                    precedingTokenNode.Value.FindParentElement(), 
-                                    precedingTokenNode.Value.LineNumber, 
+                                    precedingTokenNode.Value.FindParentElement(),
+                                    precedingTokenNode.Value.LineNumber,
                                     Rules.SingleLineCommentsMustNotBeFollowedByBlankLine);
                             }
                         }
@@ -988,7 +982,7 @@ namespace StyleCop.CSharp
                             && precedingTokenNode.Value.CsTokenType != CsTokenType.PreprocessorDirective)
                         {
                             // Now make sure this comment does not begin with '////'. If so, this is the signal
-                            // that StyleCop should ignore this particular error. This is used when the 
+                            // that StyleCop should ignore this particular error. This is used when the
                             // developer is commenting out a line of code. In this case it is not a true comment.
                             string trimmedComment = token.Text.Trim();
                             if (!trimmedComment.StartsWith(@"////", StringComparison.Ordinal) && !Utils.IsAReSharperComment(token))
@@ -1012,7 +1006,18 @@ namespace StyleCop.CSharp
                             && token.CsTokenType != CsTokenType.PreprocessorDirective && token.CsTokenType != CsTokenType.Select && token.CsTokenType != CsTokenType.From
                             && token.CsTokenType != CsTokenType.Let && token.CsTokenType != CsTokenType.OperatorSymbol && token.CsTokenType != CsTokenType.By)
                         {
-                            this.AddViolation(closingCurlyBracket.FindParentElement(), closingCurlyBracket.LineNumber, Rules.ClosingCurlyBracketMustBeFollowedByBlankLine);
+                            var parent = closingCurlyBracket.FindParentElement();
+
+                            // Use token to find parent.
+                            if (parent == null)
+                            {
+                                CsElement element = token.FindParentElement();
+                            }
+
+                            if (parent != null)
+                            {
+                                this.AddViolation(parent, closingCurlyBracket.LineNumber, Rules.ClosingCurlyBracketMustBeFollowedByBlankLine);
+                            }
                         }
                     }
                 }
@@ -1238,7 +1243,5 @@ namespace StyleCop.CSharp
 
             return true;
         }
-
-        #endregion
     }
 }

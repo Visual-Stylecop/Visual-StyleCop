@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // --------------------------------------------------------------------------------------------------------------------
@@ -27,14 +27,7 @@ namespace StyleCop.Spelling
 
     internal sealed class SpellChecker : IDisposable
     {
-        #region Constants
-
         internal const int MaximumTextLength = 0x40;
-
-        #endregion
-
-        #region Static Fields
-
         private static readonly Language[] Languages = new[]
             {
                 new Language("ar", "mssp7ar.dll", "mssp7ar.lex", 0xc01), new Language("cs", "mssp7cz.dll", "mssp7cz.lex", 0x405),
@@ -58,11 +51,6 @@ namespace StyleCop.Spelling
 
         // The Languages array above needs to be initialized before this static executes.
         private static Dictionary<string, Language> languageTable = BuildLanguageTable();
-
-        #endregion
-
-        #region Fields
-
         private readonly CultureInfo culture;
 
         private readonly int dependantFilesHashCode;
@@ -74,10 +62,6 @@ namespace StyleCop.Spelling
         private NativeMethods.Speller speller;
 
         private Dictionary<string, WordSpelling> wordSpellingCache = new Dictionary<string, WordSpelling>();
-
-        #endregion
-
-        #region Constructors and Destructors
 
         private SpellChecker(CultureInfo culture, Language language)
         {
@@ -91,10 +75,6 @@ namespace StyleCop.Spelling
             this.dependantFilesHashCode =
                 string.Concat(libraryTimestamp.ToString(CultureInfo.InvariantCulture), lexiconTimestamp.ToString(CultureInfo.InvariantCulture)).GetHashCode();
         }
-
-        #endregion
-
-        #region Delegates
 
         private delegate NativeMethods.Ptec ProofCloseLex(IntPtr id, IntPtr lex, bool force);
 
@@ -116,147 +96,329 @@ namespace StyleCop.Spelling
 
         private delegate NativeMethods.Ptec SpellerDelUdr(IntPtr sid, IntPtr lex, [MarshalAs(UnmanagedType.LPTStr)] string delete);
 
-        #endregion
-
-        #region Enums
-
         internal enum ProofLexType : uint
         {
+            /// <summary>
+            /// The change always.
+            /// </summary>
             ChangeAlways = 1,
 
+            /// <summary>
+            /// The change once.
+            /// </summary>
             ChangeOnce = 0,
 
+            /// <summary>
+            /// The exclude.
+            /// </summary>
             Exclude = 3,
 
+            /// <summary>
+            /// The ignore always.
+            /// </summary>
             IgnoreAlways = 2,
 
+            /// <summary>
+            /// The main.
+            /// </summary>
             Main = 4,
 
+            /// <summary>
+            /// The maximum.
+            /// </summary>
             Max = 6,
 
+            /// <summary>
+            /// The system udr.
+            /// </summary>
             SysUdr = 5,
 
+            /// <summary>
+            /// The user.
+            /// </summary>
             User = 2
         }
 
         internal enum PtecMajor : uint
         {
+            /// <summary>
+            /// The buffer too small.
+            /// </summary>
             BufferTooSmall = 6,
 
+            /// <summary>
+            /// The io error main lex.
+            /// </summary>
             IoErrorMainLex = 3,
 
+            /// <summary>
+            /// The io error user lex.
+            /// </summary>
             IoErrorUserLex = 4,
 
+            /// <summary>
+            /// The module error.
+            /// </summary>
             ModuleError = 2,
 
+            /// <summary>
+            /// The module not loaded.
+            /// </summary>
             ModuleNotLoaded = 8,
 
+            /// <summary>
+            /// The no errors.
+            /// </summary>
             NoErrors = 0,
 
+            /// <summary>
+            /// The not found.
+            /// </summary>
             NotFound = 7,
 
+            /// <summary>
+            /// The not supported.
+            /// </summary>
             NotSupported = 5,
 
+            /// <summary>
+            /// The out of memory.
+            /// </summary>
             OutOfMemory = 1
         }
 
         internal enum PtecMinor : uint
         {
+            /// <summary>
+            /// The entry too long.
+            /// </summary>
             EntryTooLong = 0x8f,
 
+            /// <summary>
+            /// The file create.
+            /// </summary>
             FileCreate = 0x8a,
 
+            /// <summary>
+            /// The file open error.
+            /// </summary>
             FileOpenError = 0x92,
 
+            /// <summary>
+            /// The file read.
+            /// </summary>
             FileRead = 0x88,
 
+            /// <summary>
+            /// The file share.
+            /// </summary>
             FileShare = 0x8b,
 
+            /// <summary>
+            /// The file too large error.
+            /// </summary>
             FileTooLargeError = 0x93,
 
+            /// <summary>
+            /// The file write.
+            /// </summary>
             FileWrite = 0x89,
 
+            /// <summary>
+            /// The invalid command.
+            /// </summary>
             InvalidCmd = 0x85,
 
+            /// <summary>
+            /// The invalid entry.
+            /// </summary>
             InvalidEntry = 0x8e,
 
+            /// <summary>
+            /// The invalid format.
+            /// </summary>
             InvalidFormat = 0x86,
 
+            /// <summary>
+            /// The invalid identifier.
+            /// </summary>
             InvalidId = 0x81,
 
+            /// <summary>
+            /// The invalid language.
+            /// </summary>
             InvalidLanguage = 150,
 
+            /// <summary>
+            /// The invalid main lex.
+            /// </summary>
             InvalidMainLex = 0x83,
 
+            /// <summary>
+            /// The invalid user lex.
+            /// </summary>
             InvalidUserLex = 0x84,
 
+            /// <summary>
+            /// The invalid WSC.
+            /// </summary>
             InvalidWsc = 130,
 
+            /// <summary>
+            /// The main lex count exceeded.
+            /// </summary>
             MainLexCountExceeded = 0x90,
 
+            /// <summary>
+            /// The module already busy.
+            /// </summary>
             ModuleAlreadyBusy = 0x80,
 
+            /// <summary>
+            /// The module not terminated.
+            /// </summary>
             ModuleNotTerminated = 140,
 
+            /// <summary>
+            /// The oper not matched user lex.
+            /// </summary>
             OperNotMatchedUserLex = 0x87,
 
+            /// <summary>
+            /// The protect mode only.
+            /// </summary>
             ProtectModeOnly = 0x95,
 
+            /// <summary>
+            /// The user lex count exceeded.
+            /// </summary>
             UserLexCountExceeded = 0x91,
 
+            /// <summary>
+            /// The user lex full.
+            /// </summary>
             UserLexFull = 0x8d,
 
+            /// <summary>
+            /// The user lex read only.
+            /// </summary>
             UserLexReadOnly = 0x94
         }
 
         [Flags]
         internal enum SpellerState : uint
         {
+            /// <summary>
+            /// The is continued.
+            /// </summary>
             IsContinued = 1,
 
+            /// <summary>
+            /// The is edited change.
+            /// </summary>
             IsEditedChange = 4,
 
+            /// <summary>
+            /// The no state information.
+            /// </summary>
             NoStateInfo = 0,
 
+            /// <summary>
+            /// The starts sentence.
+            /// </summary>
             StartsSentence = 2
         }
 
         internal enum SpellerStatus
         {
+            /// <summary>
+            /// The no errors.
+            /// </summary>
             NoErrors,
 
+            /// <summary>
+            /// The unknown input word.
+            /// </summary>
             UnknownInputWord,
 
+            /// <summary>
+            /// The returning change always.
+            /// </summary>
             ReturningChangeAlways,
 
+            /// <summary>
+            /// The returning change once.
+            /// </summary>
             ReturningChangeOnce,
 
+            /// <summary>
+            /// The invalid hyphenation.
+            /// </summary>
             InvalidHyphenation,
 
+            /// <summary>
+            /// The error capitalization.
+            /// </summary>
             ErrorCapitalization,
 
+            /// <summary>
+            /// The word considered abbreviation.
+            /// </summary>
             WordConsideredAbbreviation,
 
+            /// <summary>
+            /// The hyphen changes spelling.
+            /// </summary>
             HyphenChangesSpelling,
 
+            /// <summary>
+            /// The no more suggestions.
+            /// </summary>
             NoMoreSuggestions,
 
+            /// <summary>
+            /// The more information than buffer could hold.
+            /// </summary>
             MoreInfoThanBufferCouldHold,
 
+            /// <summary>
+            /// The no sentence start cap.
+            /// </summary>
             NoSentenceStartCap,
 
+            /// <summary>
+            /// The repeat word.
+            /// </summary>
             RepeatWord,
 
+            /// <summary>
+            /// The extra spaces.
+            /// </summary>
             ExtraSpaces,
 
+            /// <summary>
+            /// The missing space.
+            /// </summary>
             MissingSpace,
 
+            /// <summary>
+            /// The initial numeral.
+            /// </summary>
             InitialNumeral,
 
+            /// <summary>
+            /// The no errors ud hit.
+            /// </summary>
             NoErrorsUdHit,
 
+            /// <summary>
+            /// The returning automatic replace.
+            /// </summary>
             ReturningAutoReplace,
 
+            /// <summary>
+            /// The error accent.
+            /// </summary>
             ErrorAccent
         }
 
@@ -274,10 +436,6 @@ namespace StyleCop.Spelling
 
             Wildcard = 6
         }
-
-        #endregion
-
-        #region Public Properties
 
         public WordCollection AlwaysMisspelledWords
         {
@@ -306,10 +464,6 @@ namespace StyleCop.Spelling
             }
         }
 
-        #endregion
-
-        #region Properties
-
         private bool IsDisposed
         {
             get
@@ -317,10 +471,6 @@ namespace StyleCop.Spelling
                 return this.speller == null;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         public static SpellChecker FromCulture(CultureInfo culture)
         {
@@ -415,10 +565,6 @@ namespace StyleCop.Spelling
             return this.dependantFilesHashCode;
         }
 
-        #endregion
-
-        #region Methods
-
         private static Dictionary<string, Language> BuildLanguageTable()
         {
             Dictionary<string, Language> dictionary = new Dictionary<string, Language>(Languages.Length, StringComparer.OrdinalIgnoreCase);
@@ -451,8 +597,6 @@ namespace StyleCop.Spelling
             }
         }
 
-        #endregion
-
         internal static class KernalNativeMethods
         {
             [return: MarshalAs(UnmanagedType.Bool)]
@@ -468,42 +612,36 @@ namespace StyleCop.Spelling
 
         internal class Language
         {
-            #region Fields
-
-            internal readonly bool IsAvailable;
-
-            internal readonly ushort Lcid;
-
-            internal readonly string LexiconFullPath;
-
-            internal readonly string LibraryFullPath;
-
-            internal readonly string Name;
-            
             private static string pathToOfficeProofingTools;
-            
-            #endregion
 
-            #region Constructors and Destructors
+            private readonly bool isAvailable;
+
+            private readonly ushort lcid;
+
+            private readonly string lexiconFullPath;
+
+            private readonly string libraryFullPath;
+
+            private readonly string name;
 
             internal Language(string name, string library, string lexicon, ushort lcid)
             {
-                this.Name = name;
-                this.Lcid = lcid;
-                this.LibraryFullPath = Probe(library);
-                this.LexiconFullPath = Probe(lexicon);
+                this.name = name;
+                this.lcid = lcid;
+                this.libraryFullPath = Probe(library);
+                this.lexiconFullPath = Probe(lexicon);
 
-                if (this.LibraryFullPath != null && this.LexiconFullPath != null)
+                if (this.libraryFullPath != null && this.lexiconFullPath != null)
                 {
-                    IntPtr handle = KernalNativeMethods.LoadLibrary(this.LibraryFullPath);
+                    IntPtr handle = KernalNativeMethods.LoadLibrary(this.libraryFullPath);
 
                     if (handle == IntPtr.Zero)
                     {
-                        this.IsAvailable = false;
+                        this.isAvailable = false;
                     }
                     else
                     {
-                        this.IsAvailable = true;
+                        this.isAvailable = true;
                         if (!KernalNativeMethods.FreeLibrary(handle))
                         {
                             throw new Win32Exception();
@@ -512,10 +650,46 @@ namespace StyleCop.Spelling
                 }
             }
 
-            #endregion
+            internal string LexiconFullPath
+            {
+                get
+                {
+                    return this.lexiconFullPath;
+                }
+            }
 
-            #region Methods
-            
+            internal bool IsAvailable
+            {
+                get
+                {
+                    return this.isAvailable;
+                }
+            }
+
+            internal string LibraryFullPath
+            {
+                get
+                {
+                    return this.libraryFullPath;
+                }
+            }
+
+            internal string Name
+            {
+                get
+                {
+                    return this.name;
+                }
+            }
+
+            internal ushort Lcid
+            {
+                get
+                {
+                    return this.lcid;
+                }
+            }
+
             /// <summary>
             /// Gets a path to the Office 2010 proof directory. Returns string.Empty if the path could not be found.
             /// </summary>
@@ -534,7 +708,7 @@ namespace StyleCop.Spelling
             }
 
             private static string Probe(string library)
-            { 
+            {
                 if (!string.IsNullOrEmpty(PathToOfficeProofingTools))
                 {
                     string path = Path.Combine(PathToOfficeProofingTools, library);
@@ -565,8 +739,6 @@ namespace StyleCop.Spelling
 
                 return null;
             }
-
-            #endregion
         }
 
         internal class NativeMethods
@@ -704,8 +876,6 @@ namespace StyleCop.Spelling
 
             internal sealed class Speller : IDisposable
             {
-                #region Fields
-
                 private SpellerAddUdr addUdr;
 
                 private SpellerCheck check;
@@ -727,10 +897,6 @@ namespace StyleCop.Spelling
                 private ProofOpenLex openLex;
 
                 private ProofTerminate terminate;
-
-                #endregion
-
-                #region Constructors and Destructors
 
                 internal Speller(string path)
                 {
@@ -762,19 +928,11 @@ namespace StyleCop.Spelling
                     this.Dispose(false);
                 }
 
-                #endregion
-
-                #region Public Methods and Operators
-
                 public void Dispose()
                 {
                     this.Dispose(true);
                     GC.SuppressFinalize(this);
                 }
-
-                #endregion
-
-                #region Methods
 
                 internal void AddIgnoredWord(string word)
                 {
@@ -841,7 +999,8 @@ namespace StyleCop.Spelling
                     }
                 }
 
-                private static T GetProc<T>(IntPtr library, string procName) where T : class
+                private static T GetProc<T>(IntPtr library, string procName)
+                    where T : class
                 {
                     IntPtr procAddress = KernalNativeMethods.GetProcAddress(library, procName);
                     if (procAddress == IntPtr.Zero)
@@ -926,8 +1085,6 @@ namespace StyleCop.Spelling
                         throw new InvalidOperationException("Failed to get the ignored dictionary handle.");
                     }
                 }
-
-                #endregion
             }
         }
     }

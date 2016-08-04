@@ -15,13 +15,7 @@ namespace StyleCop.Spelling
 
     internal class WordCollection : ICollection<string>
     {
-        #region Fields
-
         private readonly Dictionary<string, object> words;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WordCollection"/> class.
@@ -34,18 +28,10 @@ namespace StyleCop.Spelling
             this.words = new Dictionary<string, object>(comparer);
         }
 
-        #endregion
-
-        #region Public Events
-
         /// <summary>
         /// The collection changed.
         /// </summary>
         public event CollectionChangeEventHandler CollectionChanged;
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the count.
@@ -58,10 +44,6 @@ namespace StyleCop.Spelling
             }
         }
 
-        #endregion
-
-        #region Explicit Interface Properties
-
         bool ICollection<string>.IsReadOnly
         {
             get
@@ -69,10 +51,6 @@ namespace StyleCop.Spelling
                 return false;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// The add.
@@ -159,18 +137,10 @@ namespace StyleCop.Spelling
             return false;
         }
 
-        #endregion
-
-        #region Explicit Interface Methods
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
         }
-
-        #endregion
-
-        #region Methods
 
         internal static bool IsValidWordLength(string item)
         {
@@ -203,7 +173,5 @@ namespace StyleCop.Spelling
                 throw new ArgumentException();
             }
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -47,8 +47,6 @@ namespace StyleCop
     /// </summary>
     public class ObjectBasedEnvironment : StyleCopEnvironment
     {
-        #region Fields
-
         /// <summary>
         /// The list of parsers and their associations.
         /// </summary>
@@ -69,12 +67,8 @@ namespace StyleCop
         /// </summary>
         private string defaultSettingsFilePath;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the ObjectBasedEnvironment class.
+        /// Initializes a new instance of the <see cref="ObjectBasedEnvironment"/> class.
         /// </summary>
         /// <param name="sourceCodeFactory">
         /// Callback which is used to create <see cref="SourceCode"/> objects on demand.
@@ -90,10 +84,6 @@ namespace StyleCop
             this.sourceCodeFactory = sourceCodeFactory;
             this.settingsFactory = settingsFactory;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a value indicating whether the environment supports settings documents
@@ -119,10 +109,6 @@ namespace StyleCop
                 return false;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Invoked when a new parser is loaded.
@@ -476,7 +462,7 @@ namespace StyleCop
         {
             Param.Ignore(location, resultsCache);
 
-            // The default object-based environment does not support results caching. This method 
+            // The default object-based environment does not support results caching. This method
             // should never be called as we are passing false to the SupportsResultsCache property.
             throw new NotSupportedException();
         }
@@ -488,7 +474,7 @@ namespace StyleCop
         /// The settings to save.
         /// </param>
         /// <param name="exception">
-        /// If the document could not be saved, this returns the 
+        /// If the document could not be saved, this returns the
         /// resulting exception information.
         /// </param>
         /// <returns>
@@ -503,10 +489,6 @@ namespace StyleCop
             return false;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Loads the settings file at the given path.
         /// </summary>
@@ -517,7 +499,7 @@ namespace StyleCop
         /// Indicates whether a read-only document should be returned.
         /// </param>
         /// <param name="exception">
-        /// If the document could not be loaded, this returns the 
+        /// If the document could not be loaded, this returns the
         /// resulting exception information.
         /// </param>
         /// <returns>
@@ -544,7 +526,5 @@ namespace StyleCop
 
             return null;
         }
-
-        #endregion
     }
 }

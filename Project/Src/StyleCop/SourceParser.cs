@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop
     /// </summary>
     public abstract class SourceParser : StyleCopAddIn
     {
-        #region Fields
-
         /// <summary>
         /// The list of analyzers loaded into this parser.
         /// </summary>
@@ -39,10 +37,6 @@ namespace StyleCop
         /// The list of file types supported by this parser.
         /// </summary>
         private readonly List<string> fileTypes = new List<string>(1);
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the list of analyzers loaded into this parser.
@@ -65,10 +59,6 @@ namespace StyleCop
                 return this.fileTypes;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Adds a global violation.
@@ -212,11 +202,10 @@ namespace StyleCop
         /// </returns>
         /// <remarks>
         /// If this method returns false, StyleCop will call the method again on the next pass
-        /// and send in the same file, list of analyzers, and document. This allows the parser to perform 
+        /// and send in the same file, list of analyzers, and document. This allows the parser to perform
         /// to parse its files in stages, if necessary.
         /// </remarks>
-        [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "2#", 
-            Justification = "The design of the method is consistent with other .Net Framework methods such as int.TryParse, etc.")]
+        [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "2#", Justification = "The design of the method is consistent with other .Net Framework methods such as int.TryParse, etc.")]
         [SuppressMessage("Microsoft.Maintainability", "CA1500:VariableNamesShouldNotMatchFieldNames", Justification = "The method is abstract")]
         public abstract bool ParseFile(SourceCode sourceCode, int passNumber, ref CodeDocument document);
 
@@ -248,10 +237,6 @@ namespace StyleCop
             Param.Ignore(sourceCode);
             return false;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Clears the analyzer tags for the given document and all of its children.
@@ -357,10 +342,10 @@ namespace StyleCop
 
                         // Create a Rule object representing this data.
                         Rule rule = new Rule(
-                            ruleName.InnerText, 
-                            nameSpace.InnerText, 
-                            ruleCheckId.InnerText, 
-                            context.InnerText, 
+                            ruleName.InnerText,
+                            nameSpace.InnerText,
+                            ruleCheckId.InnerText,
+                            context.InnerText,
                             Convert.ToBoolean(warning.InnerText, CultureInfo.InvariantCulture));
 
                         Violation violation;
@@ -368,11 +353,11 @@ namespace StyleCop
                         if (startLine != null && startColumn != null && endLine != null && endColumn != null)
                         {
                             CodeLocation location = new CodeLocation(
-                                Convert.ToInt32(index.InnerText, null), 
-                                Convert.ToInt32(endIndex.InnerText, null), 
-                                Convert.ToInt32(startColumn.InnerText, null), 
-                                Convert.ToInt32(endColumn.InnerText, null), 
-                                Convert.ToInt32(startLine.InnerText, null), 
+                                Convert.ToInt32(index.InnerText, null),
+                                Convert.ToInt32(endIndex.InnerText, null),
+                                Convert.ToInt32(startColumn.InnerText, null),
+                                Convert.ToInt32(endColumn.InnerText, null),
+                                Convert.ToInt32(startLine.InnerText, null),
                                 Convert.ToInt32(endLine.InnerText, null));
 
                             // Create a Violation object representing this data.
@@ -415,7 +400,7 @@ namespace StyleCop
         /// The xml document to load.
         /// </param>
         /// <param name="topmostType">
-        /// Indicates whether the xml document comes from the top-most type in the 
+        /// Indicates whether the xml document comes from the top-most type in the
         /// add-in's type hierarchy.
         /// </param>
         /// <param name="isKnownAssembly">
@@ -595,7 +580,5 @@ namespace StyleCop
             warning.InnerText = violation.Rule.Warning.ToString(CultureInfo.InvariantCulture);
             item.AppendChild(warning);
         }
-
-        #endregion
     }
 }

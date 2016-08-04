@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,23 +30,15 @@ namespace StyleCop.CSharp
     /// </content>
     public partial class ReadabilityRules
     {
-        #region Interfaces
-
         /// <summary>
         /// Represents a list of arguments.
         /// </summary>
         private interface IArgumentList
         {
-            #region Public Properties
-
             /// <summary>
             /// Gets the number of arguments in the list.
             /// </summary>
             int Count { get; }
-
-            #endregion
-
-            #region Public Methods and Operators
 
             /// <summary>
             /// Gets the location of one of the arguments in the list.
@@ -80,13 +72,7 @@ namespace StyleCop.CSharp
             /// Returns the list of tokens for the argument.
             /// </returns>
             CsTokenList Tokens(int index);
-
-            #endregion
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Determines whether a method's parameters share lines or are on different lines.
@@ -107,7 +93,7 @@ namespace StyleCop.CSharp
             someParametersShareLine = false;
             someParameterOnDifferentLines = false;
 
-            CodeLocation previousArgumentLocation = new CodeLocation();
+            CodeLocation previousArgumentLocation = default(CodeLocation);
             for (int i = 0; i < arguments.Count; ++i)
             {
                 CodeLocation argumentLocation = arguments.Location(i);
@@ -347,7 +333,7 @@ namespace StyleCop.CSharp
 
         /// <summary>
         /// Determines the amount of offset to add to the line number of the next parameter
-        /// for a comment or attribute. 
+        /// for a comment or attribute.
         /// </summary>
         /// <param name="tokenNode">
         /// The token node.
@@ -361,7 +347,7 @@ namespace StyleCop.CSharp
 
             Debug.Assert(
                 tokenNode.Value.CsTokenType == CsTokenType.Attribute || tokenNode.Value.CsTokenType == CsTokenType.SingleLineComment
-                || tokenNode.Value.CsTokenType == CsTokenType.MultiLineComment, 
+                || tokenNode.Value.CsTokenType == CsTokenType.MultiLineComment,
                 "The token must be an attribute or a comment.");
 
             // Find the start of the next parameter.
@@ -412,7 +398,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Checks the argument list to a method or method invocation to ensure that the arguments are 
+        /// Checks the argument list to a method or method invocation to ensure that the arguments are
         /// positioned correctly.
         /// </summary>
         /// <param name="element">
@@ -456,7 +442,7 @@ namespace StyleCop.CSharp
             }
             else if (arguments.Count > 0)
             {
-                // The first argument must start on the same line as the opening bracket, or 
+                // The first argument must start on the same line as the opening bracket, or
                 // on the line after it.
                 int firstArgumentStartLine = arguments.Location(0).LineNumber;
 
@@ -568,12 +554,12 @@ namespace StyleCop.CSharp
                 if (argumentListTokens != null)
                 {
                     this.CheckParameters(
-                        element, 
-                        argumentListTokens, 
-                        argumentList, 
-                        expression.LineNumber, 
-                        CsTokenType.OpenParenthesis, 
-                        CsTokenType.CloseParenthesis, 
+                        element,
+                        argumentListTokens,
+                        argumentList,
+                        expression.LineNumber,
+                        CsTokenType.OpenParenthesis,
+                        CsTokenType.CloseParenthesis,
                         element.FriendlyTypeText);
                 }
             }
@@ -713,12 +699,12 @@ namespace StyleCop.CSharp
         /// The text to use for violations.
         /// </param>
         private void CheckParameters(
-            CsElement element, 
-            CsTokenList parameterListTokens, 
-            IArgumentList methodArguments, 
-            int methodStartLineNumber, 
-            CsTokenType openBracketType, 
-            CsTokenType closeBracketType, 
+            CsElement element,
+            CsTokenList parameterListTokens,
+            IArgumentList methodArguments,
+            int methodStartLineNumber,
+            CsTokenType openBracketType,
+            CsTokenType closeBracketType,
             string friendlyTypeText)
         {
             Param.AssertNotNull(element, "element");
@@ -839,26 +825,18 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
         /// <summary>
         /// Represents a list of arguments.
         /// </summary>
         private class ArgumentList : IArgumentList
         {
-            #region Fields
-
             /// <summary>
             /// The list of arguments.
             /// </summary>
             private readonly IList<Argument> arguments;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the ArgumentList class.
+            /// Initializes a new instance of the <see cref="ArgumentList"/> class.
             /// </summary>
             /// <param name="arguments">
             /// The list of arguments.
@@ -868,10 +846,6 @@ namespace StyleCop.CSharp
                 Param.AssertNotNull(arguments, "arguments");
                 this.arguments = arguments;
             }
-
-            #endregion
-
-            #region Public Properties
 
             /// <summary>
             /// Gets the number of arguments in the list.
@@ -883,10 +857,6 @@ namespace StyleCop.CSharp
                     return this.arguments.Count;
                 }
             }
-
-            #endregion
-
-            #region Public Methods and Operators
 
             /// <summary>
             /// Gets the location of one of the arguments in the list.
@@ -988,8 +958,6 @@ namespace StyleCop.CSharp
                 Param.AssertValueBetween(index, 0, this.arguments.Count - 1, "index");
                 return this.arguments[index].Tokens;
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -997,19 +965,13 @@ namespace StyleCop.CSharp
         /// </summary>
         private class ParameterList : IArgumentList
         {
-            #region Fields
-
             /// <summary>
             /// The list of parameters.
             /// </summary>
             private readonly IList<Parameter> parameters;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the ParameterList class.
+            /// Initializes a new instance of the <see cref="ParameterList"/> class.
             /// </summary>
             /// <param name="parameters">
             /// The list of parameters.
@@ -1019,10 +981,6 @@ namespace StyleCop.CSharp
                 Param.AssertNotNull(parameters, "parameters");
                 this.parameters = parameters;
             }
-
-            #endregion
-
-            #region Public Properties
 
             /// <summary>
             /// Gets the number of parameters in the list.
@@ -1034,10 +992,6 @@ namespace StyleCop.CSharp
                     return this.parameters.Count;
                 }
             }
-
-            #endregion
-
-            #region Public Methods and Operators
 
             /// <summary>
             /// Gets the location of one of the parameters in the list.
@@ -1117,8 +1071,6 @@ namespace StyleCop.CSharp
                 Param.AssertValueBetween(index, 0, this.parameters.Count - 1, "index");
                 return this.parameters[index].Tokens;
             }
-
-            #endregion
         }
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -22,16 +22,14 @@ namespace StyleCop.CSharp
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
-    using System.Text;
     using System.Linq;
+    using System.Text;
 
     /// <summary>
     /// Breaks the components of a C# code file down into individual symbols.
     /// </summary>
     internal partial class CodeLexer
     {
-        #region Fields
-
         /// <summary>
         /// Used for reading the source code.
         /// </summary>
@@ -77,12 +75,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private Dictionary<string, string> undefines;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CodeLexer class.
+        /// Initializes a new instance of the <see cref="CodeLexer"/> class.
         /// </summary>
         /// <param name="parser">
         /// The C# parser.
@@ -104,10 +98,6 @@ namespace StyleCop.CSharp
             this.codeReader = codeReader;
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets the source code.
         /// </summary>
@@ -118,10 +108,6 @@ namespace StyleCop.CSharp
                 return this.source;
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Decodes escaping characters in specified text.
@@ -207,8 +193,7 @@ namespace StyleCop.CSharp
         /// Returns the next symbol in the document.
         /// </returns>
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "The method is not overly complex.")]
-        [SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters",
-            Justification = "The literals represent non-localizable C# operators.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", Justification = "The literals represent non-localizable C# operators.")]
         internal Symbol GetSymbol(List<Symbol> symbols, SourceCode sourceCode, Configuration configuration)
         {
             Param.AssertNotNull(symbols, "symbols");
@@ -1432,7 +1417,7 @@ namespace StyleCop.CSharp
 
                     // If the next character is also the same string type, then this is internal to the string or if next char is open curly bracket we are in a string interpolation with escape char.
                     character = this.codeReader.Peek();
-                    if (character == stringType || character == '{' || text.ToString().Contains("$") && text.ToString().Contains("{") && !text.ToString().Contains("}"))
+                    if (character == stringType || character == '{' || (text.ToString().Contains("$") && text.ToString().Contains("{") && !text.ToString().Contains("}")))
                     {
                         // Also move past this character and add it.
                         this.codeReader.ReadNext();
@@ -1453,7 +1438,7 @@ namespace StyleCop.CSharp
                     if (stringType == '\'')
                     {
                         // This is a syntax error in the code as single-quoted literal strings
-                        // cannot allowed to span across multiple lines, although double-quoted 
+                        // cannot allowed to span across multiple lines, although double-quoted
                         // strings can.
                         throw new SyntaxException(this.source, this.marker.LineNumber);
                     }
@@ -1558,7 +1543,7 @@ namespace StyleCop.CSharp
         {
             Param.AssertNotNull(text, "text");
 
-            // Initialize the location of the start of the comment. Add one to the end indexes since we know the 
+            // Initialize the location of the start of the comment. Add one to the end indexes since we know the
             // comment starts with /*, which is two characters long.
             int startIndex = this.marker.Index;
             int endIndex = this.marker.Index + 1;
@@ -1649,9 +1634,7 @@ namespace StyleCop.CSharp
         /// Gets the next newline character from the document.
         /// </summary>
         /// <returns>Returns the newline.</returns>
-        [SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters",
-            MessageId = "StyleCop.CSharp.Symbol.#ctor(System.String,StyleCop.CSharp.SymbolType,StyleCop.CodeLocation)",
-            Justification = "The literal is a non-localizable newline character")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId = "StyleCop.CSharp.Symbol.#ctor(System.String,StyleCop.CSharp.SymbolType,StyleCop.CodeLocation)", Justification = "The literal is a non-localizable newline character")]
         private Symbol GetNewLine()
         {
             Symbol symbol = null;
@@ -2001,12 +1984,12 @@ namespace StyleCop.CSharp
                     this.codeReader.ReadNext();
                 }
 
-                // Note: The right-shift symbol confuses the parsing of generics. 
+                // Note: The right-shift symbol confuses the parsing of generics.
                 // If there are two greater-thans in a row then this may be a right-shift
                 // symbol, but we cannot create it as such right now because it may also
-                // be a couple of closing generic symbols in a row. This will have to be 
-                // parsed out in the code. If this is a right-shift-equals then this will 
-                // be created as three separate symbols, two greater-thans and then an 
+                // be a couple of closing generic symbols in a row. This will have to be
+                // parsed out in the code. If this is a right-shift-equals then this will
+                // be created as three separate symbols, two greater-thans and then an
                 // equals. Later on we will recombine these.
             }
             else if (character == '?')
@@ -2018,25 +2001,25 @@ namespace StyleCop.CSharp
 
                 StringBuilder checkNullCondition = new StringBuilder();
                 int checkIndex = 0;
-         
+
                 while (true)
-                {         
+                {
                     if (character == '\r' || character == '\n' || character == ' ')
                     {
-                        if(character == '\r')
+                        if (character == '\r')
                         {
                             endLineIndex++;
                         }
-                        else if(character == '\n' && this.codeReader.Peek(checkIndex - 1) != '\r')
+                        else if (character == '\n' && this.codeReader.Peek(checkIndex - 1) != '\r')
                         {
                             endLineIndex++;
                         }
 
                         checkNullCondition.Append(character);
                     }
-                    else if(character == '/')
+                    else if (character == '/')
                     {
-                        if(this.codeReader.Peek(checkIndex + 1) == '/')
+                        if (this.codeReader.Peek(checkIndex + 1) == '/')
                         {
                             this.codeReader.ReadNext(checkIndex);
                             Symbol nextComment = this.GetComment();
@@ -2117,7 +2100,7 @@ namespace StyleCop.CSharp
                 throw new SyntaxException(this.source, this.marker.LineNumber);
             }
 
-            if(!updateEndLineIndex)
+            if (!updateEndLineIndex)
             {
                 endLineIndex = this.marker.LineNumber;
             }
@@ -2135,7 +2118,7 @@ namespace StyleCop.CSharp
             {
                 this.marker.LineNumber = endLineIndex;
             }
-            
+
             // Create the token.
             Symbol symbol = new Symbol(text.ToString(), type, location);
 
@@ -2806,7 +2789,5 @@ namespace StyleCop.CSharp
                     break;
             }
         }
-
-        #endregion
     }
 }

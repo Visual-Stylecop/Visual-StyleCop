@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -32,8 +32,6 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
     /// </summary>
     public static class Mock
     {
-        #region Public Methods
-
         /// <summary>
         /// Implements the method specified by the lambda expression (that returns void).
         /// </summary>
@@ -46,7 +44,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="expression">
         /// The expression.
         /// </param>
-        public static void AddExpectationExpr<T>(this SequenceMock<T> mock, Expression<Action<T>> expression) where T : class
+        public static void AddExpectationExpr<T>(this SequenceMock<T> mock, Expression<Action<T>> expression)
+            where T : class
         {
             mock.AddExpectation(expression, (obj, method, arguments) => null);
         }
@@ -66,7 +65,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="handler">
         /// The handler.
         /// </param>
-        public static void AddExpectationExpr<T>(this SequenceMock<T> mock, Expression<Action<T>> expression, Action handler) where T : class
+        public static void AddExpectationExpr<T>(this SequenceMock<T> mock, Expression<Action<T>> expression, Action handler)
+            where T : class
         {
             mock.AddExpectationExpr(expression, args => handler());
         }
@@ -86,10 +86,11 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="handler">
         /// The handler.
         /// </param>
-        public static void AddExpectationExpr<T>(this SequenceMock<T> mock, Expression<Action<T>> expression, Action<object[]> handler) where T : class
+        public static void AddExpectationExpr<T>(this SequenceMock<T> mock, Expression<Action<T>> expression, Action<object[]> handler)
+            where T : class
         {
             mock.AddExpectation(
-                expression, 
+                expression,
                 (obj, method, arguments) =>
                     {
                         handler(arguments);
@@ -115,7 +116,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="returnValue">
         /// The value to return.
         /// </param>
-        public static void AddExpectationExpr<T, TReturn>(this SequenceMock<T> mock, Expression<Func<T, TReturn>> expression, TReturn returnValue) where T : class
+        public static void AddExpectationExpr<T, TReturn>(this SequenceMock<T> mock, Expression<Func<T, TReturn>> expression, TReturn returnValue)
+            where T : class
         {
             mock.AddExpectation(expression, (obj, method, arguments) => returnValue);
         }
@@ -135,13 +137,14 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="expression">
         /// The expression.
         /// </param>
-        public static void AddExpectationExpr<T, TReturn>(this SequenceMock<T> mock, Expression<Func<T, TReturn>> expression) where T : class
+        public static void AddExpectationExpr<T, TReturn>(this SequenceMock<T> mock, Expression<Func<T, TReturn>> expression)
+            where T : class
         {
             mock.AddExpectation(expression, (obj, method, arguments) => default(TReturn));
         }
 
         /// <summary>
-        /// Implements the method or property getter specified by the lambda expression, returning the result of the 
+        /// Implements the method or property getter specified by the lambda expression, returning the result of the
         ///   given handler.
         /// </summary>
         /// <typeparam name="T">
@@ -159,7 +162,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="handler">
         /// The handler.
         /// </param>
-        public static void AddExpectationExpr<T, TReturn>(this SequenceMock<T> mock, Expression<Func<T, TReturn>> expression, Func<TReturn> handler) where T : class
+        public static void AddExpectationExpr<T, TReturn>(this SequenceMock<T> mock, Expression<Func<T, TReturn>> expression, Func<TReturn> handler)
+            where T : class
         {
             mock.AddExpectation(expression, (obj, method, arguments) => handler());
         }
@@ -183,7 +187,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="handler">
         /// The handler.
         /// </param>
-        public static void AddExpectationExpr<T, TReturn>(this SequenceMock<T> mock, Expression<Func<T, TReturn>> expression, Func<object[], TReturn> handler) where T : class
+        public static void AddExpectationExpr<T, TReturn>(this SequenceMock<T> mock, Expression<Func<T, TReturn>> expression, Func<object[], TReturn> handler)
+            where T : class
         {
             mock.AddExpectation(expression, (obj, method, arguments) => handler(arguments));
         }
@@ -198,7 +203,11 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <typeparam name="T">
         /// The type of the return value
         /// </typeparam>
-        public static ConvertibleConstraintWrapper<T> Any<T>() where T : class
+        /// <returns>
+        /// The convertible constraint wrapper.
+        /// </returns>
+        public static ConvertibleConstraintWrapper<T> Any<T>()
+            where T : class
         {
             return new ConvertibleConstraintWrapper<T>(MockConstraint.IsAnything<T>());
         }
@@ -215,7 +224,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="expression">
         /// The expression.
         /// </param>
-        public static void ImplementExpr<T>(this Mock<T> mock, Expression<Action<T>> expression) where T : class
+        public static void ImplementExpr<T>(this Mock<T> mock, Expression<Action<T>> expression)
+            where T : class
         {
             mock.Implement(expression, (obj, method, arguments) => null);
         }
@@ -235,7 +245,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="handler">
         /// The handler.
         /// </param>
-        public static void ImplementExpr<T>(this Mock<T> mock, Expression<Action<T>> expression, Action handler) where T : class
+        public static void ImplementExpr<T>(this Mock<T> mock, Expression<Action<T>> expression, Action handler)
+            where T : class
         {
             mock.ImplementExpr(expression, args => handler());
         }
@@ -255,10 +266,11 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="handler">
         /// The handler.
         /// </param>
-        public static void ImplementExpr<T>(this Mock<T> mock, Expression<Action<T>> expression, Action<object[]> handler) where T : class
+        public static void ImplementExpr<T>(this Mock<T> mock, Expression<Action<T>> expression, Action<object[]> handler)
+            where T : class
         {
             mock.Implement(
-                expression, 
+                expression,
                 (obj, method, arguments) =>
                     {
                         handler(arguments);
@@ -284,7 +296,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="returnValue">
         /// The value to return.
         /// </param>
-        public static void ImplementExpr<T, TReturn>(this Mock<T> mock, Expression<Func<T, TReturn>> expression, TReturn returnValue) where T : class
+        public static void ImplementExpr<T, TReturn>(this Mock<T> mock, Expression<Func<T, TReturn>> expression, TReturn returnValue)
+            where T : class
         {
             mock.Implement(expression, (obj, method, arguments) => returnValue);
         }
@@ -304,13 +317,14 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="expression">
         /// The expression.
         /// </param>
-        public static void ImplementExpr<T, TReturn>(this Mock<T> mock, Expression<Func<T, TReturn>> expression) where T : class
+        public static void ImplementExpr<T, TReturn>(this Mock<T> mock, Expression<Func<T, TReturn>> expression)
+            where T : class
         {
             mock.Implement(expression, (obj, method, arguments) => default(TReturn));
         }
 
         /// <summary>
-        /// Implements the method or property getter specified by the lambda expression, returning the result of the 
+        /// Implements the method or property getter specified by the lambda expression, returning the result of the
         ///   given handler.
         /// </summary>
         /// <typeparam name="T">
@@ -328,7 +342,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="handler">
         /// The handler.
         /// </param>
-        public static void ImplementExpr<T, TReturn>(this Mock<T> mock, Expression<Func<T, TReturn>> expression, Func<TReturn> handler) where T : class
+        public static void ImplementExpr<T, TReturn>(this Mock<T> mock, Expression<Func<T, TReturn>> expression, Func<TReturn> handler)
+            where T : class
         {
             mock.Implement(expression, (obj, method, arguments) => handler());
         }
@@ -352,7 +367,8 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <param name="handler">
         /// The handler.
         /// </param>
-        public static void ImplementExpr<T, TReturn>(this Mock<T> mock, Expression<Func<T, TReturn>> expression, Func<object[], TReturn> handler) where T : class
+        public static void ImplementExpr<T, TReturn>(this Mock<T> mock, Expression<Func<T, TReturn>> expression, Func<object[], TReturn> handler)
+            where T : class
         {
             mock.Implement(expression, (obj, method, arguments) => handler(arguments));
         }
@@ -367,16 +383,17 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// <typeparam name="T">
         /// The type of the return value
         /// </typeparam>
-        public static ConvertibleConstraintWrapper<T> NotNull<T>() where T : class
+        /// <returns>
+        /// The convertible constraint wrapper.
+        /// </returns>
+        public static ConvertibleConstraintWrapper<T> NotNull<T>()
+            where T : class
         {
             return new ConvertibleConstraintWrapper<T>(MockConstraint.IsNotNull<T>());
         }
 
-        #endregion
-
-        #region Methods
-
-        private static void AddExpectation<T>(this SequenceMock<T> mock, LambdaExpression lambda, MockDelegate handler) where T : class
+        private static void AddExpectation<T>(this SequenceMock<T> mock, LambdaExpression lambda, MockDelegate handler)
+            where T : class
         {
             object[] args;
             mock.AddExpectation(GetMethodAndArgs(lambda, out args), args, handler);
@@ -437,13 +454,12 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
             throw new NotSupportedException("Lambda expression must be a property access or method call");
         }
 
-        private static void Implement<T>(this Mock<T> mock, LambdaExpression lambda, MockDelegate handler) where T : class
+        private static void Implement<T>(this Mock<T> mock, LambdaExpression lambda, MockDelegate handler)
+            where T : class
         {
             object[] args;
             mock.Implement(GetMethodAndArgs(lambda, out args), args, handler);
         }
-
-        #endregion
 
         /// <summary>
         /// The base class for ConvertibleConstraintWrapper. Contains a Constraint property.
@@ -451,23 +467,15 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// </summary>
         public class ConstraintWrapper
         {
-            #region Constructors and Destructors
-
             internal ConstraintWrapper(IMockConstraint constraint)
             {
                 this.Constraint = constraint;
             }
 
-            #endregion
-
-            #region Properties
-
             /// <summary>
-            ///   Gets or sets the IMockConstraint.
+            /// Gets the IMockConstraint.
             /// </summary>
             public IMockConstraint Constraint { get; private set; }
-
-            #endregion
         }
 
         /// <summary>
@@ -480,16 +488,10 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
         /// </typeparam>
         public class ConvertibleConstraintWrapper<T> : ConstraintWrapper
         {
-            #region Constructors and Destructors
-
             internal ConvertibleConstraintWrapper(IMockConstraint constraint)
                 : base(constraint)
             {
             }
-
-            #endregion
-
-            #region Operators
 
             /// <summary>
             ///   Performs an implicit conversion from <see cref = "Microsoft.VisualStudio.TestTools.MockObjects.Mock.ConvertibleConstraintWrapper&lt;T&gt;" /> to T.
@@ -501,22 +503,17 @@ namespace Microsoft.VisualStudio.TestTools.MockObjects
                 throw new NotSupportedException("should never be called");
             }
 
-            #endregion
-
-            #region Public Methods
-
             /// <summary>
             /// A method to be used in expressions where a ConvertibleConstraintWrapper
             ///   needs to be explicitly converted to T.
             /// </summary>
             /// <returns>
+            /// The object of type T.
             /// </returns>
             public T Convert()
             {
                 throw new NotSupportedException("should never be called");
             }
-
-            #endregion
         }
     }
 }

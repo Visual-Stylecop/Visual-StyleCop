@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,8 +30,6 @@ namespace StyleCop.CSharp
     /// </content>
     internal partial class CodeParser
     {
-        #region Static Fields
-
         /// <summary>
         /// The allowable modifiers on a class element.
         /// </summary>
@@ -85,10 +83,6 @@ namespace StyleCop.CSharp
         /// The allowable modifiers on a property element.
         /// </summary>
         private static readonly string[] PropertyModifiers = new[] { "new", "unsafe", "static", "virtual", "sealed", "override", "abstract", "extern" };
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Adds an element to the list of partial elements, if necessary.
@@ -2145,7 +2139,7 @@ namespace StyleCop.CSharp
                 // Now record whether the element is within a generated code block.
                 bool generated = this.symbols.Generated;
 
-                // If the next symbol is a closing curly bracket, or we've reached the end of the symbols list, 
+                // If the next symbol is a closing curly bracket, or we've reached the end of the symbols list,
                 // we're done with this element.
                 Symbol symbol = this.symbols.Peek(1);
 
@@ -2167,7 +2161,7 @@ namespace StyleCop.CSharp
                 // Figure out the type of the next child element.
                 ElementType? childElementType = this.GetElementType(element, unsafeCode);
 
-                // If the type of the element could not be determined, then there must be 
+                // If the type of the element could not be determined, then there must be
                 // a syntax error in the code.
                 if (childElementType == null || !SanityCheckElementTypeAgainstParent(childElementType.Value, element))
                 {
@@ -3141,7 +3135,7 @@ namespace StyleCop.CSharp
                 }
                 else if (symbol.SymbolType == SymbolType.This)
                 {
-                    // The this keyword indicates that this is an extension method. This is only allowed if 
+                    // The this keyword indicates that this is an extension method. This is only allowed if
                     // both of the following are true:
                     // 1. This must be the first parameter.
                     // 2. The element must be a static method.
@@ -3285,7 +3279,7 @@ namespace StyleCop.CSharp
 
             Property property = new Property(this.document, parent, xmlHeader, attributes, declaration, propertyType, unsafeCode, generated);
             elementReference.Target = property;
-            
+
             if (this.IsBodiedExpression())
             {
                 this.ParseStatementContainer(property, true, unsafeCode);
@@ -3296,7 +3290,8 @@ namespace StyleCop.CSharp
                 this.ParseElementContainer(property, elementReference, null, unsafeCode);
 
                 // Check if current property has initializer (C#6).
-                Symbol nextSymbol = this.GetNextSymbol(SkipSymbols.WhiteSpace, elementReference, true);
+                int i = this.GetNextCodeSymbolIndex(1);
+                Symbol nextSymbol = this.symbols[this.symbols.CurrentIndex + i];
                 if (nextSymbol != null && nextSymbol.SymbolType == SymbolType.Equals)
                 {
                     // Get all of the variable declarators.
@@ -3553,7 +3548,5 @@ namespace StyleCop.CSharp
 
             return element;
         }
-
-        #endregion
     }
 }

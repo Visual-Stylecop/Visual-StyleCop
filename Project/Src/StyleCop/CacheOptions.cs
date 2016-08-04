@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -31,8 +31,6 @@ namespace StyleCop
     /// </summary>
     internal class CacheOptions : UserControl, IPropertyControlPage
     {
-        #region Fields
-
         private CheckBox autoUpdateCheckBox;
 
         private PropertyDescriptor<bool> autoUpdateCheckPropertyDescriptor;
@@ -109,12 +107,8 @@ namespace StyleCop
         /// </summary>
         private PropertyDescriptor<bool> writeCachePropertyDescriptor;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CacheOptions class.
+        /// Initializes a new instance of the <see cref="CacheOptions"/> class.
         /// </summary>
         public CacheOptions()
         {
@@ -131,10 +125,6 @@ namespace StyleCop
                 this.cultureComboBox.Items.Add(cultureInfo.IetfLanguageTag);
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets or sets a value indicating whether the page is dirty.
@@ -168,10 +158,6 @@ namespace StyleCop
                 return Strings.CacheTab;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Called when the page is activated.
@@ -421,10 +407,6 @@ namespace StyleCop
             return true;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -583,8 +565,8 @@ namespace StyleCop
             this.SetBoldState();
         }
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -643,7 +625,7 @@ namespace StyleCop
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.autoUpdateCheckBox);
             this.panel3.Name = "panel3";
- 
+
             // checkForUpdatesLabel
             resources.ApplyResources(this.checkForUpdatesLabel, "checkForUpdatesLabel");
             this.checkForUpdatesLabel.Name = "checkForUpdatesLabel";
@@ -663,7 +645,7 @@ namespace StyleCop
             // label3
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
- 
+
             // maxViolationCountMaskedTextBox
             this.maxViolationCountMaskedTextBox.AllowPromptAsInput = false;
             this.maxViolationCountMaskedTextBox.CausesValidation = false;
@@ -804,8 +786,6 @@ namespace StyleCop
                 this.cultureComboBox.Font = bold ? new Font(this.cultureComboBox.Font, FontStyle.Bold) : new Font(this.cultureComboBox.Font, FontStyle.Regular);
             }
         }
-
-        #endregion
 
         private void ViolationsAsErrorsCheckBoxCheckedChanged(object sender, EventArgs e)
         {

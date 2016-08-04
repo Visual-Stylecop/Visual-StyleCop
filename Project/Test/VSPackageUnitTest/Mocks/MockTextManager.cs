@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,13 +29,7 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockTextManager : IVsTextManager
     {
-        #region Constants and Fields
-
-        private readonly Dictionary<string, MockTextView> _views = new Dictionary<string, MockTextView>();
-
-        #endregion
-
-        #region Public Methods
+        private readonly Dictionary<string, MockTextView> views = new Dictionary<string, MockTextView>();
 
         /// <summary>
         /// The add view.
@@ -44,22 +38,17 @@ namespace VSPackageUnitTest.Mocks
         /// The file name.
         /// </param>
         /// <returns>
+        /// The mock text view.
         /// </returns>
         public MockTextView AddView(string fileName)
         {
             MockTextView view = new MockTextView();
-            this._views.Add(fileName, view);
+            this.views.Add(fileName, view);
             return view;
         }
 
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsTextManager
-
         /// <summary>
-        /// The adjust file change ignore count.
+        /// Gets the adjust file change ignore count.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -70,15 +59,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The adjust file change ignore count.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AdjustFileChangeIgnoreCount(IVsTextBuffer pBuffer, int fIgnore)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The attempt to check out buffer from scc.
+        /// Gets the attempt to check out buffer from scc.
         /// </summary>
         /// <param name="pBufData">
         /// The p buf data.
@@ -89,15 +79,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The attempt to check out buffer from scc.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AttemptToCheckOutBufferFromScc(IVsUserData pBufData, out int pfCheckoutSucceeded)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The attempt to check out buffer from scc 2.
+        /// Gets the attempt to check out buffer from scc 2.
         /// </summary>
         /// <param name="pszFileName">
         /// The psz file name.
@@ -111,15 +102,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The attempt to check out buffer from scc 2.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AttemptToCheckOutBufferFromScc2(string pszFileName, out int pfCheckoutSucceeded, out int piStatusFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The create selection action.
+        /// Gets the create selection action.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -130,15 +122,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The create selection action.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CreateSelectionAction(IVsTextBuffer pBuffer, out IVsTextSelectionAction ppAction)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The enum buffers.
+        /// Gets the enum buffers.
         /// </summary>
         /// <param name="ppEnum">
         /// The pp enum.
@@ -146,15 +139,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The enum buffers.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int EnumBuffers(out IVsEnumTextBuffers ppEnum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The enum independent views.
+        /// Gets the enum independent views.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -165,15 +159,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The enum independent views.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int EnumIndependentViews(IVsTextBuffer pBuffer, out IVsEnumIndependentViews ppEnum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The enum language services.
+        /// Gets the enum language services.
         /// </summary>
         /// <param name="ppEnum">
         /// The pp enum.
@@ -181,15 +176,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The enum language services.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int EnumLanguageServices(out IVsEnumGUID ppEnum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The enum views.
+        /// Gets the enum views.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -200,15 +196,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The enum views.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int EnumViews(IVsTextBuffer pBuffer, out IVsEnumTextViews ppEnum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get active view.
+        /// Gets the get active view.
         /// </summary>
         /// <param name="fMustHaveFocus">
         /// The f must have focus.
@@ -226,9 +223,9 @@ namespace VSPackageUnitTest.Mocks
         {
             string fileName = ((MockTextLines)pBuffer).FileName;
 
-            if (this._views.ContainsKey(fileName))
+            if (this.views.ContainsKey(fileName))
             {
-                ppView = this._views[fileName];
+                ppView = this.views[fileName];
                 return VSConstants.S_OK;
             }
             else
@@ -239,7 +236,7 @@ namespace VSPackageUnitTest.Mocks
         }
 
         /// <summary>
-        /// The get buffer scc status.
+        /// Gets the get buffer scc status.
         /// </summary>
         /// <param name="pBufData">
         /// The p buf data.
@@ -250,15 +247,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get buffer scc status.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetBufferSccStatus(IVsUserData pBufData, out int pbNonEditable)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get buffer scc status 2.
+        /// Gets the get buffer scc status 2.
         /// </summary>
         /// <param name="pszFileName">
         /// The psz file name.
@@ -272,15 +270,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get buffer scc status 2.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetBufferSccStatus2(string pszFileName, out int pbNonEditable, out int piStatusFlags)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get marker type count.
+        /// Gets the get marker type count.
         /// </summary>
         /// <param name="piMarkerTypeCount">
         /// The pi marker type count.
@@ -288,15 +287,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get marker type count.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetMarkerTypeCount(out int piMarkerTypeCount)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get marker type interface.
+        /// Gets the get marker type interface.
         /// </summary>
         /// <param name="iMarkerTypeID">
         /// The i marker type id.
@@ -307,15 +307,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get marker type interface.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetMarkerTypeInterface(int iMarkerTypeID, out IVsTextMarkerType ppMarkerType)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get per language preferences.
+        /// Gets the get per language preferences.
         /// </summary>
         /// <param name="pLangPrefs">
         /// The p lang prefs.
@@ -323,15 +324,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get per language preferences.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetPerLanguagePreferences(LANGPREFERENCES[] pLangPrefs)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get registered marker type id.
+        /// Gets the get registered marker type id.
         /// </summary>
         /// <param name="pguidMarker">
         /// The pguid marker.
@@ -342,15 +344,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get registered marker type id.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetRegisteredMarkerTypeID(ref Guid pguidMarker, out int piMarkerTypeID)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get shortcut manager.
+        /// Gets the get shortcut manager.
         /// </summary>
         /// <param name="ppShortcutMgr">
         /// The pp shortcut mgr.
@@ -358,15 +361,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get shortcut manager.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetShortcutManager(out IVsShortcutManager ppShortcutMgr)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get user preferences.
+        /// Gets the get user preferences.
         /// </summary>
         /// <param name="pViewPrefs">
         /// The p view prefs.
@@ -383,15 +387,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get user preferences.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetUserPreferences(VIEWPREFERENCES[] pViewPrefs, FRAMEPREFERENCES[] pFramePrefs, LANGPREFERENCES[] pLangPrefs, FONTCOLORPREFERENCES[] pColorPrefs)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The ignore next file change.
+        /// Gets the ignore next file change.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -399,15 +404,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The ignore next file change.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int IgnoreNextFileChange(IVsTextBuffer pBuffer)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The map filename to language sid.
+        /// Gets the map filename to language sid.
         /// </summary>
         /// <param name="pszFileName">
         /// The psz file name.
@@ -418,15 +424,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The map filename to language sid.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int MapFilenameToLanguageSID(string pszFileName, out Guid pguidLangSID)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The navigate to line and column.
+        /// Gets the navigate to line and column.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -449,15 +456,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The navigate to line and column.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int NavigateToLineAndColumn(IVsTextBuffer pBuffer, ref Guid guidDocViewType, int iStartRow, int iStartIndex, int iEndRow, int iEndIndex)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The navigate to position.
+        /// Gets the navigate to position.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -474,15 +482,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The navigate to position.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int NavigateToPosition(IVsTextBuffer pBuffer, ref Guid guidDocViewType, int iPos, int iLen)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The register buffer.
+        /// Gets the register buffer.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -490,15 +499,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The register buffer.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RegisterBuffer(IVsTextBuffer pBuffer)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The register independent view.
+        /// Gets the register independent view.
         /// </summary>
         /// <param name="pUnk">
         /// The p unk.
@@ -509,15 +519,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The register independent view.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RegisterIndependentView(object pUnk, IVsTextBuffer pBuffer)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The register view.
+        /// Gets the register view.
         /// </summary>
         /// <param name="pView">
         /// The p view.
@@ -528,15 +539,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The register view.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RegisterView(IVsTextView pView, IVsTextBuffer pBuffer)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The set file change advise.
+        /// Gets the set file change advise.
         /// </summary>
         /// <param name="pszFileName">
         /// The psz file name.
@@ -547,15 +559,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set file change advise.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetFileChangeAdvise(string pszFileName, int fStart)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The set per language preferences.
+        /// Gets the set per language preferences.
         /// </summary>
         /// <param name="pLangPrefs">
         /// The p lang prefs.
@@ -563,15 +576,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set per language preferences.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetPerLanguagePreferences(LANGPREFERENCES[] pLangPrefs)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The set user preferences.
+        /// Gets the set user preferences.
         /// </summary>
         /// <param name="pViewPrefs">
         /// The p view prefs.
@@ -588,15 +602,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set user preferences.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetUserPreferences(VIEWPREFERENCES[] pViewPrefs, FRAMEPREFERENCES[] pFramePrefs, LANGPREFERENCES[] pLangPrefs, FONTCOLORPREFERENCES[] pColorPrefs)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The suspend file change advise.
+        /// Gets the suspend file change advise.
         /// </summary>
         /// <param name="pszFileName">
         /// The psz file name.
@@ -607,15 +622,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The suspend file change advise.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SuspendFileChangeAdvise(string pszFileName, int fSuspend)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The unregister buffer.
+        /// Gets the unregister buffer.
         /// </summary>
         /// <param name="pBuffer">
         /// The p buffer.
@@ -623,15 +639,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The unregister buffer.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UnregisterBuffer(IVsTextBuffer pBuffer)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The unregister independent view.
+        /// Gets the unregister independent view.
         /// </summary>
         /// <param name="pUnk">
         /// The p unk.
@@ -642,15 +659,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The unregister independent view.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UnregisterIndependentView(object pUnk, IVsTextBuffer pBuffer)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The unregister view.
+        /// Gets the unregister view.
         /// </summary>
         /// <param name="pView">
         /// The p view.
@@ -658,15 +676,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The unregister view.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UnregisterView(IVsTextView pView)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
-
-        #endregion
-
-        #endregion
     }
 }

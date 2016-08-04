@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,21 +29,15 @@ namespace StyleCop.CSharp
     [SourceAnalyzer(typeof(CsParser))]
     public class OrderingRules : SourceAnalyzer
     {
-        #region Constants
-
         /// <summary>
         /// The default value of the generated code order property.
         /// </summary>
         internal const bool GeneratedCodeElementOrderDefaultValueProperty = true;
 
         /// <summary>
-        /// The name of the generated code order property. 
+        /// The name of the generated code order property.
         /// </summary>
         internal const string GeneratedCodeElementOrderProperty = "GeneratedCodeElementOrder";
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Checks the order of the elements within the given document.
@@ -88,10 +82,6 @@ namespace StyleCop.CSharp
             return csdocument.FileHeader == null || !csdocument.FileHeader.UnStyled;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Converts an access modifier type to a human readable string.
         /// </summary>
@@ -135,9 +125,7 @@ namespace StyleCop.CSharp
         /// <returns>
         /// Returns true if the namespaces are ordered correctly, false otherwise.
         /// </returns>
-        [SuppressMessage("Microsoft.Globalization", "CA1309:UseOrdinalStringComparison", 
-            MessageId = "System.String.Compare(System.String,System.String,System.StringComparison)", 
-            Justification = "InvariantCulture comparison is necessary for correct namespace comparison.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1309:UseOrdinalStringComparison", MessageId = "System.String.Compare(System.String,System.String,System.StringComparison)", Justification = "InvariantCulture comparison is necessary for correct namespace comparison.")]
         private static bool CheckNamespaceOrdering(string namespace1, string namespace2)
         {
             // Use the CurrentCulture to compare namespaces for languages with different compare styles
@@ -160,7 +148,7 @@ namespace StyleCop.CSharp
                 int comparison = string.Compare(namespace1Parts[i], namespace2Parts[i], StringComparison.CurrentCultureIgnoreCase);
                 if (comparison < 0)
                 {
-                    // The order is correct. For example: 
+                    // The order is correct. For example:
                     // A.B.C
                     // A.C.D
                     return true;
@@ -279,8 +267,8 @@ namespace StyleCop.CSharp
                             if (second.AnalyzerTag == null)
                             {
                                 // If we're supposed to be checking the order of generated code as well,
-                                // then only perform this check if at least one of the two elements is not 
-                                // generated code. Otherwise, only perform this check if both of the two 
+                                // then only perform this check if at least one of the two elements is not
+                                // generated code. Otherwise, only perform this check if both of the two
                                 // elements is not generated code.
                                 if ((checkGeneratedCode && (!first.Generated || !second.Generated)) || (!checkGeneratedCode && !first.Generated && !second.Generated))
                                 {
@@ -398,9 +386,9 @@ namespace StyleCop.CSharp
                 if (otherWordIndex > -1 && otherWordIndex < staticIndex)
                 {
                     this.AddViolation(
-                        element, 
-                        Rules.DeclarationKeywordsMustFollowOrder, 
-                        string.Format(CultureInfo.InvariantCulture, "'{0}'", Strings.Static), 
+                        element,
+                        Rules.DeclarationKeywordsMustFollowOrder,
+                        string.Format(CultureInfo.InvariantCulture, "'{0}'", Strings.Static),
                         string.Format(CultureInfo.InvariantCulture, "'{0}'", Strings.Other));
                 }
             }
@@ -463,7 +451,7 @@ namespace StyleCop.CSharp
                 this.CheckDeclarationKeywordOrder(element);
             }
 
-            // Make sure that using directives are inside of namespace elements. 
+            // Make sure that using directives are inside of namespace elements.
             this.CheckUsingDirectivePlacement(element);
 
             // Checks the order of the children of this element.
@@ -664,7 +652,7 @@ namespace StyleCop.CSharp
                                 || !first.Declaration.ContainsModifier(CsTokenType.Static) || second.Declaration.ContainsModifier(CsTokenType.Static))
                             {
                                 // If one of the elements is partial and does not have an access modifier defined, and the element
-                                // is not a method, show a special message. Partial methods are not allowed to have modifiers and are 
+                                // is not a method, show a special message. Partial methods are not allowed to have modifiers and are
                                 // private by default.
                                 if ((!first.Declaration.AccessModifier && first.ElementType != ElementType.Method
                                      && first.Declaration.ContainsModifier(CsTokenType.Partial))
@@ -680,20 +668,20 @@ namespace StyleCop.CSharp
                                     }
 
                                     this.AddViolation(
-                                        elementWithoutAccessModifier, 
-                                        Rules.PartialElementsMustDeclareAccess, 
-                                        elementWithoutAccessModifier.FriendlyTypeText, 
+                                        elementWithoutAccessModifier,
+                                        Rules.PartialElementsMustDeclareAccess,
+                                        elementWithoutAccessModifier.FriendlyTypeText,
                                         elementWithoutAccessModifier.FriendlyPluralTypeText);
                                 }
                                 else
                                 {
                                     this.AddViolation(
-                                        first, 
-                                        invalidElement.LineNumber, 
-                                        Rules.ElementsMustBeOrderedByAccess, 
-                                        OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType), 
-                                        first.FriendlyPluralTypeText, 
-                                        OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType), 
+                                        first,
+                                        invalidElement.LineNumber,
+                                        Rules.ElementsMustBeOrderedByAccess,
+                                        OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType),
+                                        first.FriendlyPluralTypeText,
+                                        OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType),
                                         second.FriendlyPluralTypeText);
                                 }
 
@@ -722,12 +710,12 @@ namespace StyleCop.CSharp
                             if (secondOrder == 1 && firstOrder == 2)
                             {
                                 this.AddViolation(
-                                    first, 
-                                    invalidElement.LineNumber, 
-                                    Rules.StaticReadonlyElementsMustAppearBeforeStaticNonReadonlyElements, 
-                                    OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType), 
-                                    first.FriendlyPluralTypeText, 
-                                    OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType), 
+                                    first,
+                                    invalidElement.LineNumber,
+                                    Rules.StaticReadonlyElementsMustAppearBeforeStaticNonReadonlyElements,
+                                    OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType),
+                                    first.FriendlyPluralTypeText,
+                                    OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType),
                                     second.FriendlyPluralTypeText);
 
                                 return false;
@@ -736,12 +724,12 @@ namespace StyleCop.CSharp
                             if (secondOrder == 1 && firstOrder > 2)
                             {
                                 this.AddViolation(
-                                    first, 
-                                    invalidElement.LineNumber, 
-                                    Rules.StaticElementsMustAppearBeforeInstanceElements, 
-                                    OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType), 
-                                    first.FriendlyPluralTypeText, 
-                                    OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType), 
+                                    first,
+                                    invalidElement.LineNumber,
+                                    Rules.StaticElementsMustAppearBeforeInstanceElements,
+                                    OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType),
+                                    first.FriendlyPluralTypeText,
+                                    OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType),
                                     second.FriendlyPluralTypeText);
 
                                 return false;
@@ -751,12 +739,12 @@ namespace StyleCop.CSharp
                             if (secondOrder == 2 && firstOrder > 2)
                             {
                                 this.AddViolation(
-                                    first, 
-                                    invalidElement.LineNumber, 
-                                    Rules.StaticElementsMustAppearBeforeInstanceElements, 
-                                    OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType), 
-                                    first.FriendlyPluralTypeText, 
-                                    OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType), 
+                                    first,
+                                    invalidElement.LineNumber,
+                                    Rules.StaticElementsMustAppearBeforeInstanceElements,
+                                    OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType),
+                                    first.FriendlyPluralTypeText,
+                                    OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType),
                                     second.FriendlyPluralTypeText);
 
                                 return false;
@@ -766,12 +754,12 @@ namespace StyleCop.CSharp
                             if (secondOrder == 3 && firstOrder > 3)
                             {
                                 this.AddViolation(
-                                    first, 
-                                    invalidElement.LineNumber, 
-                                    Rules.InstanceReadonlyElementsMustAppearBeforeInstanceNonReadonlyElements, 
-                                    OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType), 
-                                    first.FriendlyPluralTypeText, 
-                                    OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType), 
+                                    first,
+                                    invalidElement.LineNumber,
+                                    Rules.InstanceReadonlyElementsMustAppearBeforeInstanceNonReadonlyElements,
+                                    OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType),
+                                    first.FriendlyPluralTypeText,
+                                    OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType),
                                     second.FriendlyPluralTypeText);
 
                                 return false;
@@ -780,15 +768,15 @@ namespace StyleCop.CSharp
                         else if (first.ElementType == ElementType.Constructor && second.ElementType == ElementType.Constructor
                                  && second.Declaration.ContainsModifier(CsTokenType.Static) && !first.Declaration.ContainsModifier(CsTokenType.Static))
                         {
-                            // If we have 2 constructors and the second one is static then they're in the wrong order, since static 
+                            // If we have 2 constructors and the second one is static then they're in the wrong order, since static
                             // constructors must always come in front of all instance constructors.
                             this.AddViolation(
-                                first, 
-                                invalidElement.LineNumber, 
-                                Rules.StaticElementsMustAppearBeforeInstanceElements, 
-                                OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType), 
-                                first.FriendlyPluralTypeText, 
-                                OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType), 
+                                first,
+                                invalidElement.LineNumber,
+                                Rules.StaticElementsMustAppearBeforeInstanceElements,
+                                OrderingRules.AccessModifierTypeString(first.Declaration.AccessModifierType),
+                                first.FriendlyPluralTypeText,
+                                OrderingRules.AccessModifierTypeString(second.Declaration.AccessModifierType),
                                 second.FriendlyPluralTypeText);
 
                             return false;
@@ -893,7 +881,5 @@ namespace StyleCop.CSharp
 
             return true;
         }
-
-        #endregion
     }
 }

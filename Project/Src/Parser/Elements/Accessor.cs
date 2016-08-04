@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop.CSharp
     /// <subcategory>element</subcategory>
     public sealed class Accessor : CsElement, IParameterContainer
     {
-        #region Fields
-
         /// <summary>
         /// The type of the accessor.
         /// </summary>
@@ -44,12 +42,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private TypeToken returnType;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Accessor class.
+        /// Initializes a new instance of the <see cref="Accessor"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -76,13 +70,13 @@ namespace StyleCop.CSharp
         /// Indicates whether the code element was generated or written by hand.
         /// </param>
         internal Accessor(
-            CsDocument document, 
-            CsElement parent, 
-            AccessorType accessorType, 
-            XmlHeader header, 
-            ICollection<Attribute> attributes, 
-            Declaration declaration, 
-            bool unsafeCode, 
+            CsDocument document,
+            CsElement parent,
+            AccessorType accessorType,
+            XmlHeader header,
+            ICollection<Attribute> attributes,
+            Declaration declaration,
+            bool unsafeCode,
             bool generated)
             : base(document, parent, ElementType.Accessor, declaration.Name + " accessor", header, attributes, declaration, unsafeCode, generated)
         {
@@ -100,15 +94,11 @@ namespace StyleCop.CSharp
             // Make sure the type and name match.
             Debug.Assert(
                 (accessorType == AccessorType.Get && declaration.Name == "get") || (accessorType == AccessorType.Set && declaration.Name == "set")
-                || (accessorType == AccessorType.Add && declaration.Name == "add") || (accessorType == AccessorType.Remove && declaration.Name == "remove"), 
+                || (accessorType == AccessorType.Add && declaration.Name == "add") || (accessorType == AccessorType.Remove && declaration.Name == "remove"),
                 "The accessor type does not match its name.");
 
             this.FillDetails(parent);
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the type of the accessor.
@@ -148,10 +138,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Initializes the contents of the accessor.
         /// </summary>
@@ -182,8 +168,7 @@ namespace StyleCop.CSharp
         /// <returns>
         /// Returns the token.
         /// </returns>
-        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "*", 
-            Justification = "void is a standard C# keyword")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "*", Justification = "void is a standard C# keyword")]
         private static TypeToken CreateVoidTypeToken(Reference<ICodePart> parentReference)
         {
             Param.AssertNotNull(parentReference, "parentReference");
@@ -191,9 +176,9 @@ namespace StyleCop.CSharp
 
             return
                 new TypeToken(
-                    new MasterList<CsToken>(new[] { new CsToken("void", CsTokenType.Other, CsTokenClass.Token, CodeLocation.Empty, typeTokenReference, false) }), 
-                    CodeLocation.Empty, 
-                    parentReference, 
+                    new MasterList<CsToken>(new[] { new CsToken("void", CsTokenType.Other, CsTokenClass.Token, CodeLocation.Empty, typeTokenReference, false) }),
+                    CodeLocation.Empty,
+                    parentReference,
                     false);
         }
 
@@ -228,13 +213,13 @@ namespace StyleCop.CSharp
                 this.parameters = new[]
                                       {
                                           new Parameter(
-                                              parentEvent.EventHandlerType, 
-                                              "value", 
-                                              accessorReference, 
-                                              ParameterModifiers.None, 
-                                              null, 
-                                              CodeLocation.Empty, 
-                                              null, 
+                                              parentEvent.EventHandlerType,
+                                              "value",
+                                              accessorReference,
+                                              ParameterModifiers.None,
+                                              null,
+                                              CodeLocation.Empty,
+                                              null,
                                               parentEvent.EventHandlerType.Generated)
                                       };
             }
@@ -253,13 +238,13 @@ namespace StyleCop.CSharp
             Property property = parent as Property;
             if (property != null)
             {
-                // Get accessors on properties have the return type of their parent property, 
+                // Get accessors on properties have the return type of their parent property,
                 // and have no input parameters.
                 this.returnType = property.ReturnType;
             }
             else
             {
-                // Get accessors on indexers have the return type of their parent indexer, 
+                // Get accessors on indexers have the return type of their parent indexer,
                 // and have the input parameters of the parent indexer.
                 Indexer indexer = (Indexer)parent;
 
@@ -283,20 +268,20 @@ namespace StyleCop.CSharp
             Property property = parent as Property;
             if (property != null)
             {
-                // Set accessors on properties do not have a return type but have an 
+                // Set accessors on properties do not have a return type but have an
                 // implied input parameter.
                 this.returnType = CreateVoidTypeToken(accessorReference);
 
                 this.parameters = new[]
                                       {
                                           new Parameter(
-                                              property.ReturnType, 
-                                              "value", 
-                                              accessorReference, 
-                                              ParameterModifiers.None, 
-                                              null, 
-                                              CodeLocation.Empty, 
-                                              null, 
+                                              property.ReturnType,
+                                              "value",
+                                              accessorReference,
+                                              ParameterModifiers.None,
+                                              null,
+                                              CodeLocation.Empty,
+                                              null,
                                               property.ReturnType.Generated)
                                       };
             }
@@ -322,7 +307,5 @@ namespace StyleCop.CSharp
                 this.parameters = tempParameters;
             }
         }
-
-        #endregion
     }
 }

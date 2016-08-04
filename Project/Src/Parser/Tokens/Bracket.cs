@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,19 +27,13 @@ namespace StyleCop.CSharp
     /// <subcategory>token</subcategory>
     public sealed class Bracket : CsToken
     {
-        #region Fields
-
         /// <summary>
         /// The matching bracket.
         /// </summary>
         private Node<CsToken> matchingBracketNode;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Bracket class.
+        /// Initializes a new instance of the <see cref="Bracket"/> class.
         /// </summary>
         /// <param name="text">
         /// The token string.
@@ -65,13 +59,9 @@ namespace StyleCop.CSharp
                 tokenType == CsTokenType.OpenCurlyBracket || tokenType == CsTokenType.CloseCurlyBracket || tokenType == CsTokenType.OpenSquareBracket
                 || tokenType == CsTokenType.CloseSquareBracket || tokenType == CsTokenType.OpenParenthesis || tokenType == CsTokenType.CloseParenthesis
                 || tokenType == CsTokenType.OpenGenericBracket || tokenType == CsTokenType.CloseGenericBracket || tokenType == CsTokenType.OpenAttributeBracket
-                || tokenType == CsTokenType.CloseAttributeBracket, 
+                || tokenType == CsTokenType.CloseAttributeBracket,
                 "The symbol is not a bracket type.");
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the matching bracket, if there is one.
@@ -104,7 +94,5 @@ namespace StyleCop.CSharp
                 this.matchingBracketNode = value;
             }
         }
-
-        #endregion
     }
 }

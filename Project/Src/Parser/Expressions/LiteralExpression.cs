@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -23,19 +23,13 @@ namespace StyleCop.CSharp
     /// <subcategory>expression</subcategory>
     public sealed class LiteralExpression : Expression
     {
-        #region Fields
-
         /// <summary>
         /// The literal token node.
         /// </summary>
         private readonly Node<CsToken> tokenNode;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the LiteralExpression class.
+        /// Initializes a new instance of the <see cref="LiteralExpression"/> class.
         /// </summary>
         /// <param name="tokens">
         /// The list of tokens that form the expression.
@@ -53,7 +47,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the LiteralExpression class.
+        /// Initializes a new instance of the <see cref="LiteralExpression"/> class.
         /// </summary>
         /// <param name="masterList">
         /// The master token list for the document containing the expression.
@@ -67,10 +61,6 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(masterList, "masterList");
             Param.AssertNotNull(tokenNode, "tokenNode");
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the literal token.
@@ -94,10 +84,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Gets the contents of the expression as a string.
         /// </summary>
@@ -106,7 +92,5 @@ namespace StyleCop.CSharp
         {
             return CodeLexer.DecodeEscapedText(this.tokenNode.Value.Text, false);
         }
-
-        #endregion
     }
 }

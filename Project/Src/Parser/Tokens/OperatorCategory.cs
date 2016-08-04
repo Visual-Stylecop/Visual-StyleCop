@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,7 +26,7 @@ namespace StyleCop.CSharp
         /// <summary>
         /// A relational symbol: '==', '!=', etc.
         /// </summary>
-        Relational, 
+        Relational,
 
         /// <summary>
         /// A logical symbol: '||', '|', etc.
@@ -34,39 +34,39 @@ namespace StyleCop.CSharp
         Logical,
 
         /// <summary>
-        /// Assignment symbols: '=', '+=', etc. 
+        /// Assignment symbols: '=', '+=', etc.
         /// </summary>
-        Assignment, 
+        Assignment,
 
         /// <summary>
         /// Arithmetic symbol: '+', '-', '*', '/', etc.
         /// </summary>
-        Arithmetic, 
+        Arithmetic,
 
         /// <summary>
         /// Shift operators.
         /// </summary>
-        Shift, 
+        Shift,
 
         /// <summary>
         /// A conditional colon or question mark.
         /// </summary>
-        Conditional, 
+        Conditional,
 
         /// <summary>
         /// An increment or decrement symbol.
         /// </summary>
-        IncrementDecrement, 
+        IncrementDecrement,
 
         /// <summary>
         /// A unary operation: '!', '~', '+', '-'.
         /// </summary>
-        Unary, 
+        Unary,
 
         /// <summary>
         /// A pointer, address-of, or dereference symbol.
         /// </summary>
-        Reference, 
+        Reference,
 
         /// <summary>
         /// A lambda operator.

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,8 +25,6 @@ namespace StyleCop.CSharp
     /// <subcategory>expression</subcategory>
     public sealed class DecrementExpression : Expression
     {
-        #region Fields
-
         /// <summary>
         /// The type of decrement being performed.
         /// </summary>
@@ -37,12 +35,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly Expression value;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the DecrementExpression class.
+        /// Initializes a new instance of the <see cref="DecrementExpression"/> class.
         /// </summary>
         /// <param name="tokens">
         /// The list of tokens that form the expression.
@@ -66,10 +60,6 @@ namespace StyleCop.CSharp
             this.AddExpression(value);
         }
 
-        #endregion
-
-        #region Enums
-
         /// <summary>
         /// The various types of decrement operations.
         /// </summary>
@@ -80,17 +70,13 @@ namespace StyleCop.CSharp
             /// <summary>
             /// A prefix decrement: --x.
             /// </summary>
-            Prefix, 
+            Prefix,
 
             /// <summary>
             /// A postfix decrement: x--.
             /// </summary>
             Postfix
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the type of decrement being performed.
@@ -114,7 +100,5 @@ namespace StyleCop.CSharp
                 return this.value;
             }
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,27 +29,17 @@ namespace StyleCop
     /// </summary>
     public class PropertyDescriptorCollection : ICollection<PropertyDescriptor>
     {
-        #region Fields
-
         /// <summary>
         /// The properties.
         /// </summary>
         private Dictionary<string, PropertyDescriptor> propertyDescriptors;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the PropertyDescriptorCollection class.
+        /// Initializes a new instance of the <see cref="PropertyDescriptorCollection"/> class.
         /// </summary>
         internal PropertyDescriptorCollection()
         {
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the number of property descriptors in the collection.
@@ -95,10 +85,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Indexers
-
         /// <summary>
         /// Gets the property descriptor for the given property name.
         /// </summary>
@@ -117,18 +103,13 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Adds a property descriptor to the collection.
         /// </summary>
         /// <param name="property">
         /// The property descriptor to add.
         /// </param>
-        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", 
-            Justification = "'Property' is a more appropriate name than 'item' for a property.")]
+        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", Justification = "'Property' is a more appropriate name than 'item' for a property.")]
         public void Add(PropertyDescriptor property)
         {
             Param.Ignore(property);
@@ -205,7 +186,7 @@ namespace StyleCop
         /// The name of the property.
         /// </param>
         /// <returns>
-        /// Returns the property descriptor for the given property, or null if the property 
+        /// Returns the property descriptor for the given property, or null if the property
         /// is not contained within the collection.
         /// </returns>
         public PropertyDescriptor GetPropertyDescriptor(string propertyName)
@@ -231,17 +212,12 @@ namespace StyleCop
         /// Returns true if the property descriptor was removed from the collection, or
         /// false if it did not exist in the collection.
         /// </returns>
-        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", 
-            Justification = "'Property' is a more appropriate name than 'item' for a property.")]
+        [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", Justification = "'Property' is a more appropriate name than 'item' for a property.")]
         public bool Remove(PropertyDescriptor property)
         {
             Param.Ignore(property);
             throw new NotImplementedException();
         }
-
-        #endregion
-
-        #region Explicit Interface Methods
 
         /// <summary>
         /// Gets an enumerator for iterating through the values in the property descriptor collection.
@@ -251,10 +227,6 @@ namespace StyleCop
         {
             return this.GetEnumerator();
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Adds the given descriptor to the collection.
@@ -454,12 +426,12 @@ namespace StyleCop
 
             // Create the property descriptor and add it.
             PropertyDescriptor<bool> propertyDescriptor = new PropertyDescriptor<bool>(
-                propertyName, 
-                PropertyType.Boolean, 
-                ExtractFriendlyName(propertyNode), 
-                ExtractDescription(propertyNode), 
-                ExtractMerge(propertyNode), 
-                ExtractDisplaySettings(propertyNode), 
+                propertyName,
+                PropertyType.Boolean,
+                ExtractFriendlyName(propertyNode),
+                ExtractDescription(propertyNode),
+                ExtractMerge(propertyNode),
+                ExtractDisplaySettings(propertyNode),
                 defaultValue);
 
             this.propertyDescriptors.Add(propertyName, propertyDescriptor);
@@ -517,12 +489,12 @@ namespace StyleCop
 
             // Create the property descriptor and add it.
             PropertyDescriptor<int> propertyDescriptor = new PropertyDescriptor<int>(
-                propertyName, 
-                PropertyType.Int, 
-                ExtractFriendlyName(propertyNode), 
-                ExtractDescription(propertyNode), 
-                ExtractMerge(propertyNode), 
-                ExtractDisplaySettings(propertyNode), 
+                propertyName,
+                PropertyType.Int,
+                ExtractFriendlyName(propertyNode),
+                ExtractDescription(propertyNode),
+                ExtractMerge(propertyNode),
+                ExtractDisplaySettings(propertyNode),
                 defaultValue);
 
             this.propertyDescriptors.Add(propertyName, propertyDescriptor);
@@ -550,17 +522,15 @@ namespace StyleCop
 
             // Create the property descriptor and add it.
             PropertyDescriptor<string> propertyDescriptor = new PropertyDescriptor<string>(
-                propertyName, 
-                PropertyType.String, 
-                ExtractFriendlyName(propertyNode), 
-                ExtractDescription(propertyNode), 
-                ExtractMerge(propertyNode), 
-                ExtractDisplaySettings(propertyNode), 
+                propertyName,
+                PropertyType.String,
+                ExtractFriendlyName(propertyNode),
+                ExtractDescription(propertyNode),
+                ExtractMerge(propertyNode),
+                ExtractDisplaySettings(propertyNode),
                 defaultValueNode.Value);
 
             this.propertyDescriptors.Add(propertyName, propertyDescriptor);
         }
-
-        #endregion
     }
 }

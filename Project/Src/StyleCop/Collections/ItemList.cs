@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -31,8 +31,6 @@ namespace StyleCop
     public class ItemList<T> : INodeList<T>, IEnumerable<T>
         where T : class
     {
-        #region Fields
-
         /// <summary>
         /// The master list that this list points into.
         /// </summary>
@@ -48,12 +46,8 @@ namespace StyleCop
         /// </summary>
         private Node<T> lastItem;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="ItemList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="ItemList{T}"/> class.
         /// Initializes a new instance of the ItemList class.
         /// </summary>
         /// <param name="masterList">
@@ -66,7 +60,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ItemList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="ItemList{T}"/> class.
         /// Initializes a new instance of the ItemList class.
         /// </summary>
         /// <param name="masterList">
@@ -88,10 +82,6 @@ namespace StyleCop
             this.firstItem = firstItem;
             this.lastItem = lastItem;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets or sets the first item in the list.
@@ -135,10 +125,6 @@ namespace StyleCop
                 return this.masterList.AsReadOnly;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Creates a copy of this list.
@@ -304,10 +290,6 @@ namespace StyleCop
             return new LinkedItemListEnumerators<T>.BackwardNodeEnumerable(start, this.firstItem);
         }
 
-        #endregion
-
-        #region Explicit Interface Methods
-
         /// <summary>
         /// Gets an enumerator for walking through the items in the list.
         /// </summary>
@@ -316,10 +298,6 @@ namespace StyleCop
         {
             return this.GetEnumerator();
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Determines whether the given node comes after the last node in this list.
@@ -362,7 +340,5 @@ namespace StyleCop
 
             return node.Index < this.firstItem.Index;
         }
-
-        #endregion
     }
 }

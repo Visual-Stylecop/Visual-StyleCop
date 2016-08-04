@@ -1,14 +1,14 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ViolationTask.cs">
+// <copyright file="ViolationTask.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -33,8 +33,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal class ViolationTask : ErrorTask
     {
-        #region Private Fields
-
         /// <summary>
         /// The service provider we are created with.
         /// </summary>
@@ -50,10 +48,8 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private StyleCopCore core;
 
-        #endregion Private Fields
-
         /// <summary>
-        /// Initializes a new instance of the ViolationTask class.
+        /// Initializes a new instance of the <see cref="ViolationTask"/> class.
         /// </summary>
         /// <param name="serviceProvider">System service provider.</param>
         /// <param name="violation">The StyleCop violation that this task represents.</param>

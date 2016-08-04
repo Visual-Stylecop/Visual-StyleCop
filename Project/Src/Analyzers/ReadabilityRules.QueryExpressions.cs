@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop.CSharp
     /// </content>
     public partial class ReadabilityRules
     {
-        #region Methods
-
         /// <summary>
         /// Processes the given query expression.
         /// </summary>
@@ -78,11 +76,11 @@ namespace StyleCop.CSharp
         /// Returns true to continue checking the query clause, or false to quit.
         /// </returns>
         private bool ProcessQueryClauses(
-            CsElement element, 
-            QueryExpression expression, 
-            ICollection<QueryClause> clauses, 
-            ref QueryClause previousClause, 
-            ref bool clauseOnSameLine, 
+            CsElement element,
+            QueryExpression expression,
+            ICollection<QueryClause> clauses,
+            ref QueryClause previousClause,
+            ref bool clauseOnSameLine,
             ref bool clauseOnSeparateLine)
         {
             Param.AssertNotNull(element, "element");
@@ -96,7 +94,7 @@ namespace StyleCop.CSharp
             {
                 if (previousClause != null)
                 {
-                    // Figure out the line number that the previous clause ends on. For most 
+                    // Figure out the line number that the previous clause ends on. For most
                     // clauses, this is simply the end point of the clause location property,
                     // but for continuation clauses we want to use the location of the 'into' variable,
                     // which conceptually represents the end of the continuation line.
@@ -107,7 +105,7 @@ namespace StyleCop.CSharp
                         previousClauseEndLineNumber = ((QueryContinuationClause)previousClause).Variable.Location.LineNumber;
                     }
 
-                    // Ensure that the clause either starts on the same line as the expression, or 
+                    // Ensure that the clause either starts on the same line as the expression, or
                     // on the very next line.
                     if (clause.LineNumber == previousClauseEndLineNumber)
                     {
@@ -147,7 +145,7 @@ namespace StyleCop.CSharp
                     }
                     else if (clause.LineNumber == previousClauseEndLineNumber + 1)
                     {
-                        // The clause starts on the line just after the previous clause. 
+                        // The clause starts on the line just after the previous clause.
                         // This is fine unless we have previously seen two clauses on the same line.
                         if (clauseOnSameLine)
                         {
@@ -183,7 +181,5 @@ namespace StyleCop.CSharp
 
             return true;
         }
-
-        #endregion
     }
 }

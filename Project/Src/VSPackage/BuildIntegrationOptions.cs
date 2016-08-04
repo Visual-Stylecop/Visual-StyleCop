@@ -1,14 +1,14 @@
 //-----------------------------------------------------------------------
-// <copyright file="BuildIntegrationOptions.cs">
+// <copyright file="BuildIntegrationOptions.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -23,16 +23,10 @@ namespace StyleCop.VisualStudio
     /// </summary>
     public partial class BuildIntegrationOptions : UserControl, IPropertyControlPage
     {
-        #region Private Constants
-
         /// <summary>
         /// The name of the enabled property.
         /// </summary>
         private const string PropertyName = "StyleCopEnabled";
-
-        #endregion Private Constants
-
-        #region Private Fields
 
         /// <summary>
         /// The tab control which hosts this page.
@@ -49,12 +43,8 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private IVsBuildPropertyStorage project;
 
-        #endregion Private Fields
-
-        #region Public Constructors
-
         /// <summary>
-        /// Initializes a new instance of the BuildIntegrationOptions class.
+        /// Initializes a new instance of the <see cref="BuildIntegrationOptions"/> class.
         /// </summary>
         /// <param name="project">The VS project.</param>
         public BuildIntegrationOptions(IVsBuildPropertyStorage project)
@@ -64,10 +54,6 @@ namespace StyleCop.VisualStudio
             this.project = project;
             this.InitializeComponent();
         }
-
-        #endregion Public Constructors
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the name of the the tab.
@@ -92,8 +78,8 @@ namespace StyleCop.VisualStudio
 
             set
             {
-                Param.Ignore(value); 
-                
+                Param.Ignore(value);
+
                 if (this.dirty != value)
                 {
                     this.dirty = value;
@@ -101,10 +87,6 @@ namespace StyleCop.VisualStudio
                 }
             }
         }
-
-        #endregion Public Properties
-
-        #region Private Properties
 
         /// <summary>
         /// Gets a value indicating whether StyleCop build integration is enabled for the project.
@@ -114,7 +96,7 @@ namespace StyleCop.VisualStudio
             get
             {
                 string propertyValue = null;
-                if (0 == this.project.GetPropertyValue(PropertyName, null, 0, out propertyValue))
+                if (this.project.GetPropertyValue(PropertyName, null, 0, out propertyValue) == 0)
                 {
                     return !string.IsNullOrEmpty(propertyValue);
                 }
@@ -122,10 +104,6 @@ namespace StyleCop.VisualStudio
                 return false;
             }
         }
-
-        #endregion Private Properties
-
-        #region Public Methods
 
         /// <summary>
         /// Initializes the page.
@@ -202,10 +180,6 @@ namespace StyleCop.VisualStudio
             }
         }
 
-        #endregion Public Methods
-
-        #region Private Methods
-
         /// <summary>
         /// Initializes the settings on the page.
         /// </summary>
@@ -267,7 +241,5 @@ namespace StyleCop.VisualStudio
                 item.Font = new Font(this.Font, FontStyle.Regular);
             }
         }
-
-        #endregion Private Methods
     }
 }

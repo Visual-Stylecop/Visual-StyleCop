@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,19 +28,13 @@ namespace StyleCop
     /// </typeparam>
     public sealed class LegacyEnumeratorAdapter<T> : IEnumerator<T>
     {
-        #region Fields
-
         /// <summary>
         /// The enumerable collection that is wrapped by this class.
         /// </summary>
         private readonly IEnumerator innerEnumerator;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="LegacyEnumeratorAdapter{T}"/> class. 
+        /// Initializes a new instance of the <see cref="LegacyEnumeratorAdapter{T}"/> class.
         /// Initializes a new instance of the LegacyEnumeratorAdapter class.
         /// </summary>
         /// <param name="enumerator">
@@ -52,10 +46,6 @@ namespace StyleCop
             this.innerEnumerator = enumerator;
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the inner enumerator wrapped by this adapter.
         /// </summary>
@@ -66,10 +56,6 @@ namespace StyleCop
                 return this.innerEnumerator;
             }
         }
-
-        #endregion
-
-        #region Explicit Interface Properties
 
         /// <summary>
         /// Gets the current item.
@@ -103,20 +89,12 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Disposes the contents of the class.
         /// </summary>
         public void Dispose()
         {
         }
-
-        #endregion
-
-        #region Explicit Interface Methods
 
         /// <summary>
         /// Moves to the next item.
@@ -142,7 +120,5 @@ namespace StyleCop
                 this.innerEnumerator.Reset();
             }
         }
-
-        #endregion
     }
 }

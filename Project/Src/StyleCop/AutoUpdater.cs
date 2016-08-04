@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -17,8 +17,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace StyleCop
 {
-    #region Using Directives
-
     using System;
     using System.Diagnostics;
     using System.IO;
@@ -26,8 +24,6 @@ namespace StyleCop
     using System.Windows.Forms;
     using System.Xml;
     using System.Xml.Serialization;
-
-    #endregion
 
     /// <summary>
     /// Provides auto-update feature.
@@ -54,7 +50,7 @@ namespace StyleCop
         private readonly StyleCopCore core;
 
         /// <summary>
-        /// Initializes a new instance of the AutoUpdater class.
+        /// Initializes a new instance of the <see cref="AutoUpdater"/> class.
         /// </summary>
         /// <param name="core">
         /// The StyleCop core instance.
@@ -115,11 +111,11 @@ namespace StyleCop
             {
                 // display dialog asking whether to perform auto-update
                 DialogResult result = AlertDialog.Show(
-                    this.core, 
-                    null, 
-                    string.Format(Strings.AutoUpdateQuestion, messageText, newVersionNumber, currentVersionNumber), 
-                    Strings.Title, 
-                    MessageBoxButtons.YesNo, 
+                    this.core,
+                    null,
+                    string.Format(Strings.AutoUpdateQuestion, messageText, newVersionNumber, currentVersionNumber),
+                    Strings.Title,
+                    MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
 
                 return result == DialogResult.Yes;
@@ -127,11 +123,11 @@ namespace StyleCop
 
             // send notification to the output for non-UI environment
             AlertDialog.Show(
-                this.core, 
-                null, 
-                string.Format(Strings.AutoUpdateInformation, messageText, newVersionNumber, currentVersionNumber), 
-                Strings.Title, 
-                MessageBoxButtons.OK, 
+                this.core,
+                null,
+                string.Format(Strings.AutoUpdateInformation, messageText, newVersionNumber, currentVersionNumber),
+                Strings.Title,
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
             return false;
@@ -171,8 +167,6 @@ namespace StyleCop
         [XmlRoot("version")]
         public class AutoUpdateVersion
         {
-            #region Public Properties
-
             /// <summary>
             /// Gets or sets the build number.
             /// </summary>
@@ -197,10 +191,6 @@ namespace StyleCop
             [XmlElement(ElementName = "revision")]
             public int Revision { get; set; }
 
-            #endregion
-
-            #region Public Methods and Operators
-
             /// <summary>
             /// Converts the document to an assembly version type.
             /// </summary>
@@ -211,8 +201,6 @@ namespace StyleCop
             {
                 return new Version(this.Major, this.Minor, this.Build, this.Revision);
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -221,8 +209,6 @@ namespace StyleCop
         [XmlRoot("autoupdate")]
         public class AutoUpdate
         {
-            #region Public Properties
-
             /// <summary>
             /// Gets or sets the Url to download an update.
             /// </summary>
@@ -240,8 +226,6 @@ namespace StyleCop
             /// </summary>
             [XmlElement(ElementName = "version")]
             public AutoUpdateVersion Version { get; set; }
-
-            #endregion
         }
 
         /// <summary>
@@ -249,8 +233,6 @@ namespace StyleCop
         /// </summary>
         internal static class Serialization
         {
-            #region Public Methods and Operators
-
             /// <summary>
             /// Deserializes a Type.
             /// </summary>
@@ -263,7 +245,8 @@ namespace StyleCop
             /// <returns>
             /// Deserialized version of the type.
             /// </returns>
-            public static T CreateInstance<T>(string serializedType) where T : new()
+            public static T CreateInstance<T>(string serializedType)
+                where T : new()
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(T));
                 StringReader stream = new StringReader(serializedType);
@@ -273,8 +256,6 @@ namespace StyleCop
 
                 return customType;
             }
-
-            #endregion
         }
     }
 }

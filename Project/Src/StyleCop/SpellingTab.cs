@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,18 +28,11 @@ namespace StyleCop
     /// </summary>
     internal class SpellingTab : UserControl, IPropertyControlPage
     {
-        #region Constants
-
         private const string DeprecatedWordsPropertyName = "DeprecatedWords";
 
         private const string DictionaryFoldersPropertyName = "DictionaryFolders";
 
         private const string RecognizedWordsPropertyName = "RecognizedWords";
-
-        #endregion
-
-        #region Fields
-
         private TextBox addAlternateWordTextBox;
 
         private Button addDeprecatedWordButton;
@@ -137,21 +130,13 @@ namespace StyleCop
         /// </summary>
         private PropertyControl tabControl;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the SpellingTab class.
+        /// Initializes a new instance of the <see cref="SpellingTab"/> class.
         /// </summary>
         public SpellingTab()
         {
             this.InitializeComponent();
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets or sets a value indicating whether any data on the page is dirty.
@@ -185,10 +170,6 @@ namespace StyleCop
                 return Strings.SpellingTab;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Called when the page is activated.
@@ -443,10 +424,6 @@ namespace StyleCop
                 }
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Event that is fired when the add deprecated word button is clicked.
@@ -843,8 +820,8 @@ namespace StyleCop
             }
         }
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -856,7 +833,7 @@ namespace StyleCop
             this.addRecognizedWordTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.recognizedWordsListView = new System.Windows.Forms.ListView();
-            this.recognizedWordsColumnHeader = (System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader());
+            this.recognizedWordsColumnHeader = (System.Windows.Forms.ColumnHeader)new System.Windows.Forms.ColumnHeader();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.addDeprecatedWordButton = new System.Windows.Forms.Button();
@@ -865,12 +842,12 @@ namespace StyleCop
             this.addAlternateWordTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.deprecatedWordsListView = new System.Windows.Forms.ListView();
-            this.deprecatedWordsColumnHeader = (System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader());
+            this.deprecatedWordsColumnHeader = (System.Windows.Forms.ColumnHeader)new System.Windows.Forms.ColumnHeader();
             this.removeDeprecatedWordButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.addFolderTextBox = new System.Windows.Forms.TextBox();
             this.foldersListView = new System.Windows.Forms.ListView();
-            this.dictionaryFoldersColumnHeader = (System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader());
+            this.dictionaryFoldersColumnHeader = (System.Windows.Forms.ColumnHeader)new System.Windows.Forms.ColumnHeader();
             this.removeFolderButton = new System.Windows.Forms.Button();
             this.addFolderButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -1259,7 +1236,5 @@ namespace StyleCop
             Param.Ignore(sender, e);
             this.EnableDisableRemoveButtons();
         }
-
-        #endregion
     }
 }

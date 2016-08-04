@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,17 +30,11 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockTaskList : IVsTaskList, IVsTaskList2
     {
-        #region Constants and Fields
+        private uint nextCookie = 0;
 
-        private uint _nextCookie = 0;
+        private Dictionary<uint, IVsTaskProvider> providers = new Dictionary<uint, IVsTaskProvider>();
 
-        private Dictionary<uint, IVsTaskProvider> _providers = new Dictionary<uint, IVsTaskProvider>();
-
-        private List<IVsTaskItem> _selection = new List<IVsTaskItem>();
-
-        #endregion
-
-        #region Events
+        private List<IVsTaskItem> selection = new List<IVsTaskItem>();
 
         /// <summary>
         /// The on refresh tasks.
@@ -62,17 +56,13 @@ namespace VSPackageUnitTest.Mocks
         /// </summary>
         public event EventHandler<UnregisterTaskProviderArgs> OnUnregisterTaskProvider;
 
-        #endregion
-
-        #region Public Methods
-
         /// <summary>
         /// The clear.
         /// </summary>
         public void Clear()
         {
-            this._providers.Clear();
-            this._selection.Clear();
+            this.providers.Clear();
+            this.selection.Clear();
         }
 
         /// <summary>
@@ -88,22 +78,16 @@ namespace VSPackageUnitTest.Mocks
         {
             if (!selected)
             {
-                this._selection.Remove(item);
+                this.selection.Remove(item);
             }
             else
             {
-                if (!this._selection.Contains(item))
+                if (!this.selection.Contains(item))
                 {
-                    this._selection.Add(item);
+                    this.selection.Add(item);
                 }
             }
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsTaskList
 
         /// <summary>
         /// The auto filter.
@@ -114,11 +98,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The auto filter.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AutoFilter(VSTASKCATEGORY cat)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -130,11 +115,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The auto filter 2.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int AutoFilter2(ref Guid guidCustomView)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -155,11 +141,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The dump output.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int DumpOutput(uint dwReserved, VSTASKCATEGORY cat, IStream pstmOutput, out int pfOutputWritten)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -171,11 +158,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The enum task items.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int EnumTaskItems(out IVsEnumTaskItems ppenum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -191,7 +179,7 @@ namespace VSPackageUnitTest.Mocks
         {
             if (this.OnRefreshTasks != null)
             {
-                this.OnRefreshTasks(this, new RefreshTasksArgs(dwProviderCookie, this._providers[dwProviderCookie]));
+                this.OnRefreshTasks(this, new RefreshTasksArgs(dwProviderCookie, this.providers[dwProviderCookie]));
             }
 
             return VSConstants.S_OK;
@@ -212,11 +200,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The register custom category.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RegisterCustomCategory(ref Guid guidCat, uint dwSortOrder, VSTASKCATEGORY[] pCat)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -233,12 +222,12 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int RegisterTaskProvider(IVsTaskProvider pProvider, out uint pdwProviderCookie)
         {
-            pdwProviderCookie = ++this._nextCookie;
-            this._providers.Add(pdwProviderCookie, pProvider);
+            pdwProviderCookie = ++this.nextCookie;
+            this.providers.Add(pdwProviderCookie, pProvider);
 
             if (this.OnRegisterTaskProvider != null)
             {
-                this.OnRegisterTaskProvider(this, new RegisterTaskProviderArgs(pProvider, this._nextCookie));
+                this.OnRegisterTaskProvider(this, new RegisterTaskProviderArgs(pProvider, this.nextCookie));
             }
 
             return VSConstants.S_OK;
@@ -253,11 +242,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set silent output mode.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetSilentOutputMode(int fSilent)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -269,11 +259,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The unregister custom category.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UnregisterCustomCategory(VSTASKCATEGORY catAssigned)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -287,7 +278,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int UnregisterTaskProvider(uint dwProviderCookie)
         {
-            this._providers.Remove(dwProviderCookie);
+            this.providers.Remove(dwProviderCookie);
 
             if (this.OnUnregisterTaskProvider != null)
             {
@@ -306,16 +297,13 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The update provider info.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int UpdateProviderInfo(uint dwProviderCookie)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
-
-        #endregion
-
-        #region IVsTaskList2
 
         /// <summary>
         /// The begin task edit.
@@ -329,11 +317,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The begin task edit.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int BeginTaskEdit(IVsTaskItem pItem, int iFocusField)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -347,7 +336,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int EnumSelectedItems(out IVsEnumTaskItems ppEnum)
         {
-            ppEnum = new MockTaskEnum(this._selection);
+            ppEnum = new MockTaskEnum(this.selection);
             return VSConstants.S_OK;
         }
 
@@ -362,7 +351,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int GetActiveProvider(out IVsTaskProvider ppProvider)
         {
-            foreach (IVsTaskProvider provider in this._providers.Values)
+            foreach (IVsTaskProvider provider in this.providers.Values)
             {
                 ppProvider = provider;
                 return VSConstants.S_OK;
@@ -381,11 +370,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get caret pos.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetCaretPos(out IVsTaskItem ppItem)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -397,11 +387,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get selection count.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetSelectionCount(out int pnItems)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -410,11 +401,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The refresh all providers.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RefreshAllProviders()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -432,11 +424,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The refresh or add tasks.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RefreshOrAddTasks(uint vsProviderCookie, int nTasks, IVsTaskItem[] prgTasks)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -454,11 +447,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The remove tasks.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int RemoveTasks(uint vsProviderCookie, int nTasks, IVsTaskItem[] prgTasks)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -479,11 +473,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The select items.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SelectItems(int nItems, IVsTaskItem[] pItems, uint tsfSelType, uint tsspScrollPos)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -505,24 +500,20 @@ namespace VSPackageUnitTest.Mocks
             return VSConstants.S_OK;
         }
 
-        #endregion
-
-        #endregion
-
         /// <summary>
         /// The refresh tasks args.
         /// </summary>
         public class RefreshTasksArgs : EventArgs
         {
-            #region Constants and Fields
-
+            /// <summary>
+            /// The cookie.
+            /// </summary>
             public readonly uint Cookie;
 
+            /// <summary>
+            /// The provider.
+            /// </summary>
             public readonly IVsTaskProvider Provider;
-
-            #endregion
-
-            #region Constructors and Destructors
 
             /// <summary>
             /// Initializes a new instance of the <see cref="RefreshTasksArgs"/> class.
@@ -538,8 +529,6 @@ namespace VSPackageUnitTest.Mocks
                 this.Cookie = cookie;
                 this.Provider = provider;
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -547,15 +536,15 @@ namespace VSPackageUnitTest.Mocks
         /// </summary>
         public class RegisterTaskProviderArgs : EventArgs
         {
-            #region Constants and Fields
-
+            /// <summary>
+            /// The cookie.
+            /// </summary>
             public readonly uint Cookie;
 
+            /// <summary>
+            /// The provider.
+            /// </summary>
             public readonly IVsTaskProvider Provider;
-
-            #endregion
-
-            #region Constructors and Destructors
 
             /// <summary>
             /// Initializes a new instance of the <see cref="RegisterTaskProviderArgs"/> class.
@@ -571,8 +560,6 @@ namespace VSPackageUnitTest.Mocks
                 this.Provider = provider;
                 this.Cookie = cookie;
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -580,13 +567,10 @@ namespace VSPackageUnitTest.Mocks
         /// </summary>
         public class SetActiveProviderArgs : EventArgs
         {
-            #region Constants and Fields
-
+            /// <summary>
+            /// The provider unique identifier.
+            /// </summary>
             public readonly Guid ProviderGuid;
-
-            #endregion
-
-            #region Constructors and Destructors
 
             /// <summary>
             /// Initializes a new instance of the <see cref="SetActiveProviderArgs"/> class.
@@ -598,8 +582,6 @@ namespace VSPackageUnitTest.Mocks
             {
                 this.ProviderGuid = providerGuid;
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -607,13 +589,7 @@ namespace VSPackageUnitTest.Mocks
         /// </summary>
         public class UnregisterTaskProviderArgs : EventArgs
         {
-            #region Constants and Fields
-
             public readonly uint Cookie;
-
-            #endregion
-
-            #region Constructors and Destructors
 
             /// <summary>
             /// Initializes a new instance of the <see cref="UnregisterTaskProviderArgs"/> class.
@@ -625,8 +601,6 @@ namespace VSPackageUnitTest.Mocks
             {
                 this.Cookie = cookie;
             }
-
-            #endregion
         }
     }
 }

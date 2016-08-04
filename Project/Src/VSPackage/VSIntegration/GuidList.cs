@@ -1,14 +1,14 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="GuidList.cs">
+// <copyright file="GuidList.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -22,8 +22,6 @@ namespace StyleCop.VisualStudio
     /// <remarks>The guids defined in this class must match those in guids.h.</remarks>
     internal static class GuidList
     {
-        #region Public Constants
-
         /// <summary>
         /// The ID of the package in string form.
         /// </summary>
@@ -34,15 +32,9 @@ namespace StyleCop.VisualStudio
         /// </summary>
         public const string StyleCopCommandSetIdString = "CE99DB75-E6A6-41C9-9091-434390724FAC";
 
-        #endregion Public Constants
-
-        #region Public Static Readonly Fields
-
         /// <summary>
         /// The ID of the package's command set.
         /// </summary>
         public static readonly Guid StyleCopCommandSetId = new Guid(StyleCopCommandSetIdString);
-
-        #endregion Public Static Readonly Fields
     }
 }

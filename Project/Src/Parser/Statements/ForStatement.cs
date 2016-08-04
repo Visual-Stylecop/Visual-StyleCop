@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.CSharp
     /// <subcategory>statement</subcategory>
     public sealed class ForStatement : Statement
     {
-        #region Fields
-
         /// <summary>
         /// The condition checked before each loop through the for-statement.
         /// </summary>
@@ -49,12 +47,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private Statement embeddedStatement;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the ForStatement class.
+        /// Initializes a new instance of the <see cref="ForStatement"/> class.
         /// </summary>
         /// <param name="tokens">
         /// The list of tokens that form the statement.
@@ -92,10 +86,6 @@ namespace StyleCop.CSharp
 
             this.AddExpressions(iterators);
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the condition checked before each loop through the for-statement.
@@ -148,7 +138,5 @@ namespace StyleCop.CSharp
                 return this.iterators;
             }
         }
-
-        #endregion
     }
 }

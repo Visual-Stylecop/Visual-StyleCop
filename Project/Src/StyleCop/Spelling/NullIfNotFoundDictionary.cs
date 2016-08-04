@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,13 +27,7 @@ namespace StyleCop.Spelling
     internal class NullIfNotFoundDictionary<TKey, TValue> : IDictionary<TKey, TValue>
         where TValue : class
     {
-        #region Fields
-
         private readonly Dictionary<TKey, TValue> dictionary;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NullIfNotFoundDictionary{TKey,TValue}"/> class.
@@ -104,10 +98,6 @@ namespace StyleCop.Spelling
             this.dictionary = new Dictionary<TKey, TValue>(dictionary, comparer);
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the count.
         /// </summary>
@@ -153,10 +143,6 @@ namespace StyleCop.Spelling
             }
         }
 
-        #endregion
-
-        #region Public Indexers
-
         /// <summary>
         /// The this.
         /// </summary>
@@ -184,10 +170,6 @@ namespace StyleCop.Spelling
                 this.dictionary[key] = value;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// The add.
@@ -339,15 +321,9 @@ namespace StyleCop.Spelling
             return this.dictionary.TryGetValue(key, out value);
         }
 
-        #endregion
-
-        #region Explicit Interface Methods
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
         }
-
-        #endregion
     }
 }

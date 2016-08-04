@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -17,19 +17,13 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace System.Reflection
 {
-    #region Using Directives
-
     using System.Linq;
-
-    #endregion
 
     /// <summary>
     /// Extension methods for the <see cref="ParameterInfo"/> type.
     /// </summary>
     public static class ParameterInfoExtensions
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Determines whether a <see cref="ParameterInfo"/> has a particular <see cref="ParameterInfo"/> of custom <see cref="Attribute"/> defined.
         /// </summary>
@@ -105,17 +99,15 @@ namespace System.Reflection
         /// <c>true</c>if <paramref name="parameterInfo"/> is a return value; otherwise <c>false</c>.
         /// </returns>
         /// <remarks>
-        /// Although the <see cref="ParameterInfo"/> type has an <see cref="ParameterInfo.IsRetval"/> property which should serve 
-        /// this purpose, it appears to return <c>false</c> in some cases even when the parameter is a return value (the MSDN 
-        /// documentation for this value indicates that it is a flag inserted by compilers, however they are not obliged to do so). 
-        /// We can check more reliably whether it is a return value by checking whether the <see cref="ParameterInfo.Position"/> 
+        /// Although the <see cref="ParameterInfo"/> type has an <see cref="ParameterInfo.IsRetval"/> property which should serve
+        /// this purpose, it appears to return <c>false</c> in some cases even when the parameter is a return value (the MSDN
+        /// documentation for this value indicates that it is a flag inserted by compilers, however they are not obliged to do so).
+        /// We can check more reliably whether it is a return value by checking whether the <see cref="ParameterInfo.Position"/>
         /// is -1 (although this doesn't appear to be documented anywhere).
         /// </remarks>
         public static bool IsReturnValue(this ParameterInfo parameterInfo)
         {
             return parameterInfo.Position == -1;
         }
-
-        #endregion
     }
 }

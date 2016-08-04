@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop
     public class Node<T>
         where T : class
     {
-        #region Fields
-
         /// <summary>
         /// The current item.
         /// </summary>
@@ -53,12 +51,8 @@ namespace StyleCop
         /// </summary>
         private Node<T> previous;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="Node{T}"/> class. 
+        /// Initializes a new instance of the <see cref="Node{T}"/> class.
         /// Initializes a new instance of the Node class.
         /// </summary>
         /// <param name="item">
@@ -69,10 +63,6 @@ namespace StyleCop
             Param.AssertNotNull(item, "item");
             this.item = item;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the index of the node within the master list that contains it.
@@ -130,10 +120,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets or sets the master list that contains this node.
         /// </summary>
@@ -150,10 +136,6 @@ namespace StyleCop
                 this.containingList = value;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Determines whether the given node is in the same list as this node.
@@ -175,10 +157,6 @@ namespace StyleCop
 
             return node.ContainingList == this.ContainingList;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Creates the index for the node.
@@ -216,7 +194,5 @@ namespace StyleCop
 
             return success;
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -18,11 +18,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace StyleCop.Diagnostics
 {
-    #region Using Directives
-
     using System;
-
-    #endregion
 
     /// <summary>
     /// Marks an item as either containing or handing sensitive data which should be obscured
@@ -33,7 +29,7 @@ namespace StyleCop.Diagnostics
     /// This attribute may be applied to parameters or return values of methods to indicate that they
     /// contain sensitive data and should be obscured in the trace output. Alternatively entire properties,
     /// methods or constructors may be marked with this attribute and any input or output will be obscured
-    /// from the trace. Note that this attribute only has an effect on the <see cref="StyleCopTrace.In"/> 
+    /// from the trace. Note that this attribute only has an effect on the <see cref="StyleCopTrace.In"/>
     /// method which takes a parameter array, and the <see cref="StyleCopTrace.Out{T}"/> methods that take
     /// a parameter array or return value.
     /// </para>

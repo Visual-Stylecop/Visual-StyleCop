@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,13 +28,7 @@ namespace ObjectBasedEnvironmentTest
     /// </summary>
     internal class ObjectBasedSourceCode : SourceCode
     {
-        #region Constants and Fields
-
         private int index;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectBasedSourceCode"/> class.
@@ -57,10 +51,6 @@ namespace ObjectBasedEnvironmentTest
 
             this.index = index;
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Gets a value indicating whether Exists.
@@ -117,10 +107,6 @@ namespace ObjectBasedEnvironmentTest
             }
         }
 
-        #endregion
-
-        #region Public Methods
-
         /// <summary>
         /// The read.
         /// </summary>
@@ -132,7 +118,5 @@ namespace ObjectBasedEnvironmentTest
             // Lazily load the actual source string.
             return new StringReader(StaticSource.Sources[this.index]);
         }
-
-        #endregion
     }
 }

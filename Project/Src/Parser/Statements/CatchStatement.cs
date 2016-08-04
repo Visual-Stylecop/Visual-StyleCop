@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -23,8 +23,6 @@ namespace StyleCop.CSharp
     /// <subcategory>statement</subcategory>
     public sealed class CatchStatement : Statement
     {
-        #region Fields
-
         /// <summary>
         /// The inner expression.
         /// </summary>
@@ -55,12 +53,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly TryStatement tryStatement;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CatchStatement class.
+        /// Initializes a new instance of the <see cref="CatchStatement"/> class.
         /// </summary>
         /// <param name="tokens">The list of tokens that form the statement.</param>
         /// <param name="tryStatement">The try-statement that this catch-statement is attached to.</param>
@@ -108,10 +102,6 @@ namespace StyleCop.CSharp
 
             this.AddStatement(embeddedStatement);
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the expression within the catch statement.
@@ -178,7 +168,5 @@ namespace StyleCop.CSharp
                 return this.whenStatement;
             }
         }
-
-        #endregion
     }
 }

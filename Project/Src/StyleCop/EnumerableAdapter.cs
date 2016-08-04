@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -47,12 +47,9 @@ namespace StyleCop
     /// <typeparam name="TAdapted">
     /// The type of the elements returned in the adapted collection.
     /// </typeparam>
-    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Scope = "type", 
-        Justification = "The type is an adapter for a collection, not a simple collection.")]
+    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Scope = "type", Justification = "The type is an adapter for a collection, not a simple collection.")]
     public sealed partial class EnumerableAdapter<TOriginal, TAdapted> : IEnumerable<TAdapted>
     {
-        #region Fields
-
         /// <summary>
         /// The adapter converter.
         /// </summary>
@@ -63,12 +60,8 @@ namespace StyleCop
         /// </summary>
         private readonly IEnumerable<TOriginal> innerEnumerable;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="EnumerableAdapter{TOriginal,TAdapted}"/> class. 
+        /// Initializes a new instance of the <see cref="EnumerableAdapter{TOriginal,TAdapted}"/> class.
         /// Initializes a new instance of the EnumerableAdapter class.
         /// </summary>
         /// <param name="enumerable">
@@ -86,10 +79,6 @@ namespace StyleCop
             this.converter = converter;
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the inner enumerable collection wrapped by this adapter.
         /// </summary>
@@ -100,10 +89,6 @@ namespace StyleCop
                 return this.innerEnumerable;
             }
         }
-
-        #endregion
-
-        #region Explicit Interface Methods
 
         /// <summary>
         /// Gets an enumerator for iterating through the items in the list.
@@ -122,10 +107,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Converts the item to its adapted format.
         /// </summary>
@@ -141,17 +122,13 @@ namespace StyleCop
 
             return this.converter(item);
         }
-
-        #endregion
     }
-    
+
     /// <content>
     /// Implements the weakly typed interface IEnumerable.
     /// </content>
     public partial class EnumerableAdapter<TOriginal, TAdapted>
     {
-        #region Explicit Interface Methods
-
         /// <summary>
         /// Gets an enumerator for iterating through the items in the list.
         /// </summary>
@@ -168,7 +145,5 @@ namespace StyleCop
                 yield return this.Convert(item);
             }
         }
-
-        #endregion
     }
 }

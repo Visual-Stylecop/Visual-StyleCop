@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop.CSharp
     [SourceAnalyzer(typeof(CsParser))]
     public class SpacingRules : SourceAnalyzer
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Checks the spacing of items within the given document.
         /// </summary>
@@ -56,10 +54,6 @@ namespace StyleCop.CSharp
 
             return csdocument.FileHeader == null || !csdocument.FileHeader.UnStyled;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Determines whether the type of the given token is allowed
@@ -1047,7 +1041,8 @@ namespace StyleCop.CSharp
                 {
                     // Check if parent expression is an array, initialization was introduced in C# 6.
                     Expression parentExpression = tokenNode.Value.Parent as Expression;
-                    if (parentExpression.ExpressionType != ExpressionType.ArrayInitializer)
+
+                    if (parentExpression == null || parentExpression.ExpressionType != ExpressionType.ArrayInitializer)
                     {
                         this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.OpeningSquareBracketsMustBeSpacedCorrectly);
                     }
@@ -1352,7 +1347,7 @@ namespace StyleCop.CSharp
                 }
                 else if (text.Length > 3 && (text[3] == ' ' || text[3] == '\t') && text[2] != '\\')
                 {
-                    // The comment starts with more than one space. This is only a violation if this is the first 
+                    // The comment starts with more than one space. This is only a violation if this is the first
                     // single-line comment in a row. If there is another single-line comment directly above this one
                     // with no blank line between them, this is not a violation.
                     bool first = true;
@@ -1531,7 +1526,7 @@ namespace StyleCop.CSharp
                                 XmlHeader header = (XmlHeader)tokenNode.Value;
                                 this.CheckXmlHeaderComment(header);
 
-                                // Look for tabs in the xml header string. Look at 
+                                // Look for tabs in the xml header string. Look at
                                 // each sub-token in the header individually to get the
                                 // line numbers correct.
                                 for (Node<CsToken> xmlHeaderToken = header.ChildTokens.First; xmlHeaderToken != null; xmlHeaderToken = xmlHeaderToken.Next)
@@ -1683,7 +1678,7 @@ namespace StyleCop.CSharp
                     this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.SymbolsMustBeSpacedCorrectly, tokenNode.Value.Text);
                 }
 
-                if (operatorSymbol.Text.Length > 2 || operatorSymbol.Text.Contains("\r") || operatorSymbol.Text.Contains("\n") || operatorSymbol.Text.Contains(" ") )
+                if (operatorSymbol.Text.Length > 2 || operatorSymbol.Text.Contains("\r") || operatorSymbol.Text.Contains("\n") || operatorSymbol.Text.Contains(" "))
                 {
                     this.AddViolation(tokenNode.Value.FindParentElement(), tokenNode.Value.Location, Rules.DoNotSplitNullConditionalOperators, tokenNode.Value.Text);
                 }
@@ -1832,7 +1827,7 @@ namespace StyleCop.CSharp
             // not on the left. If this is not a type declaration, the opposite is true.
             if (type)
             {
-                // The symbol should be followed by whitespace. It 
+                // The symbol should be followed by whitespace. It
                 // can also be followed by a closing paren or a closing bracket,
                 // or another token of the same type.
                 bool addViolation = false;
@@ -1871,7 +1866,7 @@ namespace StyleCop.CSharp
             }
             else
             {
-                // The symbol should be preceded by whitespace. It 
+                // The symbol should be preceded by whitespace. It
                 // can also be preceded by an open paren or an open bracket, or
                 // another token of the same type.
                 bool addViolation = false;
@@ -1933,7 +1928,7 @@ namespace StyleCop.CSharp
             }
             else if (whitespace.TabCount == 0 && whitespace.SpaceCount > 1)
             {
-                // Multiple spaces in a row are only allowed at the beginning of a line, following 
+                // Multiple spaces in a row are only allowed at the beginning of a line, following
                 // a comma or semicolon, preceding a symbol, or at the end of a line.
                 Node<CsToken> nextNode = tokenNode.Next;
                 Node<CsToken> previousNode = tokenNode.Previous;
@@ -1976,7 +1971,7 @@ namespace StyleCop.CSharp
                         }
                         else if (token.Text.Length > 4 && (token.Text[4] == ' ' || token.Text[4] == '\t'))
                         {
-                            // The header line starts with more than one space. This is only allowed when the 
+                            // The header line starts with more than one space. This is only allowed when the
                             // header line is not the first or last line in the header.
                             bool error = true;
                             for (Node<CsToken> previous = tokenNode.Previous; previous != null; previous = previous.Previous)
@@ -2046,7 +2041,5 @@ namespace StyleCop.CSharp
 
             return returnValue;
         }
-
-        #endregion
     }
 }

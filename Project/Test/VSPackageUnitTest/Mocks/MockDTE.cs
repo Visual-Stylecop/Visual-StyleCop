@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,19 +27,13 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockDTE : EnvDTE.DTE
     {
-        #region Constants and Fields
+        private readonly MockEvents events = new MockEvents();
 
-        private readonly MockEvents _events = new MockEvents();
+        private readonly IServiceProvider serviceProvider;
 
-        private readonly IServiceProvider _serviceProvider;
+        private readonly MockDTESolution solution;
 
-        private readonly MockDTESolution _solution;
-
-        private readonly MockDocuments _documents;
-
-        #endregion
-
-        #region Constructors and Destructors
+        private readonly MockDocuments documents;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockDTE"/> class.
@@ -49,19 +43,16 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public MockDTE(IServiceProvider serviceProvider)
         {
-            this._serviceProvider = serviceProvider;
-            this._solution = new MockDTESolution(this._serviceProvider);
-            this._documents = new MockDocuments(this);
+            this.serviceProvider = serviceProvider;
+            this.solution = new MockDTESolution(this.serviceProvider);
+            this.documents = new MockDocuments(this);
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Gets ActiveDocument.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Document ActiveDocument
         {
@@ -74,176 +65,190 @@ namespace VSPackageUnitTest.Mocks
         /// <summary>
         /// Gets ActiveSolutionProjects.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object ActiveSolutionProjects
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ActiveWindow.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window ActiveWindow
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets AddIns.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public AddIns AddIns
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Application.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE Application
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets CommandBars.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object CommandBars
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets CommandLineArguments.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string CommandLineArguments
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Commands.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Commands Commands
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ContextAttributes.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ContextAttributes ContextAttributes
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets DTE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Debugger.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Debugger Debugger
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets or sets DisplayMode.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public vsDisplay DisplayMode
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Documents.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Documents Documents
         {
             get
             {
-                return this._documents;
+                return this.documents;
             }
         }
 
         /// <summary>
         /// Gets Edition.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Edition
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -254,189 +259,203 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._events;
+                return this.events;
             }
         }
 
         /// <summary>
         /// Gets FileName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string FileName
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Find.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Find Find
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets FullName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string FullName
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Globals.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Globals Globals
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ItemOperations.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ItemOperations ItemOperations
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets LocaleID.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int LocaleID
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Macros.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Macros Macros
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets MacrosIDE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE MacrosIDE
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets MainWindow.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window MainWindow
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Mode.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public vsIDEMode Mode
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Name.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Name
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ObjectExtenders.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ObjectExtenders ObjectExtenders
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets RegistryRoot.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string RegistryRoot
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets SelectedItems.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public SelectedItems SelectedItems
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -447,112 +466,115 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._solution;
+                return this.solution;
             }
         }
 
         /// <summary>
         /// Gets SourceControl.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public SourceControl SourceControl
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets StatusBar.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public StatusBar StatusBar
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether SuppressUI.
         /// </summary>
-        /// <exception cref="Exception">
-        /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool SuppressUI
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets UndoContext.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public UndoContext UndoContext
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether UserControl.
         /// </summary>
-        /// <exception cref="Exception">
-        /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool UserControl
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Version.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Version
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets WindowConfigurations.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public WindowConfigurations WindowConfigurations
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -560,12 +582,6 @@ namespace VSPackageUnitTest.Mocks
         /// Gets or sets Windows.
         /// </summary>
         public Windows Windows { get; set; }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region _DTE
 
         /// <summary>
         /// The execute command.
@@ -576,27 +592,29 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="commandArgs">
         /// The command args.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void ExecuteCommand(string commandName, string commandArgs)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get object.
+        /// Gets the get object.
         /// </summary>
-        /// <param name="Name">
+        /// <param name="name">
         /// The name.
         /// </param>
         /// <returns>
         /// The get object.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        public object GetObject(string Name)
+        public object GetObject(string name)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -609,12 +627,14 @@ namespace VSPackageUnitTest.Mocks
         /// The context params.
         /// </param>
         /// <returns>
+        /// The wizard result.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public wizardResult LaunchWizard(string file, ref object[] contextParams)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -627,22 +647,25 @@ namespace VSPackageUnitTest.Mocks
         /// The file name.
         /// </param>
         /// <returns>
+        /// The window.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window OpenFile(string viewKind, string fileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
         /// The quit.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Quit()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -657,15 +680,16 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The satellite path.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string SatelliteDllPath(string path, string name)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get_ is open file.
+        /// Gets is open file.
         /// </summary>
         /// <param name="viewKind">
         /// The view kind.
@@ -674,35 +698,34 @@ namespace VSPackageUnitTest.Mocks
         /// The file name.
         /// </param>
         /// <returns>
-        /// The get_ is open file.
+        /// The is open file value.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool get_IsOpenFile(string viewKind, string fileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// The get_ properties.
+        /// Gets properties.
         /// </summary>
-        /// <param name="Category">
+        /// <param name="category">
         /// The category.
         /// </param>
-        /// <param name="Page">
+        /// <param name="page">
         /// The page.
         /// </param>
         /// <returns>
+        /// The properties
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        public Properties get_Properties(string Category, string Page)
+        public Properties get_Properties(string category, string page)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
-
-        #endregion
-
-        #endregion
     }
 }

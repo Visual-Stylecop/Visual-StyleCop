@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -23,8 +23,6 @@ namespace StyleCop.CSharp
     /// <subcategory>element</subcategory>
     public sealed class UsingDirective : CsElement
     {
-        #region Fields
-
         /// <summary>
         /// The alias mapped to the namespace type, if any.
         /// </summary>
@@ -35,12 +33,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private string namespaceType = string.Empty;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the UsingDirective class.
+        /// Initializes a new instance of the <see cref="UsingDirective"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -78,10 +72,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the alias defined within the using directive, if any.
         /// </summary>
@@ -103,10 +93,6 @@ namespace StyleCop.CSharp
                 return this.namespaceType;
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Initializes the element.
@@ -171,7 +157,5 @@ namespace StyleCop.CSharp
                 }
             }
         }
-
-        #endregion
     }
 }

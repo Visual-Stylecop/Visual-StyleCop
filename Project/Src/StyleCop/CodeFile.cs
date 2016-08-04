@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop
     /// </summary>
     public class CodeFile : SourceCode
     {
-        #region Fields
-
         /// <summary>
         ///   The file type extension of this file.
         /// </summary>
@@ -50,21 +48,17 @@ namespace StyleCop
         /// </summary>
         private readonly string path;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CodeFile class.
+        /// Initializes a new instance of the <see cref="CodeFile"/> class.
         /// </summary>
         /// <param name="path">
-        /// The path to the code file. 
+        /// The path to the code file.
         /// </param>
         /// <param name="project">
-        /// The project that contains this file. 
+        /// The project that contains this file.
         /// </param>
         /// <param name="parser">
-        /// The parser that created this file object. 
+        /// The parser that created this file object.
         /// </param>
         public CodeFile(string path, CodeProject project, SourceParser parser)
             : this(path, project, parser, null)
@@ -73,19 +67,19 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the CodeFile class.
+        /// Initializes a new instance of the <see cref="CodeFile"/> class.
         /// </summary>
         /// <param name="path">
-        /// The path to the code file. 
+        /// The path to the code file.
         /// </param>
         /// <param name="project">
-        /// The project that contains this file. 
+        /// The project that contains this file.
         /// </param>
         /// <param name="parser">
-        /// The parser that created this file object. 
+        /// The parser that created this file object.
         /// </param>
         /// <param name="configurations">
-        /// The list of configurations for the file. 
+        /// The list of configurations for the file.
         /// </param>
         public CodeFile(string path, CodeProject project, SourceParser parser, IEnumerable<Configuration> configurations)
             : base(project, parser, configurations)
@@ -113,10 +107,6 @@ namespace StyleCop
                 this.fileType = this.fileType.Substring(1);
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         ///   Gets a value indicating whether the source code document currently exists and is accessible.
@@ -206,7 +196,7 @@ namespace StyleCop
                 {
                 }
 
-                return new DateTime();
+                return default(DateTime);
             }
         }
 
@@ -223,10 +213,6 @@ namespace StyleCop
                 return this.fileType;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Reads the contents of the source code into a TextReader.
@@ -256,7 +242,5 @@ namespace StyleCop
 
             return null;
         }
-
-        #endregion
     }
 }

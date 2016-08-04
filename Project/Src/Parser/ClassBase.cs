@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.CSharp
     /// <subcategory>element</subcategory>
     public abstract class ClassBase : CsElement, ITypeConstraintContainer
     {
-        #region Fields
-
         /// <summary>
         /// The list of type constraints on the item, if any.
         /// </summary>
@@ -43,12 +41,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private string[] implementedInterfaces = new string[] { };
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the ClassBase class.
+        /// Initializes a new instance of the <see cref="ClassBase"/> class.
         /// </summary>
         /// <param name="document">
         /// The document that contains the element.
@@ -81,15 +75,15 @@ namespace StyleCop.CSharp
         /// Indicates whether the code element was generated or written by hand.
         /// </param>
         internal ClassBase(
-            CsDocument document, 
-            CsElement parent, 
-            ElementType type, 
-            string name, 
-            XmlHeader header, 
-            ICollection<Attribute> attributes, 
-            Declaration declaration, 
-            ICollection<TypeParameterConstraintClause> typeConstraints, 
-            bool unsafeCode, 
+            CsDocument document,
+            CsElement parent,
+            ElementType type,
+            string name,
+            XmlHeader header,
+            ICollection<Attribute> attributes,
+            Declaration declaration,
+            ICollection<TypeParameterConstraintClause> typeConstraints,
+            bool unsafeCode,
             bool generated)
             : base(document, parent, type, name, header, attributes, declaration, unsafeCode, generated)
         {
@@ -108,10 +102,6 @@ namespace StyleCop.CSharp
                 }
             }
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the name of the base element that this element inherits from.
@@ -171,10 +161,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Sets the inherited items of the class.
         /// </summary>
@@ -185,7 +171,7 @@ namespace StyleCop.CSharp
         {
             Param.RequireNotNull(declaration, "declaration");
 
-            // Pull out the name of the base class and any implemented interfaces 
+            // Pull out the name of the base class and any implemented interfaces
             // from the declaration of this class.
             bool colon = false;
             bool comma = false;
@@ -248,7 +234,5 @@ namespace StyleCop.CSharp
                 this.implementedInterfaces = interfaces.ToArray();
             }
         }
-
-        #endregion
     }
 }

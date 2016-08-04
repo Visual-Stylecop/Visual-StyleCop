@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockWindows : EnvDTE.Windows
     {
-        #region Properties
-
         /// <summary>
         /// Gets Count.
         /// </summary>
@@ -45,6 +43,7 @@ namespace VSPackageUnitTest.Mocks
         /// Gets DTE.
         /// </summary>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
@@ -58,6 +57,7 @@ namespace VSPackageUnitTest.Mocks
         /// Gets Parent.
         /// </summary>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE Parent
         {
@@ -66,12 +66,6 @@ namespace VSPackageUnitTest.Mocks
                 throw new NotImplementedException();
             }
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region Windows
 
         /// <summary>
         /// The create linked window frame.
@@ -86,8 +80,10 @@ namespace VSPackageUnitTest.Mocks
         /// The link.
         /// </param>
         /// <returns>
+        /// The window.
         /// </returns>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window CreateLinkedWindowFrame(Window Window1, Window Window2, vsLinkedWindowType Link)
         {
@@ -113,8 +109,10 @@ namespace VSPackageUnitTest.Mocks
         /// The doc obj.
         /// </param>
         /// <returns>
+        /// The window.
         /// </returns>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window CreateToolWindow(AddIn AddInInst, string ProgID, string Caption, string GuidPosition, ref object DocObj)
         {
@@ -122,11 +120,13 @@ namespace VSPackageUnitTest.Mocks
         }
 
         /// <summary>
-        /// The get enumerator.
+        /// Gets enumerator.
         /// </summary>
         /// <returns>
+        /// The enumerator
         /// </returns>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public IEnumerator GetEnumerator()
         {
@@ -140,16 +140,14 @@ namespace VSPackageUnitTest.Mocks
         /// The index.
         /// </param>
         /// <returns>
+        /// The window.
         /// </returns>
         /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Window Item(object index)
         {
             throw new NotImplementedException();
         }
-
-        #endregion
-
-        #endregion
     }
 }

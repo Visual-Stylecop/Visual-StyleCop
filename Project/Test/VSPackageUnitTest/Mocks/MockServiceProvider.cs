@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -33,44 +33,34 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockServiceProvider : IServiceProvider
     {
-        #region Constants and Fields
+        private readonly MockSolutionBuildManager buildManager = new MockSolutionBuildManager();
 
-        private readonly MockSolutionBuildManager _BuildManager = new MockSolutionBuildManager();
+        private readonly OleMenuCommandService menuService;
 
-        private readonly OleMenuCommandService _menuService;
+        private readonly MockRDT rdt = new MockRDT();
 
-        private readonly MockRDT _rdt = new MockRDT();
+        private readonly MockSolution solution = new MockSolution();
 
-        private readonly MockSolution _solution = new MockSolution();
+        private readonly MockStatusBar statusBar = new MockStatusBar();
 
-        private readonly MockStatusBar _statusBar = new MockStatusBar();
+        private readonly MockTaskList taskList = new MockTaskList();
 
-        private readonly MockTaskList _taskList = new MockTaskList();
+        private readonly MockTextManager textMgr = new MockTextManager();
 
-        private readonly MockTextManager _textMgr = new MockTextManager();
+        private readonly MockShell uiShell = new MockShell();
 
-        private readonly MockShell _uiShell = new MockShell();
+        private readonly MockUIShellOpenDocument uiShellOpenDoc = new MockUIShellOpenDocument();
 
-        private readonly MockUIShellOpenDocument _uiShellOpenDoc = new MockUIShellOpenDocument();
-
-        private readonly MockWebBrowsingService _webBrowser = new MockWebBrowsingService();
-
-        #endregion
-
-        #region Constructors and Destructors
+        private readonly MockWebBrowsingService webBrowser = new MockWebBrowsingService();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockServiceProvider"/> class.
         /// </summary>
         public MockServiceProvider()
         {
-            this._menuService = new OleMenuCommandService(this);
+            this.menuService = new OleMenuCommandService(this);
             this.DTE = new MockDTE(this);
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Gets or sets DTE.
@@ -84,7 +74,7 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._BuildManager;
+                return this.buildManager;
             }
         }
 
@@ -95,15 +85,9 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._taskList;
+                return this.taskList;
             }
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IServiceProvider
 
         /// <summary>
         /// The get service.
@@ -118,15 +102,15 @@ namespace VSPackageUnitTest.Mocks
         {
             if (serviceType == typeof(SVsTaskList))
             {
-                return this._taskList;
+                return this.taskList;
             }
             else if (serviceType == typeof(SVsUIShell))
             {
-                return this._uiShell;
+                return this.uiShell;
             }
             else if (serviceType == typeof(SVsStatusbar))
             {
-                return this._statusBar;
+                return this.statusBar;
             }
             else if (serviceType == typeof(DTE))
             {
@@ -134,27 +118,27 @@ namespace VSPackageUnitTest.Mocks
             }
             else if (serviceType == typeof(SVsSolution))
             {
-                return this._solution;
+                return this.solution;
             }
             else if (serviceType == typeof(SVsRunningDocumentTable))
             {
-                return this._rdt;
+                return this.rdt;
             }
             else if (serviceType == typeof(SVsUIShellOpenDocument))
             {
-                return this._uiShellOpenDoc;
+                return this.uiShellOpenDoc;
             }
             else if (serviceType == typeof(SVsTextManager))
             {
-                return this._textMgr;
+                return this.textMgr;
             }
             else if (serviceType == typeof(SVsWebBrowsingService))
             {
-                return this._webBrowser;
+                return this.webBrowser;
             }
             else if (serviceType == typeof(IMenuCommandService))
             {
-                return this._menuService;
+                return this.menuService;
             }
             else if (serviceType == typeof(ISelectionService))
             {
@@ -166,7 +150,7 @@ namespace VSPackageUnitTest.Mocks
             }
             else if (serviceType == typeof(SVsSolutionBuildManager))
             {
-                return this._BuildManager;
+                return this.buildManager;
             }
             else
             {
@@ -174,9 +158,5 @@ namespace VSPackageUnitTest.Mocks
                 return null;
             }
         }
-
-        #endregion
-
-        #endregion
     }
 }

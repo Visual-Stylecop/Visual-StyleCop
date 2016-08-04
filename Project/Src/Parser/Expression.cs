@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop.CSharp
     [DebuggerDisplay("{Text}")]
     public class Expression : CodeUnit
     {
-        #region Fields
-
         /// <summary>
         /// The type of the expression.
         /// </summary>
@@ -40,12 +38,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private string text;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Expression class.
+        /// Initializes a new instance of the <see cref="Expression"/> class.
         /// </summary>
         /// <param name="type">
         /// The type of the expression.
@@ -59,7 +53,7 @@ namespace StyleCop.CSharp
         }
 
         /// <summary>
-        /// Initializes a new instance of the Expression class.
+        /// Initializes a new instance of the <see cref="Expression"/> class.
         /// </summary>
         /// <param name="type">
         /// The type of the expression.
@@ -67,8 +61,7 @@ namespace StyleCop.CSharp
         /// <param name="tokens">
         /// The list of tokens that form the expression.
         /// </param>
-        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors", 
-            Justification = "The tokens property is virtual but it this is safe as expressions are sealed.")]
+        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors", Justification = "The tokens property is virtual but it this is safe as expressions are sealed.")]
         internal Expression(ExpressionType type, CsTokenList tokens)
             : base(CodePartType.Expression, tokens)
         {
@@ -82,10 +75,6 @@ namespace StyleCop.CSharp
 
             Debug.Assert(this.Tokens.First != null, "The tokens list should not be empty");
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the type of the expression.
@@ -114,10 +103,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Walks through the code units in the expression.
         /// </summary>
@@ -137,9 +122,9 @@ namespace StyleCop.CSharp
         /// The type of the context item.
         /// </typeparam>
         public void WalkExpression<T>(
-            CodeWalkerStatementVisitor<T> statementCallback, 
-            CodeWalkerExpressionVisitor<T> expressionCallback, 
-            CodeWalkerQueryClauseVisitor<T> queryClauseCallback, 
+            CodeWalkerStatementVisitor<T> statementCallback,
+            CodeWalkerExpressionVisitor<T> expressionCallback,
+            CodeWalkerQueryClauseVisitor<T> queryClauseCallback,
             T context)
         {
             Param.Ignore(statementCallback, expressionCallback, queryClauseCallback, context);
@@ -198,8 +183,8 @@ namespace StyleCop.CSharp
         /// Callback executed when a query clause is visited.
         /// </param>
         public void WalkExpression(
-            CodeWalkerStatementVisitor<object> statementCallback, 
-            CodeWalkerExpressionVisitor<object> expressionCallback, 
+            CodeWalkerStatementVisitor<object> statementCallback,
+            CodeWalkerExpressionVisitor<object> expressionCallback,
             CodeWalkerQueryClauseVisitor<object> queryClauseCallback)
         {
             Param.Ignore(statementCallback, expressionCallback, queryClauseCallback);
@@ -233,10 +218,6 @@ namespace StyleCop.CSharp
             this.WalkExpression(statementCallback, null, null, null);
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Creates a text string based on the child tokens in the attribute.
         /// </summary>
@@ -256,7 +237,5 @@ namespace StyleCop.CSharp
 
             this.text = tokenText.ToString();
         }
-
-        #endregion
     }
 }

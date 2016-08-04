@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -20,12 +20,9 @@
 namespace VSPackageUnitTest
 {
     using System.Collections;
-
     using EnvDTE;
-
     using Microsoft.VisualStudio.TestTools.MockObjects;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using StyleCop.VisualStudio;
 
     /// <summary>
@@ -37,17 +34,11 @@ namespace VSPackageUnitTest
     [DeploymentItem("StyleCop.VSPackage.dll")]
     public class ProjectCollectionTest
     {
-        #region Properties
-
-        ///<summary>
+        /// <summary>
         ///  Gets or sets the test context which provides
         ///  information about and functionality for the current test run.
-        ///</summary>
+        /// </summary>
         public TestContext TestContext { get; set; }
-
-        #endregion
-
-        #region Public Methods
 
         /// <summary>
         /// A test for GetEnumerator
@@ -147,7 +138,5 @@ namespace VSPackageUnitTest
             actual = target.SolutionProjects;
             Assert.AreEqual(expected, actual);
         }
-
-        #endregion
     }
 }

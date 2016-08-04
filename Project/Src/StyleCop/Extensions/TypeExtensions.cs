@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -17,21 +17,15 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace System
 {
-    #region Using Directives
-
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-
-    #endregion
 
     /// <summary>
     /// Extension methods for the <see cref="Type"/> class.
     /// </summary>
     public static class TypeExtensions
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Gets all the types that a <see cref="Type"/> is assignable to, including itself, base types, and implemented interfaces.
         /// </summary>
@@ -58,7 +52,7 @@ namespace System
         }
 
         /// <summary>
-        /// Gets the generic parameter definition for a <see cref="Type"/> that represents a type parameter in the definition of 
+        /// Gets the generic parameter definition for a <see cref="Type"/> that represents a type parameter in the definition of
         /// a generic type or method.
         /// </summary>
         /// <param name="parameterType">
@@ -167,7 +161,7 @@ namespace System
         /// The <see cref="Type"/> to check.
         /// </param>
         /// <returns>
-        /// <c>true</c>if <paramref name="type"/> represents <see cref="sbyte"/>, <see cref="short"/>, <see cref="int"/> or 
+        /// <c>true</c>if <paramref name="type"/> represents <see cref="sbyte"/>, <see cref="short"/>, <see cref="int"/> or
         /// <see cref="long"/>; otherwise <c>false.</c>
         /// </returns>
         public static bool IsSignedInteger(this Type type)
@@ -182,7 +176,7 @@ namespace System
         /// The <see cref="Type"/> to check.
         /// </param>
         /// <returns>
-        /// <c>true</c>if <paramref name="type"/> represents <see cref="byte"/>, <see cref="ushort"/>, <see cref="uint"/> or 
+        /// <c>true</c>if <paramref name="type"/> represents <see cref="byte"/>, <see cref="ushort"/>, <see cref="uint"/> or
         /// <see cref="ulong"/>; otherwise <c>false.</c>
         /// </returns>
         public static bool IsUnsignedInteger(this Type type)
@@ -191,7 +185,7 @@ namespace System
         }
 
         /// <summary>
-        /// Determines whether a <see cref="Type"/> meets the constraints for a generic parameter, i.e. whether it could be used 
+        /// Determines whether a <see cref="Type"/> meets the constraints for a generic parameter, i.e. whether it could be used
         /// as the concrete type for a generic parameter.
         /// </summary>
         /// <param name="type">
@@ -255,10 +249,6 @@ namespace System
             return type.IsByRef ? type.GetElementType() : type;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Determines whether a <see cref="Type"/> meets a type constraint for a generic parameter.
         /// </summary>
@@ -285,8 +275,8 @@ namespace System
             else if (constraintType.IsGenericType && constraintType.ContainsGenericParameters)
             {
                 // if the constraint is an open generic type then we need to check if this is an open self-referential constraint,
-                // for example "where T : IComparable<T>" so we need to check whether the type meets the generic constraints of 
-                // the generic type definition (i.e. that it is suitable to be the T in the generic type definition) and if so 
+                // for example "where T : IComparable<T>" so we need to check whether the type meets the generic constraints of
+                // the generic type definition (i.e. that it is suitable to be the T in the generic type definition) and if so
                 // whether the constructed generic type is assignable from the value
                 Type constraintTypeDefinition = constraintType.GetGenericTypeDefinition();
                 Type[] constraintTypeDefinitionArgs = constraintTypeDefinition.GetGenericArguments();
@@ -298,7 +288,5 @@ namespace System
 
             return result;
         }
-
-        #endregion
     }
 }

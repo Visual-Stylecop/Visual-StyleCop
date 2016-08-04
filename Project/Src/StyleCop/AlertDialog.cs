@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,8 +29,6 @@ namespace StyleCop
     /// will redirect the MessageBox output to the running log file.</remarks>
     public static class AlertDialog
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Shows the alert dialog.
         /// </summary>
@@ -70,7 +68,7 @@ namespace StyleCop
             }
             else
             {
-                // Alert Dialogs which provide options other than OK cannot be handled when the 
+                // Alert Dialogs which provide options other than OK cannot be handled when the
                 // program is running in a non-UI mode.
                 if (buttons != MessageBoxButtons.OK)
                 {
@@ -81,10 +79,6 @@ namespace StyleCop
                 return DialogResult.OK;
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Shows a MessageBox.
@@ -173,7 +167,5 @@ namespace StyleCop
             // Send the output to the core module.
             core.SignalOutput(string.Format(CultureInfo.CurrentCulture, tag, message));
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,15 +27,9 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockDTEProject : EnvDTE.Project
     {
-        #region Constants and Fields
+        private readonly MockDTEGlobals globals = new MockDTEGlobals();
 
-        private readonly MockDTEGlobals _globals = new MockDTEGlobals();
-
-        private readonly MockIVsProject _project;
-
-        #endregion
-
-        #region Constructors and Destructors
+        private readonly MockIVsProject project;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockDTEProject"/> class.
@@ -45,88 +39,90 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public MockDTEProject(MockIVsProject project)
         {
-            this._project = project;
+            this.project = project;
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Gets CodeModel.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public CodeModel CodeModel
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Collection.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Projects Collection
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ConfigurationManager.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ConfigurationManager ConfigurationManager
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets DTE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ExtenderCATID.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string ExtenderCATID
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ExtenderNames.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object ExtenderNames
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -137,20 +133,21 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._project.FullPath;
+                return this.project.FullPath;
             }
         }
 
         /// <summary>
         /// Gets FullName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string FullName
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
@@ -161,162 +158,169 @@ namespace VSPackageUnitTest.Mocks
         {
             get
             {
-                return this._globals;
+                return this.globals;
             }
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether IsDirty.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool IsDirty
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Kind.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Kind
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets or sets Name.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string Name
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Object.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object Object
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ParentProjectItem.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ProjectItem ParentProjectItem
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets ProjectItems.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public ProjectItems ProjectItems
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Properties.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public Properties Properties
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether Saved.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public bool Saved
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
 
             set
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets UniqueName.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public string UniqueName
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region Project
 
         /// <summary>
         /// The delete.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Delete()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -325,11 +329,12 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="fileName">
         /// The file name.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void Save(string fileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -338,11 +343,12 @@ namespace VSPackageUnitTest.Mocks
         /// <param name="NewFileName">
         /// The new file name.
         /// </param>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public void SaveAs(string NewFileName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -354,15 +360,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get_ extender.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object get_Extender(string extenderName)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
-
-        #endregion
-
-        #endregion
     }
 }

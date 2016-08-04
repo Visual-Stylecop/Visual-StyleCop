@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,10 +28,8 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "StyleCop", Justification = "This is the correct casing.")]
     public sealed class StyleCopException : Exception
     {
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the StyleCopException class.
+        /// Initializes a new instance of the <see cref="StyleCopException"/> class.
         /// </summary>
         public StyleCopException()
             : base(Strings.InternalError)
@@ -39,7 +37,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the StyleCopException class.
+        /// Initializes a new instance of the <see cref="StyleCopException"/> class.
         /// </summary>
         /// <param name="message">
         /// The error message that explains the reason for the exception.
@@ -51,14 +49,14 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the StyleCopException class.
+        /// Initializes a new instance of the <see cref="StyleCopException"/> class.
         /// </summary>
         /// <param name="message">
         /// The error message that explains the reason for the exception.
         /// </param>
         /// <param name="innerException">
-        /// The exception that is the cause of the current exception. 
-        /// If the innerException parameter is not a null reference, the current exception is raised 
+        /// The exception that is the cause of the current exception.
+        /// If the innerException parameter is not a null reference, the current exception is raised
         /// in a catch block that handles the inner exception.
         /// </param>
         public StyleCopException(string message, Exception innerException)
@@ -68,7 +66,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the StyleCopException class.
+        /// Initializes a new instance of the <see cref="StyleCopException"/> class.
         /// </summary>
         /// <param name="serializationInfo">
         /// Holds the serialization info about the exception.
@@ -81,7 +79,5 @@ namespace StyleCop
         {
             Param.Ignore(serializationInfo, streamingContext);
         }
-
-        #endregion
     }
 }

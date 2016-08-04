@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -35,8 +35,6 @@ namespace StyleCop.CSharp
     [SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", Justification = "Camel case better serves in this case.")]
     public class CsParser : SourceParser
     {
-        #region Constants
-
         /// <summary>
         /// The name of the settings property indicating whether to analyze designer files.
         /// </summary>
@@ -52,18 +50,10 @@ namespace StyleCop.CSharp
         /// </summary>
         internal const string GeneratedFileFiltersProperty = "GeneratedFileFilters";
 
-        #endregion
-
-        #region Static Fields
-
         /// <summary>
         /// The default collection of generated file filters.
         /// </summary>
         private static readonly string[] DefaultGeneratedFileFilters = new[] { @"\.g\.cs$", @"\.generated\.cs$", @"\.g\.i\.cs$" };
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// Lock object for suppressions dictionary
@@ -80,10 +70,6 @@ namespace StyleCop.CSharp
         /// </summary>
         private Dictionary<SuppressedRule, List<CsElement>> suppressions;
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets the list of partial elements found within the document.
         /// </summary>
@@ -96,10 +82,6 @@ namespace StyleCop.CSharp
                 return this.partialElements;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Determines whether the given rule is suppressed for the given element.
@@ -168,8 +150,7 @@ namespace StyleCop.CSharp
         /// Returns false if no further analysis should be done on this file, or
         /// true if the file should be parsed again during the next pass.
         /// </returns>
-        [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", 
-            Justification = "Documents are returned to the caller and ultimately disposed of by the caller.")]
+        [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Documents are returned to the caller and ultimately disposed of by the caller.")]
         public override bool ParseFile(SourceCode sourceCode, int passNumber, ref CodeDocument document)
         {
             Param.RequireNotNull(sourceCode, "sourceCode");
@@ -301,10 +282,6 @@ namespace StyleCop.CSharp
 
             return true;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Gets the type of the given preprocessor symbol.
@@ -461,15 +438,11 @@ namespace StyleCop.CSharp
             return false;
         }
 
-        #endregion
-
         /// <summary>
         /// This is used to keep track of which rules have been suppressed.
         /// </summary>
         private struct SuppressedRule
         {
-            #region Fields
-
             /// <summary>
             /// The rule id.
             /// </summary>
@@ -485,10 +458,6 @@ namespace StyleCop.CSharp
             /// </summary>
             public string RuleNamespace;
 
-            #endregion
-
-            #region Public Methods and Operators
-
             /// <summary>
             /// Generates a unique hash code for this struct.
             /// </summary>
@@ -497,8 +466,6 @@ namespace StyleCop.CSharp
             {
                 return (this.RuleId + ":" + this.RuleNamespace + "." + this.RuleName).GetHashCode();
             }
-
-            #endregion
         }
     }
 }

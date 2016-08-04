@@ -1,14 +1,14 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="TaskProvider.cs">
+// <copyright file="TaskProvider.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -27,19 +27,13 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal class TaskProvider : ErrorListProvider, ITaskProvider
     {
-        #region Private Fields
-
         /// <summary>
         /// The system service provider.
         /// </summary>
         private IServiceProvider serviceProvider;
 
-        #endregion Private Fields
-
-        #region Constructor(s)
-
         /// <summary>
-        /// Initializes a new instance of the TaskProvider class.
+        /// Initializes a new instance of the <see cref="TaskProvider"/> class.
         /// </summary>
         /// <param name="serviceProvider">System service provider.</param>
         public TaskProvider(IServiceProvider serviceProvider)
@@ -51,10 +45,6 @@ namespace StyleCop.VisualStudio
             this.ProviderName = "StyleCop";
             this.serviceProvider = serviceProvider;
         }
-
-        #endregion Constructor(s)
-
-        #region ITaskProvider Members
 
         /// <summary>
         /// Adds a list of violations to the task provider.
@@ -99,7 +89,5 @@ namespace StyleCop.VisualStudio
             this.Tasks.Clear();
             this.Refresh();
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,8 +30,6 @@ namespace StyleCop
     /// </summary>
     internal class GlobalSettingsFileOptions : UserControl, IPropertyControlPage
     {
-        #region Fields
-
         /// <summary>
         /// The WinForms components manager.
         /// </summary>
@@ -97,21 +95,13 @@ namespace StyleCop
         /// </summary>
         private PropertyControl tabControl;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the GlobalSettingsFileOptions class.
+        /// Initializes a new instance of the <see cref="GlobalSettingsFileOptions"/> class.
         /// </summary>
         public GlobalSettingsFileOptions()
         {
             this.InitializeComponent();
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets or sets a value indicating whether the page is dirty.
@@ -145,10 +135,6 @@ namespace StyleCop
                 return Strings.SettingsFilesTab;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Called when the page is activated.
@@ -240,8 +226,8 @@ namespace StyleCop
             {
                 this.tabControl.LocalSettings.GlobalSettings.SetProperty(
                     new StringProperty(
-                        this.tabControl.Core, 
-                        SettingsMerger.MergeSettingsFilesProperty, 
+                        this.tabControl.Core,
+                        SettingsMerger.MergeSettingsFilesProperty,
                         this.noMerge.Checked ? SettingsMerger.MergeStyleNone : SettingsMerger.MergeStyleParent));
                 this.tabControl.LocalSettings.GlobalSettings.Remove(SettingsMerger.LinkedSettingsProperty);
             }
@@ -361,10 +347,6 @@ namespace StyleCop
         {
             // The page does not show any merged settings, so there is nothing to do.
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Clean up any resources being used.
@@ -489,11 +471,11 @@ namespace StyleCop
                     if (createdSettingsFile == null)
                     {
                         AlertDialog.Show(
-                            this.tabControl.Core, 
-                            this, 
-                            string.Format(CultureInfo.CurrentUICulture, Strings.CannotLoadSettingsFilePath, exception == null ? string.Empty : exception.Message), 
-                            Strings.Title, 
-                            MessageBoxButtons.OK, 
+                            this.tabControl.Core,
+                            this,
+                            string.Format(CultureInfo.CurrentUICulture, Strings.CannotLoadSettingsFilePath, exception == null ? string.Empty : exception.Message),
+                            Strings.Title,
+                            MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
 
                         expandedPath = null;
@@ -551,9 +533,9 @@ namespace StyleCop
             {
                 if (defaultSettings)
                 {
-                    if (DialogResult.No
-                        == AlertDialog.Show(
-                            this.tabControl.Core, this, Strings.EditDefaultSettingsWarning, Strings.Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                    if (AlertDialog.Show(
+                            this.tabControl.Core, this, Strings.EditDefaultSettingsWarning, Strings.Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                        == DialogResult.No)
                     {
                         return;
                     }
@@ -580,8 +562,8 @@ namespace StyleCop
             this.editLinkedSettingsFile.Visible = !this.disableLinking;
         }
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -754,7 +736,5 @@ namespace StyleCop
                 this.tabControl.DirtyChanged();
             }
         }
-
-        #endregion
     }
 }

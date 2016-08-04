@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -30,15 +30,7 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockWindowFrame : IVsWindowFrame
     {
-        #region Constants and Fields
-
         public MockTextLines TextLines = null;
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsWindowFrame
 
         /// <summary>
         /// The close frame.
@@ -49,11 +41,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The close frame.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int CloseFrame(uint grfSaveOptions)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -80,11 +73,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get frame pos.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetFramePos(VSSETFRAMEPOS[] pdwSFP, out Guid pguidRelativeTo, out int px, out int py, out int pcx, out int pcy)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -99,11 +93,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get guid property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetGuidProperty(int propid, out Guid pguid)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -118,11 +113,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The get property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int GetProperty(int propid, out object pvar)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -131,11 +127,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The hide.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Hide()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -147,11 +144,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The is on screen.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int IsOnScreen(out int pfOnScreen)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -160,11 +158,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The is visible.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int IsVisible()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -217,11 +216,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set frame pos.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetFramePos(VSSETFRAMEPOS dwSFP, ref Guid rguidRelativeTo, int x, int y, int cx, int cy)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -236,11 +236,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set guid property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetGuidProperty(int propid, ref Guid rguid)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -255,11 +256,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The set property.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int SetProperty(int propid, object var)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -279,15 +281,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The show no activate.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int ShowNoActivate()
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
-
-        #endregion
-
-        #endregion
     }
 }

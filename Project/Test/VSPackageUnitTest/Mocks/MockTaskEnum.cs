@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,15 +29,9 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockTaskEnum : IVsEnumTaskItems
     {
-        #region Constants and Fields
+        private readonly IList<IVsTaskItem> items;
 
-        private readonly IList<IVsTaskItem> _items;
-
-        private int _next = 0;
-
-        #endregion
-
-        #region Constructors and Destructors
+        private int next = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockTaskEnum"/> class.
@@ -47,14 +41,8 @@ namespace VSPackageUnitTest.Mocks
         /// </param>
         public MockTaskEnum(IList<IVsTaskItem> items)
         {
-            this._items = items;
+            this.items = items;
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region IVsEnumTaskItems
 
         /// <summary>
         /// The clone.
@@ -65,11 +53,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The clone.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Clone(out IVsEnumTaskItems ppenum)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -91,12 +80,12 @@ namespace VSPackageUnitTest.Mocks
         {
             for (pceltFetched[0] = 0; celt > 0; --celt, ++pceltFetched[0])
             {
-                if (this._next >= this._items.Count)
+                if (this.next >= this.items.Count)
                 {
                     return VSConstants.S_FALSE;
                 }
 
-                rgelt[pceltFetched[0]] = this._items[this._next++];
+                rgelt[pceltFetched[0]] = this.items[this.next++];
             }
 
             return VSConstants.S_OK;
@@ -110,7 +99,7 @@ namespace VSPackageUnitTest.Mocks
         /// </returns>
         public int Reset()
         {
-            this._next = 0;
+            this.next = 0;
             return VSConstants.S_OK;
         }
 
@@ -123,15 +112,12 @@ namespace VSPackageUnitTest.Mocks
         /// <returns>
         /// The skip.
         /// </returns>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public int Skip(uint celt)
         {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException();
         }
-
-        #endregion
-
-        #endregion
     }
 }

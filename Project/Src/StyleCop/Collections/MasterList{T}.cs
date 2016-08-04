@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -32,18 +32,12 @@ namespace StyleCop
     public class MasterList<T> : INodeList<T>, ICollection<T>
         where T : class
     {
-        #region Static Fields
-
         /// <summary>
         /// An empty master list.
         /// </summary>
         [SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes", Justification = "Represents an empty list.")]
         [SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes", Justification = "Represents an empty list.")]
         public static readonly MasterList<T> Empty = new MasterList<T>(true);
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The internal list.
@@ -55,12 +49,8 @@ namespace StyleCop
         /// </summary>
         private readonly bool readOnly;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="MasterList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="MasterList{T}"/> class.
         /// Initializes a new instance of the MasterList class.
         /// </summary>
         public MasterList()
@@ -69,7 +59,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MasterList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="MasterList{T}"/> class.
         /// Initializes a new instance of the MasterList class.
         /// </summary>
         /// <param name="items">
@@ -83,7 +73,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MasterList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="MasterList{T}"/> class.
         /// Initializes a new instance of the MasterList class.
         /// </summary>
         /// <param name="readOnly">
@@ -97,7 +87,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MasterList{T}"/> class. 
+        /// Initializes a new instance of the <see cref="MasterList{T}"/> class.
         /// Initializes a new instance of the MasterList class.
         /// </summary>
         /// <param name="innerList">
@@ -115,18 +105,10 @@ namespace StyleCop
             this.readOnly = readOnly;
         }
 
-        #endregion
-
-        #region Public Events
-
         /// <summary>
         /// Event that is fired when the node indexes are reset.
         /// </summary>
         public event EventHandler NodeIndexesReset;
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets a read-only version of the list.
@@ -188,10 +170,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets a read-write version of the list.
         /// </summary>
@@ -218,10 +196,6 @@ namespace StyleCop
                 return this.list;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Adds a item to the collection.
@@ -628,10 +602,6 @@ namespace StyleCop
             return this.list.ReverseNodeIterator(start);
         }
 
-        #endregion
-
-        #region Explicit Interface Methods
-
         /// <summary>
         /// Gets an enumerator that iterates through the nodes in the collection.
         /// </summary>
@@ -640,10 +610,6 @@ namespace StyleCop
         {
             return this.list.GetEnumerator();
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Called when the node indexes are reset.
@@ -679,7 +645,5 @@ namespace StyleCop
             Param.Ignore(sender, e);
             this.OnNodeIndexesReset(e);
         }
-
-        #endregion
     }
 }

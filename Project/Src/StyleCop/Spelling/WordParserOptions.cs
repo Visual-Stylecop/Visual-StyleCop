@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -20,7 +20,7 @@ namespace StyleCop.Spelling
     using System;
 
     /// <summary>
-    /// The options for the word parser. 
+    /// The options for the word parser.
     /// </summary>
     [Flags]
     public enum WordParserOptions
@@ -28,12 +28,12 @@ namespace StyleCop.Spelling
         /// <summary>
         /// No parser options.
         /// </summary>
-        None, 
+        None,
 
         /// <summary>
         /// If set mnemonics will be ignored.
         /// </summary>
-        IgnoreMnemonicsIndicators, 
+        IgnoreMnemonicsIndicators,
 
         /// <summary>
         /// If set it will split compound words.

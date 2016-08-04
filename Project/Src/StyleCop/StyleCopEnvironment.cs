@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "StyleCop", Justification = "This is the correct casing.")]
     public abstract class StyleCopEnvironment
     {
-        #region Public Properties
-
         /// <summary>
         /// Gets the StyleCop core instance.
         /// </summary>
@@ -45,10 +43,6 @@ namespace StyleCop
         /// violation results caches.
         /// </summary>
         public abstract bool SupportsResultsCache { get; }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Invoked when a new parser is loaded.
@@ -214,8 +208,7 @@ namespace StyleCop
         /// <returns>
         /// Returns the results cache or null if there is no results cache at that location.
         /// </returns>
-        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", 
-            Justification = "Compliance would break well-defined API.")]
+        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Compliance would break well-defined API.")]
         public abstract XmlDocument LoadResultsCache(string location);
 
         /// <summary>
@@ -241,8 +234,7 @@ namespace StyleCop
         /// <returns>
         /// Returns true if the results were saved successfully.
         /// </returns>
-        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", 
-            Justification = "Compliance would break the well-defined public API.")]
+        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Compliance would break the well-defined public API.")]
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", MessageId = "2#", Justification = "The design is OK.")]
         public abstract bool SaveAnalysisResults(string location, XmlDocument analysisResults, out Exception exception);
 
@@ -255,8 +247,7 @@ namespace StyleCop
         /// <param name="resultsCache">
         /// The results cache to save.
         /// </param>
-        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", 
-            Justification = "Compliance would break well-defined API.")]
+        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Compliance would break well-defined API.")]
         public abstract void SaveResultsCache(string location, XmlDocument resultsCache);
 
         /// <summary>
@@ -266,7 +257,7 @@ namespace StyleCop
         /// The settings to save.
         /// </param>
         /// <param name="exception">
-        /// If the document could not be saved, this returns the 
+        /// If the document could not be saved, this returns the
         /// resulting exception information.
         /// </param>
         /// <returns>
@@ -291,7 +282,5 @@ namespace StyleCop
             Exception exception;
             return this.SaveSettings(settings, out exception);
         }
-
-        #endregion
     }
 }

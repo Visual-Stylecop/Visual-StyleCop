@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,8 +29,6 @@ namespace StyleCop.CSharp
     [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix", Justification = "The class name does not need any suffix.")]
     public sealed class Enum : CsElement
     {
-        #region Fields
-
         /// <summary>
         /// The derived base type.
         /// </summary>
@@ -40,10 +38,6 @@ namespace StyleCop.CSharp
         /// The list of items in the <see cref="Enum"/>.
         /// </summary>
         private ICollection<EnumItem> items;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Enum"/> class.
@@ -76,10 +70,6 @@ namespace StyleCop.CSharp
             Param.Ignore(document, parent, header, attributes, declaration, unsafeCode, generated);
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the base type for the <see cref="Enum"/>.
         /// </summary>
@@ -109,10 +99,6 @@ namespace StyleCop.CSharp
                 Debug.Assert(this.items.IsReadOnly, "The collection of enum items should be read-only.");
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Gets the base type, if there is one.
@@ -149,7 +135,5 @@ namespace StyleCop.CSharp
 
             return null;
         }
-
-        #endregion
     }
 }

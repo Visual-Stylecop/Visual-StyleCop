@@ -1,13 +1,13 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ViolationInfo.cs">
+// <copyright file="ViolationInfo.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -22,8 +22,6 @@ namespace StyleCop.Test
     /// </summary>
     internal class ViolationInfo
     {
-        #region Private Fields
-
         /// <summary>
         /// The code section that contains the violation.
         /// </summary>
@@ -33,22 +31,22 @@ namespace StyleCop.Test
         /// The line in the code on which the violation appears.
         /// </summary>
         private readonly int lineNumber;
-        
+
         /// <summary>
         /// The start line in the code on which the violation appears.
         /// </summary>
         private readonly int startLineNumber;
-        
+
         /// <summary>
         /// The start column in the code on which the violation appears.
         /// </summary>
         private readonly int startColumnNumber;
-        
+
         /// <summary>
         /// The end line in the code on which the violation appears.
         /// </summary>
         private readonly int endLineNumber;
-        
+
         /// <summary>
         /// The end column in the code on which the violation appears.
         /// </summary>
@@ -64,12 +62,8 @@ namespace StyleCop.Test
         /// </summary>
         private readonly string ruleName;
 
-        #endregion Private Fields
-
-        #region Public Constructors
-
         /// <summary>
-        /// Initializes a new instance of the ViolationInfo class.
+        /// Initializes a new instance of the <see cref="ViolationInfo"/> class.
         /// </summary>
         /// <param name="section">The code section that contains the violation.</param>
         /// <param name="lineNumber">The line in the code on which the violation appears.</param>
@@ -90,10 +84,6 @@ namespace StyleCop.Test
             this.endLineNumber = endLineNumber;
             this.endColumnNumber = endColumnNumber;
         }
-
-        #endregion Public Constructors
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the code section that contains the violation.
@@ -170,7 +160,5 @@ namespace StyleCop.Test
                 return this.ruleName;
             }
         }
-
-        #endregion Public Properties
     }
 }

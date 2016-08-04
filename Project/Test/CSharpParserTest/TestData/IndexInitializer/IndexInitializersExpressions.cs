@@ -22,6 +22,16 @@ namespace CSharpParserTest.TestData
             [3] = new People() { Name = "test" },
             [4] = new People() { Name = "test" },
         };
+
+        private IDictionary<string, string[]> bug = new Dictionary<string, string[]>()
+        {
+            ["bug"] = new string[]
+            {
+            },
+            ["gub"] = new string[]
+            {
+            }
+        };
     }
 }
 

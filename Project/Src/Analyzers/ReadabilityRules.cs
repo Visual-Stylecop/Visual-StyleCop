@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,8 +27,6 @@ namespace StyleCop.CSharp
     [SourceAnalyzer(typeof(CsParser))]
     public partial class ReadabilityRules : SourceAnalyzer
     {
-        #region Fields
-
         /// <summary>
         /// The built-in type aliases for C#.
         /// </summary>
@@ -44,10 +42,6 @@ namespace StyleCop.CSharp
                                                            new[] { "Decimal", "System.Decimal", "decimal" }
                                                        };
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Checks the methods within the given document.
         /// </summary>
@@ -60,7 +54,7 @@ namespace StyleCop.CSharp
 
             CsDocument csdocument = (CsDocument)document;
 
-            Settings settings = new Settings();
+            Settings settings = default(Settings);
             settings.DoNotUseRegions = this.IsRuleEnabled(document, Rules.DoNotUseRegions.ToString());
             settings.DoNotPlaceRegionsWithinElements = this.IsRuleEnabled(document, Rules.DoNotPlaceRegionsWithinElements.ToString());
 
@@ -92,10 +86,6 @@ namespace StyleCop.CSharp
 
             return csdocument.FileHeader == null || !csdocument.FileHeader.UnStyled;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Determines whether the statement is declaring a constant field or variable.
@@ -302,7 +292,7 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(element, "element");
             Param.AssertNotNull(settings, "settings");
 
-            // If the DoNotUseRegions setting is enabled, then skip this check as the region 
+            // If the DoNotUseRegions setting is enabled, then skip this check as the region
             // will be discovered during the overall regions rule check.
             if (settings.DoNotPlaceRegionsWithinElements && !settings.DoNotUseRegions && !element.Generated)
             {
@@ -352,7 +342,27 @@ namespace StyleCop.CSharp
                         }
                     }
 
-                    this.AddViolation(genericType.FindParentElement(), genericType.LineNumber, Rules.UseShorthandForNullableTypes);
+                    // Search if parent is nameof expression then allow it.
+                    var parent = genericType.FindParentExpression();
+                    bool nameofExpression = false;
+
+                    while (parent != null && !nameofExpression)
+                    {
+                        if (parent is NameofExpression)
+                        {
+                            nameofExpression = true;
+                            parent = null;
+                        }
+                        else
+                        {
+                            parent = parent.FindParentExpression();
+                        }
+                    }
+
+                    if (!nameofExpression)
+                    {
+                        this.AddViolation(genericType.FindParentElement(), genericType.LineNumber, Rules.UseShorthandForNullableTypes);
+                    }
                 }
             }
             else
@@ -499,15 +509,11 @@ namespace StyleCop.CSharp
             return true;
         }
 
-        #endregion
-
         /// <summary>
         /// The settings for rules.
         /// </summary>
         private struct Settings
         {
-            #region Fields
-
             /// <summary>
             /// Indicates whether the DoNotPlaceRegionsWithinElements rule is enabled.
             /// </summary>
@@ -517,8 +523,6 @@ namespace StyleCop.CSharp
             /// Indicates whether the DoNotUseRegions rule is enabled.
             /// </summary>
             public bool DoNotUseRegions;
-
-            #endregion
         }
     }
 }

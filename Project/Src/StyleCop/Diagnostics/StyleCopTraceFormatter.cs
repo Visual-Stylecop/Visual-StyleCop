@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -17,8 +17,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace StyleCop.Diagnostics
 {
-    #region Using Directives
-
     using System;
     using System.Diagnostics;
     using System.Globalization;
@@ -27,8 +25,6 @@ namespace StyleCop.Diagnostics
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading;
-
-    #endregion
 
     /// <summary>
     /// Style cop trace.
@@ -42,17 +38,11 @@ namespace StyleCop.Diagnostics
         [DebuggerStepThrough]
         private sealed class StyleCopTraceFormatter
         {
-            #region Static Fields
-
             /// <summary>
             /// A regular expression to extract the names of members used with a <see cref="DebuggerDisplayAttribute"/> format string.
             /// </summary>
             private static readonly Regex DebuggerDisplayFormatRegex = new Regex(
                 @"\{[^\{]+\}", RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.ExplicitCapture);
-
-            #endregion
-
-            #region Fields
 
             /// <summary>
             /// Caches the calling method.
@@ -74,10 +64,6 @@ namespace StyleCop.Diagnostics
             /// </summary>
             private StringBuilder buffer;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
             /// Initializes a new instance of the <see cref="StyleCopTraceFormatter"/> class, which captures the calling method.
             /// </summary>
@@ -86,10 +72,6 @@ namespace StyleCop.Diagnostics
                 this.callingMethod = GetCallingMethod(out this.stackDepth);
                 this.sensitiveMethod = this.IsAttributeDefined(typeof(SensitiveDataAttribute));
             }
-
-            #endregion
-
-            #region Public Methods and Operators
 
             /// <summary>
             /// Writes a trace string for method entry.
@@ -200,10 +182,6 @@ namespace StyleCop.Diagnostics
 
                 Trace.WriteLine(this.buffer.ToString());
             }
-
-            #endregion
-
-            #region Methods
 
             /// <summary>
             /// Gets the method that originally called into the <see cref="StyleCopTrace"/> class.
@@ -473,9 +451,9 @@ namespace StyleCop.Diagnostics
             {
                 Debug.Assert(this.callingMethod != null, "callingMethod field must not be null");
 
-                // when a method is actually part of a property, i.e. it is the get_PropName or set_PropName then any custom attributes 
-                // are associated in the metadata with the property definition and not the method itself. there's no easy way to get this 
-                // from the method so here we check for a special name which isn't a constructor and the two defined special name starting 
+                // when a method is actually part of a property, i.e. it is the get_PropName or set_PropName then any custom attributes
+                // are associated in the metadata with the property definition and not the method itself. there's no easy way to get this
+                // from the method so here we check for a special name which isn't a constructor and the two defined special name starting
                 // tags then try and get the property on the type and see if it has the attribute defined
                 bool defined = this.callingMethod.IsDefined(attributeType, true);
                 if (!defined && this.callingMethod.IsSpecialName && !this.callingMethod.IsConstructor
@@ -492,8 +470,6 @@ namespace StyleCop.Diagnostics
 
                 return defined;
             }
-
-            #endregion
         }
     }
 }

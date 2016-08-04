@@ -1,14 +1,14 @@
 //-----------------------------------------------------------------------
-// <copyright file="AnalysisThread.cs">
+// <copyright file="AnalysisThread.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -24,8 +24,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal class AnalysisThread
     {
-        #region Private Fields
-
         /// <summary>
         /// True if a full analysis is being performed.
         /// </summary>
@@ -41,12 +39,8 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private StyleCopCore core;
 
-        #endregion Private Fields
-
-        #region Public Constructors
-
         /// <summary>
-        /// Initializes a new instance of the AnalysisThread class.
+        /// Initializes a new instance of the <see cref="AnalysisThread"/> class.
         /// </summary>
         /// <param name="full">True if a full analysis should be performed.</param>
         /// <param name="projects">The collection of projects to analysis.</param>
@@ -62,18 +56,10 @@ namespace StyleCop.VisualStudio
             this.core = core;
         }
 
-        #endregion Public Constructors
-
-        #region Public Events
-
         /// <summary>
         /// Called when the analysis has been completed.
         /// </summary>
         public event EventHandler Complete;
-
-        #endregion Public Events
-
-        #region Public Methods
 
         /// <summary>
         /// Runs the analysis on a second thread.
@@ -81,7 +67,7 @@ namespace StyleCop.VisualStudio
         public void AnalyzeProc()
         {
             StyleCopTrace.In();
-            
+
             try
             {
                 if (this.full)
@@ -103,7 +89,5 @@ namespace StyleCop.VisualStudio
 
             StyleCopTrace.Out();
         }
-
-        #endregion Public Methods
     }
 }

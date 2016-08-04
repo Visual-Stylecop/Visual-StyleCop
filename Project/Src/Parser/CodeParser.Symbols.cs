@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,8 +29,6 @@ namespace StyleCop.CSharp
     /// </content>
     internal partial class CodeParser
     {
-        #region Methods
-
         /// <summary>
         /// Creates an operator token from the given symbol.
         /// </summary>
@@ -425,9 +423,7 @@ namespace StyleCop.CSharp
         /// <returns>
         /// Returns the corresponding token.
         /// </returns>
-        [SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", 
-            MessageId = "StyleCop.CSharp.SymbolManager.Combine(System.Int32,System.Int32,System.String,StyleCop.CSharp.SymbolType)", 
-            Justification = "The literal represents a C# operator and is not localizable.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId = "StyleCop.CSharp.SymbolManager.Combine(System.Int32,System.Int32,System.String,StyleCop.CSharp.SymbolType)", Justification = "The literal represents a C# operator and is not localizable.")]
         private CsToken ConvertOperatorOverloadSymbol(Reference<ICodePart> parentReference)
         {
             Param.AssertNotNull(parentReference, "parentReference");
@@ -547,7 +543,7 @@ namespace StyleCop.CSharp
                 tokenType == CsTokenType.OpenParenthesis || tokenType == CsTokenType.CloseParenthesis || tokenType == CsTokenType.OpenSquareBracket
                 || tokenType == CsTokenType.CloseSquareBracket || tokenType == CsTokenType.OpenCurlyBracket || tokenType == CsTokenType.CloseCurlyBracket
                 || tokenType == CsTokenType.OpenAttributeBracket || tokenType == CsTokenType.CloseAttributeBracket || tokenType == CsTokenType.OpenGenericBracket
-                || tokenType == CsTokenType.CloseGenericBracket, 
+                || tokenType == CsTokenType.CloseGenericBracket,
                 "The token type is not a bracket.");
 
             Symbol symbol = this.GetNextSymbol(symbolType, parentReference);
@@ -879,12 +875,12 @@ namespace StyleCop.CSharp
         /// Returns the token.
         /// </returns>
         private TypeToken GetTypeTokenAux(
-            Reference<ICodePart> typeTokenReference, 
-            Reference<ICodePart> parentReference, 
-            bool unsafeCode, 
-            bool includeArrayBrackets, 
-            bool isExpression, 
-            int startIndex, 
+            Reference<ICodePart> typeTokenReference,
+            Reference<ICodePart> parentReference,
+            bool unsafeCode,
+            bool includeArrayBrackets,
+            bool isExpression,
+            int startIndex,
             out int endIndex)
         {
             Param.AssertNotNull(typeTokenReference, "typeTokenReference");
@@ -945,7 +941,7 @@ namespace StyleCop.CSharp
                 return generic;
             }
 
-            // The type is either not generic, or else it is composed of a more complex type which includes a generic 
+            // The type is either not generic, or else it is composed of a more complex type which includes a generic
             // (for example, an array of a generic type). Return the more complex type.
             CodeLocation location = CsToken.JoinLocations(typeTokens.First, typeTokens.Last);
             TypeToken typeToken = new TypeToken(typeTokens, location, parentReference, this.symbols.Generated);
@@ -1338,7 +1334,5 @@ namespace StyleCop.CSharp
             // There is no next symbol. A syntax error will soon ensue.
             return true;
         }
-
-        #endregion
     }
 }

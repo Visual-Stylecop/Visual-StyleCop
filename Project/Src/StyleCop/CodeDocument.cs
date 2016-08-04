@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -25,8 +25,6 @@ namespace StyleCop
     /// </summary>
     public abstract class CodeDocument : IDisposable
     {
-        #region Fields
-
         /// <summary>
         /// Storage space for analyzer data.
         /// </summary>
@@ -37,12 +35,8 @@ namespace StyleCop
         /// </summary>
         private SourceCode sourceCode;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CodeDocument class.
+        /// Initializes a new instance of the <see cref="CodeDocument"/> class.
         /// </summary>
         /// <param name="sourceCode">
         /// The source code document this instance represents.
@@ -52,10 +46,6 @@ namespace StyleCop
             Param.RequireNotNull(sourceCode, "sourceCode");
             this.sourceCode = sourceCode;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the parsed contents of the document.
@@ -89,10 +79,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets the analyzer data dictionary for the document.
         /// </summary>
@@ -104,10 +90,6 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Disposes the contents of the class.
         /// </summary>
@@ -116,10 +98,6 @@ namespace StyleCop
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Disposes the contents of the class.
@@ -137,7 +115,5 @@ namespace StyleCop
                 this.analyzerData = null;
             }
         }
-
-        #endregion
     }
 }

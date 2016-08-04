@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,8 +29,6 @@ namespace StyleCop
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "StyleCop", Justification = "This is the correct casing.")]
     public abstract class StyleCopRunner
     {
-        #region Fields
-
         private bool captureViolations;
 
         /// <summary>
@@ -48,21 +46,13 @@ namespace StyleCop
         /// </summary>
         private XmlDocument violations = new XmlDocument();
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the StyleCopRunner class.
+        /// Initializes a new instance of the <see cref="StyleCopRunner"/> class.
         /// </summary>
         protected StyleCopRunner()
         {
             this.Reset();
         }
-
-        #endregion
-
-        #region Public Events
 
         /// <summary>
         /// Event that is fired when output is generated from the console during an analysis.
@@ -73,10 +63,6 @@ namespace StyleCop
         /// Event that is fired when output is generated from the console during an analysis.
         /// </summary>
         public event EventHandler<ViolationEventArgs> ViolationEncountered;
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets or sets the StyleCop core instance.
@@ -97,10 +83,6 @@ namespace StyleCop
                 }
             }
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Gets or sets a value indicating whether we should capture the violations.
@@ -150,10 +132,6 @@ namespace StyleCop
                 return this.violations;
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Called when output is generated during an analysis. This can be called simultaneously from several threads and so any code must be thread safe.
@@ -376,7 +354,5 @@ namespace StyleCop
             // Forward event
             this.OnViolationEncountered(new ViolationEventArgs(e.Violation));
         }
-
-        #endregion
     }
 }

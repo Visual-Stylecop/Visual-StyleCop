@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,58 +28,51 @@ namespace VSPackageUnitTest.Mocks
     /// </summary>
     internal class MockDTEGlobals : EnvDTE.Globals
     {
-        #region Constants and Fields
-
         private readonly List<string> persisted = new List<string>();
 
         private Dictionary<string, object> variables = new Dictionary<string, object>();
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets DTE.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public DTE DTE
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets Parent.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object Parent
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Gets VariableNames.
         /// </summary>
-        /// <exception cref="Exception">
+        /// <exception cref="NotImplementedException">
+        /// This method is not implemented.
         /// </exception>
         public object VariableNames
         {
             get
             {
-                throw new Exception("The method or operation is not implemented.");
+                throw new NotImplementedException();
             }
         }
-
-        #endregion
-
-        #region Indexers
 
         /// <summary>
         /// The this.
@@ -99,10 +92,6 @@ namespace VSPackageUnitTest.Mocks
                 this.variables[variableName] = value;
             }
         }
-
-        #endregion
-
-        #region Public Methods
 
         /// <summary>
         /// The clear all.
@@ -130,12 +119,6 @@ namespace VSPackageUnitTest.Mocks
 
             this.variables = result;
         }
-
-        #endregion
-
-        #region Implemented Interfaces
-
-        #region Globals
 
         /// <summary>
         /// The get_ variable exists.
@@ -188,9 +171,5 @@ namespace VSPackageUnitTest.Mocks
                 this.persisted.Remove(variableName);
             }
         }
-
-        #endregion
-
-        #endregion
     }
 }

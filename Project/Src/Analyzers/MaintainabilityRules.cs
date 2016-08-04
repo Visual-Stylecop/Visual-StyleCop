@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,8 +26,6 @@ namespace StyleCop.CSharp
     [SourceAnalyzer(typeof(CsParser))]
     public class MaintainabilityRules : SourceAnalyzer
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Checks the methods within the given document.
         /// </summary>
@@ -105,10 +103,6 @@ namespace StyleCop.CSharp
 
             return csdocument.FileHeader == null || !csdocument.FileHeader.UnStyled;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Determine whether the argument passed in is equivalent to ""
@@ -240,7 +234,7 @@ namespace StyleCop.CSharp
         /// The text to check.
         /// </param>
         /// <returns>
-        /// Returns true if the 
+        /// Returns true if the
         /// </returns>
         private static bool IsEmptyString(string text)
         {
@@ -493,7 +487,7 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(childExpression, "childExpression");
 
             // Parenthesis are only required when the two expressions are not the same operator,
-            // and when the two operators come from different families. 
+            // and when the two operators come from different families.
             if (expression.OperatorType != childExpression.OperatorType)
             {
                 bool sameFamily = ((expression.OperatorType == ArithmeticExpression.Operator.Addition
@@ -668,7 +662,7 @@ namespace StyleCop.CSharp
             Param.AssertNotNull(expression, "expression");
             Param.AssertNotNull(childExpression, "childExpression");
 
-            // If the two expressions are both of the same type (OR or AND), then there is 
+            // If the two expressions are both of the same type (OR or AND), then there is
             // no need for parenthesis.
             if (expression.OperatorType != childExpression.OperatorType)
             {
@@ -1151,15 +1145,11 @@ namespace StyleCop.CSharp
             return true;
         }
 
-        #endregion
-
         /// <summary>
         /// Keeps track of the number of classes and namespaces seen in the document.
         /// </summary>
         private class TopLevelElements
         {
-            #region Fields
-
             /// <summary>
             /// The classes seen in the document.
             /// </summary>
@@ -1169,10 +1159,6 @@ namespace StyleCop.CSharp
             /// The namespaces seen in the document.
             /// </summary>
             private readonly List<Namespace> namespaces = new List<Namespace>();
-
-            #endregion
-
-            #region Public Properties
 
             /// <summary>
             /// Gets the classes seen in the document.
@@ -1195,8 +1181,6 @@ namespace StyleCop.CSharp
                     return this.namespaces;
                 }
             }
-
-            #endregion
         }
     }
 }

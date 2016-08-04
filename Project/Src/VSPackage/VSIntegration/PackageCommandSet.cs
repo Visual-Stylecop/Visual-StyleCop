@@ -1,14 +1,14 @@
 //--------------------------------------------------------------------------
-// <copyright file="PackageCommandSet.cs">
+// <copyright file="PackageCommandSet.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -25,8 +25,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal class PackageCommandSet : CommandSet
     {
-        #region Private Fields
-
         /// <summary>
         /// The helper class for performing analysis.
         /// </summary>
@@ -37,12 +35,8 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private StyleCopCore core;
 
-        #endregion Private Fields
-
-        #region Public Constructors
-
         /// <summary>
-        /// Initializes a new instance of the PackageCommandSet class.
+        /// Initializes a new instance of the <see cref="PackageCommandSet"/> class.
         /// </summary>
         /// <param name="serviceProvider">Service Provider.</param>
         public PackageCommandSet(IServiceProvider serviceProvider)
@@ -52,8 +46,6 @@ namespace StyleCop.VisualStudio
 
             this.AddCommands();
         }
-
-        #endregion Public Constructors
 
         /// <summary>
         /// Initializes the object instance.
@@ -69,8 +61,6 @@ namespace StyleCop.VisualStudio
             this.helper = package.Helper;
         }
 
-        #region Private Methods
-
         /// <summary>
         /// Add Commands for the menu items handled by the package.
         /// </summary>
@@ -79,7 +69,7 @@ namespace StyleCop.VisualStudio
             Debug.Assert(this.CommandList != null, "The internal command list has not been created.");
 
             // StyleCop -> Analyze
-            // Solution Explorer Context menu item, for a single project item 
+            // Solution Explorer Context menu item, for a single project item
             this.CommandList.Add(
                 new OleMenuCommand(
                     new EventHandler(this.InvokeAnalyzeItem),
@@ -88,7 +78,7 @@ namespace StyleCop.VisualStudio
                     CommandIdList.AnalyzeItem));
 
             // StyleCop -> Exclude
-            // Solution Explorer Context menu item, for a single project item 
+            // Solution Explorer Context menu item, for a single project item
             this.CommandList.Add(
                 new OleMenuCommand(
                     new EventHandler(this.InvokeExcludeItem),
@@ -97,7 +87,7 @@ namespace StyleCop.VisualStudio
                     CommandIdList.ExcludeItem));
 
             // StyleCop -> Include
-            // Solution Explorer Context menu item, for a single project item 
+            // Solution Explorer Context menu item, for a single project item
             this.CommandList.Add(
                 new OleMenuCommand(
                     new EventHandler(this.InvokeIncludeItem),
@@ -132,7 +122,7 @@ namespace StyleCop.VisualStudio
                     new EventHandler(this.StatusIncludeThisFile),
                     CommandIdList.IncludeThisFile));
 
-            // StyleCop -> Analyze 
+            // StyleCop -> Analyze
             // Tools Main Menu And Solution Explorer Context menu item, for the solution
             this.CommandList.Add(
                 new OleMenuCommand(
@@ -141,7 +131,7 @@ namespace StyleCop.VisualStudio
                     new EventHandler(this.StatusAnalyzeSolution),
                     CommandIdList.AnalyzeSolution));
 
-            // StyleCop -> Reanalyze 
+            // StyleCop -> Reanalyze
             // Tools Main Menu And Solution Explorer Context menu item, for the solution
             this.CommandList.Add(
                 new OleMenuCommand(
@@ -150,7 +140,7 @@ namespace StyleCop.VisualStudio
                     new EventHandler(this.StatusAnalyzeSolution),
                     CommandIdList.ReanalyzeSolution));
 
-            // StyleCop -> Reanalyze 
+            // StyleCop -> Reanalyze
             // Tools Main Menu And Solution Explorer Context menu item, for the project
             this.CommandList.Add(
                 new OleMenuCommand(
@@ -160,7 +150,7 @@ namespace StyleCop.VisualStudio
                     CommandIdList.ReanalyzeProject));
 
             // StyleCop -> Analyze
-            // Solution Explorer Context menu item, for a single project 
+            // Solution Explorer Context menu item, for a single project
             this.CommandList.Add(
                 new OleMenuCommand(
                     new EventHandler(this.InvokeAnalyzeProject),
@@ -239,7 +229,7 @@ namespace StyleCop.VisualStudio
             Param.Ignore(eventArgs);
 
             bool show = ProjectUtilities.IsItemIncluded(this.helper, AnalysisType.Item);
-            
+
             OleMenuCommand menuCommand = (OleMenuCommand)sender;
             this.StatusAnalyzeBase(menuCommand,  show);
         }
@@ -255,7 +245,7 @@ namespace StyleCop.VisualStudio
             Param.Ignore(eventArgs);
 
             bool show = ProjectUtilities.IsItemIncluded(this.helper, AnalysisType.Item);
-            
+
             OleMenuCommand menuCommand = (OleMenuCommand)sender;
             this.StatusAnalyzeBase(menuCommand, !show);
         }
@@ -303,7 +293,7 @@ namespace StyleCop.VisualStudio
             Param.Ignore(eventArgs);
 
             bool show = ProjectUtilities.IsItemIncluded(this.helper, AnalysisType.File);
-            
+
             OleMenuCommand menuCommand = (OleMenuCommand)sender;
             this.StatusAnalyzeBase(menuCommand,  !show);
         }
@@ -355,7 +345,7 @@ namespace StyleCop.VisualStudio
             menuCommand.Supported = true;
             menuCommand.Visible = visible;
             menuCommand.Enabled = visible;
-            
+
             if (visible && this.core.Analyzing)
             {
                 menuCommand.Visible = false;
@@ -402,7 +392,7 @@ namespace StyleCop.VisualStudio
             CommandSet.CheckMenuItemValidity(menuCommand);
 
             ProjectUtilities.SetItemExcluded(AnalysisType.Item, true);
-          
+
             StyleCopTrace.Out();
         }
 
@@ -649,7 +639,5 @@ namespace StyleCop.VisualStudio
             CommandSet.CheckMenuItemValidity(menuCommand);
             this.helper.Cancel();
         }
-
-        #endregion Private Methods
     }
 }

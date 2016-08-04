@@ -141,5 +141,9 @@
         {
 
         }
+        public void NameOfWithNullableExpression()
+        {
+            var result = nameof(Nullable<int>.Value); // valid
+        }
     }
 }

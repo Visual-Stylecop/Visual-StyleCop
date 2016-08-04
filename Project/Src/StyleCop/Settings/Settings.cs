@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -29,8 +29,6 @@ namespace StyleCop
     /// </summary>
     public class Settings
     {
-        #region Constants
-
         /// <summary>
         /// The alternate settings file name.
         /// </summary>
@@ -40,10 +38,6 @@ namespace StyleCop
         /// The default settings file name.
         /// </summary>
         public const string DefaultFileName = "Settings.StyleCop";
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// The settings for the analyzers.
@@ -95,39 +89,35 @@ namespace StyleCop
         /// </summary>
         private Dictionary<StyleCopAddIn, Dictionary<string, Rule>> enabledRules;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Settings class.
+        /// Initializes a new instance of the <see cref="Settings"/> class.
         /// </summary>
         /// <param name="core">
-        /// The StyleCop core instance. 
+        /// The StyleCop core instance.
         /// </param>
         /// <param name="location">
-        /// The location of the settings document. 
+        /// The location of the settings document.
         /// </param>
         public Settings(StyleCopCore core, string location)
-            : this(core, location, null, new DateTime())
+            : this(core, location, null, default(DateTime))
         {
             Param.Ignore(core, location);
         }
 
         /// <summary>
-        /// Initializes a new instance of the Settings class.
+        /// Initializes a new instance of the <see cref="Settings"/> class.
         /// </summary>
         /// <param name="core">
-        /// The StyleCop core instance. 
+        /// The StyleCop core instance.
         /// </param>
         /// <param name="location">
-        /// The path to the settings document. 
+        /// The path to the settings document.
         /// </param>
         /// <param name="contents">
-        /// The initial contents of the settings document. 
+        /// The initial contents of the settings document.
         /// </param>
         /// <param name="writeTime">
-        /// The time when the settings were last updated. 
+        /// The time when the settings were last updated.
         /// </param>
         public Settings(StyleCopCore core, string location, XmlDocument contents, DateTime writeTime)
         {
@@ -145,20 +135,16 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the Settings class.
+        /// Initializes a new instance of the <see cref="Settings"/> class.
         /// </summary>
         /// <param name="core">
-        /// The StyleCop core instance. 
+        /// The StyleCop core instance.
         /// </param>
         internal Settings(StyleCopCore core)
         {
             Param.AssertNotNull(core, "core");
             this.core = core;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the collection of settings for the analyzers.
@@ -174,8 +160,7 @@ namespace StyleCop
         /// <summary>
         /// Gets the contents of the settings document.
         /// </summary>
-        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", 
-            Justification = "Compliance would break public API.")]
+        [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Compliance would break public API.")]
         public XmlDocument Contents
         {
             get
@@ -290,10 +275,6 @@ namespace StyleCop
         /// </summary>
         public DateTime WriteTime { get; internal set; }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Gets the core instance.
         /// </summary>
@@ -344,24 +325,19 @@ namespace StyleCop
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
         /// <summary>
         /// Gets a setting for the given add-in.
         /// </summary>
         /// <param name="addIn">
-        /// The add-in. 
+        /// The add-in.
         /// </param>
         /// <param name="propertyName">
-        /// The name of the setting property. 
+        /// The name of the setting property.
         /// </param>
         /// <returns>
-        /// Returns the setting or null if the setting does not exist for the add-in. 
+        /// Returns the setting or null if the setting does not exist for the add-in.
         /// </returns>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InSetting", 
-            Justification = "InSetting is two words in this context.")]
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InSetting", Justification = "InSetting is two words in this context.")]
         public PropertyValue GetAddInSetting(StyleCopAddIn addIn, string propertyName)
         {
             Param.RequireNotNull(addIn, "addIn");
@@ -380,10 +356,10 @@ namespace StyleCop
         /// Gets the settings for the given add-in.
         /// </summary>
         /// <param name="addIn">
-        /// The add-in. 
+        /// The add-in.
         /// </param>
         /// <returns>
-        /// Returns the add-in settings or null if there are no settings for the add-in. 
+        /// Returns the add-in settings or null if there are no settings for the add-in.
         /// </returns>
         public AddInPropertyCollection GetAddInSettings(StyleCopAddIn addIn)
         {
@@ -404,10 +380,10 @@ namespace StyleCop
         /// Gets the custom settings for a file with the given name, if any.
         /// </summary>
         /// <param name="fileName">
-        /// The name of the file. 
+        /// The name of the file.
         /// </param>
         /// <returns>
-        /// Returns the custom settings or null if there are no custom settings specified for this file. 
+        /// Returns the custom settings or null if there are no custom settings specified for this file.
         /// </returns>
         /// <remarks>
         /// Custom settings are specified through a SourceFileList node in the settings file.
@@ -434,13 +410,13 @@ namespace StyleCop
         /// Gets a value indicating whether the given rule is enabled for the given document.
         /// </summary>
         /// <param name="analyzer">
-        /// The analyzer which contains the rule. 
+        /// The analyzer which contains the rule.
         /// </param>
         /// <param name="ruleName">
-        /// The rule to check. 
+        /// The rule to check.
         /// </param>
         /// <returns>
-        /// Returns true if the rule is enabled; otherwise false. 
+        /// Returns true if the rule is enabled; otherwise false.
         /// </returns>
         public bool IsRuleEnabled(SourceAnalyzer analyzer, string ruleName)
         {
@@ -470,15 +446,11 @@ namespace StyleCop
             return false;
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Adds a set of custom source file settings.
         /// </summary>
         /// <param name="sourceFileList">
-        /// The source file list settings. 
+        /// The source file list settings.
         /// </param>
         internal void AddSourceFileList(SourceFileListSettings sourceFileList)
         {
@@ -490,10 +462,10 @@ namespace StyleCop
         /// Clears a setting for the given add-in.
         /// </summary>
         /// <param name="addIn">
-        /// The add-in. 
+        /// The add-in.
         /// </param>
         /// <param name="propertyName">
-        /// The name of the property to clear. 
+        /// The name of the property to clear.
         /// </param>
         internal void ClearAddInSettingInternal(StyleCopAddIn addIn, string propertyName)
         {
@@ -517,10 +489,10 @@ namespace StyleCop
         /// Sets a setting for the given add-in.
         /// </summary>
         /// <param name="addIn">
-        /// The add-in. 
+        /// The add-in.
         /// </param>
         /// <param name="property">
-        /// The setting property to set. 
+        /// The setting property to set.
         /// </param>
         internal void SetAddInSettingInternal(StyleCopAddIn addIn, PropertyValue property)
         {
@@ -541,7 +513,7 @@ namespace StyleCop
         /// Sets the settings for the given add-in.
         /// </summary>
         /// <param name="properties">
-        /// The properties to set. 
+        /// The properties to set.
         /// </param>
         /// <remarks>
         /// This overrides any existing settings for the add-in.
@@ -566,10 +538,10 @@ namespace StyleCop
         /// Gets the correct property collection dictionary depending on whether the given add-in is a parser or an analyzer.
         /// </summary>
         /// <param name="addIn">
-        /// The add-in. 
+        /// The add-in.
         /// </param>
         /// <returns>
-        /// Returns the correct dictionary. 
+        /// Returns the correct dictionary.
         /// </returns>
         private Dictionary<string, AddInPropertyCollection> GetPropertyCollectionDictionary(StyleCopAddIn addIn)
         {
@@ -639,7 +611,7 @@ namespace StyleCop
                                     }
                                 }
 
-                                // If the analyzer has at least one enabled rule, add the analyzer to the list 
+                                // If the analyzer has at least one enabled rule, add the analyzer to the list
                                 // of enabled analyzers.
                                 if (enabledRulesForAnalyzer.Count > 0)
                                 {
@@ -697,7 +669,5 @@ namespace StyleCop
                 }
             }
         }
-
-        #endregion
     }
 }

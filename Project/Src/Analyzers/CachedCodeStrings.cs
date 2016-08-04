@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -24,8 +24,6 @@ namespace StyleCop.CSharp
     /// </summary>
     public static class CachedCodeStrings
     {
-        #region Static Fields
-
         /// <summary>
         /// The text for "class".
         /// </summary>
@@ -112,10 +110,6 @@ namespace StyleCop.CSharp
         /// The text for "struct".
         /// </summary>
         private static string structText;
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the text for "class".
@@ -415,10 +409,6 @@ namespace StyleCop.CSharp
             }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Reset the cached strings.
         /// </summary>
@@ -442,7 +432,5 @@ namespace StyleCop.CSharp
             classText = null;
             structText = null;
         }
-
-        #endregion
     }
 }

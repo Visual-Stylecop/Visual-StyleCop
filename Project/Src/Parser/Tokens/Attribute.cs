@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,8 +28,6 @@ namespace StyleCop.CSharp
     [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix", Justification = "The class describes a C# attribute.")]
     public sealed class Attribute : CsToken, ITokenContainer
     {
-        #region Fields
-
         /// <summary>
         /// Gets the list of attribute expressions within this attribute.
         /// </summary>
@@ -40,12 +38,8 @@ namespace StyleCop.CSharp
         /// </summary>
         private readonly MasterList<CsToken> childTokens;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the Attribute class.
+        /// Initializes a new instance of the <see cref="Attribute"/> class.
         /// </summary>
         /// <param name="childTokens">
         /// The list of child tokens for the attribute.
@@ -79,10 +73,6 @@ namespace StyleCop.CSharp
             this.attributeExpressions.AddRange(attributeExpressions);
         }
 
-        #endregion
-
-        #region Public Properties
-
         /// <summary>
         /// Gets the list of attribute expressions within this attribute.
         /// </summary>
@@ -110,10 +100,6 @@ namespace StyleCop.CSharp
         /// </summary>
         public CsElement Element { get; internal set; }
 
-        #endregion
-
-        #region Explicit Interface Properties
-
         /// <summary>
         /// Gets the list of child tokens contained within this object.
         /// </summary>
@@ -124,10 +110,6 @@ namespace StyleCop.CSharp
                 return this.childTokens.AsReadOnly;
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Creates a text string based on the child tokens in the attribute.
@@ -146,7 +128,5 @@ namespace StyleCop.CSharp
 
             this.Text = text.ToString();
         }
-
-        #endregion
     }
 }

@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -17,22 +17,16 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace System
 {
-    #region Using Directives
-
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
-
-    #endregion
 
     /// <summary>
     /// Extension methods for the <see cref="string"/> class.
     /// </summary>
     public static class StringExtensions
     {
-        #region Public Methods and Operators
-
         /// <summary>
         /// Capitalizes the first character of the specified string.
         /// </summary>
@@ -55,7 +49,7 @@ namespace System
         }
 
         /// <summary>
-        /// Replaces the format item in a <see cref="string"/> with the text equivalent of the value of a corresponding <see cref="object"/> 
+        /// Replaces the format item in a <see cref="string"/> with the text equivalent of the value of a corresponding <see cref="object"/>
         /// instance in a specified array, using the <see cref="CultureInfo.InvariantCulture"/>.
         /// </summary>
         /// <param name="format">
@@ -65,7 +59,7 @@ namespace System
         /// An <see cref="object"/> array containing zero or more objects to format.
         /// </param>
         /// <returns>
-        /// A copy of format in which the format items have been replaced by the <see cref="string"/> equivalent of the corresponding instances 
+        /// A copy of format in which the format items have been replaced by the <see cref="string"/> equivalent of the corresponding instances
         /// of <see cref="object"/>  in args.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -84,7 +78,7 @@ namespace System
         }
 
         /// <summary>
-        /// Replaces the format item in a <see cref="string"/> with the text equivalent of the value of a corresponding <see cref="object"/> 
+        /// Replaces the format item in a <see cref="string"/> with the text equivalent of the value of a corresponding <see cref="object"/>
         /// instance in a specified array. A specified parameter supplies culture-specific formatting information.
         /// </summary>
         /// <param name="format">
@@ -97,7 +91,7 @@ namespace System
         /// An <see cref="object"/> array containing zero or more objects to format.
         /// </param>
         /// <returns>
-        /// A copy of format in which the format items have been replaced by the <see cref="string"/> equivalent of the corresponding instances 
+        /// A copy of format in which the format items have been replaced by the <see cref="string"/> equivalent of the corresponding instances
         /// of <see cref="object"/>  in args.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -147,7 +141,7 @@ namespace System
         }
 
         /// <summary>
-        /// Indicates whether the regular expression finds a match in the input string, using the regular expression specified 
+        /// Indicates whether the regular expression finds a match in the input string, using the regular expression specified
         /// and the matching options supplied in the options parameter.
         /// </summary>
         /// <param name="s">
@@ -351,7 +345,5 @@ namespace System
         {
             return s.Length > length ? s.Substring(0, length - 1) + "…" : s;
         }
-
-        #endregion
     }
 }

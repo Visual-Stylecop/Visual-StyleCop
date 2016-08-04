@@ -1,14 +1,14 @@
 //--------------------------------------------------------------------------
-// <copyright file="CommandSet.cs">
+// <copyright file="CommandSet.cs" company="http://stylecop.codeplex.com">
 //  MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -26,8 +26,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal abstract class CommandSet : MarshalByRefObject
     {
-        #region Private Fields
-
         /// <summary>
         /// List of added commands.
         /// </summary>
@@ -43,12 +41,8 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private IServiceProvider serviceProvider;
 
-        #endregion Private Fields
-
-        #region Protected Constructors
-
         /// <summary>
-        /// Initializes a new instance of the CommandSet class.
+        /// Initializes a new instance of the <see cref="CommandSet"/> class.
         /// </summary>
         /// <param name="serviceProvider">Service Provider.</param>
         protected CommandSet(IServiceProvider serviceProvider)
@@ -57,10 +51,6 @@ namespace StyleCop.VisualStudio
             this.serviceProvider = serviceProvider;
             this.commandset = new Collection<OleMenuCommand>();
         }
-
-        #endregion Protected Constructors
-
-        #region Protected Properties
 
         /// <summary>
         /// Gets the CommandSet's MenuService.
@@ -100,10 +90,6 @@ namespace StyleCop.VisualStudio
             }
         }
 
-        #endregion Protected Properties
-
-        #region Protected Internal Methods
-
         /// <summary>
         /// Loops through the MenuCommands in 'CommandSet' and adds them to the menu service.
         /// </summary>
@@ -120,10 +106,6 @@ namespace StyleCop.VisualStudio
             }
         }
 
-        #endregion Protected Internal Methods
-
-        #region Protected Static Methods
-
         /// <summary>
         /// Checks a menu item to see if it is valid to invoke the menu item.
         /// </summary>
@@ -137,7 +119,5 @@ namespace StyleCop.VisualStudio
                 throw new InvalidOperationException();
             }
         }
-
-        #endregion Protected Static Methods
     }
 }

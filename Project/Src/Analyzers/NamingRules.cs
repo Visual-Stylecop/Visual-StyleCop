@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -27,16 +27,10 @@ namespace StyleCop.CSharp
     [SourceAnalyzer(typeof(CsParser))]
     public class NamingRules : SourceAnalyzer
     {
-        #region Constants
-
         /// <summary>
         /// The name of the property containing the list of allowable prefixes.
         /// </summary>
         internal const string AllowedPrefixesProperty = "Hungarian";
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the property pages to expose on the StyleCop settings dialog for this analyzer.
@@ -49,10 +43,6 @@ namespace StyleCop.CSharp
                 return new IPropertyControlPage[] { new ValidPrefixes(this) };
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Checks the case of element names within the given document.
@@ -82,10 +72,6 @@ namespace StyleCop.CSharp
 
             return csdocument.FileHeader == null || !csdocument.FileHeader.UnStyled;
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Determines whether the given variable name begins with a standard prefix notation.
@@ -681,7 +667,5 @@ namespace StyleCop.CSharp
                 this.ProcessStatement(statement, element, validPrefixes);
             }
         }
-
-        #endregion
     }
 }

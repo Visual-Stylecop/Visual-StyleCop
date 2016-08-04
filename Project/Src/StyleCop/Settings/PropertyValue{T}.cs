@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -28,19 +28,13 @@ namespace StyleCop
     /// </typeparam>
     public abstract class PropertyValue<T> : PropertyValue
     {
-        #region Fields
-
         /// <summary>
         /// The value of the property.
         /// </summary>
         private T value;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyValue{T}"/> class. 
+        /// Initializes a new instance of the <see cref="PropertyValue{T}"/> class.
         /// Initializes a new instance of the PropertyValue class.
         /// </summary>
         /// <param name="propertyDescriptor">
@@ -59,7 +53,7 @@ namespace StyleCop
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyValue{T}"/> class. 
+        /// Initializes a new instance of the <see cref="PropertyValue{T}"/> class.
         /// Initializes a new instance of the PropertyValue class.
         /// </summary>
         /// <param name="propertyContainer">
@@ -80,10 +74,6 @@ namespace StyleCop
 
             this.value = value;
         }
-
-        #endregion
-
-        #region Public Properties
 
         /// <summary>
         /// Gets the default value of the property.
@@ -123,8 +113,7 @@ namespace StyleCop
         /// <summary>
         /// Gets or sets the value of the property.
         /// </summary>
-        [SuppressMessage("Microsoft.Maintainability", "CA1500:VariableNamesShouldNotMatchFieldNames", MessageId = "value", 
-            Justification = "It is not possible to change the name")]
+        [SuppressMessage("Microsoft.Maintainability", "CA1500:VariableNamesShouldNotMatchFieldNames", MessageId = "value", Justification = "It is not possible to change the name")]
         public T Value
         {
             get
@@ -144,10 +133,6 @@ namespace StyleCop
                 this.value = value;
             }
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Clones the contents of the property.
@@ -179,7 +164,5 @@ namespace StyleCop
 
             return !this.value.Equals(parentBooleanProperty.Value);
         }
-
-        #endregion
     }
 }

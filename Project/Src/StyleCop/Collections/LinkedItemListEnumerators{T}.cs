@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -35,8 +35,6 @@ namespace StyleCop
         /// </summary>
         public class BackwardNodeEnumerable : IEnumerable<Node<T>>
         {
-            #region Fields
-
             /// <summary>
             /// The last item in the master list.
             /// </summary>
@@ -47,12 +45,8 @@ namespace StyleCop
             /// </summary>
             private readonly Node<T> startItem;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the BackwardNodeEnumerable class.
+            /// Initializes a new instance of the <see cref="BackwardNodeEnumerable"/> class.
             /// </summary>
             /// <param name="startItem">
             /// The first item in the master list.
@@ -69,10 +63,6 @@ namespace StyleCop
                 this.endItem = endItem;
             }
 
-            #endregion
-
-            #region Public Methods and Operators
-
             /// <summary>
             /// Gets an enumerator for iterating through the list.
             /// </summary>
@@ -82,10 +72,6 @@ namespace StyleCop
                 return new BackwardNodeEnumerator(this.startItem, this.endItem);
             }
 
-            #endregion
-
-            #region Explicit Interface Methods
-
             /// <summary>
             /// Gets an enumerator for iterating through the list.
             /// </summary>
@@ -94,8 +80,6 @@ namespace StyleCop
             {
                 return this.GetEnumerator();
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -103,8 +87,6 @@ namespace StyleCop
         /// </summary>
         public class BackwardNodeEnumerator : IEnumerator<Node<T>>
         {
-            #region Fields
-
             /// <summary>
             /// The last item in the master list.
             /// </summary>
@@ -120,12 +102,8 @@ namespace StyleCop
             /// </summary>
             private Node<T> currentItem;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the BackwardNodeEnumerator class.
+            /// Initializes a new instance of the <see cref="BackwardNodeEnumerator"/> class.
             /// </summary>
             /// <param name="startItem">
             /// The first item in the master list.
@@ -142,10 +120,6 @@ namespace StyleCop
                 this.endItem = endItem;
             }
 
-            #endregion
-
-            #region Public Properties
-
             /// <summary>
             /// Gets the current item.
             /// </summary>
@@ -157,10 +131,6 @@ namespace StyleCop
                 }
             }
 
-            #endregion
-
-            #region Explicit Interface Properties
-
             /// <summary>
             /// Gets the current item.
             /// </summary>
@@ -171,10 +141,6 @@ namespace StyleCop
                     return this.currentItem;
                 }
             }
-
-            #endregion
-
-            #region Public Methods and Operators
 
             /// <summary>
             /// Disposes the contents of the class.
@@ -217,8 +183,6 @@ namespace StyleCop
             {
                 this.currentItem = null;
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -226,8 +190,6 @@ namespace StyleCop
         /// </summary>
         public class BackwardValueEnumerable : IEnumerable<T>
         {
-            #region Fields
-
             /// <summary>
             /// The last item in the master list.
             /// </summary>
@@ -238,12 +200,8 @@ namespace StyleCop
             /// </summary>
             private readonly Node<T> startItem;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the BackwardValueEnumerable class.
+            /// Initializes a new instance of the <see cref="BackwardValueEnumerable"/> class.
             /// </summary>
             /// <param name="startItem">
             /// The first item in the master list.
@@ -260,10 +218,6 @@ namespace StyleCop
                 this.endItem = endItem;
             }
 
-            #endregion
-
-            #region Public Methods and Operators
-
             /// <summary>
             /// Gets an enumerator for iterating through the list.
             /// </summary>
@@ -273,10 +227,6 @@ namespace StyleCop
                 return new BackwardValueEnumerator(this.startItem, this.endItem);
             }
 
-            #endregion
-
-            #region Explicit Interface Methods
-
             /// <summary>
             /// Gets an enumerator for iterating through the list.
             /// </summary>
@@ -285,8 +235,6 @@ namespace StyleCop
             {
                 return this.GetEnumerator();
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -294,8 +242,6 @@ namespace StyleCop
         /// </summary>
         public class BackwardValueEnumerator : IEnumerator<T>
         {
-            #region Fields
-
             /// <summary>
             /// The last item in the master list.
             /// </summary>
@@ -311,12 +257,8 @@ namespace StyleCop
             /// </summary>
             private Node<T> currentItem;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the BackwardValueEnumerator class.
+            /// Initializes a new instance of the <see cref="BackwardValueEnumerator"/> class.
             /// </summary>
             /// <param name="startItem">
             /// The first item in the master list.
@@ -333,10 +275,6 @@ namespace StyleCop
                 this.endItem = endItem;
             }
 
-            #endregion
-
-            #region Public Properties
-
             /// <summary>
             /// Gets the current item.
             /// </summary>
@@ -348,10 +286,6 @@ namespace StyleCop
                 }
             }
 
-            #endregion
-
-            #region Explicit Interface Properties
-
             /// <summary>
             /// Gets the current item.
             /// </summary>
@@ -362,10 +296,6 @@ namespace StyleCop
                     return this.currentItem == null ? null : this.currentItem.Value;
                 }
             }
-
-            #endregion
-
-            #region Public Methods and Operators
 
             /// <summary>
             /// Disposes the contents of the class.
@@ -408,8 +338,6 @@ namespace StyleCop
             {
                 this.currentItem = null;
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -417,8 +345,6 @@ namespace StyleCop
         /// </summary>
         public class ForwardNodeEnumerable : IEnumerable<Node<T>>
         {
-            #region Fields
-
             /// <summary>
             /// The last item in the master list.
             /// </summary>
@@ -429,12 +355,8 @@ namespace StyleCop
             /// </summary>
             private readonly Node<T> startItem;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the ForwardNodeEnumerable class.
+            /// Initializes a new instance of the <see cref="ForwardNodeEnumerable"/> class.
             /// </summary>
             /// <param name="startItem">
             /// The first item in the master list.
@@ -451,10 +373,6 @@ namespace StyleCop
                 this.endItem = endItem;
             }
 
-            #endregion
-
-            #region Public Methods and Operators
-
             /// <summary>
             /// Gets an enumerator for iterating through the list.
             /// </summary>
@@ -464,10 +382,6 @@ namespace StyleCop
                 return new ForwardNodeEnumerator(this.startItem, this.endItem);
             }
 
-            #endregion
-
-            #region Explicit Interface Methods
-
             /// <summary>
             /// Gets an enumerator for iterating through the list.
             /// </summary>
@@ -476,8 +390,6 @@ namespace StyleCop
             {
                 return this.GetEnumerator();
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -485,8 +397,6 @@ namespace StyleCop
         /// </summary>
         public class ForwardNodeEnumerator : IEnumerator<Node<T>>
         {
-            #region Fields
-
             /// <summary>
             /// The last item in the master list.
             /// </summary>
@@ -502,12 +412,8 @@ namespace StyleCop
             /// </summary>
             private Node<T> currentItem;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the ForwardNodeEnumerator class.
+            /// Initializes a new instance of the <see cref="ForwardNodeEnumerator"/> class.
             /// </summary>
             /// <param name="startItem">
             /// The first item in the master list.
@@ -524,10 +430,6 @@ namespace StyleCop
                 this.endItem = endItem;
             }
 
-            #endregion
-
-            #region Public Properties
-
             /// <summary>
             /// Gets the current item.
             /// </summary>
@@ -539,10 +441,6 @@ namespace StyleCop
                 }
             }
 
-            #endregion
-
-            #region Explicit Interface Properties
-
             /// <summary>
             /// Gets the current item.
             /// </summary>
@@ -553,10 +451,6 @@ namespace StyleCop
                     return this.currentItem;
                 }
             }
-
-            #endregion
-
-            #region Public Methods and Operators
 
             /// <summary>
             /// Disposes the contents of the class.
@@ -599,8 +493,6 @@ namespace StyleCop
             {
                 this.currentItem = null;
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -608,8 +500,6 @@ namespace StyleCop
         /// </summary>
         public class ForwardValueEnumerable : IEnumerable<T>
         {
-            #region Fields
-
             /// <summary>
             /// The last item in the master list.
             /// </summary>
@@ -620,12 +510,8 @@ namespace StyleCop
             /// </summary>
             private readonly Node<T> startItem;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the ForwardValueEnumerable class.
+            /// Initializes a new instance of the <see cref="ForwardValueEnumerable"/> class.
             /// </summary>
             /// <param name="startItem">
             /// The first item in the master list.
@@ -642,10 +528,6 @@ namespace StyleCop
                 this.endItem = endItem;
             }
 
-            #endregion
-
-            #region Public Methods and Operators
-
             /// <summary>
             /// Gets an enumerator for iterating through the list.
             /// </summary>
@@ -655,10 +537,6 @@ namespace StyleCop
                 return new ForwardValueEnumerator(this.startItem, this.endItem);
             }
 
-            #endregion
-
-            #region Explicit Interface Methods
-
             /// <summary>
             /// Gets an enumerator for iterating through the list.
             /// </summary>
@@ -667,8 +545,6 @@ namespace StyleCop
             {
                 return this.GetEnumerator();
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -676,8 +552,6 @@ namespace StyleCop
         /// </summary>
         public class ForwardValueEnumerator : IEnumerator<T>
         {
-            #region Fields
-
             /// <summary>
             /// The last item in the master list.
             /// </summary>
@@ -693,12 +567,8 @@ namespace StyleCop
             /// </summary>
             private Node<T> currentItem;
 
-            #endregion
-
-            #region Constructors and Destructors
-
             /// <summary>
-            /// Initializes a new instance of the ForwardValueEnumerator class.
+            /// Initializes a new instance of the <see cref="ForwardValueEnumerator"/> class.
             /// </summary>
             /// <param name="startItem">
             /// The first item in the master list.
@@ -715,10 +585,6 @@ namespace StyleCop
                 this.endItem = endItem;
             }
 
-            #endregion
-
-            #region Public Properties
-
             /// <summary>
             /// Gets the current item.
             /// </summary>
@@ -730,10 +596,6 @@ namespace StyleCop
                 }
             }
 
-            #endregion
-
-            #region Explicit Interface Properties
-
             /// <summary>
             /// Gets the current item.
             /// </summary>
@@ -744,10 +606,6 @@ namespace StyleCop
                     return this.Current;
                 }
             }
-
-            #endregion
-
-            #region Public Methods and Operators
 
             /// <summary>
             /// Disposes the contents of the class.
@@ -790,8 +648,6 @@ namespace StyleCop
             {
                 this.currentItem = null;
             }
-
-            #endregion
         }
     }
 }

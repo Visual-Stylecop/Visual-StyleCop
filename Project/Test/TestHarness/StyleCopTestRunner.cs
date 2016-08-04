@@ -1,13 +1,13 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="StyleCopTestRunner.cs">
+// <copyright file="StyleCopTestRunner.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -30,8 +30,6 @@ namespace StyleCop.Test
     /// </summary>
     public class StyleCopTestRunner
     {
-        #region Private Fields
-
         /// <summary>
         /// The test description document.
         /// </summary>
@@ -87,12 +85,8 @@ namespace StyleCop.Test
         /// </summary>
         private IEnumerable<string> addinFiles;
 
-        #endregion Private Fields
-
-        #region Internal Constructors
-
         /// <summary>
-        /// Initializes a new instance of the StyleCopTestRunner class.
+        /// Initializes a new instance of the <see cref="StyleCopTestRunner"/> class.
         /// </summary>
         /// <param name="testInputPath">The path to the folder containing test input files.</param>
         /// <param name="testDescription">The test description document.</param>
@@ -107,7 +101,7 @@ namespace StyleCop.Test
             Debug.Assert(testDescription != null, "The parameter must not be null");
             Debug.Assert(testDataLocation != null, "The parameter must not be null");
             Debug.Assert(!string.IsNullOrEmpty(resultsOutputLocation), "The string is invalid");
-            
+
             this.testInputPath = testInputPath;
             this.testDescription = testDescription;
             this.testDataLocation = testDataLocation;
@@ -116,10 +110,6 @@ namespace StyleCop.Test
             this.addinFiles = addinFiles;
             this.frameworkVersion = simulationFrameworkVersion;
         }
-
-        #endregion Internal Constructors
-
-        #region Public Static Methods
 
         /// <summary>
         /// Runs the test.
@@ -192,10 +182,6 @@ namespace StyleCop.Test
             return false;
         }
 
-        #endregion Public Static Methods
-
-        #region Internal Methods
-
         /// <summary>
         /// Runs the test and outputs the result.
         /// </summary>
@@ -241,10 +227,6 @@ namespace StyleCop.Test
 
             return !this.failure;
         }
-
-        #endregion Internal Methods
-
-        #region Private Static Methods
 
         /// <summary>
         /// Extracts information about a violation from the given node.
@@ -336,7 +318,7 @@ namespace StyleCop.Test
                     endColumnNumber = temp;
                 }
             }
-            
+
             ViolationInfo violation = new ViolationInfo(section, lineNumber, startLineNumber, startColumnNumber, endLineNumber, endColumnNumber, ruleNamespace, ruleName);
             return violation;
         }
@@ -554,7 +536,7 @@ namespace StyleCop.Test
             CodeProject project = new CodeProject(
                 "TheProject".GetHashCode(),
                 Path.GetDirectoryName(testInfo.StyleCopSettingsFileLocation),
-                configuration, 
+                configuration,
                 simulationFrameworkVersion);
 
             // Add each source file to this project.
@@ -596,7 +578,7 @@ namespace StyleCop.Test
             string assemblyLocation = Assembly.GetExecutingAssembly().Location;
             addinPaths.Add(Path.GetDirectoryName(assemblyLocation));
             addinPaths.Add(Path.GetDirectoryName(Path.Combine(testInfo.TestOutputPath, @"..\..\")));
-            
+
             // Create the StyleCop console.
             StyleCopConsole console = new StyleCopConsole(
                 testInfo.StyleCopSettingsFileLocation,
@@ -780,10 +762,6 @@ namespace StyleCop.Test
             }
         }
 
-        #endregion Private Static Methods
-
-        #region Private Methods
-
         /// <summary>
         /// Runs a test.
         /// </summary>
@@ -841,7 +819,7 @@ namespace StyleCop.Test
                 }
                 catch (Exception ex)
                 {
-                    // Catch and log all other exceptions thrown during the test. 
+                    // Catch and log all other exceptions thrown during the test.
                     testException = ex;
                 }
 
@@ -891,7 +869,7 @@ namespace StyleCop.Test
                 }
                 catch (Exception ex)
                 {
-                    // Catch and log all other exceptions thrown during the test. 
+                    // Catch and log all other exceptions thrown during the test.
                     testException = ex;
                 }
 
@@ -950,7 +928,7 @@ namespace StyleCop.Test
                     return null;
                 }
 
-                TestCodeFileInfo file = new TestCodeFileInfo();
+                TestCodeFileInfo file = default(TestCodeFileInfo);
                 file.CodeFile = codeFilePath;
 
                 // Determine whether to test the parser object model for this file.
@@ -977,9 +955,9 @@ namespace StyleCop.Test
         /// <param name="testInfo">Contains the test results.</param>
         private void AnalyzeTestResults(TestInfo testInfo)
         {
-            bool allTestsAreParserTests = true; 
+            bool allTestsAreParserTests = true;
 
-            // Check each of the code files to see whether we should compare the 
+            // Check each of the code files to see whether we should compare the
             // parser object models.
             foreach (TestCodeFileInfo codeFileInfo in testInfo.TestCodeFiles)
             {
@@ -1106,7 +1084,7 @@ namespace StyleCop.Test
             // object model file.
             string expectedObjectModelFilePath = Path.Combine(this.testDataLocation, fileName + "ObjectModel.xml");
             string actualObjectModelFilePath = Path.Combine(testInfo.TestOutputPath, fileName + "ObjectModelResults.xml");
-            
+
             // Load both of the files.
             string errorMessage;
             XmlDocument expectedObjectModel = LoadXmlDocument(expectedObjectModelFilePath, out errorMessage);
@@ -1156,7 +1134,7 @@ namespace StyleCop.Test
             Param.AssertNotNull(node2, "node2");
 
             // Ensure that the names of the nodes are the same.
-            if (0 != string.Compare(node1.Name, node2.Name, StringComparison.Ordinal))
+            if (string.Compare(node1.Name, node2.Name, StringComparison.Ordinal) != 0)
             {
                 return false;
             }
@@ -1173,12 +1151,12 @@ namespace StyleCop.Test
                 XmlAttribute node1Attribute = node1.Attributes[i];
                 XmlAttribute node2Attribute = node2.Attributes[i];
 
-                if (0 != string.Compare(node1Attribute.Name, node2Attribute.Name, StringComparison.Ordinal))
+                if (string.Compare(node1Attribute.Name, node2Attribute.Name, StringComparison.Ordinal) != 0)
                 {
                     return false;
                 }
 
-                if (0 != string.Compare(node1Attribute.Value, node2Attribute.Value, StringComparison.Ordinal))
+                if (string.Compare(node1Attribute.Value, node2Attribute.Value, StringComparison.Ordinal) != 0)
                 {
                     return false;
                 }
@@ -1193,7 +1171,7 @@ namespace StyleCop.Test
             if (node1.ChildNodes.Count == 0)
             {
                 // Compare the inner text of the two nodes.
-                if (0 != string.Compare(node1.InnerText, node2.InnerText, StringComparison.Ordinal))
+                if (string.Compare(node1.InnerText, node2.InnerText, StringComparison.Ordinal) != 0)
                 {
                     return false;
                 }
@@ -1426,7 +1404,5 @@ namespace StyleCop.Test
 
             return true;
         }
-
-        #endregion Private Methods
     }
 }

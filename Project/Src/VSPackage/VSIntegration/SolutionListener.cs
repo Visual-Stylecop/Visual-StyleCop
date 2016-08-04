@@ -1,14 +1,14 @@
 ﻿//--------------------------------------------------------------------------
-// <copyright file="SolutionListener.cs">
+// <copyright file="SolutionListener.cs" company="http://stylecop.codeplex.com">
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 //-----------------------------------------------------------------------
@@ -23,8 +23,6 @@ namespace StyleCop.VisualStudio
     /// </summary>
     internal class SolutionListener : IVsSolutionEvents4, IVsSolutionEvents3, IVsSolutionEvents2, IVsSolutionEvents, IDisposable
     {
-        #region Private fields
-
         /// <summary>
         /// Mutex for thread safety.
         /// </summary>
@@ -45,12 +43,8 @@ namespace StyleCop.VisualStudio
         /// </summary>
         private IVsSolution solution;
 
-        #endregion Private fields
-
-        #region Constructors
-
         /// <summary>
-        /// Initializes a new instance of the SolutionListener class.
+        /// Initializes a new instance of the <see cref="SolutionListener"/> class.
         /// </summary>
         /// <param name="serviceProvider">The system service provider.</param>
         internal SolutionListener(IServiceProvider serviceProvider)
@@ -64,10 +58,6 @@ namespace StyleCop.VisualStudio
             }
         }
 
-        #endregion Constructors
-
-        #region Events
-
         /// <summary>
         /// Fires after a solution is opened.
         /// </summary>
@@ -77,10 +67,6 @@ namespace StyleCop.VisualStudio
         /// Files before a solution is closed.
         /// </summary>
         internal event EventHandler BeforeClosingSolution;
-
-        #endregion Events
-
-        #region Public Methods
 
         /// <summary>
         /// Initializes the object.
@@ -102,10 +88,6 @@ namespace StyleCop.VisualStudio
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        #endregion Public Methods
-
-        #region IVsSolutionEvents4 Members
 
         /// <summary>
         /// Method is not implemented.
@@ -154,10 +136,6 @@ namespace StyleCop.VisualStudio
             return VSConstants.E_NOTIMPL;
         }
 
-        #endregion
-
-        #region IVsSolutionEvents3 Members
-
         /// <summary>
         /// Method is not implemented.
         /// </summary>
@@ -193,7 +171,7 @@ namespace StyleCop.VisualStudio
             return VSConstants.E_NOTIMPL;
         }
 
-        /// <summary> 
+        /// <summary>
         /// Method is not implemented.
         /// </summary>
         /// <param name="reserved">The parameter is not used.</param>
@@ -349,10 +327,6 @@ namespace StyleCop.VisualStudio
             return VSConstants.E_NOTIMPL;
         }
 
-        #endregion
-
-        #region Protected methods
-
         /// <summary>
         /// Disposes the object.
         /// </summary>
@@ -376,7 +350,5 @@ namespace StyleCop.VisualStudio
                 }
             }
         }
-
-        #endregion Protected methods
     }
 }

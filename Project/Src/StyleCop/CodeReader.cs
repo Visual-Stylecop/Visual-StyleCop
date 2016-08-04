@@ -3,12 +3,12 @@
 //   MS-PL
 // </copyright>
 // <license>
-//   This source code is subject to terms and conditions of the Microsoft 
-//   Public License. A copy of the license can be found in the License.html 
-//   file at the root of this distribution. If you cannot locate the  
-//   Microsoft Public License, please send an email to dlr@microsoft.com. 
-//   By using this source code in any fashion, you are agreeing to be bound 
-//   by the terms of the Microsoft Public License. You must not remove this 
+//   This source code is subject to terms and conditions of the Microsoft
+//   Public License. A copy of the license can be found in the License.html
+//   file at the root of this distribution. If you cannot locate the
+//   Microsoft Public License, please send an email to dlr@microsoft.com.
+//   By using this source code in any fashion, you are agreeing to be bound
+//   by the terms of the Microsoft Public License. You must not remove this
 //   notice, or any other, from this software.
 // </license>
 // <summary>
@@ -26,16 +26,10 @@ namespace StyleCop
     /// </summary>
     public class CodeReader
     {
-        #region Constants
-
         /// <summary>
         /// The number of characters to read at a time from the text reader.
         /// </summary>
         private const int CharacterBlockSize = 80;
-
-        #endregion
-
-        #region Fields
 
         /// <summary>
         /// Contains the code to read.
@@ -57,12 +51,8 @@ namespace StyleCop
         /// </summary>
         private int position;
 
-        #endregion
-
-        #region Constructors and Destructors
-
         /// <summary>
-        /// Initializes a new instance of the CodeReader class.
+        /// Initializes a new instance of the <see cref="CodeReader"/> class.
         /// </summary>
         /// <param name="code">
         /// Contains the code to read.
@@ -72,10 +62,6 @@ namespace StyleCop
             Param.RequireNotNull(code, "code");
             this.code = code;
         }
-
-        #endregion
-
-        #region Public Methods and Operators
 
         /// <summary>
         /// Gets the next character from the code without advancing the internal pointer.
@@ -176,10 +162,6 @@ namespace StyleCop
             return new string(characters);
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Loads the internal character buffer with the requested number of characters.
         /// </summary>
@@ -187,7 +169,7 @@ namespace StyleCop
         /// The number of characters to load.
         /// </param>
         /// <returns>
-        /// Returns true if the characters were loaded, or false if the end 
+        /// Returns true if the characters were loaded, or false if the end
         /// of the character source was reached before all the characters were loaded.
         /// </returns>
         private bool LoadBuffer(int count)
@@ -240,7 +222,5 @@ namespace StyleCop
             // Return true if the requested number of characters are in the buffer.
             return this.bufferLength >= count;
         }
-
-        #endregion
     }
 }
