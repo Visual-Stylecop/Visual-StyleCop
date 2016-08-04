@@ -35,5 +35,5 @@ if ($versionNumber -notmatch "-")
     Copy-Item Project/Src/Analyzers/bin/$configuration/pt-BR/StyleCop.CSharp.Rules.resources.dll -Destination Build/Nuget/VisualStyleCop/pt-BR/StyleCop.CSharp.Rules.resources.dll
     Copy-Item Project/Src/Analyzers/bin/$configuration/ru-RU/StyleCop.CSharp.Rules.resources.dll -Destination Build/Nuget/VisualStyleCop/ru-RU/StyleCop.CSharp.Rules.resources.dll
 
-    Tools/NuGet/NuGet.exe pack Build/StyleCop.nuspec -Version $env:appveyor_build_version
+    Tools/NuGet/NuGet.exe pack Build/StyleCop.nuspec -Version $env:appveyor_build_version -NoDefaultExcludes
 }
