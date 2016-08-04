@@ -9,6 +9,7 @@
     <projectUrl>https://github.com/Visual-StyleCop/Visual-StyleCop</projectUrl>
     <licenseUrl>https://github.com/Visual-StyleCop/Visual-StyleCop/blob/master/License.html</licenseUrl>
     <tags>stylecop CSharp6</tags>
+    <developmentDependency>true</developmentDependency>
   </metadata>
   <files>
     <file src="./Nuget/VisualStyleCop/Visual-StyleCop.MSBuild.targets" target="build"/>
