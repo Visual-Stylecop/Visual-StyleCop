@@ -57,7 +57,7 @@ Invoke-Expression "pip -q install codecov"
 
 # Upload CodeCov results
 Invoke-Expression @"
-codecov -f ".\StyleCop.CSharp_coverage.xml",".\StyleCop.CSharp.Rules_coverage.xml",".\StyleCop.VSPackage_coverage.xml" -X gcov
+codecov -f (Resolve-Path ".\StyleCop.CSharp_coverage.xml"), (Resolve-Path ".\StyleCop.CSharp.Rules_coverage.xml"), (Resolve-Path ".\StyleCop.VSPackage_coverage.xml") -X gcov
 "@
 
 # =========================================================================================================================
